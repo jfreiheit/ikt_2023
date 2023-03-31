@@ -12,19 +12,21 @@
         <meta name="author" content="Jörn Freiheit">
       
       
-      <link rel="icon" href="/ikt/img/favicon.png">
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/openapi/">
+      
+      <link rel="icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
     
     
       
-        <title>Progressive Web Apps</title>
+        <title>OpenAPI - Progressive Web Apps</title>
       
     
     
-      <link rel="stylesheet" href="/ikt/assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="/ikt/assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
           
           
@@ -45,9 +47,9 @@
       
     
     
-      <link rel="stylesheet" href="/ikt/extra.css">
+      <link rel="stylesheet" href="../extra.css">
     
-    <script>__md_scope=new URL("/ikt/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#openapi" class="md-skip">
+          Zum Inhalt
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,9 +88,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
-    <a href="/ikt/." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
       
-  <img src="/ikt/img/fiw.jpg" alt="logo">
+  <img src="../img/fiw.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -99,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              OpenAPI
             
           </span>
         </div>
@@ -178,9 +185,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/ikt/." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
       
-  <img src="/ikt/img/fiw.jpg" alt="logo">
+  <img src="../img/fiw.jpg" alt="logo">
 
     </a>
     Progressive Web Apps
@@ -208,7 +215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ikt/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Home
       </a>
     </li>
@@ -223,7 +230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ikt/uebungen/" class="md-nav__link">
+      <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
     </li>
@@ -238,7 +245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ikt/tools/" class="md-nav__link">
+      <a href="../tools/" class="md-nav__link">
         Tools
       </a>
     </li>
@@ -262,6 +269,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -273,8 +282,37 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  <a href="https://github.com/jfreiheit/ikt_2023/edit/master/docs/openapi.md" title="Seite editieren" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="openapi">OpenAPI<a class="headerlink" href="#openapi" title="Permanent link">&para;</a></h1>
+<p>Folgende Endpunkte:</p>
+<ul>
+<li><code>GET /expenses</code></li>
+<li><code>POST /expense</code></li>
+<li><code>DELETE /expense/:id</code></li>
+<li><code>GET /expenses/date/:from/:to</code></li>
+<li>
+<p><code>GET /expenses/range/:from/:to</code></p>
+</li>
+<li>
+<p>öffne <a href="https://app.swaggerhub.com/home">https://app.swaggerhub.com/home</a></p>
+</li>
+<li>registrieren und einloggen</li>
+<li><code>Create New</code></li>
+</ul>
+<p><img alt="openapi" src="300_openapi.png" /></p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -310,10 +348,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/ikt/", "features": ["instant", "tabs"], "search": "/ikt/assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}}</script>
     
     
-      <script src="/ikt/assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
       
     
   </body>

@@ -1,0 +1,735 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/uebungen/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>Übungen - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ubungen" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Übungen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jfreiheit/ikt_2023" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jfreiheit/ikt_2023" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Übungen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Übungen
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-1-grundgerust" class="md-nav__link">
+    Übung 1 (Grundgerüst)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-2-web-app-manifest" class="md-nav__link">
+    Übung 2 (Web App Manifest)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-3-promises-und-fetch-api" class="md-nav__link">
+    Übung 3 (Promises und Fetch API)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-4-entwicklungs-infrastruktur-einrichten" class="md-nav__link">
+    Übung 4 (Entwicklungs-Infrastruktur einrichten)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-5-backend" class="md-nav__link">
+    Übung 5 (Backend)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-6-frontend" class="md-nav__link">
+    Übung 6 (Frontend)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-7-indexeddb" class="md-nav__link">
+    Übung 7 (IndexedDB)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-1-grundgerust" class="md-nav__link">
+    Übung 1 (Grundgerüst)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-2-web-app-manifest" class="md-nav__link">
+    Übung 2 (Web App Manifest)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-3-promises-und-fetch-api" class="md-nav__link">
+    Übung 3 (Promises und Fetch API)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-4-entwicklungs-infrastruktur-einrichten" class="md-nav__link">
+    Übung 4 (Entwicklungs-Infrastruktur einrichten)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-5-backend" class="md-nav__link">
+    Übung 5 (Backend)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-6-frontend" class="md-nav__link">
+    Übung 6 (Frontend)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-7-indexeddb" class="md-nav__link">
+    Übung 7 (IndexedDB)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/jfreiheit/ikt_2023/edit/master/docs/uebungen.md" title="Seite editieren" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="ubungen">Übungen<a class="headerlink" href="#ubungen" title="Permanent link">&para;</a></h1>
+<h5 id="ubung-1-grundgerust">Übung 1 (Grundgerüst)<a class="headerlink" href="#ubung-1-grundgerust" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 1</summary>
+<ol>
+<li>In der ersten Übung geht es "nur" darum, das <a href="../grundgeruest/#grundgerust-unserer-pwa">Grundgerüst</a> zu verstehen. Arbeiten Sie dazu diesen Abschnitt durch. Sie werden feststellen, dass sich die meisten Anweisungen (insb. im <code>HTML</code>-Code) auf <a href="https://getmdl.io/">Material Design Lite</a> beziehen. </li>
+<li>Um zu erkennen, was einen <a href="https://getmdl.io/">Material Design Lite</a>-Bezug hat (und somit nicht wirklich wichtig ist),  ändern Sie das Grundgerüst so, dass Sie nicht <a href="https://getmdl.io/">Material Design Lite</a>, sondern <a href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">Bootstrap</a> verwenden. Werfen Sie also Material Design Lite komplett raus und ersetzen es vollständig durch Bootstrap. Löschen Sie die <code>material.min.js</code> aus dem <code>public/js</code>-Ordner.</li>
+<li>Starten Sie am besten damit, diese drei Zeilen aus den beiden <code>index.html</code>-Dateien zu löschen:
+    <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/css?family=Roboto:400,700&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css&quot;</span><span class="p">&gt;</span>
+</code></pre></div></li>
+<li>Fügen Sie stattdessen den CSS-Link und das JS-Bundle aus <a href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">https://getbootstrap.com/docs/4.6/getting-started/introduction/</a> ein. </li>
+<li>Sie können ja versuchen, dass es möglichst ähnlich aussieht:
+    <img alt="uebung1" src="../files/51_uebung1.png" /></li>
+</ol>
+</details>
+<h5 id="ubung-2-web-app-manifest">Übung 2 (Web App Manifest)<a class="headerlink" href="#ubung-2-web-app-manifest" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 2</summary>
+<ol>
+<li>Erweitern Sie Ihre Anwendung (oder das Grundgerüst) um ein Web App Manifest. Verwenden Sie zur Erstellung des Manifestes am besten den <a href="https://www.dunplab.it/web-app-manifest-generator">Web-App-Manifest-Generator</a>. </li>
+<li>Wählen Sie ein eigenes Icon. Beachten Sie, dass das Original-Icon die Maße 512x512 Pixel aufweisen muss. Der <a href="https://www.dunplab.it/web-app-manifest-generator">Web-App-Manifest-Generator</a> fügt das Original-Icon nicht dem Manifest hinzu. <a href="../tools/#lighthouse">Lighthouse</a> beschwert sich darüber, dass dem Manifest ein 512x512-Icon fehlt. Fügen Sie dieses am besten noch händisch hinzu. </li>
+<li>Die Anwendung soll in dem Moment installiert werden, wenn die Nutzerin das erste Mal auf den <code>+</code>-Button klickt. Das heißt, es wird das <code>beforeinstallprompt</code>-Ereignis ausgelöst und die Behandlung dieses Ereignisses sorgt dafür, dass Sie die Anwendung genau dann installieren, wenn Sie das erste Mal den <code>+</code>-Button klicken: <img alt="addbutton" src="../files/52_uebung2.png" /></li>
+<li>Hinweise und Hilfestellungen finden Sie z.B. <a href="https://web.dev/codelab-make-installable/">hier</a> oder im <a href="../manifest/#das-beforeinstallprompt-ereignis">Skript</a> (enthält weitere Links) oder im <a href="http://../#woche-2-manifest">Video zum Manifest</a>.</li>
+</ol>
+</details>
+<h5 id="ubung-3-promises-und-fetch-api">Übung 3 (Promises und Fetch API)<a class="headerlink" href="#ubung-3-promises-und-fetch-api" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 3</summary>
+<ol>
+<li>Laden Sie <a href="../files/uebung3.zip">hier die Anwendung für Übung 3 herunter</a>. Es handelt sich um eine zip-Datei. Entpacken Sie diese, öffnen Sie sie in Ihrer IDE und folgen Sie der README.MD. </li>
+<li>In der Übung üben wir Promises und die Fetch API. Öffnen Sie die Datei <code>public/src/js/app.js</code>. Die Übung besteht aus 3 Teilen:</li>
+<li><strong>Teil 1</strong>: führen Sie ein <code>fetch()</code> als GET nach <code>https://httpbin.org/ip</code> aus und geben Sie die zurückgegebene IP in das <code>output</code>-Element (<code>&lt;p id="output"&gt;&lt;/p&gt;</code>) in der <code>public/index.html</code> aus.</li>
+<li><strong>Teil 2</strong>: führen Sie ein <code>fetch()</code> als PUT nach <code>https://httpbin.org/put</code> aus. Das übergebene JSON wird von dort einfach zurückgespiegelt. Geben Sie einen oder mehrere Werte aus diesem JSON in das <code>output</code>-Element (<code>&lt;p id="output"&gt;&lt;/p&gt;</code>) in der <code>public/index.html</code> aus.</li>
+<li><strong>Teil 3</strong>: bauen Sie einen Fehler in die Anfrage (z.B. falsche Url) und behandeln Sie diesen Fehler mit einer Ausgabe auf die Konsole.</li>
+<li>Hinweise und Hilfestellungen finden Sie im Skript unter <a href="../promises/#promises-und-die-fetch-api">Promises und die Fetch-API</a>.</li>
+</ol>
+</details>
+<h5 id="ubung-4-entwicklungs-infrastruktur-einrichten">Übung 4 (Entwicklungs-Infrastruktur einrichten)<a class="headerlink" href="#ubung-4-entwicklungs-infrastruktur-einrichten" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 4</summary>
+<p>Wir richten unsere Entwicklungs-Infrastruktur, die wir benötigen, um eine Frontend-Backend-Datenbank-App zu erstellen.</p>
+<ol>
+<li>
+<p>Lokalen Webserver einrichten: </p>
+<ul>
+<li>
+<p>Es sollte etwas Sinnvolles erscheinen, wenn Sie <code>http://localhost/</code> in den Browser eingeben (also entweder wird eine eigene html- oder php-Datei geöffnet, oder es steht soetwas wie <code>It works</code>). Wenn das nicht der Fall ist, dann benötigen Sie erst noch einen Webserver. Auf dem Mac und unter Linux existiert aber immer bereits einer, nur unter Windows muss dann z.B. <a href="https://www.apachefriends.org/de/index.html">XAMPP</a> installiert werden.</p>
+</li>
+<li>
+<p>Sie müssen wissen, aus welchem Ordner die Ressourcen geladen werden, wenn Sie <code>http://localhost/</code> in den Browser eingeben. Diesen Ordner nennen wir <code>DocumentRoot</code>. Der Standard-DocumentRoot-Ordner </p>
+<ul>
+<li>auf dem Mac ist <code>/Library/WebServer/Documents</code>,</li>
+<li>unter Linux <code>/www/html/</code>,</li>
+<li>unter Windows (XAMPP) <code>/xampp/htdocs</code>. </li>
+</ul>
+<p>Vor den angegebenen Pfaden kann in Linux und Windows noch etwas stehen, das hängt von der Konfiguration ab und wo Sie Ihr XAMPP unter Windows installiert haben. Wichtig ist, dass Sie genügend Schreibrechte auf den DocumentRoot-Ordner haben! Das ist typischerweise beim Mac unter <code>/Library/WebServer/Documents</code> nicht der Fall. Passen Sie auch auf, dass unter Windows Ihr <code>xampp</code>-Ordner nicht bereits zu tief in der Ordnerstruktur steckt. Gehen Sie entsprechende Anleitungen durch, um Ihr DocumentRoot zu ändern. Mein DocumentRoot ist z.B. unter <code>/Users/jornfreiheit/Sites</code>. Hier einige Anleitungen: <a href="https://www.ionos.de/digitalguide/server/tools/xampp-tutorial-so-erstellen-sie-ihren-lokalen-testserver/">Windows</a>, <a href="https://werner-zenk.de/tipps/lokale_webserver_xampp.php">Windows</a>, <a href="https://www.seo-head.de/entwicklung/xampp-htdocs-verzeichnis-aendern/">Windows</a>, <a href="https://sysadminde.com/questions/161529/how-to-change-document-root-for-apache2-in-mac-os-x">Mac</a>.</p>
+</li>
+<li>
+<p>Erstellen Sie zum Testen in Ihrem DocumentRoot-Ordner eine <code>index.html</code>-Datei mit folgendem Inhalt: <code>&lt;html&gt;&lt;body&gt;&lt;h1&gt;DocumentRoot korrekt eingerichtet!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</code> und rufen Sie dann im Browser <code>http://localhost/</code> auf. Es sollte im Browser <strong>DocumentRoot korrekt eingerichtet!</strong> erscheinen. </p>
+</li>
+<li>
+<p>Für <code>phpMyAdmin</code> benötigen Sie auch noch <code>php</code>. Erstellen Sie in Ihrem DocumentRoot-Ordner eine Datei <code>index.php</code> mit folgendem Inhalt: <code>&lt;?php phpinfo(); ?&gt;</code> und rufen Sie dann im Browser <code>http://localhost/index.php</code> auf. Es sollte etwas in dieser Art erscheinen: </p>
+<p><img alt="localhost" src="../files/41_localhost.png" /> </p>
+<p>Wenn <code>localhost</code> funktioniert, dann gibt es mit PHP eigentlich nur (neuerdings - erst seit Big Sur) unter dem Mac Probleme. Nutzen Sie dann eine der folgenden Anleitungen: <a href="https://wpbeaches.com/install-apache-mysql-php-on-macos-11-big-sur-and-earlier-macos/">1</a>, <a href="https://tobschall.de/2020/11/01/big-sur-mamp/">2</a>, <a href="https://tech-cookbook.com/2020/11/14/setting-up-your-local-web-server-on-macos-big-sur-11-0-1-2020-mamp-macos-apache-mysql-php/">3</a>. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Datenbank einrichten:</p>
+<ul>
+<li>
+<p>Sie müssen nicht unbedingt ein lokales Datenbanksystem installieren, sondern können auch den Studi-Server <code>https://studi.f4.htw-berlin.de</code> verwenden. </p>
+</li>
+<li>
+<p>Wenn Sie sich lokal ein Datenbanksystem installieren, was man ruhig einmal gemacht haben sollte, dann ist es egal, ob Sie <code>MariaDB</code> (kommt mit XAMPP) oder <code>MySQL</code> installieren. Beide Systeme sind in der Anwendung völlig gleich. Sie können auch <code>Postgres</code> verwenden, das habe ich aber nicht lokal und es kann sein, dass meine Anleitungen dann angepasst werden müssten (vielleicht aber auch nicht). <code>MariaDB</code> wird mit XAMPP ausgeliefert - betrifft also hauptsächlich die Windows-Nutzerinnen <a href="https://www.apachefriends.org/de/index.html">XAMPP</a>. </p>
+</li>
+<li>Für Mac ist die Installation von XAMPP nicht notwendig (und auch nicht empfehlenswert, da Sie ansonsten nur mehrere Webserver haben). Für die Installation von MySQL unter Mac gibt es viele Videos, sollte aber auch so von <a href="https://dev.mysql.com/downloads/mysql/">hier aus</a> gut funktionieren (eine weitere Anleitung z.B. <a href="https://medium.com/@jainakansha/installing-and-running-mysql-on-macos-with-errors-resolved-70ef53e3b5b9">hier</a>).  </li>
+<li><a href="https://www.phpmyadmin.net/">phpmyadmin</a> ist eine Weboberfläche für die Verwaltung einer <code>MySQl</code>-Datenbank. Es ist sehr zu empfehlen, dass Sie sich phpmyadmin installieren, wenn Sie sich <code>MySQL</code> installiert haben. Installationanleitungen gibt es viele, z.B. für <a href="https://wpbeaches.com/install-apache-mysql-php-on-macos-11-big-sur-and-earlier-macos/">Mac</a>, <a href="https://phoenixnap.com/kb/how-to-install-phpmyadmin-on-debian-10">Linux</a> und <a href="https://de.wikihow.com/phpMyAdmin-auf-einem-Windows-PC-installieren">Windows</a>. Im Prinzip müssen Sie aber das <code>phpmyadmin</code>-Paket nur entpacken und in Ihren DocumentRoot-Ordner bewegen, dann können Sie <code>phpmyadmin</code> über <code>http://localhost/phpmyadmin</code> aufrufen. </li>
+</ul>
+</li>
+<li>
+<p><code>Postman</code> installieren:</p>
+<ul>
+<li>
+<p>Postman ist eine Anwendung, um Schnittstellen (<em>Application Programming Interface - API</em>), die das Backend bereitstellt, zu entwickeln und zu testen. Sie finden Postman unter <a href="https://www.postman.com/">postman.com</a>. Wir beschränken uns auf den <a href="https://www.postman.com/product/api-client/">Postman API Client</a>.</p>
+</li>
+<li>
+<p>Laden Sie das Tool herunter und installieren es. Rufen Sie Postman auf und geben in das Eingabefeld <code>https://postman-echo.com/get</code> ein. Lassen Sie die Auswahl links daneben auf <code>GET</code> und klicken auf den <code>Send</code>-Button. Es erscheint folgendes Bild:</p>
+<p><img alt="Postman" src="../files/27_postman.png" /></p>
+</li>
+<li>
+<p>Neben der <code>GET</code>-Anfrage sind folgende weitere Anfragen HTTP-Anfragen möglich:</p>
+<ul>
+<li><code>POST</code> - sendet Daten zur Verarbeitung an den Webserver</li>
+<li><code>PUT</code> - lädt existierende Daten (eine Datei) auf den Server</li>
+<li><code>PATCH</code> - ändert Daten (eine Datei), ohne - wie bei <code>PUT</code> - diese vollständig zu ersetzen</li>
+<li><code>DELETE</code> - löscht die angegebenen Daten auf dem Server</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Node.js</code> installieren:</p>
+<ul>
+<li><a href="https://nodejs.org/en/">Node.js</a> ist eine JavaScript-Laufzeitumgebung für einen Server. Node.js reagiert auf Ereignisse und antwortet asynchron. Das bedeutet, dass die Ausführung einer Ereignisbearbeitung nicht zum Blockieren der Laufzeitumgebung führt, sondern nebenläufig weitere Ereignisse eintreffen können, die ebenfalls asynchron behandelt werden. </li>
+<li>Laden Sie sich <a href="https://nodejs.org/en/download/">hier</a> Node.js herunter und installieren es. </li>
+</ul>
+</li>
+<li>
+<p>Paketmanager <code>npm</code>:</p>
+<ul>
+<li>Mit der Installation von <code>node.js</code>, installieren Sie auch den Paketmanager <code>npm</code> (siehe <a href="https://www.npmjs.com/">npmjs</a>). </li>
+<li>
+<p>Sie können testen, ob die Installation von <code>node</code> und <code>npm</code> erfolgreich war, indem Sie im Terminal (Windows-Nutzerinnen bitte als Terminal die <a href="https://git-scm.com/downloads">GitBash</a> verwenden) eingeben:</p>
+<div class="highlight"><pre><span></span><code>node --version
+</code></pre></div>
+<p>Sollte etwas, wie <code>v14.15.0</code> ausgeben und</p>
+<div class="highlight"><pre><span></span><code>npm --version
+</code></pre></div>
+<p>sollte etwas, wie <code>7.13.0</code> ausgeben. </p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Angular-Command-Line-Interface (CLI)</code> installieren: </p>
+<ul>
+<li><a href="">Angular</a> ist ein modernes JavaScript-Framework zur Entwicklung moderner Weboberflächen. Es gehört neben <a href="https://reactjs.org/">React.js</a> und <a href="https://vuejs.org/">Vue.js</a> zu den meisteverwendeten Frameworks für die Entwicklung sogenannter <em>Single-Page-Applikationen</em>. </li>
+<li>
+<p>Um einfacher mit <code>Angular</code> zu entwickeln zu können, benötigen wir das <a href="https://angular.io/cli">Angular-Command-Line-Interface (CLI)</a>. Dieses installieren wir mithilfe des Paketmanagers <code>npm</code>. Geben Sie dazu ins Terminal </p>
+<div class="highlight"><pre><span></span><code>npm install -g @angular/cli
+</code></pre></div>
+<p>ein. Sie können prüfen, ob die Installation erfolgreich war, indem Sie in das Terminal </p>
+<div class="highlight"><pre><span></span><code>ng --version
+</code></pre></div>
+<p>eingeben. Es sollte etwas in der Art ausgeben: </p>
+<div class="highlight"><pre><span></span><code>     _                      _                 ____ _     ___
+    / <span class="se">\ </span>  _ __   __ _ _   _<span class="p">|</span> <span class="p">|</span> __ _ _ __     / ___<span class="p">|</span> <span class="p">|</span>   <span class="p">|</span>_ _<span class="p">|</span>
+   / △ <span class="se">\ </span><span class="p">|</span> <span class="s1">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__<span class="p">|</span>   <span class="p">|</span> <span class="p">|</span>   <span class="p">|</span> <span class="p">|</span>    <span class="p">|</span> <span class="p">|</span>
+  / ___ <span class="se">\|</span> <span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>_<span class="p">|</span> <span class="p">|</span> <span class="p">|</span> <span class="o">(</span>_<span class="p">|</span> <span class="p">|</span> <span class="p">|</span>      <span class="p">|</span> <span class="p">|</span>___<span class="p">|</span> <span class="p">|</span>___ <span class="p">|</span> <span class="p">|</span>
+ /_/   <span class="se">\_\_</span><span class="p">|</span> <span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_, <span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span>       <span class="se">\_</span>___<span class="p">|</span>_____<span class="p">|</span>___<span class="p">|</span>
+                <span class="p">|</span>___/
+
+
+Angular CLI: <span class="m">11</span>.0.1
+Node: <span class="m">14</span>.15.0
+OS: darwin x64
+
+Angular: 
+... 
+Ivy Workspace: 
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    <span class="m">0</span>.1100.1 <span class="o">(</span>cli-only<span class="o">)</span>
+@angular-devkit/core         <span class="m">11</span>.0.1 <span class="o">(</span>cli-only<span class="o">)</span>
+@angular-devkit/schematics   <span class="m">11</span>.0.1 <span class="o">(</span>cli-only<span class="o">)</span>
+@schematics/angular          <span class="m">11</span>.0.1 <span class="o">(</span>cli-only<span class="o">)</span>
+@schematics/update           <span class="m">0</span>.1100.1 <span class="o">(</span>cli-only<span class="o">)</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Ich hoffe, es klappt alles! Eventuelle Probleme können wir in der Vorlesung am 26.5. und/oder in der Übung am 27.5. besprechen.  </p>
+</li>
+</ol>
+</details>
+<h5 id="ubung-5-backend">Übung 5 (Backend)<a class="headerlink" href="#ubung-5-backend" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 5</summary>
+<ol>
+<li>
+<p>Ergänzen Sie das in [Backend] erstellte Backend um einen REST-Endpunkt </p>
+<p><div class="highlight"><pre><span></span><code>GET http://localhost:3000/posts/title
+</code></pre></div>
+Bei Aufruf dieses Endpunktes soll dem Request-Body ein JSON in der Form 
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first post&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwendet, um den Datensatz/die Datensätze auszulesen, die den <code>title</code> haben (also hier der Datensatz mit dem <code>title</code> <code>"first post"</code>). </p>
+<p><img alt="uebung5" src="../files/63_restapi.png" /> </p>
+</li>
+</ol>
+</details>
+<h5 id="ubung-6-frontend">Übung 6 (Frontend)<a class="headerlink" href="#ubung-6-frontend" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 6</summary>
+<ol>
+<li>Im Abschnitt <a href="../frontend/#frontend">Frontend</a> haben wir uns ein Frontend erstellt, um mithilfe eines Formulars Daten (insb. ein Bild) einzugeben und diese in einer Datenbank abzuspeichern. </li>
+<li>Erweiteren Sie dieses Frontend um eine Komponente, die alle in der Datenbank gespeicherten Daten visualisiert, insb. die in der Datenbank gespeicherten Bilder. Erstellen Sie sich dazu eine neue Komponente.</li>
+<li>Sie müssen dazu auch den <code>PostService</code> um die Anbindung an den Endpunkt <code>GET /posts</code> erweitern. </li>
+</ol>
+<p><strong>Tipps</strong>: Es kann sein, dass Sie das vom Backend zurückgegebene JSON verändern müssen. Derzeit wird für <code>image</code> ein <code>ArrayBuffer</code> zurückgegeben, mit <code>"type": "Buffer"</code> und einem Array für <code>"data"</code>. Wenn Sie dieses Array Frontend-seitig verarbeiten können und als ein Bild angezeigt bekommen, dann würde mich sehr interessieren, wie Sie das gemacht haben. Ich habe das Backend angepasst und gebe den <code>Base64</code>-Code für <code>image</code> zurück. Im Frontend muss man diesen <code>base64</code>-Code dann nur noch hinter den String <code>'data:image/jpg;base64,'</code> hängen und erhält so den Wert für das <code>src</code>-Attribut eines Images. Schauen Sie sich dazu auch den Typ <code>SafeResourceUrl</code> und die Funktion <code>bypassSecurityTrustResourceUrl(src)</code> von <code>DomSanitizer</code> an. </p>
+<p><img alt="uebung4" src="../files/58_uebung4.png" /></p>
+</details>
+<h5 id="ubung-7-indexeddb">Übung 7 (IndexedDB)<a class="headerlink" href="#ubung-7-indexeddb" title="Permanent link">&para;</a></h5>
+<details>
+<summary>Übung 7</summary>
+<ol>
+<li>Im Abschnitt <a href="../indexeddb/#indexeddb">IndexedDB</a> haben wir uns mit der Verwendung der In-Browser-datenbank IndexedDB vertraut gemacht. </li>
+<li>In dem dortigen letzten Abschnitt <a href="../indexeddb/#loschen-einzelner-eintrage">Löschen einzelner EInträge</a> haben wir in der <code>db.js</code> eine Funktion <code>deleteOneData(st, id)</code> geschrieben, die einen einzelnen Datensatz aus der IndexedDB mit der übergebenen <code>id</code> löscht. </li>
+<li>Implementieren Sie in der <code>db.js</code> eine Funktion <code>deleteByTitle(st, title)</code>, die den Datensatz (oder die Datensätze) löscht, der (oder die) in dem <code>title</code>-Attribut den der Methode als <code>title</code> übergebenen String enthält. Z.B. soll aus dem Datensatz 
+    <div class="highlight"><pre><span></span><code><span class="o">{</span>id: <span class="m">1</span>, title: <span class="s2">&quot;first post&quot;</span>, location: <span class="s2">&quot;Berlin&quot;</span>, image: <span class="s2">&quot;/9j/4AA...UgP/9k=&quot;</span><span class="o">}</span>
+<span class="o">{</span>id: <span class="m">2</span>, title: <span class="s2">&quot;second post&quot;</span>, location: <span class="s2">&quot;Wilhelminenhof&quot;</span>, image: <span class="s2">&quot;/9j/4AA...VY/9k=&quot;</span><span class="o">}</span>
+<span class="o">{</span>id: <span class="m">5</span>, title: <span class="s2">&quot;fourth post&quot;</span>, location: <span class="s2">&quot;Gebaeude C&quot;</span>, image: <span class="s2">&quot;/9j/4AA...KOX/9k=&quot;</span><span class="o">}</span>
+<span class="o">{</span>id: <span class="m">10</span>, title: <span class="s2">&quot;HTW aus der Luft&quot;</span>, location: <span class="s2">&quot;Campus WH von oben&quot;</span>, image: <span class="s2">&quot;/9j/4AA...9z//2Q==&quot;</span><span class="o">}</span>
+<span class="o">{</span>id: <span class="m">11</span>, title: <span class="s2">&quot;Wilhelminenhofstraße&quot;</span>, location: <span class="s2">&quot;Campus WH Eingang&quot;</span>, image: <span class="s2">&quot;/9j/4AA...U9D/9k=&quot;</span><span class="o">}</span>
+</code></pre></div><ul>
+<li>bei Aufruf von <code>deleteByTitle('posts', 'second')</code> der zweite Datensatz mit der <code>id: 2</code> gelöscht werden, </li>
+<li>bei Aufruf von <code>deleteByTitle('posts', 'post')</code> sollen die ersten drei Datensätze (mit <code>id:1</code>, <code>id:2</code> und <code>id:5</code>) gelöscht werden.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Tipps</strong>: Mit der Methode <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex/getAllKeys">getAllKeys()</a> ermitteln Sie z.B. alle Schlüssel (<code>id</code>) der Datensätze und mit der Methode <a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex/get">get(key)</a> erhalten Sie den zum Schlüssel zugehörigen Wert.</p>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Zurück: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../tools/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Tools" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Tools
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Jörn Freiheit
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>
