@@ -1,0 +1,821 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/tools/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Tools - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#werkzeuge" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tools
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    Chrome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lighthouse" class="md-nav__link">
+    Lighthouse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrated-development-environment-ide" class="md-nav__link">
+    Integrated Development Environment (IDE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    Node.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-studio" class="md-nav__link">
+    Android Studio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https-fur-localhost" class="md-nav__link">
+    https für localhost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https-fur-webserver" class="md-nav__link">
+    https für Webserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ngrok" class="md-nav__link">
+    Ngrok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icons-erzeugen-und-in-die-manifestjson-eintragen" class="md-nav__link">
+    Icons erzeugen und in die manifest.json eintragen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webapp-manifest-generator" class="md-nav__link">
+    WebApp-Manifest-Generator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workbox" class="md-nav__link">
+    Workbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    MongoDB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb-compass" class="md-nav__link">
+    MongoDB Compass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insomnia-rest" class="md-nav__link">
+    Insomnia REST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interssante-links-zu-pwa" class="md-nav__link">
+    Interssante Links zu PWA
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    Chrome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lighthouse" class="md-nav__link">
+    Lighthouse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrated-development-environment-ide" class="md-nav__link">
+    Integrated Development Environment (IDE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    Node.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-studio" class="md-nav__link">
+    Android Studio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https-fur-localhost" class="md-nav__link">
+    https für localhost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https-fur-webserver" class="md-nav__link">
+    https für Webserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ngrok" class="md-nav__link">
+    Ngrok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icons-erzeugen-und-in-die-manifestjson-eintragen" class="md-nav__link">
+    Icons erzeugen und in die manifest.json eintragen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webapp-manifest-generator" class="md-nav__link">
+    WebApp-Manifest-Generator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workbox" class="md-nav__link">
+    Workbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    MongoDB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb-compass" class="md-nav__link">
+    MongoDB Compass
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insomnia-rest" class="md-nav__link">
+    Insomnia REST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interssante-links-zu-pwa" class="md-nav__link">
+    Interssante Links zu PWA
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/tools.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="werkzeuge">Werkzeuge<a class="headerlink" href="#werkzeuge" title="Permanent link">&para;</a></h1>
+<h2 id="chrome">Chrome<a class="headerlink" href="#chrome" title="Permanent link">&para;</a></h2>
+<p>Es wird empfohlen, Chrome als Browser zu verwenden, da dieser Browser die besten Entwicklertools für Progressive Web Apps zur Verfügung stellt. Insbesondere ist es empfehlenswert, das Plugin <a href="https://chrome.google.com/webstore/detail/lighthouse">Lighthouse</a> für die Developertools von Chrome zu installieren. </p>
+<h2 id="lighthouse">Lighthouse<a class="headerlink" href="#lighthouse" title="Permanent link">&para;</a></h2>
+<p><a href="https://chrome.google.com/webstore/detail/lighthouse">Lighthouse</a> ist ein Plugin für die Chrome-Developertools, mit dessen Hilfe gemessen werden kann, wie <em>progressive</em> eine App ist. Installieren Sie sich dieses Plugin, um auch die Performance Ihrer PWA zu messen.</p>
+<h2 id="integrated-development-environment-ide">Integrated Development Environment (IDE)<a class="headerlink" href="#integrated-development-environment-ide" title="Permanent link">&para;</a></h2>
+<p>Für die Webentwicklung stehen Ihnen viele gute Entwicklungswerkzeuge zur Verfügung. Für welches Sie sich entscheiden, bleibt Ihnen überlassen. Hier eine Auswahl der aus meiner Sicht besten Entwicklungswerkzeuge:</p>
+<ul>
+<li><a href="https://www.jetbrains.com/de-de/idea/">IntelliJ IDEA</a></li>
+<li><a href="https://www.jetbrains.com/de-de/phpstorm/">PhpStorm</a></li>
+<li><a href="https://www.jetbrains.com/de-de/webstorm/">WebStorm</a></li>
+<li><a href="https://www.sublimetext.com/">Sublime Text</a></li>
+<li><a href="https://atom.io/">Atom</a></li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+</ul>
+<p>Für die Tools von Jetbrains benötigen Sie einen Account. Mit Ihrer HTW-E-Mail-Adresse bekommen Sie aber eine kostenlose Hochschullizenz und können so die Enterprise-Versionen kostenlos nutzen. Sublime Text ist Shareware und fragt regelmäßig, ob Sie spenden möchten.  </p>
+<h2 id="nodejs">Node.js<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h2>
+<p><a href="https://nodejs.org/en/">Node.js</a> ist eine JavaScript-Laufzeitumgebung. Node.js reagiert auf Ereignisse und antwortet asynchron. Das bedeutet, dass die Ausführung einer Ereignisbearbeitung nicht zum Blockieren der Laufzeitumgebung führt, sondern nebenläufig weitere Ereignisse eintreffen können, die ebenfalls asynchron behandelt werden. Dies geschieht mithilfe des <em>Callback-Patterns</em>. Laden Sie sich <a href="https://nodejs.org/en/download/">hier</a> die aktuellste Version von Node.js herunter und installieren Sie diese auf Ihrem Rechner.</p>
+<h2 id="android-studio">Android Studio<a class="headerlink" href="#android-studio" title="Permanent link">&para;</a></h2>
+<p>Um unsere PWAs als mobile Webanwendungen zu emulieren, benutzen wir <a href="https://developer.android.com/studio">Android Studio</a>. Es ist für Mac, Linux und Windows verfügbar. Laden Sie es sich <a href="https://developer.android.com/studio#downloads">herunter</a> und installieren Sie es. Sie können es herunterladen und installieren, ohne einen Google-Account anzulegen (es gibt auch keinen Grund, das zu tun ;-)).</p>
+<h2 id="https-fur-localhost">https für localhost<a class="headerlink" href="#https-fur-localhost" title="Permanent link">&para;</a></h2>
+<ul>
+<li>für Mac siehe <a href="https://medium.com/@jonsamp/how-to-set-up-https-on-localhost-for-macos-b597bcf935ee">hier</a></li>
+</ul>
+<h2 id="https-fur-webserver">https für Webserver<a class="headerlink" href="#https-fur-webserver" title="Permanent link">&para;</a></h2>
+<ul>
+<li>siehe <a href="https://letsencrypt.org/getting-started/">hier</a></li>
+<li>siehe <a href="https://certbot.eff.org/">hier</a></li>
+</ul>
+<h2 id="ngrok">Ngrok<a class="headerlink" href="#ngrok" title="Permanent link">&para;</a></h2>
+<p><a href="https://ngrok.com/">Ngrok</a> stellt einen sicheren Tunnel zu einem Webserver her. Ngrok wirkt wie ein Proxy, der einer Anwendung suggeriert, mit einem Webserver über eine sichere Verbindung zu kommunizieren, d.h. die Verbindung wirkt wie eine <code>https</code>-Verbindung. Die Installation ist einfach, benötigt aber Registrierungsdaten (zur Erzeugung des Authentifizierungstokens). Nach dem <a href="https://ngrok.com/download">Download</a> wird das Paket entpackt und mit dem Authentifizierungstoken aufgerufen. Nach dem Starten der Webanwendung stellt man mit <code>ngrok http &lt;Port&gt;</code> den sicheren Tunnel her, wobei <code>&lt;Port&gt;</code> für den Port steht, unter dem die Anwednung auf dem Webserver läuft.  </p>
+<h2 id="icons-erzeugen-und-in-die-manifestjson-eintragen">Icons erzeugen und in die manifest.json eintragen<a class="headerlink" href="#icons-erzeugen-und-in-die-manifestjson-eintragen" title="Permanent link">&para;</a></h2>
+<p>Es ist ziemlich mühsam, alle benötigten Icons für die unterschiedlichen Plattformen zu erzeugen und dann noch die entsprechenden Einträge in der <code>manifest.json</code> vorzunehmen. Zum Glück gibt es aber ein Werkzeug, das das für uns übernimmt: <a href="https://www.npmjs.com/package/pwa-asset-generator">pwa-asset-generator</a>. Sie benötigen nur das Ausgangsicon in Originalgröße und alles andere wird für Sie erledgt. Alles weitere dazu steht <a href="https://www.npmjs.com/package/pwa-asset-generator">hier</a>.</p>
+<h2 id="webapp-manifest-generator">WebApp-Manifest-Generator<a class="headerlink" href="#webapp-manifest-generator" title="Permanent link">&para;</a></h2>
+<p>Bei der Erstellung Ihrer <code>manifest.json</code> können Sie sich auch unterstützen lassen, nämlich <a href="https://app-manifest.firebaseapp.com/">hier</a> oder <a href="https://www.dunplab.it/web-app-manifest-generator">hier</a>.</p>
+<h2 id="workbox">Workbox<a class="headerlink" href="#workbox" title="Permanent link">&para;</a></h2>
+<p><a href="https://developers.google.com/web/tools/workbox">Workbox</a> ist eine JavaScript-Bibliothek, die alle wesentlichen Funktionalitäten von <em>Service Workern</em> bereitstellt. </p>
+<h2 id="mongodb">MongoDB<a class="headerlink" href="#mongodb" title="Permanent link">&para;</a></h2>
+<p>Es gibt zwei Möglichkeiten, <a href="https://www.mongodb.com/">MongoDB</a> zu verwenden: entweder Sie nutzen das Cloud-Angebot, also eine Remote-MongoDB. Diese nennt sich <a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a>. Oder Sie installieren sich die MongoDB "on-premise", also lokal auf Ihrem Rechner. Dazu wählen Sie unter <code>mongodb.com</code> den Reiter <code>Products</code> on dort unter <code>Community Edition</code> den Link <code>Community Server</code>. Dann landen Sie auf <a href="https://www.mongodb.com/try/download/community">https://www.mongodb.com/try/download/community</a>. Dort können Sie sich die MongoDB herunterladen und installieren. Installationsanleitungen finden Sie unter <a href="https://www.mongodb.com/docs/manual/installation/">https://www.mongodb.com/docs/manual/installation/</a>. Wichtig ist, dass die MongoDB einmalig mit <code>mongod</code> starten.</p>
+<h2 id="mongodb-compass">MongoDB Compass<a class="headerlink" href="#mongodb-compass" title="Permanent link">&para;</a></h2>
+<p>Um sich Ihre MongoDB-Datenbanken anzuschauen (und auch, um Operationen darauf auszuführen), empfehle ich Ihnen das Tool <a href="https://www.mongodb.com/de-de/products/compass">MongoDB Compass</a>. Download und Installation sind normalerweise einfach. </p>
+<h2 id="insomnia-rest">Insomnia REST<a class="headerlink" href="#insomnia-rest" title="Permanent link">&para;</a></h2>
+<p>Eine gute Alternative zu Postman ist <a href="https://insomnia.rest/">Insomnia</a>. Sehr empfehlenswert! Aber Postman auch.</p>
+<h2 id="interssante-links-zu-pwa">Interssante Links zu PWA<a class="headerlink" href="#interssante-links-zu-pwa" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://web.dev/pwa-checklist/">PWA Checklist</a></li>
+<li><a href="https://pwafire.org/">PWA API</a></li>
+<li><a href="https://medium.com/@the_manifest/11-examples-of-progressive-web-apps-944f6db25a5a">11 Examples of Progressive Web Apps</a></li>
+<li><a href="https://entwickler.de/online/web/progressive-web-apps-tutorial-tipps-579830771.html">How-to: Progressive Web Apps praktisch erklärt</a></li>
+<li><a href="https://youtube.com/playlist?list=PLNYkxOF6rcIDzLmWaDwfHVZJl1Q5RFgOR">Chrome Developer Summit 2020</a></li>
+<li><a href="https://www.simicart.com/blog/progressive-web-apps-examples/">12 Best Examples of Progressive Web Apps (PWAs) in 2020</a></li>
+<li><a href="https://web.dev/performance-scoring/">Lighthouse Performance Scoring</a></li>
+<li><a href="https://html.spec.whatwg.org/multipage/workers.html#workers">Service worker Spezifikation</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pushnotes/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Push Notifications" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Push Notifications
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

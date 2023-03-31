@@ -1,0 +1,1251 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/serviceworker/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Service worker - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#service-workers" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Service worker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Service worker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Service worker
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ereignisse-auf-die-service-worker-reagieren-konnen" class="md-nav__link">
+    Ereignisse, auf die Service Worker reagieren können
+  </a>
+  
+    <nav class="md-nav" aria-label="Ereignisse, auf die Service Worker reagieren können">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    Fetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-notifikationen" class="md-nav__link">
+    Push-Notifikationen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-interaction" class="md-nav__link">
+    Notification interaction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hintergrund-synchronisation" class="md-nav__link">
+    Hintergrund-Synchronisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-lifecycle-ereignisse" class="md-nav__link">
+    Service-worker-Lifecycle-Ereignisse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einfaches-beispiel-service-worker" class="md-nav__link">
+    Einfaches Beispiel service worker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-worker-vs-service-worker" class="md-nav__link">
+    Web worker vs. service worker
+  </a>
+  
+    <nav class="md-nav" aria-label="Web worker vs. service worker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registrierung-eines-service-workers" class="md-nav__link">
+    Registrierung eines service workers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registrierung-eines-service-workers-in-htw-insta" class="md-nav__link">
+    Registrierung eines service workers in HTW-Insta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-life-cycle-ereignisse-behandeln" class="md-nav__link">
+    Service worker: Life-Cycle-Ereignisse behandeln
+  </a>
+  
+    <nav class="md-nav" aria-label="Service worker: Life-Cycle-Ereignisse behandeln">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-aktualisieren-und-aktivieren" class="md-nav__link">
+    Service worker aktualisieren und aktivieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow-notation-verwenden" class="md-nav__link">
+    Arrow-Notation verwenden
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-andere-ereignisse-behandeln" class="md-nav__link">
+    Service worker: andere Ereignisse behandeln
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anwendung-mit-einem-android-gerat-verbinden" class="md-nav__link">
+    Anwendung mit einem Android-Gerät verbinden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anwendung-auf-ihrem-iphone-aufrufen" class="md-nav__link">
+    Anwendung auf Ihrem iPhone aufrufen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ereignisse-auf-die-service-worker-reagieren-konnen" class="md-nav__link">
+    Ereignisse, auf die Service Worker reagieren können
+  </a>
+  
+    <nav class="md-nav" aria-label="Ereignisse, auf die Service Worker reagieren können">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    Fetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-notifikationen" class="md-nav__link">
+    Push-Notifikationen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-interaction" class="md-nav__link">
+    Notification interaction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hintergrund-synchronisation" class="md-nav__link">
+    Hintergrund-Synchronisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-lifecycle-ereignisse" class="md-nav__link">
+    Service-worker-Lifecycle-Ereignisse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einfaches-beispiel-service-worker" class="md-nav__link">
+    Einfaches Beispiel service worker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-worker-vs-service-worker" class="md-nav__link">
+    Web worker vs. service worker
+  </a>
+  
+    <nav class="md-nav" aria-label="Web worker vs. service worker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registrierung-eines-service-workers" class="md-nav__link">
+    Registrierung eines service workers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registrierung-eines-service-workers-in-htw-insta" class="md-nav__link">
+    Registrierung eines service workers in HTW-Insta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-life-cycle-ereignisse-behandeln" class="md-nav__link">
+    Service worker: Life-Cycle-Ereignisse behandeln
+  </a>
+  
+    <nav class="md-nav" aria-label="Service worker: Life-Cycle-Ereignisse behandeln">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-aktualisieren-und-aktivieren" class="md-nav__link">
+    Service worker aktualisieren und aktivieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow-notation-verwenden" class="md-nav__link">
+    Arrow-Notation verwenden
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-worker-andere-ereignisse-behandeln" class="md-nav__link">
+    Service worker: andere Ereignisse behandeln
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anwendung-mit-einem-android-gerat-verbinden" class="md-nav__link">
+    Anwendung mit einem Android-Gerät verbinden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anwendung-auf-ihrem-iphone-aufrufen" class="md-nav__link">
+    Anwendung auf Ihrem iPhone aufrufen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/serviceworker.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="service-workers">Service Workers<a class="headerlink" href="#service-workers" title="Permanent link">&para;</a></h1>
+<p>Wir betrachten einen wichtigen Grundbaustein, der solche Funktionalitäten, wie Push-Notifikationen, Hintergrund-Synchronisationen und die Möglichkeit, auch offline die Anwendung auszuführen, erst ermöglicht: sogenannte <strong>Service Workers</strong>.</p>
+<p>Ein <em>service worker</em> ist zunächst einmal ein Skript (in JavaScript), welches im Browser <strong>im Hintergrund</strong> läuft, unabhängig von der Webseite. Ein <em>service worker</em> stellt Funktionalitäten, wie Push-Notifikationen oder Hintergrund-Synchronisationen zur Verfügung, ähnlich einer API. Entstanden sind service worker aus der Verwendung des <a href="https://www.html5rocks.com/en/tutorials/appcache/beginner/">Application Caches</a>. Die <a href="https://developer.mozilla.org/de/docs/Web/API/Service_Worker_API">service worker API</a> wächst kontinuierlich und bietet zunehmend weitere Funktionalitäten. </p>
+<p><em>Service worker</em> haben einige nützliche Eigenschaften:</p>
+<ul>
+<li>Ein <em>service worker</em> kann zwar nicht direkt das DOM einer Seite manipulieren, kann aber auf Requests der Seite mit Responses reagieren und die Seite selbst kann darufhin ihr DOM ändern. </li>
+<li>Ein <em>service worker</em> ist ein "programmierbarer" Proxy, der steuert, wie Requests von der Webseite behandelt werden.</li>
+<li><em>Service workers</em> verwenden die <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexDB API</a>, um client-seitig strukturierte Daten persistent zu speichern. </li>
+<li><em>Service workers</em> verwenden <em>Promises</em>. Wir werden uns deshalb Promises detailliert anschauen. </li>
+</ul>
+<p>Die folgenden Abbildungen verdeutlichen die Arbeitsweise eines <em>service workers</em>. Zunächst überlegen wir uns nochmal, wie "normales" JavaScript in Webanwendungen ausgeführt wird. Die JS-Skripte werden mit den HTML-Seiten geladen. Sie stellen Funktionen bereit, die entweder durch Nutzerinteraktionen (z.B. <code>click</code>) oder durch <em>Lifecycle</em>-Events (z.B. <code>onload</code>) ausgelöst und aufgerufen werden. Diese Funktionen laufen alle in einem einzigen Thread:</p>
+<p><img alt="javascript" src="../files/19_serviceworker.png" />. </p>
+<p>Service worker laufen auf einem eigenen Thread. Service worker werden an HTML-Seiten registriert, laufen aber gänzlich unabhängig von ihnen. Sie laufen sogar dann, wenn die HTML-Seiten geschlossen sind. Service worker laufen im <strong>Hintergrund</strong>, es handelt sich um <em>Hintergrundprozesse</em>. Service worker sind zwar JavaScript, manipulieren aber nicht den DOM. Sie sind nicht an HTML-Seiten gebunden, sondern an eine Domain. Service worker reagieren ebenfalls auf Ereignisse, aber andere, als wir sie von Webanwendungen kennnen, z.B. auf Push-Notifikationen. </p>
+<p><img alt="javascript" src="../files/20_serviceworker.png" />. </p>
+<p>Service worker laufen einfach im Hintergrund und warten auf Ereignisse. Welche Ereignisse können das sein?</p>
+<h3 id="ereignisse-auf-die-service-worker-reagieren-konnen">Ereignisse, auf die Service Worker reagieren können<a class="headerlink" href="#ereignisse-auf-die-service-worker-reagieren-konnen" title="Permanent link">&para;</a></h3>
+<p>Wir betrachten hier einige der Ereignisse, auf die service worker reagieren können, auf die sie also "hören". </p>
+<h4 id="fetch">Fetch<a class="headerlink" href="#fetch" title="Permanent link">&para;</a></h4>
+<p>Wann immer der Browser etwas vom Webserver lädt, führt er ein <code>fetch</code>-Ereignis aus. Das kann eine HTML-Seite, aber auch ein Bild (<code>img</code>), eine CSS-Datei oder eine JavScript-Datei sein. Ein service worker kann auf ein solches Ereignis reagieren. Tatsächlich agiert der service worker als ein <em>Proxy</em>, der zwischen dem Browser und dem Webserver steht und die <code>fetch</code>-Anfragen (<code>requests</code>) des Browsers empfängt und eventuell an den Webserver weiterleitet. Eventuell leitet er die Anfrage auch nicht weiter, sondern beantwortet sie mit einer Resource aus dem eigen Cache. </p>
+<p>Für die <code>fetch</code>-Ereignisse wird die <code>Fetch-API</code> verwendet, auf die wir später noch ausführlich zu sprechen kommen. Wichtig ist an dieser Stelle zu erwähnen, dass ein (asynchrones) <code>XMLHttpRequest</code> kein <code>fetch</code>-Ereignis darstellt. Eine Single-Page-Application, die Ressourcen vom Browser nachlädt, ruft dabei keine (weiteren) <code>fetch</code>-Ereignisse auf. </p>
+<h4 id="push-notifikationen">Push-Notifikationen<a class="headerlink" href="#push-notifikationen" title="Permanent link">&para;</a></h4>
+<p>Push-Notifikationen werden von einem (anderen) Server gesendet und können durch service worker verwaltet werden. Jeder Browser verfügt über eigene Push-Web-Server. Es können von jedem beliebigen Server Push-Nachrichten an diese Push-Web-Server gesendet werden. Der service worker kann auf solche Ereignisse reagieren. Wichtig ist hier zu wiederholen, dass service worker auch dann (im Hintergrund) arbeiten, wenn die Webanwendung selbst geschlossen ist. Sie können trotzdem erkennen, wenn Push-Nachrichten eingehen und darauf geeignet reagieren. Auch hier wirken service worker wieder wie ein <em>Proxy</em>, nämlich für die Push-Web-Server. Der service worker kann z.B. eine Nachricht auf dem Startbildschirm des Smartphones erzeugen. Mit dieser Nachricht kann die Nutzerin dann etwas machen und löst dabei das folgende Ereiegnis aus:</p>
+<h4 id="notification-interaction">Notification interaction<a class="headerlink" href="#notification-interaction" title="Permanent link">&para;</a></h4>
+<p>Klickt eine Nutzerin auf die (Push-)Nachricht, die vom service worker erzeugt wurde, wird ein entsprechendes Ereignis ausgelöst, auf das wiederum der service worker reagieren kann, z.B. eine Webseite aufrufen und öffnen oder eine Anwendung. Auch hier ist es wieder wichtig, dass das ein service worker erledigt und nicht ein JavaScript, welches zu einer Webanwendung gehört, da es ja sein kann, dass diese Webanwendung geschlossen ist.</p>
+<h4 id="hintergrund-synchronisation">Hintergrund-Synchronisation<a class="headerlink" href="#hintergrund-synchronisation" title="Permanent link">&para;</a></h4>
+<p>Es kann passieren, dass in einer Webanwendung Ereignisse ausgeführt werden, jedoch keine Verbindung zum Internet besteht. Typischerweise werden die Ausführungen solcher Ereignisse, die offline ausgeführt werden, ebenfalls durch service worker erledigt. Sobald der Browser wieder mit dem Internet verbunden ist, löst er ein Ereignis aus. Auf dieses Ereignis kann der service worker reagieren und die Ereignisse, die er offline gespeichert und beantwortet hat, nun im Hintergrund online ausführen, so dass eine Hintergrund-Synchronisation erfolgt. </p>
+<h4 id="service-worker-lifecycle-ereignisse">Service-worker-Lifecycle-Ereignisse<a class="headerlink" href="#service-worker-lifecycle-ereignisse" title="Permanent link">&para;</a></h4>
+<p>Ein service worker durchläuft selbst einen eigenen "Lebenszyklus". Wir kennen Liefecycle-Events bereits aus Angular, z.B. <code>ngOnInit()</code> oder auch von Webseiten (<code>load</code>). Solche Lifecycle-Events existieren auch für service worker. Wir werden sie uns später im Detail anschauen. Zuerst betrachten wir aber zur Einführung ein einfaches Beispiel für die Verwendung eines <em>service workers</em> (wie wir gleich im Anschluss dikutieren werden, handelt es sich eigentlich um einen <em>web worker</em>). </p>
+<h2 id="einfaches-beispiel-service-worker">Einfaches Beispiel service worker<a class="headerlink" href="#einfaches-beispiel-service-worker" title="Permanent link">&para;</a></h2>
+<p>Wir betrachten ein <a href="https://html.spec.whatwg.org/multipage/workers.html#a-background-number-crunching-worker">erstes einfaches Beispiel</a> für die Verwendung eines service workers. Wir erstellen folgende <code>index.html</code>. </p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Erstes Beispiel service worker<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Größte Primzahl bisher: <span class="p">&lt;</span><span class="nt">output</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;result&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">output</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">var</span> <span class="nx">worker</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s1">&#39;worker.js&#39;</span><span class="p">);</span>
+    <span class="nx">worker</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In Zeile <code>10</code> wird mithilfe des <code>Worker</code>-Kunstruktors ein <code>Worker</code>-Objekt erzeugt. Dem Konstruktor wird die Implementierung des workers übergeben, genauer gesagt, die Implementierung des Event-Handlers für <code>onmessage</code> des <code>Worker</code>-Objektes. Die Implementierung des <code>onmessage</code>-Event-Handlers sieht typischerweise so aus, dass der service worker mit einer <code>postMessage</code> antwortet und diese an die Seite übergibt. In unserem Beispiel ist die Implementierung wie folgt: </p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">worker.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
+<span class="nx">search</span><span class="o">:</span> <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">n</span> <span class="o">+=</span> <span class="mf">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mf">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">%</span> <span class="nx">i</span> <span class="o">==</span> <span class="mf">0</span><span class="p">)</span>
+            <span class="k">continue</span> <span class="nx">search</span><span class="p">;</span>
+    <span class="c1">// found a prime!</span>
+    <span class="nx">postMessage</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Zeile <code>8</code> enthält die <code>postMessage</code>. Darin wird eine Zahl <code>n</code> an die Seite geschickt, sobald sie berechnet wurde. Es handelt sich bei der Berechnung um eine Primzahlberechnung. Das heißt, der service worker arbeitet im Hintergrund und "sucht" neue Primzahlen. Sobald der service worker eine neue Primzahl gefunden hat, schickt er diese mithilfe der <code>postMessage()</code>-Funktion an die Webseite. Dadurch wird das <code>onmessage</code>-Ereignis (genauer gesagt, handelt es sich um das <code>message</code>-Event) behandelt. Wann immer <code>onmessage</code> auftritt, aktualisiert die Seite, genauer gesagt, der <code>textContent</code> des <code>&lt;output&gt;</code>-Elementes mit der <code>id= "result"</code> (siehe Zeilen <code>11-13</code> in <code>index.html</code>). </p>
+<p>Dieses Beispiel ist extra einfach gehalten. genauer gesagt, handelt es sich bei dem Beispiel "nur" um einen <em>web worker</em>. Das W3C unterscheidet zwischen <a href="https://www.w3.org/TR/service-workers/"><em>service workers</em></a> und <a href="https://html.spec.whatwg.org/multipage/workers.html#workers"><em>web workers</em></a>. Der Unterschied zwischen <em>web worker</em> und * service worker* wird z.B. <a href="https://bitsofco.de/web-workers-vs-service-workers-vs-worklets/">hier</a> beschrieben. </p>
+<h2 id="web-worker-vs-service-worker">Web worker vs. service worker<a class="headerlink" href="#web-worker-vs-service-worker" title="Permanent link">&para;</a></h2>
+<p>Wir verwenden für die Unterscheidung zwischen <em>web worker</em> und <em>service worker</em>  hauptsächlich <a href="https://bitsofco.de/web-workers-vs-service-workers-vs-worklets/">dieses Dokument</a>. Darin finden wir auch folgendes Bild zur Beschreibung eines web workers:</p>
+<p><img alt="web worker" src="../files/03_webworker.png" /></p>
+<p>Ein <em>web worker</em> hat kein spezifisches Einsatzszenario, außer dass er unabhängig von Hauptthread der Anwendung läuft und Nachrichten mittels <code>postMessage()</code> an die Anwendung schicken kann. </p>
+<p>Demgegenüber ist ein <em>service worker</em> ein spezieller <em>web worker</em>, der als Proxy zwischen Anwendung und dem Netzwerk bzw. dem Cache agiert. </p>
+<p><img alt="service worker" src="../files/04_serviceworker.png" /></p>
+<p><em>Service workers</em> verfügen über mehr Funktionalitäten als <em>web workers</em>. Dazu gehören einerseits die Ereignisse, auf die <em>service workers</em> reagieren können:</p>
+<ul>
+<li><code>install</code> und <code>activate</code> (sogenannte <em>Lifecycle events</em>),</li>
+<li><code>fetch</code> und weitere Ereignisse, die durch Erweiterungen spezifiziert werden, z.B. <code>push</code>, <code>notificationclick</code>, <code>notificationclose</code>, <code>sync</code>, <code>canmakepayment</code>, <code>paymentrequest</code> usw. (sogenannte <em>Functional events</em>) sowie</li>
+<li><code>message</code> und <code>messageerror</code> vom Web worker</li>
+</ul>
+<p>und andererseits die Status, in denen sich ein <em>service worker</em> befinden kann:</p>
+<ul>
+<li><code>parsed</code>, <code>installing</code>, <code>installed</code>, <code>activating</code>, <code>activated</code> und <code>redundant</code> (initial: <code>parsed</code>)</li>
+</ul>
+<p>Die prinzipielle Idee der Registrierung eines service workers sieht so aus:</p>
+<p><img alt="service worker" src="../files/21_serviceworker.png" /></p>
+<p>Die beiden Lifecycle-Events <code>install</code> und <code>activate</code> sind bereits eingezeichnet. Dabei ist zu betonen, dass ein <em>service worker</em>  erst dann aktiviert werden kann, wenn kein anderer service worker mehr (in der gleichen Domäne/im gleichen Scope) läuft. Ein anderer service worker, der eventuell noch läuft, muss erst geschlossen werden, bevor der neue service worker das <code>activate</code>-Ereignis auslösen kann. Damit ein solcher "alter" service worker geschlossen werden kann, müssen zumindest alle Tabs im Browser, in denen die Webanwendung läuft, geschlossen werden. Selbst dann läuft der service worker aber immernoch weiter. Er muss explizit geschlossen werden. Das zeigen wir später. </p>
+<h3 id="registrierung-eines-service-workers">Registrierung eines service workers<a class="headerlink" href="#registrierung-eines-service-workers" title="Permanent link">&para;</a></h3>
+<p>Während wir für das einfache Beispiel mit dem <em>web worker</em> noch den <code>Worker()</code>-Konstruktor verwendet haben, erfolgt die Registrierung eines <em>service workers</em> mittels <code>navigator.serviceWorker.register('./sw.js')</code>, wobei in <code>sw.js</code> der <em>service worker</em> implementiert ist. Wir schauen uns die prinzipielle Registrierung an:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">HTML</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Erstes</span> <span class="nx">Beispiel</span> <span class="nx">service</span> <span class="nx">worker</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+<span class="o">&lt;</span><span class="err">/head&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Öffne</span> <span class="nx">die</span> <span class="nx">developer</span> <span class="nx">tools</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Register a service worker hosted at the root of the</span>
+        <span class="c1">// site using the default scope.</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;./sw.js&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">registration</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Service worker registration succeeded:&#39;</span><span class="p">,</span> <span class="nx">registration</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Scope ist &#39;</span> <span class="o">+</span> <span class="nx">registration</span><span class="p">.</span><span class="nx">scope</span><span class="p">);</span>
+            <span class="c1">// At this point, you can optionally do something</span>
+            <span class="c1">// with registration. See https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration</span>
+        <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Service worker registration failed:&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="c1">// Independent of the registration, let&#39;s also display</span>
+        <span class="c1">// information about whether the current page is controlled</span>
+        <span class="c1">// by an existing service worker, and when that</span>
+        <span class="c1">// controller changes.</span>
+
+        <span class="c1">// First, do a one-off check if there&#39;s currently a</span>
+        <span class="c1">// service worker in control.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">controller</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;This page is currently controlled by:&#39;</span><span class="p">,</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">controller</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Then, register a handler to detect when a new or</span>
+        <span class="c1">// updated service worker takes control.</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">oncontrollerchange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;This page is now controlled by:&#39;</span><span class="p">,</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">controller</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Service workers are not supported.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+<span class="o">&lt;</span><span class="err">/html&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir haben hier die registrierung des <em>service workers</em> innerhalb des <code>&lt;script&gt;</code>-Elementes. Besser (und das werden wir später auch immer machen) ist die Erstellung einer eigenen <code>.js</code>-Datei dafür. </p>
+<p>Wenn wir die <code>Developer Tools</code> öffnen, sehen wir auf der <code>Console</code> folgende Ausgabe:</p>
+<p><img alt="devtools" src="../files/05_devtools.png" /></p>
+<p>Für diejenigen, für die das Registrierungs-Beispiel oben zu lang ist, hier die Version von <a href="https://www.w3.org/TR/service-workers/#document-context">W3C</a>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// scope defaults to the path the script sits in</span>
+<span class="c1">// &quot;/&quot; in this example</span>
+<span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;/serviceworker.js&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">registration</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;success!&quot;</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">registration</span><span class="p">.</span><span class="nx">installing</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">registration</span><span class="p">.</span><span class="nx">installing</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">&quot;Howdy from your installing page.&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Installing the worker failed!&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="registrierung-eines-service-workers-in-htw-insta">Registrierung eines service workers in HTW-Insta<a class="headerlink" href="#registrierung-eines-service-workers-in-htw-insta" title="Permanent link">&para;</a></h3>
+<p>Nun, da wir wissen, wie die Registrierung eines service workers prinzipiell funktioniert, fügen wir unserem <code>HTW-Insta</code>-Beispiel einen solchen hinzu. Den aktuellen Stand der Anwendung finden Sie unter <a href="https://github.com/jfreiheit/IKT-PWA-02">IKT-PWA-02</a>. Das ist die Version, in der bereits das Web-App-Manifest enthalten ist. </p>
+<p>Zunächst beachten wir noch einen besonderen Eintrag in der <code>package.json</code>:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">package.json</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IKT-PWA-02&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Grundgerüst einer PWA mit Web-App-Manifest&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http-server -c-1&quot;</span><span class="w"></span>
+</span><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;keywords&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pwa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;progressive&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;web&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ikt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;htw&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fiw&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;J. freiheit&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISC&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;http-server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^14.1.0&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In Zeile <code>7</code> wird definiert, dass wir bei Aufruf des <code>npm start</code>-Befehls den Webserver <code>http-server</code> starten. Das Argument <code>-c-1</code> besagt, dass wir für diesen Server <strong>nicht</strong> den Browser-Cache verwenden wollen. Jede datei, die wir somit vom Webserver anfordern, wird somit auch tatsächlich neu geladen. Stattdessen wollen wir nämlich nur den Cache des service workers verwenden. </p>
+<p>Für unseren service worker erstellen wir uns im <code>public</code>-Ordner eine Datei <code>sw.js</code>. Da der service worker im <code>public</code>-Ordner angelegt wird, ist sein Scope unsere komplette Webanwendung. Wollten wir z.B. einen service worker, der nur für unsere Hilfe-Seiten zuständig ist, so hätten wir die Datei im <code>help</code>-Ordner erzeugt. </p>
+<p>Um unseren service worker zu registrieren, müssen wir ihn in alle unsere HTML-Seiten einbinden. Wir haben die <code>/public/index.html</code>-Datei und die <code>/public/help/index.html</code>. Dort könnten wir innerhalb des eines <code>&lt;script&gt;</code>-Elementes die Registrierung durchführen. Da wir aber bereits in beiden Dateien die Datei <code>public/src/js/app.js</code> einbinden, erledigen wir die Registrierung einfach dort. Dann ist sie nur an einer Stelle und wir müssen die HTML-Dateien nicht anpassen. In die <code>/public/src/js/app.js</code> schreiben wir nun Folgendes:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">/public/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+        <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">)</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Starten unserer Anwendung und Aufruf im Browser ergibt die Ausgabe <code>service worker registriert</code> in der Konsole der DevTools. </p>
+<p><img alt="service worker" src="../files/22_serviceworker.png" /></p>
+<p>Im Zusammenhang mit service workern gibt es folgendes zu beachten:</p>
+<blockquote>
+<p>service worker funktionieren nur mit https oder auf localhost!</p>
+</blockquote>
+<p>Wundern Sie sich also nicht, wenn Ihr service worker nicht funktioniert, sobald Sie Ihre Anwendung auf einem Webserver ausführen, der <code>https</code> nicht unterstützt. Anleitungen, wie Sie einen Webserver für <code>https</code> konfigurieren, finden Sie z.B. <a href="https://letsencrypt.org/getting-started/">hier</a>. Schauen Sie ansonsten auch <a href="../tools/#https-fur-localhost">hier</a> und <a href="../tools/#https-fur-webserver">hier</a>.</p>
+<h3 id="service-worker-life-cycle-ereignisse-behandeln">Service worker: Life-Cycle-Ereignisse behandeln<a class="headerlink" href="#service-worker-life-cycle-ereignisse-behandeln" title="Permanent link">&para;</a></h3>
+<p>Nun implementieren wir den service worker. Wir haben ihn bereits registriert, aber die Datei <code>sw.js</code> ist noch leer. Die grundlegende Idee eines service workers ist es, Ereignisse zu behandeln. Wir werden unserem service worker also eine Reihe von <code>addEventListener()</code>-Funktionen hinzufügen. Diese Funktion kennen wir bereits aus "normalem" JavaScript-Code. Dort haben häufig so etwas wie <code>addEventListener('click', function() { /* ... */ })</code> geschrieben. Das <code>click</code>-Ereignis hat aber keine Relevanz für service worker, da ein service worker keine Auswirkungen auf das DOM hat. Vielmehr reagiert ein service worker auf Ereignisse, die wir bereits <a href="./#web-worker-vs-service-worker">oben</a> beschrieben haben. Wir fügen unserem service worker Ereignisbehandlungen hinzu:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">/public/src/sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; installing ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; activating ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">claim</span><span class="p">();</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir melden uns also an zwei Ereignisse an: an das <code>install</code>-Ereignis und das <code>activate</code>-Ereignis. Beide Ereignisse sind auch gut <a href="https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle">hier</a> beschrieben. Beide Ereignisbehandlungen sind zunächst einfache Ausgaben auf die Konsole.</p>
+<p>Zwei Sachen sind noch erwähnenswert: erstens wird <code>self</code> verwendet, um auf den service worker zu referenzieren. Für Erläuterungen über den Unterschied von <code>this</code> und <code>self</code> können Sie sich z.B. <a href="https://stackoverflow.com/questions/16875767/difference-between-this-and-self-in-javascript/">hier</a> informieren. Grundsätzlich ist es so, dass mit <code>self</code> auf den gesamten Scope referenziert wird. In Webanwendungen ist der Scope häufig <code>window</code>, hier ist es aber die Domain, die den Scope des service workers beschreibt. Wir referenzieren also nicht auf den service worker selbst, sondern auf seinen Scope. </p>
+<p>Die zweite erwähnenswerte Sache steht in Zeile <code>7</code>. Wenn ein service worker registriert ist, dann "kontrolliert" er nicht automatisch alle Webseiten in seiner Domain. Erst durch das Neuladen dieser Seiten gelangen sie unter seine Kontrolle. Mithilfe der <code>claim()</code>-Funktion aus dem Interface <code>Clients</code> übernimmt der service worker die Kontrolle aber sofort, d.h. ohne ein Neuladen der Site. Einzige Ausnahme ist die Seite, die aktuell im Browser gezeigt wird. Für diese muss tatsächlich ein Reload durchgeführt werden. Weitere Informationen dazu finden Sie auch <a href="https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle">hier</a>.</p>
+<p>Wenn wir die Anwendung nun starten und dann im Browser aufrufen, erhalten wir folgende Ausgabe auf der Konsole:</p>
+<p><img alt="service worker" src="../files/23_serviceworker.png" /></p>
+<p>Wir sehen, dass das <code>install</code>-Ereignis ausgelöst wurde, aber offensichtlich nicht das <code>activate</code>-Ereignis. Warum wurde das <code>activate</code>-Ereignis nicht ausgelöst? Darum kümmern wir uns im folgenden Abschnitt.</p>
+<p>Noch eine kurze Bemerkung zur Reihenfolge der Ausgaben auf der Konsole. Auf der Konsole haben wir folgende Ausgaben:</p>
+<div class="highlight"><pre><span></span><code>service worker registriert
+service worker --&gt; installing ...
+</code></pre></div>
+<p>Das verwundert wahrscheinlich, weil das <code>install</code>-Event ausgelöst wird, bevor der service worker (existiert und) registriert werden kann. Also müssten die Ausgaben eigentlich in der anderen Reihenfolge erscheinen. Wir erinnern uns (siehe zweite Abbildung ganz oben in diesem Kapitel): der service worker läuft auf einem anderen Thread, als das "normale" JavaScript unserer Webanwendung. Also laufen <code>app.js</code> und <code>sw.js</code> auf verschiedenen Threads. In welchem dieser beiden Threads nun zuerst eine Ausgabe erfolgt, hängt von vielen verschiedenen Faktoren ab, lässt sich aber auch nicht beeinflussen. Dieses Mal war es so, dass der <code>app.js</code>-Thread schneller mit der Ausgabe war, als der <code>sw.js</code>-Thread. Das kann beim nächsten Mal schon anders sein. Wichtig ist, dass wir wissen, dass diese beiden Threads gänzlich nebenläufig und unabhängig voneinander laufen. Sollten sich dabei Ausgaben "überholen", dann ist das kein Bug, sondern ein Feature. </p>
+<h4 id="service-worker-aktualisieren-und-aktivieren">Service worker aktualisieren und aktivieren<a class="headerlink" href="#service-worker-aktualisieren-und-aktivieren" title="Permanent link">&para;</a></h4>
+<p>Warum wurde das <code>activate</code>-Ereignis nicht ausgelöst? Dazu werfen wir einen Blick in unsere DevTools. Wir wählen den Reiter <code>Application</code> und dann im linken Menü unter <code>Application</code> den Menüpunkt <code>Service Woorkers</code>:</p>
+<p><img alt="service worker" src="../files/24_serviceworker.png" /></p>
+<p>Wir sehen, dass der service worker im Status des Aktivierens ist, aber noch darauf wartet, aktiviert zu sein (<code>waiting to activate</code>). Hierzu ist es wichtig zu wissen:</p>
+<ul>
+<li>solange Sie im Browser (mindestens) einen Tab mit Ihrer Webanwendung offen haben, wird ein neuer service worker zwar installiert und registriert, aber nicht aktiviert,</li>
+<li>das liegt daran, dass die offene Seite eventuell noch mit einem alten service worker kommuniziert (evtl. hat der alte service worker noch etwas im Cache, das mit der Webanwendung synchronisiert werden müsste).</li>
+</ul>
+<p>Wenn wir den Tab mit unserer Anwendung schließen und ihn erneut öffnen, dann sehen wir: </p>
+<p><img alt="service worker" src="../files/25_serviceworker.png" /></p>
+<p>Es wurden also sowohl das <code>install</code>- als auch das <code>activate</code>-Ereignis ausgelöst. Auf der Konsole erscheint entsprechend:</p>
+<p><img alt="service worker" src="../files/26_serviceworker.png" /></p>
+<blockquote>
+<p>Wenn Sie Ihren service worker aktualisiert haben, müssen Sie alle Tabs Ihrer Webanwendung schließen und erneut öffnen, um den neuen service worker zu aktivieren!</p>
+</blockquote>
+<p>Beherzigen Sie die obige Ausgabe. Es kann Ihnen sehr viel Implementierungskummer bereiten, wenn Sie es nicht tun. Sie verändern Ihren Code im service worker, aber die Änderungen sind nicht wirksam? Dann haben Sie vielleicht nur ein Reload Ihrer Webanwendung durchgeführt - das reicht aber für den aktualisierten service worker <strong>nicht</strong>!</p>
+<p>Aber zum Glück bieten die DevTools Hilfe, so dass Sie während der Entwicklung doch nicht immer den Tab schließen und neu öffnen müssen. Betrachten wir nochmals die folgende Abbildung: </p>
+<p><img alt="service worker" src="../files/24_serviceworker.png" /></p>
+<p>Sie haben drei Möglichkeiten, den service zu aktivieren:</p>
+<ol>
+<li>Markieren Sie die Checkbox links neben <code>Update on reload</code>. Dann wird durch das Reload Ihrer Webanwendung der aktualisierte service worker aktiviert. </li>
+<li>Klicken Sie auf den Link <code>Update</code> oder</li>
+<li>Klicken Sie auf den Link <code>skipWaiting</code>. </li>
+</ol>
+<p>Mit einem der drei Hilfen oben vermeiden Sie das Schließen und Neuöffnen des Tabs und der Webanwendung. Am einfachsten ist die erste Variante. Dann müssen Sie nur noch Reloaden und ansonsten weiter gar nichts machen. </p>
+<h4 id="arrow-notation-verwenden">Arrow-Notation verwenden<a class="headerlink" href="#arrow-notation-verwenden" title="Permanent link">&para;</a></h4>
+<p>Wenn wir uns die Implementierung des service workers anschauen, dann sehen wir, dass wir etwas "old school" unterwegs sind, also so ca. 2017 ;-). Wir sollten anstelle der <code>function()</code>-Notation lieber die <code>Arrow</code>-Notation verwenden, um ein bisschen mehr up-to-date zu sein ;-). Zu Arrow-Notation siehe auch <a href="../hilfen/#arrow-funktionen">Hilfen&rarr;Arrow-Notation</a>. Unsere service worker Implementierung sieht dann so aus:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">/public/src/sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; installing ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; activating ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">claim</span><span class="p">();</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die neuere Notation ändert an der Funktionalität natürlich nichts. </p>
+<h3 id="service-worker-andere-ereignisse-behandeln">Service worker: andere Ereignisse behandeln<a class="headerlink" href="#service-worker-andere-ereignisse-behandeln" title="Permanent link">&para;</a></h3>
+<p>Bis jetzt haben wir nur Life-Cycle-Events behandelt. Jetzt schauen wir uns einmal das <code>fetch</code>-Ereignis an. <a href="./#fetch">Wir wissen bereits</a>, dass das <code>fetch</code>-Ereignis immer dann ausgelöst wird, wenn etwas vom Webserver geladen wird, wenn also CSS-Dateien oder ein Bild oder JavaScript-Dateien geladen werden. Wir behandeln ein solches Ereignis wiederum mit einer einfachen Konsolen-Ausgabe:</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">/public/src/sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; installing ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; activating ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">claim</span><span class="p">();</span>
+<span class="p">})</span>
+
+<span class="hll"><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; fetching ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+</span><span class="hll"><span class="p">})</span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Falls wir in den DevTools unter <code>Application</code>&rarr;<code>Application</code>&rarr;<code>Service Workers</code> das Häkchen bei <code>Update on Reload</code> gesetzt hatten, müssen wir tatsächlich nur ein Reload der Webanwendung durchführen und wir sehen auf der Konsole, dass das <code>fetch</code>-Event selbst für unsere bis jetzt sehr kleine Anwendung recht häufig aufgerufen wird:</p>
+<p><img alt="service worker" src="../files/27_serviceworker.png" /></p>
+<p>Wenn Sie in die jeweiligen <code>FetchEvent</code>-Objekte hineinklicken, welche Ressourcen jeweils per <code>GET</code> vom Webserver geladen werden. </p>
+<h3 id="anwendung-mit-einem-android-gerat-verbinden">Anwendung mit einem Android-Gerät verbinden<a class="headerlink" href="#anwendung-mit-einem-android-gerat-verbinden" title="Permanent link">&para;</a></h3>
+<p>Ich kann es leider (bis jetzt noch) nicht ausprobieren, aber <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/">hier</a> ist beschrieben, wie Sie die Anwendung auf einem Android-Gerät aufrufen können. Nun, da wir service worker verwenden, sollte es funktionieren. Das <a href="https://web.dev/customize-install/">hier</a> mag auch hilfreich sein.</p>
+<h3 id="anwendung-auf-ihrem-iphone-aufrufen">Anwendung auf Ihrem iPhone aufrufen<a class="headerlink" href="#anwendung-auf-ihrem-iphone-aufrufen" title="Permanent link">&para;</a></h3>
+<p>Um die Anwendung auf Ihrem iPhone aufzurufen, müssen Sie sich zunächst nur anschauen, was im Terminal ausgegeben wird, nachdem Sie <code>npm start</code> aufgerufen haben:</p>
+<div class="highlight"><pre><span></span><code>Starting up http-server, serving ./public
+Available on:
+    http://127.0.0.1:8080
+    htpp://192.168.1.24:8080
+Hit CTRL-C to stop the server
+</code></pre></div>
+<p>Rufen Sie in Ihrem iPhone einen Browser auf (z.B. Safari oder Chrome) und geben dort di ezweite der beiden URLs ein (also <code>htpp://192.168.1.24:8080</code>). Die Anwendung wird ausgeführt. iOS unterstützt aber leider (noch) nicht, dass Sie ein Start-Icon dafür auf den Startbildschirm ablegen. </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../manifest/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Manifest" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Manifest
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../promises/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Promises &amp; Fetch" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Promises & Fetch
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

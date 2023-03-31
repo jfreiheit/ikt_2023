@@ -1,0 +1,1716 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/kamera/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Kamera - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geratezugriffe-kamera" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kamera
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Kamera
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Kamera
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anpassung-der-anwendung" class="md-nav__link">
+    Anpassung der Anwendung
+  </a>
+  
+    <nav class="md-nav" aria-label="Anpassung der Anwendung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zunachst-ein-bisschen-mehr-responsive" class="md-nav__link">
+    Zunächst ein bisschen mehr responsive
+  </a>
+  
+    <nav class="md-nav" aria-label="Zunächst ein bisschen mehr responsive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#media-queries" class="md-nav__link">
+    Media Queries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcset-attribut-fur-img" class="md-nav__link">
+    srcset-Attribut für img
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animationen" class="md-nav__link">
+    Animationen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einen-post-an-das-backend-senden" class="md-nav__link">
+    Einen Post an das Backend senden
+  </a>
+  
+    <nav class="md-nav" aria-label="Einen Post an das Backend senden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufnehmen-von-fotos" class="md-nav__link">
+    Aufnehmen von Fotos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kamera-zugriff" class="md-nav__link">
+    Kamera-Zugriff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#das-click-ereignis-des-foto-buttons-behandeln" class="md-nav__link">
+    Das Click-Ereignis des Foto-Buttons behandeln
+  </a>
+  
+    <nav class="md-nav" aria-label="Das Click-Ereignis des Foto-Buttons behandeln">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bild-in-base64-umwandeln" class="md-nav__link">
+    Bild in base64 umwandeln
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-objekt-erzeugen" class="md-nav__link">
+    File-Objekt erzeugen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speichern-des-bildes-im-backend" class="md-nav__link">
+    Speichern des Bildes im Backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bilddatei-hochladen" class="md-nav__link">
+    Bilddatei hochladen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#letzte-verbesserungen" class="md-nav__link">
+    Letzte Verbesserungen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anpassung-der-anwendung" class="md-nav__link">
+    Anpassung der Anwendung
+  </a>
+  
+    <nav class="md-nav" aria-label="Anpassung der Anwendung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zunachst-ein-bisschen-mehr-responsive" class="md-nav__link">
+    Zunächst ein bisschen mehr responsive
+  </a>
+  
+    <nav class="md-nav" aria-label="Zunächst ein bisschen mehr responsive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#media-queries" class="md-nav__link">
+    Media Queries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#srcset-attribut-fur-img" class="md-nav__link">
+    srcset-Attribut für img
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animationen" class="md-nav__link">
+    Animationen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#einen-post-an-das-backend-senden" class="md-nav__link">
+    Einen Post an das Backend senden
+  </a>
+  
+    <nav class="md-nav" aria-label="Einen Post an das Backend senden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufnehmen-von-fotos" class="md-nav__link">
+    Aufnehmen von Fotos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kamera-zugriff" class="md-nav__link">
+    Kamera-Zugriff
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#das-click-ereignis-des-foto-buttons-behandeln" class="md-nav__link">
+    Das Click-Ereignis des Foto-Buttons behandeln
+  </a>
+  
+    <nav class="md-nav" aria-label="Das Click-Ereignis des Foto-Buttons behandeln">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bild-in-base64-umwandeln" class="md-nav__link">
+    Bild in base64 umwandeln
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-objekt-erzeugen" class="md-nav__link">
+    File-Objekt erzeugen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speichern-des-bildes-im-backend" class="md-nav__link">
+    Speichern des Bildes im Backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bilddatei-hochladen" class="md-nav__link">
+    Bilddatei hochladen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#letzte-verbesserungen" class="md-nav__link">
+    Letzte Verbesserungen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/kamera.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="geratezugriffe-kamera">Gerätezugriffe - Kamera<a class="headerlink" href="#geratezugriffe-kamera" title="Permanent link">&para;</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Aktueller Stand vor Gerätezugriffe:</p>
+<ul>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-05">Frontend</a></li>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-BACKEND-01">Backend</a></li>
+<li>Collection <a href="../files/posts.json">post</a></li>
+<li>Collection <a href="../files/posts_files.json">post.files</a></li>
+<li>Collection <a href="../files/posts_chunks.json">post.chunks</a></li>
+</ul>
+</div>
+<p>Nun wollen wir noch auf Geräteschnittstellen zugreifen. Dazu gehören die Kamera und auch die Geolocation-API, um unseren Standort zu ermitteln. Früher war JavaScript eine "SandBox", d.h. JavaScript-Code war vollständig innerhalb des Browsers gekapselt und hatte keinerlei Zugriff nach außen. Das änderte sich mit dem <code>Upload File</code>-Button. JavaScript bekam (sehr eingeschränkten) Zugriff auf das Dateisystem (nur lesend). In der Zwischenzeit hat sich das komplett gewandelt. JavaScript läuft erstens auch auf Servern und hat zweitens über eine Vielzahl von APIs Zugriff auf unterschiedlichste Schnittstellen zum System. Wir wollen hier zunächst betrachten, wie JavaScript auf die Kamera zugreifen kann. Später ermitteln wir auch noch den eigenen Standort. </p>
+<h2 id="anpassung-der-anwendung">Anpassung der Anwendung<a class="headerlink" href="#anpassung-der-anwendung" title="Permanent link">&para;</a></h2>
+<p>Ausgangspunkt ist <a href="https://github.com/jfreiheit/IKT-PWA-05">dieser Stand des Projektes</a>, den wir nach der Einführung von <a href="../indexeddb/#indexeddb">IndexedDB</a> erreicht haben. </p>
+<h3 id="zunachst-ein-bisschen-mehr-responsive">Zunächst ein bisschen mehr responsive<a class="headerlink" href="#zunachst-ein-bisschen-mehr-responsive" title="Permanent link">&para;</a></h3>
+<p>Unser <em>HTW Insta</em> entwickelt sich langsam. Deshalb ist hier vielleicht ein guter Zeitpunkt, um die Anwendung noch etwas mehr <em>responsive</em> zu gestalten. </p>
+<h4 id="media-queries">Media Queries<a class="headerlink" href="#media-queries" title="Permanent link">&para;</a></h4>
+<p>Zum Beispiel sind die <code>Cards</code> stets in fester Größe, unabhängig davon, ob wir die Anwendung am Desktop betrachten oder am Mobilgerät. </p>
+<p>Dazu können wir in unsere <code>feed.css</code> ein paar <em>Media queries</em> einfügen:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">/src/css/feed.css</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">visibility</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">main-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">whiteText</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">floating-button</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">input-section</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">shared-moment-card</span><span class="p">.</span><span class="nc">mdl-card</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">600px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nc">shared-moment-card</span><span class="p">.</span><span class="nc">mdl-card</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">1200px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nc">shared-moment-card</span><span class="p">.</span><span class="nc">mdl-card</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">shared-moment-card</span><span class="w"> </span><span class="p">.</span><span class="nc">mdl-card__title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-height</span><span class="o">:</span><span class="w"> </span><span class="nt">600px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nc">shared-moment-card</span><span class="w"> </span><span class="p">.</span><span class="nc">mdl-card__title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-height</span><span class="o">:</span><span class="w"> </span><span class="nt">1200px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nc">shared-moment-card</span><span class="w"> </span><span class="p">.</span><span class="nc">mdl-card__title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">380</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w">       </span>
+</code></pre></div>
+</div>
+</div>
+<p>Wir haben sowohl für die Viewport-Höhe als auch für die Viewport-Breite zwei <em>Breakpoints</em> eingebaut. Bei jeweils <code>600px</code> bzw. <code>1200px</code> ändern sich die Angaben zur Höhe bzw. Breite der Bilder in den <code>Cards</code>. <strong>Achtung:</strong> In <code>feed.js</code> muss dazu die Zeile </p>
+<div class="highlight"><pre><span></span><code>cardTitle.style.height = &#39;180px&#39;;
+</code></pre></div>
+<p>gelöscht werden! Die Höhe und Breite der Bilder in den <code>Cards</code> passt sich jetzt (besser)  der Viewport-Breite und -Höhe an. Bei den Breiten haben wir sogar %-Angaben verwendet (gut), bei den Höhen nur feste Pixel-Werte (nicht so gut). Sie können gerne damit herumspielen und es an Ihre Bedürfnisse anpassen. Mehr zu Media Queries finden Sie z.B. <a href="https://www.w3schools.com/css/css_rwd_mediaqueries.asp">hier</a> und <a href="">hier</a><a href="https://wiki.selfhtml.org/wiki/CSS/Media_Queries">https://wiki.selfhtml.org/wiki/CSS/Media_Queries</a>.</p>
+<h4 id="srcset-attribut-fur-img">srcset-Attribut für img<a class="headerlink" href="#srcset-attribut-fur-img" title="Permanent link">&para;</a></h4>
+<p>Die Verwendung der Bilder können wir noch auf eine andere Art <em>responsive</em> gestalten. Je nach Viewport-Größe können die Bilder eingebunden werden, deren Auflösung "ausreicht". In dem <code>/public/src/images/</code>-Ordner haben wir für unser Hauptbild oben drei verschiedene Versionen:</p>
+<ul>
+<li><code>htw.jpg</code>, mit der Auflösung <code>898 x 343</code> Pixel,</li>
+<li><code>htw-lg.jpg</code>, mit der Auflösung <code>1199 x 457</code> Pixel und</li>
+<li><code>htw-sm.jpg</code>, mit der Auflösung <code>480 x 183</code> Pixel.</li>
+</ul>
+<p>Es wäre unsinnig, beisielsweise das <code>htw-lg.jp</code> auf einem schmalen Viewport anzuzeigen, da dafür die Auflösung des <code>htw-sm.lpg</code> völlig genügt. Da Letzteres auch noch deutlich kleiner ist (<code>43 KB</code>), als das <code>htw-lg.jpg</code>-Bild (<code>170 KB</code>), ließe sich auch die Ladezeit verringern, wenn für mobile Geräte das kleiner Bild verwendet würde. Auf der anderen Seite sieht dieses Bild aufgrund seiner niedrigen Auflösung in großen Viewports (also am Desktop-Monitor) nicht gut aus. Dort benötigen wir das <code>htw-lg.jpg</code>. Um diesen Wechsel der Bilder je nach Viewport-Größe zu vereinfachen, wurde in HTML5 für das <code>img</code>-Element das Attribut <code>srcset</code> hinzugefügt (siehe z.B. <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">hier</a>  oder <a href="https://html.com/attributes/img-srcset/">hier</a>). In unserer <code>index.html</code> können wir also das Einbinden des <code>img</code>-Elementes wie folgt erweitern:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">/index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;/src/images/htw-lg.jpg 1200w, </span>
+<span class="s">             /src/images/htw.jpg 900w,</span>
+<span class="s">             /src/images/htw-sm.jpg 480w&quot;</span> 
+     <span class="na">src</span><span class="o">=</span><span class="s">&quot;/src/images/htw.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;HTW Wilhelminenhof&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main-image&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Zuvor stand dort einfach nur: <code>&lt;img src="/src/images/htw.jpg" alt="HTW Wilhelminenhof" class="main-image"&gt;</code>. Wir haben also das <code>srcset</code>-Attribut hinzugefügt. Das generelle Template dafür sieht so aus:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">srcset</span><span class="o">=</span><span class="s">&quot;url size, </span>
+<span class="s">             url size,</span>
+<span class="s">             url size&quot;</span> 
+     <span class="na">src</span><span class="o">=</span><span class="s">&quot;default url&quot;</span> <span class="p">&gt;</span>
+</code></pre></div>
+<p>Das heißt, nach den URLs auf die jeweiligen Bilder schreiben wir noch die Größe des Viewports, ab denen die Bilder verwendet werden sollen, also <code>1200w, 900w, 480w</code>. Dabei steht <code>w</code> für <code>width</code>. Möglich wäre auch noch, dass man statt <code>w</code> ein <code>x</code> angibt und dann die Anzahl der Pixel verwendet für die Viewportgröße. Das Laden der unterschiedlichen Images kann in den DeveloperTools unter <code>Network</code> beobachtet werden. </p>
+<h4 id="animationen">Animationen<a class="headerlink" href="#animationen" title="Permanent link">&para;</a></h4>
+<p>Wenn wir auf der Hauptseite auf den <code>+</code>-Button klicken, dann "erscheint" das Formular zur Dateneingabe einfach. Das liegt daran, dass wir in der <code>feed.js</code> bei den Funktionen <code>openCreatePostModal()</code> und <code>closeCreatePostModal()</code> die Sichtbarkeit einfach an- und ausschalten. Wir könnten das aber auch etwas "netter" durch eine Animation gestalten. Dazu verwenden wir <a href="https://developer.mozilla.org/de/docs/Web/CSS/transform-function/translateY()">translateY</a> und <a href="https://developer.mozilla.org/de/docs/Web/CSS/transition">transition</a>. <code>translateY()</code> verschiebt ein Element in <code>y</code>-Richtung (also rauf oder runter) und <code>transition</code> kann eine Zeit übergeben werden, die angibt, wie lange der Wechsel von Werten einer Eigenschaft dauern soll - also eine Animation. </p>
+<p>In der <code>feed.ccs</code> ändern wir für die <code>id=create-post</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="c">/* visibility: hidden; */</span><span class="w"></span>
+</span>
+<span class="hll"><span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translateY</span><span class="p">(</span><span class="mi">100</span><span class="n">vH</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">transform</span><span class="w"> </span><span class="mf">0.3</span><span class="kt">s</span><span class="p">;</span><span class="w"></span>
+</span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>Die Zeile <code>11</code> kann natürlich ganz raus. In der <code>feed.js</code> ändern wir für die beiden Methoden:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">openCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(0)&#39;</span><span class="p">;</span>
+</span><span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">closeCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(100vH)&#39;</span><span class="p">;</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>und danach "slided" das Formular von unten nach oben ein. <code>vH</code> ist eine Einheit in Relation zum Viewport. <code>100vH</code> ist die gesamte Viewporthöhe, <code>1vH</code> ist der 100te Teil der Viewporthöhe (siehe z.B. <a href="https://wiki.selfhtml.org/wiki/CSS/Wertetypen/Zahlen,_Ma%C3%9Fe_und_Ma%C3%9Feinheiten">hier</a>).</p>
+<p>Wir wollen nun die Kamera verwenden, um Bilder aufzunehmen. Außerdem wollen wir einen <code>titel</code> und eine <code>location</code> eingeben können und alles zusammen als Post versenden.  </p>
+<h2 id="einen-post-an-das-backend-senden">Einen Post an das Backend senden<a class="headerlink" href="#einen-post-an-das-backend-senden" title="Permanent link">&para;</a></h2>
+<p>Um die eingegebenen Daten zu senden, wollen wir den <code>Speichern</code>-Button aus der <code>index.html</code> </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent&quot;</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;post-btn&quot;</span><span class="p">&gt;</span>Speichern
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<p>mit der <code>feed.js</code> verbinden. Dazu definieren wir uns zunächst mithilfe von jQuery weitere Variablen für den direkten Zugriff auf Stuerelemente. Wir erweiteren die <code>feed.js</code> um die hervorgehobenen Zeilen:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">shareImageButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#share-image-button&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">createPostArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#create-post&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">closeCreatePostModalButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#close-create-post-modal-btn&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sharedMomentsArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#shared-moments&#39;</span><span class="p">);</span>
+<span class="hll"><span class="kd">let</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">titleInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#title&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">locationInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#location&#39;</span><span class="p">);</span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Nun können wir einfacher auf das <code>submit</code>-Ereignis des <code>Speichern</code>-Buttons reagieren. Wir melden dazu das Formular an den Ereignislistener für das <code>submit</code>-Ereignis in der <code>feed.js</code> an:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir verhindern zunächst das Standardverhalten beim <code>submit</code>-Ereignis, nämlich das Absenden der Daten und das Neuladen der Seite (Zeile <code>80</code>). In Zeile <code>82</code> prüfen wir, ob beide <code>input</code>-Elemente, also sowohl für <code>title</code>, als auch für <code>location</code> einen Wert enthalten. Die JavaScript-<code>trim()</code>-Funktionen entfernt "Leerzeichen" aller Art am Ende des Strings (auch Tabs, Zeilenumbrüche etc.). Sollte eines der beiden (oder beide) Eingabefelder leer sein, beenden wir die Funktion mit einem <code>alert</code> und bleiben in dem Formular. <code>alert</code> ist natürlich nicht so toll, ein <code>toast</code> wäre viel besser, aber wir haben in unserer <code>index.html</code> nur einen <code>toast</code> für das erfolgreiche Speichern vordefiniert. Wenn beide Eingabefelder befüllt sind, wird das Formularfenster verlassen. </p>
+<p>Um die Daten an das Backend zu senden, verwenden wir die <code>fetch()</code>-Funktion und die <code>POST</code>-Methode. Hätten wir nur Textdaten, die wir übertragen wollen, könnten wir ein einfaches JSON senden (und wieder empfangen). Die <code>fetch()</code>-Funktion könnte dann so aussehen:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Beispiel fetch für POST</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Accept&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">body</span><span class="o">:</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
+        <span class="nx">location</span><span class="o">:</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
+        <span class="nx">image_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="p">})</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Data sent to backend ...&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+    <span class="nx">updateUI</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">});</span>
+</code></pre></div>
+</div>
+</div>
+<p>Wir versenden jedoch <code>form-data</code>. Dazu erstellen wir ein <code>FormData</code>-Objekt (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a>). Wir fügen dazu eine Funktion <code>sendDataToBackend()</code> in die <code>feed.js</code> ein und rufen diese für die Behandlung des <code>submit</code>-Ereignisses auf:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sendDataToBackend</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">FormData</span><span class="p">();</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">);</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">);</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;formData&#39;</span><span class="p">,</span> <span class="nx">formData</span><span class="p">)</span>
+
+    <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">formData</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Data sent to backend ...&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">newPost</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+            <span class="nx">location</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span>
+            <span class="nx">image_id</span><span class="o">:</span> <span class="nx">imageURI</span>
+        <span class="p">}</span>
+        <span class="nx">updateUI</span><span class="p">([</span><span class="nx">newPost</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+
+<span class="hll">    <span class="nx">sendDataToBackend</span><span class="p">();</span>
+</span><span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In dieser Funktion werden mehrere Variablen verwendet, die in der <code>feed.js</code> deklariert werden müssen:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">file</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">titleValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">locationValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">imageURI</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir sehen, dass die Werte der Variablen <code>titleValue</code> und <code>locationValue</code> durch das <code>submit</code>-Ereignisses des Eingabeformulars (des <code>Speichern</code>-Buttons) gesetzt werden (siehe oben <code>feed.js</code> Zeilen <code>120</code> und <code>121</code>). Die Werte der Variablen <code>file</code> und <code>imageURI</code> erhalten wir jedoch erst, wenn wir ein Foto mit der Kamera aufnehmen. Das schauen wir uns im Folgenden an:</p>
+<h3 id="aufnehmen-von-fotos">Aufnehmen von Fotos<a class="headerlink" href="#aufnehmen-von-fotos" title="Permanent link">&para;</a></h3>
+<p>In der <code>feed.js</code> haben wir den Wert von <code>image_id</code> zunächst noch leer gelassen. Wir wollen nun die Kamera anbinden und damit ein Foto aufnehmen, das wir mitversenden. Dazu erweiteren wir die Anwendung zunächst, um neben <code>title</code> und <code>location</code> auch noch ein drittes Eingabefeld für die Bilder zu erhalten. </p>
+<p>Dazu erweiteren wir zunächst die <code>public/index.html</code>: </p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">public/index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;create-post&quot;</span><span class="p">&gt;</span>
+<span class="hll">      <span class="p">&lt;</span><span class="nt">video</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;player&quot;</span> <span class="na">autoplay</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</span><span class="hll">      <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;canvas&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;320px&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;240px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+</span><span class="hll">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;capture-btn&quot;</span><span class="p">&gt;</span>Foto<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span class="hll">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;pick-image&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">          <span class="p">&lt;</span><span class="nt">h6</span><span class="p">&gt;</span>Bild auswählen<span class="p">&lt;/</span><span class="nt">h6</span><span class="p">&gt;</span>
+</span><span class="hll">          <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;image/*&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;image-picker&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-section mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-textfield__input&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-textfield__label&quot;</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;title&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>Titel<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-section mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;manual-location&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-textfield__input&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;location&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-textfield__label&quot;</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;location&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;location&quot;</span><span class="p">&gt;</span>Ort<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="cm">&lt;!-- </span>
+<span class="cm">      &lt;div class=&quot;input-section&quot;&gt;</span>
+<span class="cm">        &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored&quot; type=&quot;button&quot; id=&quot;location-btn&quot;&gt;Location&lt;/button&gt;</span>
+<span class="cm">        &lt;div class=&quot;mdl-spinner mdl-js-spinner is-active&quot; id=&quot;location-loader&quot;&gt;&lt;/div&gt;</span>
+<span class="cm">      &lt;/div&gt;</span>
+<span class="cm">      --&gt;</span>
+      <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent&quot;</span>
+                <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;post-btn&quot;</span><span class="p">&gt;</span>Speichern
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--fab&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;close-create-post-modal-btn&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;material-icons&quot;</span><span class="p">&gt;</span>close<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Das <code>&lt;video&gt;</code>- (Zeile <code>67</code>) und das <code>&lt;canvas&gt;</code>-Element (Zeile <code>68</code>) werden verwendet, um mit der Kamera Bilder aufzunehmen, die mit dem <code>&lt;button&gt;</code> (Zeile <code>69</code>) gespeichert werden. Der <code>image-picker</code> (Zeilen <code>70-73</code>) wird benötigt, falls das Gerät über keine Kamera (oder keinen Kamerazugriff) verfügt. Außerdem fügen wir noch eine weitere Eingabesection für die <code>Location</code> hinzu mit einem Button und einem <code>spinner</code>, der anzeigen soll, dass etwas passiert. Diese Eingabesection haben wir aber zunächst auskommentiert, da wir diese erst beim Thema <em>Geo-Location</em> verwenden. </p>
+<p>Wir verwenden die CSS-Klassen und -Ids auch noch, um die Eingabe etwas "schöner" aussehen zu lassen und erweiteren dazu die <code>feed.css</code>:</p>
+<div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">public/src/css/feed.css</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="nb">calc</span><span class="p">(</span><span class="mi">100</span><span class="kt">vh</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">56</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+</span><span class="w">    </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">56</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c">/* visibility: hidden; */</span><span class="w"></span>
+<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translateY</span><span class="p">(</span><span class="mi">100</span><span class="n">vH</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">transform</span><span class="w"> </span><span class="mf">0.3</span><span class="kt">s</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="hll"><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="nt">video</span><span class="o">,</span><span class="w"> </span><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="nt">canvas</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="p">}</span><span class="w"></span>
+</span>
+<span class="hll"><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">#</span><span class="nn">pick-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="p">}</span><span class="w"></span>
+</span>
+<span class="hll"><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">#</span><span class="nn">capture-btn</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="p">}</span><span class="w"></span>
+</span>
+<span class="hll"><span class="p">.</span><span class="nc">mdl-spinner</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="p">}</span><span class="w"></span>
+</span>
+<span class="c">/* hier der Rest */</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die CSS-Definitionen sorgen insbesondere dafür, dass das Video- , Canvas- und File-Picker-Element zunächst versteckt ist. </p>
+<p>Wir wollen uns zunächst darum kümmern, ein Live-Bild der Kamera in das Canvas-Element zu integrieren, d.h. wir kümmern uns zunächst um den Kamerazugriff. </p>
+<h3 id="kamera-zugriff">Kamera-Zugriff<a class="headerlink" href="#kamera-zugriff" title="Permanent link">&para;</a></h3>
+<p>Für den Kamerazugriff benötigen wir etwas JavaScript-Code. Wir erweitern die <code>feed.js</code>. Zunächst vereinfachen wir die Zugriffe auf die einzelnen Elemente und fügen eine Funktion hinzu, mit der wir den Zugriff auf die Kamera prüfen und herstellen wollen:</p>
+<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">shareImageButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#share-image-button&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">createPostArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#create-post&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">closeCreatePostModalButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#close-create-post-modal-btn&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sharedMomentsArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#shared-moments&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">titleInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#title&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">locationInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#location&#39;</span><span class="p">);</span>
+<span class="hll"><span class="kd">let</span> <span class="nx">videoPlayer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#player&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">canvasElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#canvas&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">captureButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#capture-btn&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">imagePicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#image-picker&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">imagePickerArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#pick-image&#39;</span><span class="p">);</span>
+</span><span class="kd">let</span> <span class="nx">file</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">titleValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">locationValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">imageURI</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="hll"><span class="kd">function</span> <span class="nx">initializeMedia</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kd">function</span> <span class="nx">openCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(0)&#39;</span><span class="p">;</span>
+<span class="hll">    <span class="nx">initializeMedia</span><span class="p">();</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In der neuen Funktion <code>initializeMedia()</code> wollen wir die <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices">MediaDevices</a>-API verwenden. Ein Blick in die <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices">Dokumentation</a> dieser API zeigt, dass die Browser-Unterstützung noch nicht besonders gut ist, zumindest für einige der Methoden darin. Wir wollen aber insbesondere die <code>getUserMedia()</code>-Funktion verwenden und dafür ist die Browser-Unterstützung wiederum doch <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia">sehr gut</a> (Chrom, Firefox, Edge und alle mobilen Geräte). </p>
+<p>Für den Fall, dass die <code>MediaDevices</code>-API nicht unterstützt werden, erstellen wir uns im <code>navigator</code> ein eigenes <code>mediaDevices</code>-Objekt und prüfen, ob die <code>getUserMedia()</code>-Funktion unterstützt wird. Wenn dies nicht der Fall ist, erstellen wir uns für das neue <code>mediaDevices</code>-Objekt eine neue Eigenschaft <code>getUserDevices</code> und definieren es als eine Funktion. Diese Funktion nutzt dann <em>alte</em> Funktionen, die in den jeweiligen Browsern angeboten wurden (und werden). Wie gesagt, das ist nur ein <em>Fallback</em> für den Fall, dass ein Browser verwendet wird, der die <code>getUserMedia()</code>-Funktion in der <code>MediaDevices</code>-API <strong>nicht</strong> unterstützt (was, wie wir oben erläutert haben, nur noch selten der Fall ist). Wir erweitern für diesen seltenen Fall die <code>initializeMedia()</code>-Funktion:  </p>
+<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">initializeMedia</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;mediaDevices&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;getUserMedia&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">constraints</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">getUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mozGetUserMedia</span><span class="p">;</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">getUserMedia</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;getUserMedia is not implemented&#39;</span><span class="p">));</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">(</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">getUserMedia</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">navigator</span><span class="p">,</span> <span class="nx">constraints</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wenn also die <code>MediaDevices</code>-API nicht unterstützt wird (Zeile <code>15</code>), dann erstellen wir einen eigenes <code>MediaDevices</code>-Objekt (Zeile <code>16</code>). Für dieses eigene <code>MediaDevices</code>-Objekt erstellen wir eine <code>getUserMedia()</code>-Funktion (Zeile <code>20</code>). Diese Funktion gibt eine <code>Promise</code> zurück. Entweder, eine Promise mit dem Zustand <code>rejected</code> (Zeile <code>24</code>), nämlich genau dann, wenn der Browser auch nicht die <em>alten</em> Funktionen <code>webkitUserMedia</code> und <code>mozGetUserMedia</code> unterstützt. Dann können wir wirklich nichts mehr machen. Oder die Promise verwendet eine der beiden Funktionen und gibt die Promise nach Anwendung zurück - kann natürlich trotzdem noch sein, dass sie <code>rejected</code> wird, aber vielleicht auch <code>resolved</code>. Jedenfalls bezieht sich dieser gesamte Code auf den Fall, dass <code>getUserMedia()</code> in <code>navigator.mediaDevices</code> nicht unterstützt wird. Es handelt sich bei diesem Code um ein sogenanntes <a href="https://developer.mozilla.org/de/docs/Glossary/Polyfill">Polyfill</a>.</p>
+<p>Wir kümmern uns jetzt darum, tatsächlich Zugriff zur Kamera zu bekommen. Das kann nun entweder über die <em>moderne</em> <code>getUserMedia()</code>-Funktion aus <code>navigator.mediaDevices</code> geschehen oder über das <em>Polyfill</em> unter Verwendung von <code>webkitGetUserMedia()</code> oder <code>mozGetUserMedia()</code>. Nur für den Fall, dass wir keinen Zugriff auf die Kamera erhalten, wollen wir den <code>File-Picker</code> verwenden, um eine Bilddatei hochzuladen. </p>
+<div class="tabbed-set" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">initializeMedia</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;mediaDevices&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;getUserMedia&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">.</span><span class="nx">getUserMedia</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">constraints</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">getUserMedia</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">webkitGetUserMedia</span> <span class="o">||</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">mozGetUserMedia</span><span class="p">;</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">getUserMedia</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="ow">new</span> <span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;getUserMedia is not implemented&#39;</span><span class="p">));</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">(</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">getUserMedia</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">navigator</span><span class="p">,</span> <span class="nx">constraints</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">({</span><span class="nx">video</span><span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+</span><span class="hll">        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">stream</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">srcObject</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">;</span>
+</span><span class="hll">            <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">})</span>
+</span><span class="hll">        <span class="p">.</span><span class="k">catch</span><span class="p">(</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">imagePickerArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">});</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Ab Zeile <code>32</code> können wir auf jeden Fall auf die <code>getUserMedia()</code>-Funktion zugreifen und genau das tun wir auch in Zeile <code>33</code>. Dieser Funktion wird ein JavaScript-Objekt übergeben. Dieses Objekt hat zwei Eigenschaften: <code>video</code> und <code>audio</code>. Beide sind auf <code>false</code> gesetzt, wir können sie jedoch mit <code>true</code> einschalten und erledigen das für <code>video</code> ebefalls in Zeile <code>33</code>. Diese Funktion gibt eine <code>promise</code> zurück. Im <code>resolve</code>-Fall erhalten wir einen Video- und/oder Audio-<code>Stream</code>. Wir verwenden diesen <code>stream</code> als Quelle für unseren Videplayer (der aufgrund der Funktion <code>autoplay</code> den Stream sofort anzeigt). Wir setzen dafür den Videoplayer auf sichtbar - <code>display: 'block'</code>. </p>
+<p>Der <code>reject</code>-Fall der Promise kann verschiedene Gründe haben. Ein Grund wäre, wie oben erläutert, dass wir selbst mit dem <em>Polyfill</em> keinen Zugriff auf die Kamera bekommen. Ein anderer wäre, dass unser Gerät gar nicht mit einer Kamera verbunden ist und ein dritter Fall wäre, dass der Zugriff auf die Kamera von der Nutzerin blockiert wird. Wenn die <code>getUserMedia()</code>-Funktion das erste Mal aufgerufen wird, erfolgt eine Abfrage, ob der Zugriff auf die Kamera zugelassen oder blockiert wird:</p>
+<p><img alt="devices" src="../files/82_devices.png" /></p>
+<p>Die Entscheidung lässt sich auch nachträglich ändern, indem man auf das <code>i</code> links neben der URL klickt. Wenn Sie die Anwendung ausführen und den Zugriff auf die Kamera erlauben, wird das Video sofort angezeigt.</p>
+<p><img alt="devices" src="../files/83_devices.png" /></p>
+<p>Wird die Promise <code>rejected</code>, soll die gesamte <code>imagePickerArea</code> (wieder) auf <code>display: 'block'</code> gesetzt werden. In der Funktion <code>closeCreatePostModal()</code> setzen wir die Video- und File-Picker-Elemente ebenaflls alle (wieder) auf <code>display: 'block'</code>. </p>
+<div class="tabbed-set" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">closeCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(100vH)&#39;</span><span class="p">;</span>
+<span class="hll">    <span class="nx">imagePickerArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class="hll">    <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class="hll">    <span class="nx">canvasElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wird der Zugriff auf die Kamera blockiert, wird stattdessen der File-Picker angezeigt: </p>
+<p><img alt="devices" src="../files/84_devices.png" /></p>
+<h3 id="das-click-ereignis-des-foto-buttons-behandeln">Das Click-Ereignis des Foto-Buttons behandeln<a class="headerlink" href="#das-click-ereignis-des-foto-buttons-behandeln" title="Permanent link">&para;</a></h3>
+<p>Nun wollen wir den <code>Foto</code>-Button implementieren, damit wir ein Foto von dem Kamerastream erzeugen können. Dazu implementieren wir für diesen Button die Behandlung des <code>click</code>-Ereignisses:</p>
+<div class="tabbed-set" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><label for="__tabbed_14_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">captureButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+    <span class="nx">canvasElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+    <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">captureButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvasElement</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">videoPlayer</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">videoHeight</span> <span class="o">/</span> <span class="p">(</span><span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">videoWidth</span> <span class="o">/</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">));</span>
+    <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">srcObject</span><span class="p">.</span><span class="nx">getVideoTracks</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">track</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">track</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="nx">imageURI</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/jpg&quot;</span><span class="p">);</span>
+    <span class="c1">// console.log(&#39;imageURI&#39;, imageURI)       // base64-String des Bildes</span>
+
+    <span class="nx">fetch</span><span class="p">(</span><span class="nx">imageURI</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">blob</span><span class="p">()</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">blob</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">file</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">File</span><span class="p">([</span><span class="nx">blob</span><span class="p">],</span> <span class="s2">&quot;myFile.jpg&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;image/jpg&quot;</span> <span class="p">})</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Grundidee dabei ist die, dass wir das ktuelle Bild des <code>videoPlayers</code> in unser <code>canvasElement</code> einfügen, das <code>canvasElement</code> sichtbar gestalten, den <code>videoPlayer</code> unsichtbar (und den Button dann auch gleich noch) und außerdem den Videoplayer stoppen. </p>
+<p>Das <code>Canvas</code>-Element verfügt über einen Grafikkontext, den wir in Zeile <code>48</code> als <code>2d</code> auswählen. Siehe dazu auch <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext()</a>. Für diesen <code>context</code> rufen wir die <code>drawImage()</code>-Funktion auf (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage">CanvasRenderingContext2D.drawImage()</a>). </p>
+<ul>
+<li>der erste Parameter der <code>drawImage()</code>-Funktion ist das Bild. Wir übergeben dazu den <code>videoPlayer</code>. </li>
+<li>der zweite und dritte Parameter ist die Koordinate des linken oberen Punktes innerhalb des Canvas-Elementes, hier <code>x=0</code> und <code>y= 0</code>.</li>
+<li>der dritte Parameter gibt die Breite des Bildes an. Wir nehmen hier die gesamte Breite des Canvas-Elementes.</li>
+<li>der vierte Parameter gibt die Höhe des Bildes an. Da wir der Breite einen festen Wert zugewiesen haben (die Canvas-Breite), müssen wir die Höhe in Abhängigkeit der Relation des Videos berechnen. </li>
+</ul>
+<p>Wenn wir dieses Bild erstellt haben, können wir den Videoplayer stoppen. Die Funktion <code>getVideoTracks()</code> gibt ein Array allerlaufenden Streams auf der Webseite zurück. Wir laufen durch dieses Array mithilfe der <code>forEach</code>-Schleife (Zeile <code>50</code>) und stoppen alle laufenden Streams (Zeile <code>51</code>). </p>
+<p>Wenn wir nun den <code>Foto</code>-Button klicken, sehen wir das (Stand-)Bild im <code>canvasElement</code>, der <code>videoPlayer</code> und der Button sind unsichtbar und der <code>videoPlayer</code> ist gestoppt. </p>
+<h4 id="bild-in-base64-umwandeln">Bild in base64 umwandeln<a class="headerlink" href="#bild-in-base64-umwandeln" title="Permanent link">&para;</a></h4>
+<p>Das <code>canvas</code>-Element (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement">HTMLCanvasElement</a> aus der <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas-API</a>) besitzt eine Funktion <code>toDataURL()</code>, die ein Bild im angegebenen Format zurückgibt (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL">HTMLCanvasElement.toDataURL()</a>). Wir geben an, dass das Bild im <code>image/jpg</code>-Format zurückgegeben werden soll (siehe Zeile <code>53</code>). Es wird ein <code>base64</code>-String erzeugt, den wir in der globalen Variablen <code>imageURI</code> speichern. </p>
+<h4 id="file-objekt-erzeugen">File-Objekt erzeugen<a class="headerlink" href="#file-objekt-erzeugen" title="Permanent link">&para;</a></h4>
+<p>Wir verfügen nun über eine <code>Data-URL</code> (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs">Data URLs</a>) unseres Bildes. Mit dieser <code>Data-URL</code> können wir mithilfe der <code>fetch()</code>-Funktion ein <code>File</code>-Objekt erzeugen. Wir weisen unserem <code>File</code>-Objekt den Dateinamen <code>myFile.jpg</code> zu. Die Referenz auf dieses <code>File</code>-Objekt speichern wir in der globalen Variablen <code>file</code> (siehe Zeilen <code>56-63</code>). </p>
+<h3 id="speichern-des-bildes-im-backend">Speichern des Bildes im Backend<a class="headerlink" href="#speichern-des-bildes-im-backend" title="Permanent link">&para;</a></h3>
+<p>Nun können wir bereits Fotos aufnehmen und diese speichern. Wenn wir nun die Funktion <code>sendDataToBackend()</code> aufrufen, werden die <code>title</code>-, <code>location</code>- und <code>file</code>-Werte als <code>FormData</code> an das Backend gesendet. Schauen wir uns dazu die <code>sendDataToBackend()</code>-Funktion nochmals genauer an:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sendDataToBackend</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">FormData</span><span class="p">();</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">);</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">);</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;formData&#39;</span><span class="p">,</span> <span class="nx">formData</span><span class="p">)</span>
+
+    <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">formData</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Data sent to backend ...&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">newPost</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+            <span class="nx">location</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span>
+            <span class="nx">image_id</span><span class="o">:</span> <span class="nx">imageURI</span>
+        <span class="p">}</span>
+        <span class="nx">updateUI</span><span class="p">([</span><span class="nx">newPost</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mithilfe der <code>fetch()</code>-Funktion werden die <code>formData</code> an das Backend gesendet. Wir erhalten den neu angelegten Datensatz zurück, z.B.:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Eingang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tor WH&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;image_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1652973765918-jf-htwbild4.jpg&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;628660c55619a5a107acb19d&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;__v&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Wir wollen den neuen Post sofort in unserer Anwendung anzeigen. Dazu rufen wir die <code>updateUI()</code>-Funktion auf und übergeben den neuen Datensatz als Array (die Funktion <code>updateUI()</code> erwartet ein Array). Allerdings erwarten wir ja eigentlich für die Eigenschaft <code>image_id</code> einen <code>base64</code>-String. Allerdings gibt uns die POST-Anfrage an das Backend nicht diesen String zurück, sondern den Dateinamen des Bildes in der Datenbank. Dazu haben wir uns aber den <code>base64</code>-String in <code>imageURI</code> gespeichert und verwenden ihn nun bei dem Datensatz, der an die <code>updateUI()</code>-Funktion übergeben wird. </p>
+<p>Das war es schon, wir können nun die Daten an das Backend senden. Zum Testen nehmen Sie ein Foto auf, geben einen Titel und eine Location ein und klicken den <code>Speichern</code>-Button. Dann landnet - hoffentlich - alles im Backend. </p>
+<p>Für den Fall, dass die Kamera nicht zur Verfügung steht oder die <code>MediaDevices</code>-API oder der Kamerazugriff blockiert wurde, muss das Hochladen einer Bilddatei über das <code>input</code>-Element vom Typ <code>file</code> implementiert werden. Dazu wird das <code>change</code>-Event des <code>Upload</code>-Buttons behandelt:</p>
+<h3 id="bilddatei-hochladen">Bilddatei hochladen<a class="headerlink" href="#bilddatei-hochladen" title="Permanent link">&para;</a></h3>
+<p>Das Hochladen einer Bilddatei kennen wir ja bereits von unserem anderen Frontend. Hier ist nun auch schon alles vorbereitet und wir müssen in der <code>feed.js</code> nur noch das <code>change</code>-Event für den <code>upload</code>-Button behandeln. Das sieht im Prinzip genau so aus, wie die Umwandlung des Canvas-Bildes, nur dass <code>picture</code> hier die hochgeladene Datei ist: </p>
+<div class="tabbed-set" data-tabs="15:1"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><label for="__tabbed_15_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">imagePicker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">file</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h3 id="letzte-verbesserungen">Letzte Verbesserungen<a class="headerlink" href="#letzte-verbesserungen" title="Permanent link">&para;</a></h3>
+<p>Ein Nachteil in unserer Anwendung ist noch, dass die Kamera die ganze Zeit läuft, wenn wir einmal den modalen Dialog zur Eingabe von daten geöffnet hatten. Wir sollten sie beim Ausschalten des modalen Dialoges schließen. Das Stoppen aller Videostreams hatten wir bereits für die Aufnahme des Fotos gemacht. Weil jedoch das Schließen und erneutes Öffnen der Kamera sehr ressourcenverbrauchend ist, laufen die Animationen für das Öffnen und Schließen des modalen Dialogs nicht mehr flüssig. Wir lagern diese Animationen deshalb in einen asynchronen "Thread" aus (ist nicht wirklich ein neuer Thread): </p>
+<div class="tabbed-set" data-tabs="16:1"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><label for="__tabbed_16_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">openCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(0)&#39;</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">},</span> <span class="mf">1</span><span class="p">);</span>
+</span>    <span class="nx">initializeMedia</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">closeCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">imagePickerArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">canvasElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">srcObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">srcObject</span><span class="p">.</span><span class="nx">getVideoTracks</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">track</span> <span class="p">=&gt;</span> <span class="nx">track</span><span class="p">.</span><span class="nx">stop</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="hll">    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(100vH)&#39;</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">},</span> <span class="mf">1</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Mithilfe des <code>timeout</code>-"Tricks" wird der modale Dialog fließend geschlossen und das Kamerazeichen im Tab des Browsers schließt asynchron etwas später. </p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir können nun Fotos mit der Kamera aufnehmen und die Bilder als Post an das Backend senden, wo es in die Datenbank gespeichert wird!</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../indexeddb/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: IndexedDB" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              IndexedDB
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../geolocation/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Geolocation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Geolocation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

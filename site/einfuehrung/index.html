@@ -1,0 +1,1273 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/einfuehrung/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Einführung - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#einfuhrung" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Einführung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Einführung
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Einführung
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#webanwendungen-vs-native-apps" class="md-nav__link">
+    Webanwendungen vs. native Apps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-und-videos" class="md-nav__link">
+    Links und Videos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwas-vs-spas" class="md-nav__link">
+    PWAs vs. SPAs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lighthouse" class="md-nav__link">
+    Lighthouse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwa-checklist" class="md-nav__link">
+    PWA Checklist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstes-kleines-beispiel" class="md-nav__link">
+    Erstes kleines Beispiel
+  </a>
+  
+    <nav class="md-nav" aria-label="Erstes kleines Beispiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installierbar" class="md-nav__link">
+    Installierbar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#webanwendungen-vs-native-apps" class="md-nav__link">
+    Webanwendungen vs. native Apps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-und-videos" class="md-nav__link">
+    Links und Videos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwas-vs-spas" class="md-nav__link">
+    PWAs vs. SPAs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lighthouse" class="md-nav__link">
+    Lighthouse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwa-checklist" class="md-nav__link">
+    PWA Checklist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstes-kleines-beispiel" class="md-nav__link">
+    Erstes kleines Beispiel
+  </a>
+  
+    <nav class="md-nav" aria-label="Erstes kleines Beispiel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installierbar" class="md-nav__link">
+    Installierbar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/einfuehrung.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="einfuhrung">Einführung<a class="headerlink" href="#einfuhrung" title="Permanent link">&para;</a></h1>
+<p>In diesem Semester geht es um <strong>Progressive Web Apps (PWA)</strong>. PWA sind Funktionen, die wir Webanwendungen hinzufügen können, um sie in ihrer Funktionalität zu erweitern. Die so werweiterten Webanwendungen kommen mit solchen Funktionen nativen Apps immer näher, d.h. das <em>Look and Feel</em> gleicht sich mit PWAs nativen Apps an. Dazu gehören Funktionalitäten, wie z.B. </p>
+<ul>
+<li>die Möglichkeit, die Webanwendung auch offline zu verwenden,</li>
+<li>die Kamera zu nutzen, </li>
+<li>den eigenen Standort zu verwenden, </li>
+<li>Daten im Hintergrund zu synchronisieren. </li>
+</ul>
+<p>Das bedeutet aber nicht automatisch, dass wir ausschließlich auf moderne Browser angewiesen sind, die diese Funktionalitäten von PWAs unterstützen. Die Webanwendungen sollen auch weiterhin auf alten Webbrowsern laufen, dann jedoch eventuell ohne einige oder alle PWA-Funktionalitäten. </p>
+<p>Progressive Web Apps müssen </p>
+<ul>
+<li><strong>zuverlässig</strong> (<em>reliable</em>) sein, d.h. sie müssen schnelle Ladezeiten aufweisen und sogar (teilweise) offline funktionieren, </li>
+<li><strong>schnell</strong> sein, d.h. schnell auf Nutzerinteraktionen reagieren, </li>
+<li><strong>motivierend</strong> sein, die Webanwendung zu verwenden, d.h. einerseits intuitiv bedienbar und anderseits, z.B. über Push-Notifikationen, die Nutzerinnen animieren, die App zu nutzen.</li>
+</ul>
+<p>Die prinzipielle Idee einer Progressive Web App lässt sich vereinfacht durch die folgenden Abbildung veranschaulichen:</p>
+<p><img alt="pwa" src="../files/01_pwa.png" /></p>
+<p>Eine Progressive Web App ist eine Webanwendung, die sich wie eine native mobile App verhält. </p>
+<h2 id="webanwendungen-vs-native-apps">Webanwendungen vs. native Apps<a class="headerlink" href="#webanwendungen-vs-native-apps" title="Permanent link">&para;</a></h2>
+<p>Die meisten Nutzerinnen verwenden die meiste Zeit native Apps auf ihrem Smartphone. Nur zu einem geringen Prozentsatz werden Web-Anwendungen (also der Browser) auf dem Smartphone verwendet. Das spricht eigentlich eher dafür, dass wir uns mit der Entwicklung nativer Apps beschäftigen sollten, als mit der Entwicklung von (mobilen) Webanwendungen. Die vorrangige Verwendung nativer Apps hat mehrere Gründe:</p>
+<ul>
+<li><strong>Push-Notifikationen</strong>: Native Apps laufen im Hintergrund und die Nutzerinnen werden über Push-Notifikationen informiert, wenn etwas Neues passiert ist, z.B. neue Nachrichten , E-Mails, etc. Man muss also gar nicht aktiv die native App bedienen, um über Aktuelles informiert zu werden. </li>
+<li><strong>App-Icons auf dem Home-Bildschirm</strong>: ermöglichen einen schnellen, direkten Zugang zu den Apps. </li>
+<li><strong>Gerätefunktionen</strong>: wie z.B. Standortermittlung, Kameras und Mikrofine können leicht in native Apps eingebaut werden. Für Webanwendungen ist dies nur aufwändig möglich. </li>
+<li><strong>Offline-Funktionalitäten</strong>: viele native Apps können auch offline ganz oder teilweise verwendet werden, z.B. Spiele oder Musikapps, die heruntergeladene Musik abspielen. </li>
+</ul>
+<p>App-Icons auf dem Home-Bildschirm können wir auch für Links auf unsere Webanwendung erstellen und die anderen drei Argumente wollen wir ja genau mit Progressive Web Apps zunichte machen. Das heißt, mit Progressive Web Apps kommen die Vorteile nativer Apps im Vergleich zu Webanwendungen nicht mehr zum Tragen. </p>
+<p>Demgegenüber stahen zwei Gründe, warum Webanwendungen besser sind als native Apps:</p>
+<ul>
+<li>Native Apps müssen sowohl für iOS als auch für Android erstellt werden, um eine möglichst große Nutzerinnenzahl anzusprechen. Dazu müssen auch unterschiedliche programmiersprachen verwendet werden (Swift für iOS und Java/Kotlin für Android). Zwar versuchen Hybride Tools diesen Nachteil zu umgehen, aber es gelingt nicht wirklich. </li>
+<li>Es werden so gut wie nie neue native Apps auf Smartphones geladen. Umfragen ergeben, dass Nutzerinnen die allermeiste Zeit am Smartphone mit höchstens drei Apps verbringen. Alle weiteren Apps werden am Anfang der Nutzung installiert. Es kommen im Laufe eines "Smartphone-Lebens" kaum welche hinzu. Die durchschnittliche Anzahl neuhinzugefügter Apps im Monat liegt bei nahe 0. </li>
+</ul>
+<p>Die Verwendung von Webanwendungen ist deutlich einfacher. Man muss nichts installieren. Man googlet einfach und öffnet dann die Seite. Die Bandbreite aller Webanwendungen ist deutlich schneller erreichbar als eine große Anzahl an nativen Apps. Die Reichweite einer Webanwendung ist deutlich größer als die Reichweite einer nativen App. </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Funktionalitäten</th>
+<th> Nutzerinnen-Reichweite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>native App</td>
+<td>Zugriff auf Gerätefunktionalitäten</td>
+<td>nur sehr wenige Apps werden von sehr vielen Nutzerinnen die meiste Zeit verwendet</td>
+</tr>
+<tr>
+<td>herkömmliche Webanwendungen</td>
+<td>sehr eingeschränkter (gar kein) Zugriff auf Gerätefunktionalitäten</td>
+<td>hohe Reichweite, sehr einfacher Zugang</td>
+</tr>
+<tr>
+<td>progressive Webanwendungen</td>
+<td>Zugriff auf Gerätefunktionalitäten</td>
+<td>hohe Reichweite, sehr einfacher Zugang</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links-und-videos">Links und Videos<a class="headerlink" href="#links-und-videos" title="Permanent link">&para;</a></h2>
+<p>Hier zwei kurze Einführungsvideos zu PWAs:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=sFsRylCQblw">Progressive Web Apps in 100 Seconds</a></li>
+<li><a href="https://www.youtube.com/watch?v=z2JgN6Ae-Bo">Progressive Web Apps - PWA Roadshow</a></li>
+</ul>
+<p>Hier einige intressante Links zu PWAs:</p>
+<ul>
+<li><a href="https://web.dev/learn/pwa/">Learn PWA</a></li>
+<li><a href="https://www.ionos.de/digitalguide/websites/web-entwicklung/progressive-web-apps-welche-vorteile-bieten-sie/">Progressive Web-Apps: Was versprechen die progressiven Apps?</a></li>
+<li><a href="https://pwa.bar/">Online Verzeichnis PWAs</a></li>
+</ul>
+<h2 id="pwas-vs-spas">PWAs vs. SPAs<a class="headerlink" href="#pwas-vs-spas" title="Permanent link">&para;</a></h2>
+<p>Wir haben noch immer nicht unsere erste Progressive Web App erstellt ;-(. Bevor wir das tun, diskutieren wie zunächst noch die Unterschiede zwischen einer <em>Progressive Web App</em> und einer <em>Single Page Application</em>, wie wir sie im WebTech-Kurs erstellt haben. </p>
+<p><em>Single Page Applications (SPAs)</em> sind Webanwendungen, die mit JavaScript erstellt werden, typischerweise mit einem JavaScript-Framewaork, wie <a href="https://angular.io/">Angular</a>, <a href="https://reactjs.org/">React</a> oder <a href="https://vuejs.org/">Vue.js</a>. In SPAs wird das DOM ständig neu gerendert, welches sich durch Nutzereingaben oder Lifecycle-Events ändert. Das Grundgerüst einer SPA besteht aus genau einer <code>HTML</code>-Seite (typischerweise <code>index.html</code>), in die verschiedene Komponenten eingebunden wird. Eine Single Page Application ist vornehmlich hoch <em>reaktiv</em> auf Nutzereingaben, im Sinne von schneller Reaktion. </p>
+<p><em>Progressive Web Applications (PWAs)</em> sind eine Sammlung verschiedener Technologien. Es ist völlig egal, ob diese Technologien in eine Single Page Application eingebunden werden oder in eine "herkömmliche" (Multi-Page-) Webanwendung. Die Idee einer PWA ist, dass sie hoch <em>reaktiv</em> im Sinne ständiger Verfügbarkeit ist. JavaScript spielt bei PWAs nicht die dominate Rolle, wie bei SPAs. Sie können eine oder mehrere <em>progressive</em> Funktionalitäten existierender Webanwendungen hinzufügen (service worker, caching, push notifivcations, ...) oder eine PWA von Grund auf neu implementieren. </p>
+<h2 id="lighthouse">Lighthouse<a class="headerlink" href="#lighthouse" title="Permanent link">&para;</a></h2>
+<p><a href="../tools/#lighthouse">Lighthouse</a> ist ein Plugin für die Developertools von Chrome, mit dessen Hilfe gemessen werden kann, wie <em>progressive</em> eine Webanwendung ist. Die folgende Abbildung zeigt den Einsatz von Lighthouse für die PWA <a href="https://2048.love2dev.com/">https://2048.love2dev.com/</a> - ein Spiel, das Sie wahrscheinlich kennen. </p>
+<p><img alt="lighthouse" src="../files/02_pwaexample.png" /></p>
+<p>Wechseln Sie in den Developertools auf die mobile Ansicht. Wählen Sie dann im Reiter <code>Lighthouse</code> die Analyse. Probieren Sie auch mal aus, die Anwendung im Offline-Modus zu verwenden. Wechseln Sie dazu in den Developertools auf den Reiter <code>Network</code> und dort in der Auswahlliste auf <code>Offline</code>. Selbst wenn Sie <code>Disable Cache</code> anklicken, werden Sie feststellen, dass sich das Spiel noch spielen lässt. Viel Spaß! ;-)</p>
+<h2 id="pwa-checklist">PWA Checklist<a class="headerlink" href="#pwa-checklist" title="Permanent link">&para;</a></h2>
+<p>Im Lighthouse-Plugin finden Sie auch einen Link zur <strong>PWA Checklist</strong>. Diese Checklist wird verwendet, um zu beurteilen, wie <em>progressive</em> eine Webanwendung ist. Eine gute Übersicht finden Sie auch <a href="https://web.dev/pwa-checklist/">hier</a>.</p>
+<h2 id="erstes-kleines-beispiel">Erstes kleines Beispiel<a class="headerlink" href="#erstes-kleines-beispiel" title="Permanent link">&para;</a></h2>
+<p>Wir erstellen uns in einem Ordner eine <code>index.html</code> mit </p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">index.html</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;favicon.ico&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/x-icon&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- muss nicht --&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>IKT Start<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Willkommen zu den Aktuellen Trends der IKT<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Wir beschäftigen uns mit <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Progressive Web Apps (PWA)<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>. 
+        Ein wesentlicher Bestandteil von PWAs sind <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Service Worker<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+<p>Einen großen Teil unserer Untersuchungen in diesem Modul nehmen <a href="https://developer.mozilla.org/en-US/docs/Web/API">Web APIs</a> ein. Wir werden einige von Ihnen näher beleuchten. </p>
+<p>Das zentrale Konzept von <em>PWAs</em> sind <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/serviceWorker">ServiceWorker</a>. Wir erstellen uns in unserem Ordner eine Datei <code>service-worker.js</code> und binden diese in unsere <code>index.html</code> ein:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;favicon.ico&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/x-icon&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- muss nicht --&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>IKT Start<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Willkommen zu den Aktuellen Trends der IKT<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Wir beschäftigen uns mit <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Progressive Web Apps (PWA)<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>. 
+        Ein wesentlicher Bestandteil von PWAs sind <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Service Worker<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll">        <span class="c1">// Check that service workers are supported</span>
+</span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// Use the window load event to keep the page load performant</span>
+</span><span class="hll">        <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/service-worker.js&#39;</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">});</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In die <code>service-worker.js</code> schreiben wir zunächst nur</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">service-worker.js</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</div>
+<p>Wir starten die Anwendung (z.B. mit <code>npx serve</code>) und schalten die Entwicklertools ein. Auf der Konsole erscheint <code>service worker registriert</code>. Wir wechseln nach <code>Application --&gt; Service Worker</code> und sehen den aktiven <code>service-worker.js</code>. Wenn wir die Anwendung im Browser erneut laden, erscheint die Ausgabe nicht erneut. Wir ändern den Service worker, z.B. auf <code>console.log('neuer service worker registriert</code>) und laden die Anwendung erneut. Die Ausgabe erscheint. Wechseln sie erneut nach <code>Application --&gt; Service Worker</code>. </p>
+<p>Der Service worker läuft auch dann noch, wenn die Anwendung geschlossen ist!</p>
+<h3 id="installierbar">Installierbar<a class="headerlink" href="#installierbar" title="Permanent link">&para;</a></h3>
+<p>Wenn wir unter <a href="../tools/#lighthouse">Lighthouse</a> einen Report generieren, dann sieht es zwar prinzipiell schon ganz gut aus, es handelt sich aber auch noch nicht um eine PWA, da sie (noch) nicht installierbar ist. </p>
+<p><img alt="einfuehrung" src="../files/03_einfuehrung.png" /></p>
+<p>Wir werden nächste Woche damit beginnen, unsere App installierbar zu machen. Hier "verraten" wir aber bereits, dass wir dazu eine <code>manifest.json</code> benötigen. Diese erstellen wir und binden sie in die <code>index.html</code> ein:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;favicon.ico&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/x-icon&quot;</span> <span class="p">/&gt;</span> <span class="cm">&lt;!-- muss nicht --&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;manifest&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;manifest.json&quot;</span><span class="p">&gt;</span>
+</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>IKT Start<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Willkommen zu den Aktuellen Trends der IKT<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Wir beschäftigen uns mit <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Progressive Web Apps (PWA)<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>. 
+        Ein wesentlicher Bestandteil von PWAs sind <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>Service Worker<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="c1">// Check that service workers are supported</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Use the window load event to keep the page load performant</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/service-worker.js&#39;</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In die <code>manifest.json</code> tragen wir ein:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">manifest.json</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IKT-PWA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;start_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;icons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;theme_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;background_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fullscreen&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="w">    </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;portrait&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir kommen zu den einzelnen Eigenschaften nächste Woche noch ausführlich. Die <code>manifest.json</code> ist jedoch noch nicht vollständig, da das <code>icons</code>-Array noch befüllt werden muss. In dieses Array tragen wir alle Bilder ein, die als Icons auf dem Startbildschirm verwendet werden sollen, je nach Auflösung des Gerätes, auf dem die Anwendung gestartet werden soll. Die Generierung dieser Icons wird uns zum Glück abgenommen. Wir erstellen die Icons auf Basis eines Icons, das in recht großer Auflösung vorliegt. </p>
+<p>Fügen Sie dazu das <a href="../files/fiwlogo.png">fiwlogo</a> in Ihren Projektordner ein. Wir nutzen den <a href="https://www.npmjs.com/package/pwa-asset-generator">pwa-asset-generator</a>. Im Terminal geben wir in unserem Projektordner ein:</p>
+<div class="highlight"><pre><span></span><code>npx pwa-asset-generator fiwlogo.png icons
+</code></pre></div>
+<p>Dabei ist <code>fiwlogo.png</code> das Icon, auf dessen Basis alle weiteren Icons erzeugt werden sollen und diese sollen in den Ordner <code>icons</code> erstellt werden. Die Ausgabe ist ungefähr wie folgt:</p>
+<div class="highlight"><pre><span></span><code>11:49:08 getSplashScreenMetaData Initialising puppeteer to load latest splash screen metadata 🤖
+11:49:08 getAppleSplashScreenData Navigating to Apple Human Interface Guidelines website - https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/
+11:49:10 getAppleSplashScreenData Waiting for the data table to be loaded
+11:49:10 getAppleSplashScreenData Retrieved splash screen data
+11:49:10 getSplashScreenMetaData Loaded metadata for iOS platform 🙌
+11:49:11 generateImages Looks like folder icons doesn&#39;t exist. Created one for you 🤔
+11:49:11 saveImages Initialising puppeteer to take screenshots 🤖
+11:49:11 getShellHtml Generating shell html with provided image source
+11:49:11 getShellHtml Providing shell html as page content
+11:49:12 saveImages Saved image apple-splash-2388-1668 🙌
+11:49:12 saveImages Saved image apple-splash-2732-2048 🙌
+11:49:12 saveImages Saved image apple-splash-1536-2048 🙌
+11:49:12 saveImages Saved image apple-splash-2048-1536 🙌
+11:49:12 saveImages Saved image apple-splash-1668-2388 🙌
+11:49:12 saveImages Saved image apple-splash-2048-2732 🙌
+11:49:12 saveImages Saved image apple-splash-1668-2224 🙌
+11:49:12 saveImages Saved image apple-splash-2224-1668 🙌
+11:49:12 saveImages Saved image apple-splash-1620-2160 🙌
+11:49:12 saveImages Saved image apple-splash-2436-1125 🙌
+11:49:12 saveImages Saved image apple-splash-1242-2688 🙌
+11:49:12 saveImages Saved image apple-splash-2532-1170 🙌
+11:49:12 saveImages Saved image apple-splash-2160-1620 🙌
+11:49:13 saveImages Saved image apple-splash-1125-2436 🙌
+11:49:13 saveImages Saved image apple-splash-1284-2778 🙌
+11:49:13 saveImages Saved image apple-splash-1242-2208 🙌
+11:49:13 saveImages Saved image apple-splash-1792-828 🙌
+11:49:13 saveImages Saved image apple-splash-1170-2532 🙌
+11:49:13 saveImages Saved image manifest-icon-192 🙌
+11:49:13 saveImages Saved image manifest-icon-512 🙌
+11:49:13 saveImages Saved image apple-splash-2778-1284 🙌
+11:49:13 saveImages Saved image apple-splash-2208-1242 🙌
+11:49:13 saveImages Saved image apple-splash-1136-640 🙌
+11:49:13 saveImages Saved image apple-splash-2688-1242 🙌
+11:49:13 saveImages Saved image apple-splash-750-1334 🙌
+11:49:13 saveImages Saved image apple-icon-180 🙌
+11:49:13 saveImages Saved image apple-splash-640-1136 🙌
+11:49:13 saveImages Saved image apple-splash-1334-750 🙌
+11:49:13 saveImages Saved image apple-splash-828-1792 🙌
+11:49:13 cli Web App Manifest file is not specified, printing out the content to console instead 🤔
+11:49:13 cli Below is the icons content for your manifest.json file. You can copy/paste it manually 🙌
+
+[
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-192.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;192x192&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;any&quot;
+  },
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-192.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;192x192&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;maskable&quot;
+  },
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-512.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;512x512&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;any&quot;
+  },
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-512.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;512x512&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;maskable&quot;
+  }
+]
+
+
+11:49:13 cli Index html file is not specified, printing out the content to console instead 🤔
+11:49:13 cli Below is the iOS meta tags content for your index.html file. You can copy/paste it manually 🙌
+
+
+&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;icons/apple-icon-180.png&quot;&gt;
+
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2048-2732.jpg&quot; media=&quot;(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2732-2048.jpg&quot; media=&quot;(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1668-2388.jpg&quot; media=&quot;(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2388-1668.jpg&quot; media=&quot;(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1536-2048.jpg&quot; media=&quot;(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2048-1536.jpg&quot; media=&quot;(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1668-2224.jpg&quot; media=&quot;(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2224-1668.jpg&quot; media=&quot;(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1620-2160.jpg&quot; media=&quot;(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2160-1620.jpg&quot; media=&quot;(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1284-2778.jpg&quot; media=&quot;(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2778-1284.jpg&quot; media=&quot;(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1170-2532.jpg&quot; media=&quot;(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2532-1170.jpg&quot; media=&quot;(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1125-2436.jpg&quot; media=&quot;(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2436-1125.jpg&quot; media=&quot;(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1242-2688.jpg&quot; media=&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2688-1242.jpg&quot; media=&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-828-1792.jpg&quot; media=&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1792-828.jpg&quot; media=&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1242-2208.jpg&quot; media=&quot;(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-2208-1242.jpg&quot; media=&quot;(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-750-1334.jpg&quot; media=&quot;(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1334-750.jpg&quot; media=&quot;(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-640-1136.jpg&quot; media=&quot;(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;&gt;
+&lt;link rel=&quot;apple-touch-startup-image&quot; href=&quot;icons/apple-splash-1136-640.jpg&quot; media=&quot;(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;&gt;
+</code></pre></div>
+<p>Wir hätten auch die <code>manifest.json</code> mit angeben können (Flag <code>m</code>) und auch die <code>index.html</code> (Flag <code>-i</code>), aber wir kopieren die Ausgaben händisch in die jeweiligen Dateien. Das JSON </p>
+<div class="highlight"><pre><span></span><code>  {
+    &quot;src&quot;: &quot;icons/manifest-icon-192.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;192x192&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;any&quot;
+  },
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-192.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;192x192&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;maskable&quot;
+  },
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-512.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;512x512&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;any&quot;
+  },
+  {
+    &quot;src&quot;: &quot;icons/manifest-icon-512.maskable.png&quot;,
+    &quot;sizes&quot;: &quot;512x512&quot;,
+    &quot;type&quot;: &quot;image/png&quot;,
+    &quot;purpose&quot;: &quot;maskable&quot;
+  }
+</code></pre></div>
+<p>kopieren wir in das <code>icons</code>-Array der <code>manifest.json</code>:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">manifest.json</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IKT-PWA&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;start_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;icons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="hll"><span class="w">      </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icons/manifest-icon-192.maskable.png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192x192&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;purpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;any&quot;</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icons/manifest-icon-192.maskable.png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192x192&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;purpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;maskable&quot;</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icons/manifest-icon-512.maskable.png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;512x512&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;purpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;any&quot;</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">},</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icons/manifest-icon-512.maskable.png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;512x512&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;purpose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;maskable&quot;</span><span class="w"></span>
+</span><span class="hll"><span class="w">      </span><span class="p">}</span><span class="w"></span>
+</span><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;theme_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;background_color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fullscreen&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;portrait&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>und die <em>iOS meta tags</em> in die <code>index.html</code>:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;favicon.ico&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;manifest&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;manifest.json&quot;</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-icon-180.png&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apple-mobile-web-app-capable&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;yes&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2048-2732.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2732-2048.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1668-2388.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2388-1668.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1536-2048.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2048-1536.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1668-2224.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2224-1668.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1620-2160.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2160-1620.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1284-2778.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2778-1284.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1170-2532.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2532-1170.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1125-2436.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2436-1125.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1242-2688.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2688-1242.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-828-1792.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1792-828.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1242-2208.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-2208-1242.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-750-1334.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1334-750.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-640-1136.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;apple-touch-startup-image&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;icons/apple-splash-1136-640.jpg&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)&quot;</span><span class="p">&gt;</span>
+</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>IKT Start<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Willkommen zu den aktuellen Trends der IKT<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;service-worker.js&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Prinzipiell wäre jetzt alles da, damit unsere Anwendung <em>installiert</em> werden kann. Jedoch gibt es derzeit keine Möglichkeit, dass die Anwendung auch offline verwendbar ist. Dazu benötigt es eine Möglichkeit des <em>Cachings</em> von Daten. Ohne jetzt schon wirklich zu wissen, was wir tun, passen wir die <code>service-worker.js</code> wie folgt an:</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">service-worker.js</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nx">importScripts</span><span class="p">(</span>
+  <span class="s1">&#39;https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js&#39;</span>
+<span class="p">);</span>
+
+<span class="nx">workbox</span><span class="p">.</span><span class="nx">routing</span><span class="p">.</span><span class="nx">registerRoute</span><span class="p">(</span>
+    <span class="p">({</span><span class="nx">request</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="nx">request</span><span class="p">.</span><span class="nx">destination</span> <span class="o">===</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+    <span class="ow">new</span> <span class="nx">workbox</span><span class="p">.</span><span class="nx">strategies</span><span class="p">.</span><span class="nx">NetworkFirst</span><span class="p">()</span>     <span class="c1">// NetworkFirst() vs CacheFirst()</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+<p>Wir haben also bereits mehrer Sachen identifiziert, mit denen wir uns beschäftigen wollen:</p>
+<ul>
+<li><em>Manifest</em>,</li>
+<li><em>Service worker</em> und</li>
+<li><em>Caching</em></li>
+</ul>
+<p>und das sind auch genau die Themen der kommenden Wochen. </p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben jetzt eine Idee davon, was <em>Progressive Web Apps</em> sind. Jetzt legen wir los und erstellen eigene PWAs!</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Zurück: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../grundgeruest/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Grundgerüst" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Grundgerüst
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

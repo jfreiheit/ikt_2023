@@ -1,0 +1,1386 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/backgroundsync/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Hintergrundsynchronisation - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hintergrundsynchronisation" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hintergrundsynchronisation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hintergrundsynchronisation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hintergrundsynchronisation
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aktueller-stand-daten-senden" class="md-nav__link">
+    Aktueller Stand Daten senden
+  </a>
+  
+    <nav class="md-nav" aria-label="Aktueller Stand Daten senden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-task-registrieren" class="md-nav__link">
+    Sync Task registrieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-in-die-indexeddb-speichern" class="md-nav__link">
+    Daten in die IndexedDB speichern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ein-fallback" class="md-nav__link">
+    Ein Fallback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ereignisbehandlung-des-sync-events" class="md-nav__link">
+    Ereignisbehandlung des sync-Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aktueller-stand-daten-senden" class="md-nav__link">
+    Aktueller Stand Daten senden
+  </a>
+  
+    <nav class="md-nav" aria-label="Aktueller Stand Daten senden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-task-registrieren" class="md-nav__link">
+    Sync Task registrieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-in-die-indexeddb-speichern" class="md-nav__link">
+    Daten in die IndexedDB speichern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ein-fallback" class="md-nav__link">
+    Ein Fallback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ereignisbehandlung-des-sync-events" class="md-nav__link">
+    Ereignisbehandlung des sync-Events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/backgroundsync.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="hintergrundsynchronisation">Hintergrundsynchronisation<a class="headerlink" href="#hintergrundsynchronisation" title="Permanent link">&para;</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Aktueller Stand vor Hintergrundsynchronisation:</p>
+<ul>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-07">Frontend</a></li>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-BACKEND-01">Backend</a></li>
+<li>Collection <a href="../files/posts.json">post</a></li>
+<li>Collection <a href="../files/posts_files.json">post.files</a></li>
+<li>Collection <a href="../files/posts_chunks.json">post.chunks</a></li>
+</ul>
+</div>
+<p>Hintergrundsynchronisation erlaubt die Synchronisation von Daten, selbst dann, wenn die Anwendung offline ist. Diese "Synchronisation" erfolgt natürlich "asynchron". Angenommen, Sie geben offline Daten in die Anwendung ein und wollen diese versenden, z.B. an das Backend, dann wird dieser Request so lange in Ihrer Anwendung gespeichert, bis Sie wieder online sind und erst dann ausgeführt. </p>
+<p>Das Situation ist die Folgende:</p>
+<p><img alt="backgroundsync" src="../files/69_background.png" /></p>
+<p>Es sollen Daten an das Backend gesendet werden, aber die Internetverbindung ist unterbrochen. Deshalb werden die Daten in die IndexedDB gespeichert und im Service Worker wird eine <em>Sync Task</em> registriert. </p>
+<p><img alt="backgroundsync" src="../files/70_background.png" /></p>
+<p>Sobald die Verbindung wieder steht, wird ein <em>Sync</em>-Event im Service Worker ausgelöst und dieser sendet die Daten an das Backend (<code>POST-Request</code>).</p>
+<p>Dadurch, dass der Service Worker diesen <code>POST-Request</code> ausführt (und die Daten dabei mitsendet), kann die Hintergrundsynchronisation sogar dann stattfinden, wenn die Webanwendung bereits geschlossen ist! Deshalb sollten wir einfach immer beim Senden von Daten eine <em>Sync Task</em> registrieren, weil es sein kann, dass die Daten noch gar nicht vollständig gesendet wurden, bevor wir den Browsertab schließen. </p>
+<h2 id="aktueller-stand-daten-senden">Aktueller Stand Daten senden<a class="headerlink" href="#aktueller-stand-daten-senden" title="Permanent link">&para;</a></h2>
+<p>Wir schauen uns zunächst nochmal an, wie wir derzeit die Daten, die wir über das Eingabeformular eingeben, speichern. Wenn wir den <code>Speichern</code>-Button drücken, wird das <code>Submit</code>-Ereignis des Formulars ausgelöst. Dies behandeln wir wie folgt:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;titleInput&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;locationInput&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+    <span class="nx">sendDataToBackend</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir verhindern zunächst das Standardverhalten beim <code>submit</code>-Ereignis, nämlich das Absenden der Daten und das Neuladen der Seite (Zeile <code>240</code>). In Zeile <code>242</code> prüfen wir, ob die <code>file</code>-variable belegt ist, d.h. ob wir bereits ein Foto aufgenommen haben und in Zeile <code>246</code> prüfen wir, ob beide <code>input</code>-Elemente, also sowohl für <code>title</code>, als auch für <code>location</code> einen Wert enthalten. Die JavaScript-<code>trim()</code>-Funktionen entfernt "Leerzeichen" aller Art am Ende des Strings (auch Tabs, Zeilenumbrüche etc.). Sollte eines der beiden (oder beide) Eingabefelder leer sein, beenden wir die Funktion mit einem <code>alert</code> und bleiben in dem Formular. <code>alert</code> ist natürlich nicht so toll, ein <code>toast</code> wäre viel besser, aber wir haben in unserer <code>index.html</code> nur einen <code>toast</code> für das erfolgreiche Speichern vordefiniert. Wenn beide Eingabefelder befüllt und ein Foto (in <code>file</code>) gespeichert sind, schließen wir das Formulatfenster (Zeile <code>251</code>) und senden die Daten an das Backend (Zeile <code>259</code>). Die <code>sendDataToBackend()</code>-Funktion sieht wie folgt aus:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">sendDataToBackend</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">FormData</span><span class="p">();</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">);</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">);</span>
+    <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;formData&#39;</span><span class="p">,</span> <span class="nx">formData</span><span class="p">)</span>
+
+    <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">formData</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Data sent to backend ...&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">newPost</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+            <span class="nx">location</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span>
+            <span class="nx">image_id</span><span class="o">:</span> <span class="nx">imageURI</span>
+        <span class="p">}</span>
+        <span class="nx">updateUI</span><span class="p">([</span><span class="nx">newPost</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Es wird ein <code>FormData</code>-Objekt erstellt, da wir im <code>body</code> nicht nur Textfelder, sondern auch ein <code>file</code>-Objekt mitschicken. Mit der <code>POST</code>-Methode an das Backend wird dieses befüllte <code>FormData</code>-Objekt gesendet. Da dieses Objekt in der <code>file</code>-Eigenschaft aber ein <code>File</code>-Objekt enthält, die <code>updateUI()</code>-Funktion an dem Schlüssel <code>image_id</code> aber den <code>base64</code>-String des Bildes erwartet, übergeben wir dieser Funktion ein modifiziertes <code>Post</code>-Objekt. </p>
+<p>Schauen wir uns auch nochmal die IndexedDB an:</p>
+<p><img alt="backgroundsync" src="../files/73_background.png" /></p>
+<p>Wir sehen, dass in dem Store <code>posts</code> der IndexedDB die Datensätze mit ihrer <code>_id</code> und in <code>image_id</code> mit ihrem <code>base64</code>-String gespeichert sind. Die <code>_id</code> erhält der Datensatz aber erst durch die MongoDB, wo der Wert für <code>_id</code> automatisch erzeugt wird. Angenommen, wir wollen diese Daten nun zunächst in der IndexedDB zwischenspeichern und erst, wenn die Verbindung zum Backend besteht, an das Backend weiterleiten, benötigen wir in der IndexedDB einen anderen Store, der anders aufgebaut ist, als der <code>posts</code>-Store. Bevor wir uns darum kümmern, erweiteren wir die <code>Submit</code>-Behandlung jedoch erst um die Registrierung an die <em>Sync Task</em>. </p>
+<h4 id="sync-task-registrieren">Sync Task registrieren<a class="headerlink" href="#sync-task-registrieren" title="Permanent link">&para;</a></h4>
+<p>Wenn wir das Formular absenden und die in dem Formular eingegebenen Daten speichern wollen, steuern wir dies nun über eine <em>Sync Task</em>. Diese <em>Sync Task</em> sorgt dafür, dass die Daten (irgendwann) tatsächlich gespeichert werden, auch wenn wir gerade offline sind oder während des Speicherns offline geschaltet werden. Für eine solche <em>Sync Task</em> existiert die <a href="https://developer.mozilla.org/en-US/docs/Web/API/SyncManager">SyncManager-API</a>. Wenn Sie auf diesen Link klicken, dann sehen Sie, dass die <code>SyncManager-API</code></p>
+<ol>
+<li>nur 2 Methoden besitzt, nämlich <code>register()</code> und <code>getTags()</code> und </li>
+<li>dass sie bis jetzt leider nur von Chrome und Edge unterstützt wird. Allerdings auch in allen Android-Geräten (mit Chrome oder WebView) und somit trotzdem eine große Reichweite besitzt. </li>
+</ol>
+<p>Wir erweitern die Anmeldung an den Listener für das <code>submit</code>-Event zunächst wie folgt:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;titleInput&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;locationInput&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;SyncManager&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+</span><span class="hll">            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                <span class="nx">sw</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;sync-new-post&#39;</span><span class="p">);</span>
+</span><span class="hll">            <span class="p">});</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="nx">sendDataToBackend</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>In diesem kleinen Code-Stückchen sind einige Dinge beachtenswert. Erstens, wird die <code>SyncManager-API</code> vom Service Worker verwendet, aber wir sind hier ja in <code>feed.js</code>, also in der Webanwendung. Wir können die Registrierung an die <em>Sync Task</em> nicht einfach in die <code>sw.js</code> schreiben, da das auslösende Ereignis der Registrierung (nämlich das Absenden des Formulars) in der Webanwendung stattfindet und wir dieses Ereignis in <code>feed.js</code> behandeln. Wir benötigen in <code>feed.js</code> also einen Zugriff auf den Service Worker. </p>
+<p>Dazu fragen wir zunächst, ob der Service Worker überhaupt durch den Browser unterstützt wird und auch, ob die <code>SyncManager-API</code> durch den Browser unterstützt wird. Dies geschieht in Zeile <code>260</code>. Dort fällt auf, dass der Service Worker eine Eigenschaft von <code>navigator</code> ist, die <code>SyncManager-API</code> eine Eigenschaft von <code>window</code>. <a href="https://developer.mozilla.org/de/docs/Web/API/Window">Window</a> ist das Fenster, das ein DOM Dokument (also eine Webanwendung) enthält. Eine Eigenschaft von <code>window</code> ist <code>navigator</code> (also <code>window.navigator</code>). Das <a href="https://developer.mozilla.org/de/docs/Web/API/Window/navigator">Navigator</a>-Objekt liefert Informationen über den Browser, in dem die Anwendung ausgeführt wird. </p>
+<p>Die (<code>readonly</code>)-Eigenschaft <code>ready</code> eines Service Workers ist eine Promise, welche <code>resolved</code> ist, sobald der Service Worker <code>active</code> ist. Siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready">hier für <code>ready</code></a>. Über diese Promise erlangen wir Zugriff auf den Service Worker in unserer Webanwendung. Die <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/sync">sync</a>-Eigenschaft ist in dem Interface <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">ServiceWorkerRegistration</a> definiert. Die <code>register()</code>-Funktion ist eine der beiden Methoden aus der <code>SyncManager-API</code> und registriert eine <em>Sync Task</em>. Jeder <em>Sync Task</em> wird ein <code>tag</code> zugewiesen (ähnlich einer <code>id</code>). Über diesen <code>tag</code> kann später auf diese <em>Sync Task</em> zugegriffen werden. Wir haben dieser <em>Sync Task</em> den <code>tag</code> <code>'sync-new-post'</code> gegeben. </p>
+<p>Die <em>Sync Task</em> ist nun registriert. Allerdings weiß der Service Worker noch gar nicht, was er bei dieser <em>Sync Task</em> überhaupt synchronisieren soll. Das definieren wir jetzt.</p>
+<h4 id="daten-in-die-indexeddb-speichern">Daten in die IndexedDB speichern<a class="headerlink" href="#daten-in-die-indexeddb-speichern" title="Permanent link">&para;</a></h4>
+<p>Die Daten, die (später) synchronisert werden sollen, werden zunächst in der IndexedDB gespeichert. Dort können Sie so lange bleiben, bis die Webanwendung (wieder) online ist, um dann an das Backend durch den Service Worker gesendet zu werden. Dazu erzeugen wir uns ein passendes JavaScript-Objekt <code>post</code>:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;SyncManager&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">                <span class="kd">let</span> <span class="nx">post</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="nx">id</span><span class="o">:</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+</span><span class="hll">                    <span class="nx">title</span><span class="o">:</span> <span class="nx">titleValue</span><span class="p">,</span>
+</span><span class="hll">                    <span class="nx">location</span><span class="o">:</span> <span class="nx">locationValue</span><span class="p">,</span>
+</span><span class="hll">                    <span class="nx">image_id</span><span class="o">:</span> <span class="nx">file</span>      <span class="c1">// file durch den Foto-Button belegt</span>
+</span><span class="hll">                <span class="p">};</span>
+</span>                <span class="nx">sw</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;sync-new-post&#39;</span><span class="p">);</span>
+            <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die <code>id</code> wurde hinzugefügt, um einen eindeutigen Identifier für den <code>post</code> in der IndexedDB zu haben (<code>keyPath</code>). Damit der Wert auch eindeutig ist, wird der Zeitstempel zum String umgewandelt und verwendet (Zeile <code>260</code>). </p>
+<p>Diesen <code>post</code> wollen wir nun in die IndexedDB speichern. Dazu steht uns aus der <code>db.js</code> die Funktion <code>writeData()</code> zur Verfügung. Diese Funktion erwartet als ersten Parameter den <code>Store</code>, in dem wir den <code>post</code> speichern wollen. Derzeit haben wir einen <code>Store</code> in unserer IndexedDB definiert, den <code>Store</code> <code>posts</code>:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">/src/js/db.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">idb</span><span class="p">.</span><span class="nx">openDB</span><span class="p">(</span><span class="s1">&#39;posts-store&#39;</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">upgrade</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Create a store of objects</span>
+<span class="hll">        <span class="kd">const</span> <span class="nx">store1</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">createObjectStore</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span>            <span class="c1">// The &#39;_id&#39; property of the object will be the key.</span>
+            <span class="nx">keyPath</span><span class="o">:</span> <span class="s1">&#39;_id&#39;</span><span class="p">,</span>
+            <span class="c1">// If it isn&#39;t explicitly set, create a value by auto incrementing.</span>
+            <span class="nx">autoIncrement</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="p">});</span>
+        <span class="c1">// Create an index on the &#39;_id&#39; property of the objects.</span>
+        <span class="nx">store1</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="s1">&#39;_id&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Diesen <code>Store</code> (ursprünglich hieß die Variable noch <code>store</code>, wir haben hier bereits <code>store1</code> daraus gemacht, könnte aber auch <code>store</code> bleiben) verwenden wir aber, um unsere Daten aus der Datenbank/dem Backend zu <em>cachen</em>. Wir verwenden ihn zum Schreiben und Lesen der Daten aus unserer Datenbank. Für das Synchroniseren der neuen Daten benötigen wir deshalb einen weiteren <code>Store</code>. Dazu kopieren wir einfach die <code>Store</code>-Erstellung in der <code>db.js</code> und nennen den neuhinzugekommen <code>Store</code> <code>sync-posts</code> (wir nennen die <code>id</code> hier auch <code>id</code> und nicht <code>_id</code>):</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">/src/js/db.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">idb</span><span class="p">.</span><span class="nx">openDB</span><span class="p">(</span><span class="s1">&#39;posts-store&#39;</span><span class="p">,</span> <span class="mf">1</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">upgrade</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Create a store of objects</span>
+        <span class="kd">const</span> <span class="nx">store1</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">createObjectStore</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="nx">keyPath</span><span class="o">:</span> <span class="s1">&#39;_id&#39;</span><span class="p">,</span>
+        <span class="p">});</span>
+        <span class="nx">store1</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="s1">&#39;_id&#39;</span><span class="p">);</span>
+
+        <span class="c1">// Create another store of objects</span>
+<span class="hll">        <span class="kd">const</span> <span class="nx">store2</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">createObjectStore</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">keyPath</span><span class="o">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">});</span>
+</span>        <span class="nx">store2</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Gleichzeitig habe ich auch noch ein bisschen den Code gekürzt. Die Kommentare sind raus und das <code>autoIncrement: true</code> ist auch Standard, deshalb muss es nicht mit angegeben werden. Wenn wir die Anwendung nun ausführen, sehen wir unter <code>IndexedDB</code>, dass ein weiterer <code>Store</code> hinzugekommen ist:</p>
+<p><img alt="backgroundsync" src="../files/71_background.png" /></p>
+<p>Diesen Store verwenden wir nun, um die neuen <code>post</code>-Daten in die IndexedDB zu schreiben:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;titleInput&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;locationInput&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;SyncManager&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nx">post</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nx">id</span><span class="o">:</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="nx">titleValue</span><span class="p">,</span>
+                    <span class="nx">location</span><span class="o">:</span> <span class="nx">locationValue</span><span class="p">,</span>
+                    <span class="nx">image_id</span><span class="o">:</span> <span class="nx">file</span>
+                <span class="p">};</span>
+
+<span class="hll">                <span class="nx">writeData</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">,</span> <span class="nx">post</span><span class="p">)</span>
+</span><span class="hll">                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="nx">sw</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;sync-new-post&#39;</span><span class="p">);</span>
+</span><span class="hll">                    <span class="p">});</span>
+</span>            <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die Registrierung der <em>Sync Task</em> ist nur dann sinnvoll, wenn die Daten auch tatsächlich in der IndexedDB gespeichert wurden. Deshalb erfolgt die Registrierung in dem <code>resolved</code>-Pfad der <code>writeData</code>-Promise. </p>
+<p>Jetzt können wir noch unseren <code>toast</code> verwenden, den wir in der <code>index.html</code> definiert haben. Hierbei handelt es sich um eine <em>Material Design Lite</em>-Komponente <a href="https://getmdl.io/components/#snackbar-section">Snackbar</a>:</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">/index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;confirmation-toast&quot;</span> <span class="na">aria-live</span><span class="o">=</span><span class="s">&quot;assertive&quot;</span> <span class="na">aria-atomic</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">aria-relevant</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-snackbar mdl-js-snackbar&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-snackbar__text&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-snackbar__action&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In der <code>feed.js</code> verketten wir die Promise für das Schreiben der Daten in die IndexedDB weiter und bestätigen dies mit einer Snackbar-Nachricht:</p>
+<div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;titleInput&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;locationInput&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;SyncManager&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nx">post</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nx">id</span><span class="o">:</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="nx">titleValue</span><span class="p">,</span>
+                    <span class="nx">location</span><span class="o">:</span> <span class="nx">locationValue</span><span class="p">,</span>
+                    <span class="nx">image_id</span><span class="o">:</span> <span class="nx">file</span>
+                <span class="p">};</span>
+
+                <span class="nx">writeData</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">,</span> <span class="nx">post</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">                        <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;sync-new-post&#39;</span><span class="p">);</span>
+</span>                    <span class="p">})</span>
+<span class="hll">                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                        <span class="kd">let</span> <span class="nx">snackbarContainer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">MaterialSnackbar</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#confirmation-toast&#39;</span><span class="p">));</span>
+</span><span class="hll">                        <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Eingaben zum Synchronisieren gespeichert!&#39;</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">:</span> <span class="mf">2000</span><span class="p">};</span>
+</span><span class="hll">                        <span class="nx">snackbarContainer</span><span class="p">.</span><span class="nx">showSnackbar</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span><span class="hll">                    <span class="p">});</span>
+</span>            <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beachten Sie, dass Sie das <code>return</code> in Zeile <code>271</code> einfügen, damit die Promise verkettet werden kann. Nachdem Sie nun Daten in das Formular eingegeben und auf <code>Speichern</code> geklickt haben, erscheint für 2 Sekunden unten eine Bestätigungsnachricht:</p>
+<p><img alt="backgroundsync" src="../files/72_background.png" /></p>
+<h4 id="ein-fallback">Ein Fallback<a class="headerlink" href="#ein-fallback" title="Permanent link">&para;</a></h4>
+<p>Wir haben festgelegt, was passieren soll, wenn der Browser <em>Service Worker</em> und die <em>SyncManager-API</em> unterstützt. Wir sollten jedoch ein <em>Fallback</em> einbauen für den Fall, dass das nicht der Fall ist. Viel bleibt uns für diesen Fall nicht übrig, zu tun. Wir können nur versuchen, die Daten, die wir in das Formular eingegeben haben, sofort an das Backend zu senden. Wir fügen dazu den Aufruf der <code>sendDataToBackend()</code>-Funktion im <code>else</code>-Fall für die Behandlung des <code>submit</code>-Ereignisses auf:</p>
+<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span> <span class="c1">// nicht absenden und neu laden</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">file</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Erst Foto aufnehmen!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Bitte Titel und Location angeben!&#39;</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">closeCreatePostModal</span><span class="p">();</span>
+
+    <span class="nx">titleValue</span> <span class="o">=</span> <span class="nx">titleInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">locationValue</span> <span class="o">=</span> <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;titleInput&#39;</span><span class="p">,</span> <span class="nx">titleValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;locationInput&#39;</span><span class="p">,</span> <span class="nx">locationValue</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;SyncManager&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nx">post</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nx">id</span><span class="o">:</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+                    <span class="nx">title</span><span class="o">:</span> <span class="nx">titleValue</span><span class="p">,</span>
+                    <span class="nx">location</span><span class="o">:</span> <span class="nx">locationValue</span><span class="p">,</span>
+                    <span class="nx">image_id</span><span class="o">:</span> <span class="nx">file</span>
+                <span class="p">};</span>
+
+                <span class="nx">writeData</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">,</span> <span class="nx">post</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">sync</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;sync-new-post&#39;</span><span class="p">);</span>
+                <span class="p">})</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kd">let</span> <span class="nx">snackbarContainer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">MaterialSnackbar</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#confirmation-toast&#39;</span><span class="p">));</span>
+                    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Eingaben zum Synchronisieren gespeichert!&#39;</span><span class="p">,</span> <span class="nx">timeout</span><span class="o">:</span> <span class="mf">2000</span><span class="p">};</span>
+                    <span class="nx">snackbarContainer</span><span class="p">.</span><span class="nx">showSnackbar</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+<span class="hll">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">sendDataToBackend</span><span class="p">();</span>
+</span>    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Dieser Fallback lässt sich ausprobieren, indem man dafür sorgt, dass die Bedingung <code>if('serviceWorker' in navigator &amp;&amp; 'SyncManager' in window)</code> <code>false</code> ist (z.B. <code>&amp;&amp; false</code>). Nun kümmern wir uns darum, dass das <code>sync</code>-Ereignis im Service Worker behandelt wird. Das geschieht immer dann, wenn der Service Worker erkennt, dass die Internetverbindung wieder hergestellt wurde. </p>
+<h4 id="ereignisbehandlung-des-sync-events">Ereignisbehandlung des <code>sync</code>-Events<a class="headerlink" href="#ereignisbehandlung-des-sync-events" title="Permanent link">&para;</a></h4>
+<p>Wenn der Service Worker erkennt, dass die Verbindung zum Internet wieder hergestellt ist, wird automatisch das <code>sync</code>-Event ausgelöst. Dieses Ereignis wird auch dann ausgelöst, wenn die Internetverbindung besteht <strong>und</strong> eine <em>Sync Task</em> registriert wurde. Wir wollen in diesem Fall die Daten aus der IndexedDB an das Backend senden. Dazu erweitern wir die <code>sw.js</code> um die Behandlung des <code>sync</code>-Ereignisses. Wir fügen diese Ereignisbehandlung an das Ende der <code>sw.js</code> ein:</p>
+<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">sw.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; background syncing ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">tag</span> <span class="o">===</span> <span class="s1">&#39;sync-new-post&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; syncing new posts ...&#39;</span><span class="p">);</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+            <span class="nx">readAllData</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">dataArray</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">data</span> <span class="k">of</span> <span class="nx">dataArray</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data from IndexedDB&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                        <span class="c1">// diese Daten an das Backend senden (siehe Fallback)</span>
+                    <span class="p">}</span>
+                <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir fügen dem Service Worker also einen <code>EventListener</code> hinzu, wie wir das bereits von den anderen Ereignisbehandlungen im Service Worker kennen. Das <code>sync</code>-Ereignis gibt auch die <code>tags</code> zurück, unter denen <em>Sync Tasks</em> gespeichert wurden. In unserem Fall war der verwendete <code>tag</code> <code>sync-new-post</code>. Wir verwenden auch erneut <code>event.waitUntil()</code>, um sicherzustellen, dass die Ereignisbehandlung nicht eher verlassen wird, bis alle definierten Anweisungen darin vollständig abgearbeitet wurden. Als erstes greifen wir dann lesend auf die IndexedDB unter Verwendung der <code>readAllData()</code>-Methode aus der <code>db.js</code>.</p>
+<p>Diese Methode gibt ein Array aller gespeicherten Datensätze in der IndexedDB im Store <code>sync-posts</code> zurück. Mit einer <code>for</code>-Schleife betrachten wir jeden einzelnen Datensatz. Wir "wissen", dass ein solcher Datensatz ein JavaScript-Objekt mit den Eigenschaften <code>id</code>, <code>title</code>, <code>location</code> und <code>image_id</code> ist. </p>
+<p>Wir erweitern diese Behandlung nun um den Code, den wir zuvor für die Funktion <code>sendDataToBackend()</code> verwendet haben. Wir senden die Daten an das Backend. Dazu können wir uns den Code von der Fallback-Implementierung kopieren und anpassen:</p>
+<div class="tabbed-set" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">sw.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; background syncing ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">tag</span> <span class="o">===</span> <span class="s1">&#39;sync-new-post&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; syncing new posts ...&#39;</span><span class="p">);</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+            <span class="nx">readAllData</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">dataArray</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">data</span> <span class="k">of</span> <span class="nx">dataArray</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;data from IndexedDB&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+<span class="hll">                        <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">FormData</span><span class="p">();</span>
+</span><span class="hll">                        <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
+</span><span class="hll">                        <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
+</span><span class="hll">                        <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">image_id</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;formData&#39;</span><span class="p">,</span> <span class="nx">formData</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">                        <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">                            <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span><span class="hll">                            <span class="nx">body</span><span class="o">:</span> <span class="nx">formData</span>
+</span><span class="hll">                        <span class="p">})</span>
+</span><span class="hll">                        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Data sent to backend ...&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+</span><span class="hll">                            <span class="k">if</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                                <span class="nx">deleteOneData</span><span class="p">(</span><span class="s1">&#39;sync-posts&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+</span><span class="hll">                            <span class="p">}</span>
+</span><span class="hll">                        <span class="p">})</span>
+</span><span class="hll">                        <span class="p">.</span><span class="k">catch</span><span class="p">(</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error while sending data to backend ...&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+</span><span class="hll">                        <span class="p">})</span>
+</span>                    <span class="p">}</span>
+                <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<p>Für die Daten, die an das Backend gesendet werden, wird nun, im Gegensatz zum Fallback, auf <code>data</code> zugegriffen, da wir ja die Daten senden, die aus der IndexedDB ausgelesen werden. Wenn die Daten erfolgreich an das Backend übertragen worden sind (<code>response.ok</code> in Zeile <code>120</code>), dann werden diese Daten mithilfe der <code>deleteOneDate()</code>-Funktion (aus <code>db.js</code>) gelöscht, da sie in der IndexedDB nicht weiter benötigt werden. Der Store <code>sync-posts</code> ist ja "nur" dazu da, die Daten so lange zwischenzuspeichern, bis sie ins Backend (in die persistente Datenbank) gesendet sind. Sollte stattdessen ein Fehler auftreten, wird er mithilfe von <code>catch()</code> abgefangen und dort ausgegeben. </p>
+<p>Wenn wir nun neue Daten in das Formular eingeben und auf <code>Speichern</code> klicken, werden die Daten zum Backend gesendet - eventuell nicht gleich, sondern erst dann, wenn die Anwendung (und somit das Backend) wieder online ist.</p>
+<p>Das Ausprobieren der späteren Hintergrundsynchronisation erfolgt am Sichersten dadurch, dass Sie den Rechner komplett vom WLAN trennen. Das Offline-Schalten des Service Workers genügt dazu häufig nicht (bzw. wird beim Online-Schalten dann manchmal kein <code>sync</code>-Ereignis ausgelöst).</p>
+<ol>
+<li>Schalten Sie das WLAN an Ihrem Rechner aus. </li>
+<li>Geben Sie über das Formular der Anwendung neue Daten ein und drücken Sie auf den <code>Speichern</code>-Button. </li>
+<li>Schauen Sie in den Developer Tools unter <code>IndexedDB</code> in den Store <code>sync-posts</code>. Dort sollten die neuen Daten nun gespeichert sein. </li>
+<li>Schalten Sie das WLAN wieder ein. Auf der Konsole erscheint die <code>fetch</code>-Nachricht für <code>POST "http://localhost:3000/posts"</code>.</li>
+<li>In der persistenten Datenbank stehen die neuen Daten. </li>
+<li>Nach einem Reload der Anwendung werden diese Daten aus der Datenbank über das Backend gelesen (ohne Bilder) und erscheinen als weitere <code>Cards</code>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben die Hintergrundsynchronisation implementiert! Das Senden der Daten an das Backend erfolgt über das Registrieren einer <em>Sync Task</em> und dem (zwischen-)Speichern der zu sendenden Daten in der IndexedDB. Durch die Ereignisbehandlung des <code>sync</code>-Ereignisses werden diese Daten an das Backend (und darüber in die Datenbank) geschrieben. Das <code>sync</code>-Ereignis wird ausgelöst, wenn der Service Worker online und eine <em>Sync Task</em> registriert ist. Wir können nun Daten eingeben und speichern, egal, ob wir online oder offline sind. Die Anwendung kann sogar geschlossen sein und trotzdem synchronisiert der Service Worker. </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../geolocation/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Geolocation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Geolocation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pushnotes/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Push Notifications" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Push Notifications
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

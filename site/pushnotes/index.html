@@ -1,0 +1,2281 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/pushnotes/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Push Notifications - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#push-notifications" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Push Notifications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Push Notifications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Push Notifications
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anzeigen-von-benachrichtigungen" class="md-nav__link">
+    Anzeigen von Benachrichtigungen
+  </a>
+  
+    <nav class="md-nav" aria-label="Anzeigen von Benachrichtigungen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benachrichtigungen-einschalten" class="md-nav__link">
+    Benachrichtigungen einschalten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benachrichtigungen-anzeigen" class="md-nav__link">
+    Benachrichtigungen anzeigen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benachrichtigungen-im-service-worker-erstellen" class="md-nav__link">
+    Benachrichtigungen im Service Worker erstellen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weitere-optionen-fur-die-benachrichtigungen" class="md-nav__link">
+    Weitere Optionen für die Benachrichtigungen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-benachrichtigungen" class="md-nav__link">
+    Push-Benachrichtigungen
+  </a>
+  
+    <nav class="md-nav" aria-label="Push-Benachrichtigungen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anmelden-an-push-nachrichten-subscription" class="md-nav__link">
+    Anmelden an Push-Nachrichten (Subscription)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erzeugen-einer-neuen-subscription" class="md-nav__link">
+    Erzeugen einer neuen Subscription
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schutz-der-subscription" class="md-nav__link">
+    Schutz der Subscription
+  </a>
+  
+    <nav class="md-nav" aria-label="Schutz der Subscription">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-erweitern" class="md-nav__link">
+    Backend erweitern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-in-der-appjs" class="md-nav__link">
+    Public Key in der app.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neuer-endpunkt-im-backend" class="md-nav__link">
+    Neuer Endpunkt im Backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-nachrichten-senden" class="md-nav__link">
+    Push-Nachrichten senden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#das-push-ereignis-behandeln" class="md-nav__link">
+    Das push-Ereignis behandeln
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-webseite-offnen" class="md-nav__link">
+    Eine Webseite öffnen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anzeigen-von-benachrichtigungen" class="md-nav__link">
+    Anzeigen von Benachrichtigungen
+  </a>
+  
+    <nav class="md-nav" aria-label="Anzeigen von Benachrichtigungen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benachrichtigungen-einschalten" class="md-nav__link">
+    Benachrichtigungen einschalten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benachrichtigungen-anzeigen" class="md-nav__link">
+    Benachrichtigungen anzeigen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benachrichtigungen-im-service-worker-erstellen" class="md-nav__link">
+    Benachrichtigungen im Service Worker erstellen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weitere-optionen-fur-die-benachrichtigungen" class="md-nav__link">
+    Weitere Optionen für die Benachrichtigungen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-benachrichtigungen" class="md-nav__link">
+    Push-Benachrichtigungen
+  </a>
+  
+    <nav class="md-nav" aria-label="Push-Benachrichtigungen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anmelden-an-push-nachrichten-subscription" class="md-nav__link">
+    Anmelden an Push-Nachrichten (Subscription)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erzeugen-einer-neuen-subscription" class="md-nav__link">
+    Erzeugen einer neuen Subscription
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schutz-der-subscription" class="md-nav__link">
+    Schutz der Subscription
+  </a>
+  
+    <nav class="md-nav" aria-label="Schutz der Subscription">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-erweitern" class="md-nav__link">
+    Backend erweitern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-in-der-appjs" class="md-nav__link">
+    Public Key in der app.js
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neuer-endpunkt-im-backend" class="md-nav__link">
+    Neuer Endpunkt im Backend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-nachrichten-senden" class="md-nav__link">
+    Push-Nachrichten senden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#das-push-ereignis-behandeln" class="md-nav__link">
+    Das push-Ereignis behandeln
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-webseite-offnen" class="md-nav__link">
+    Eine Webseite öffnen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/pushnotes.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="push-notifications">Push Notifications<a class="headerlink" href="#push-notifications" title="Permanent link">&para;</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Aktueller Stand vor Push Notifications:</p>
+<ul>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-08">Frontend</a></li>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-BACKEND-01">Backend</a></li>
+<li>Collection <a href="../files/posts.json">post</a></li>
+<li>Collection <a href="../files/posts_files.json">post.files</a></li>
+<li>Collection <a href="../files/posts_chunks.json">post.chunks</a></li>
+</ul>
+</div>
+<p><em>Push Notifications</em> sind sinnvoll, um die Nutzerin einer App über Neuigkeiten zu informieren, sogar dann, wenn die Anwendung (und der Browser!) geschlossen ist (sind). Mit <em>Push Notifications</em> können Nutzerinnen wieder "zurück an die App geholt" werden, d.h. mithilfe von <em>Push Notifications</em> kann man dafür sorgen, dass Nutzerinnen die App wieder öffnen, um sich die Neuigkeiten genauer anzuschauen. Die Neuigkeiten können neue Tweets, E-Mails, Nachrichten, Anrufe usw. sein. </p>
+<p>Das Prinzip, das für die Push-Benachrichtungen umgesetzt wird, sieht auf den ersten Blick etwas kompliziert aus:</p>
+<p><img alt="push" src="../files/73_push.png" /></p>
+<p>Im Zentrum stehen zunächst die Webanwendung und der Service Worker. Die Webanwendung meldet sich bei den Push-Benachrichtigungen an und der Service Worker verwaltet diese. Jeder Browser hat eine eigenen "eingebauten" <em>Push Server</em>. Eine <em>Push-Anmeldung</em> (<em>Push Subscription</em>) erlaubt den Zugriff auf einen <em>Push-API-Endpunkt</em> auf den Push-Server. Die eigentliche <em>Push-Benachrichtigung</em> kommt jedoch vom eigenen Server. Er sendet die Push-Nachricht an den <em>In-Browser Push Server</em>, dieser löst damit ein <code>push</code>-Ereignis beim Service Worker aus und der Service Worker schickt die <em>Push-Benachrichtigung</em> an die Webanwendung. Wir schauen uns im Folgenden alle diese Schritte im Detail an. </p>
+<h2 id="anzeigen-von-benachrichtigungen">Anzeigen von Benachrichtigungen<a class="headerlink" href="#anzeigen-von-benachrichtigungen" title="Permanent link">&para;</a></h2>
+<p>Wir beginnen mit dem Anzeigen (der Darstellung) von Push-Benachrichtigungen in einer Webanwendung. Dieser Abschnitt hat <strong>noch nichts</strong> mit dem <code>push</code>-Ereignis zu tun! Wir benötigen zum Anzeigen nicht mal einen Service Worker. Es geht aber auch über den Service Worker - und das wird später auch bei der Verwendung der <em>Push-API</em> notwendig. Die hier verwendete <a href="https://developer.mozilla.org/en-US/docs/Web/API/notification">Notification-API</a> wird von fast allen Browsern unterstützt. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API">Hier</a> ist auch eine gute Übersicht darüber, wie diese <em>Notification-API</em> verwendet wird. </p>
+<h3 id="benachrichtigungen-einschalten">Benachrichtigungen einschalten<a class="headerlink" href="#benachrichtigungen-einschalten" title="Permanent link">&para;</a></h3>
+<p>Bevor wir das Anzeigen von <em>(Push-)Benachrichtigungen</em> betrachten, müssen wir diese zuerst erlauben. In unserer Anwendung gibt es dazu den Button <code>BENACHRICHTIGUNGEN EIN</code>. </p>
+<p><img alt="push" src="../files/74_push.png" /></p>
+<p>In der <code>index.html</code> ist dieser Button zwei Mal definiert, einmal für einen schmalen Viewport und einmal für einen breiten. Für beide Varianten sieht die Implementierung so aus: </p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;drawer-option&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;enable-notifications mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent&quot;</span><span class="p">&gt;</span>
+            Benachrichtigungen Ein
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Für einen schmalen Viewport ist der Button dann unter dem Hamburger Menü in der linken oberen Ecke erreichbar. Beiden Buttons ist die CSS-Klasse <code>enable-notifications</code> zugewiesen. Wir sorgen zuerst dafür, dass dieser Button nur angezeigt wird, wenn der Browser die <em>Notification-API</em> unterstützt. Wenn nicht, dann wäre der Button funktionslos und wir bräuchten ihn nicht. Wir schalten ihn deshalb in der <code>app.css</code> zunächst im Standartwert aus:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">/src/css/app.css</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">text-center</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">drawer-option</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="hll"><span class="p">.</span><span class="nc">enable-notifications</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="p">}</span><span class="w"></span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In der <code>app.js</code> prüfen wir, ob der Browser die <em>Notification-API</em> unterstützt und schalten für diesen Fall die Buttons wieder ein. </p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kd">let</span> <span class="nx">enableNotificationsButtons</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.enable-notifications&#39;</span><span class="p">);</span>
+</span>
+<span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+        <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+            <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+        <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="kd">function</span> <span class="nx">askForNotificationPermission</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">Notification</span><span class="p">.</span><span class="nx">requestPermission</span><span class="p">(</span> <span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User choice&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span><span class="p">(</span><span class="nx">result</span> <span class="o">!==</span> <span class="s1">&#39;granted&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No notification permission granted&#39;</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="hll">            <span class="c1">// notifications granted</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">});</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="hll"><span class="k">if</span><span class="p">(</span><span class="s1">&#39;Notification&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">button</span> <span class="k">of</span> <span class="nx">enableNotificationsButtons</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">;</span>
+</span><span class="hll">        <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">askForNotificationPermission</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<ul>
+<li>In Zeile <code>1</code> erstellen wir uns eine Variable <code>enableNotificationsButtons</code>, die auf ein Array aller Buttons mit der CSS-Klasse <code>enable-notifications</code> zeigt. </li>
+<li>In Zeile <code>25</code> prüfen wir nun, ob der Browser die <code>Notification</code>-API unterstützt. Wenn ja, dann schalten wir alle Buttons aus dem <code>enableNotificationsButtons</code>-Array wieder auf sichtbar (von <code>display: none</code> auf <code>display: inline-block</code>) und wir melden jeden dieser Buttons an die Ereignisbehandlung des <code>click</code>-Ereignisses an (Zeile <code>28</code>). </li>
+<li>Die Behandlung des <code>click</code>-Ereignisses erfolgt in der Methode <code>askForNotificationPermission()</code>, die in den Zeilen <code>14-23</code> definiert ist. Da diese Methode nur dann aufgerufen wird, wenn der Browser die <code>Notification</code>-API unterstützt, kann diese API darin verwendet werden. </li>
+<li>Mit der Funktion <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission">requestPermission()</a> wird die Nutzerin gefragt, ob sie Benachrichtigungen zulassen möchte. Diese Methode gibt ein Promise zurück, dessen <code>result</code> die Werte <code>granted</code>, <code>denied</code> oder <code>default</code> haben kann. Werden Benachrichtigungen nicht erlaubt (Zeile <code>17</code>), können wir nichts weiter tun. Die Nutzerin wird dann auch nicht erneut gefragt. Die Benachrichtigungen bleiben für die Webanwendung ausgeschaltet (Zeile <code>18</code>). </li>
+</ul>
+<p>Wenn wir die Anwendung nun ausführen (Reload nach <code>Application --&gt; Storage --&gt; Clear Storage</code> oder die Versionsnummern der Caches im Service Worker ändern), dann erhalten wir nach dem Klicken auf den <code>BENACHRICHTIGUNGEN EIN</code>-Button folgende Abfrage:</p>
+<p><img alt="push" src="../files/75_push.png" /></p>
+<p>Wenn wir auf <code>Zulassen</code> klicken, dann erscheint in der Konsole <code>User Chaice granted</code> (Zeile <code>16</code>). Beachten Sie, dass Sie nicht erneut gefragt werden, ob Benachrichtungen zugelassen werden sollen oder nicht. Erneutes Klicken auf den Button bewirkt (selbst nach einem Reload der Anwendung) keine erneute Abfrage. Deshalb wäre es eigentlich auch sinnvoll, den Button wieder zu verstecken, d.h. auf <code>display: none</code> zu setzen. </p>
+<p>Um die Benachrichtigungen zu verwalten, können Sie in Chrome <code>chrome://settings/content/notifications</code> eingeben. Dort sehen Sie eine Auflistung aller Webanwendungen, die Sie besucht haben und die von Ihnen eine Erlaubnis zur Benachrichtung gewollt haben. Sie können dort die jeweiligen Einstellungen wieder änder, z.B. auch für die hier entwickelte Anwendung.</p>
+<p><img alt="push" src="../files/79_push.png" /></p>
+<h3 id="benachrichtigungen-anzeigen">Benachrichtigungen anzeigen<a class="headerlink" href="#benachrichtigungen-anzeigen" title="Permanent link">&para;</a></h3>
+<p>Jetzt erstellen wir unsere erste Benachrichtigung mithilfe der <code>Notification</code>-API. Die einfachste Form der <code>Notification</code> wird durch die Verwendung des parametrisierten Konstruktors von <code>Notification</code> (<code>new Notification('Nachricht')</code>) erstellt. Wir fügen die <code>app.js</code> eine solche einfache Benachrichtigung für den Fall, dass Benachrichtigungen erlaubt werden, ein:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">enableNotificationsButtons</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.enable-notifications&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+        <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+            <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+        <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="kd">function</span> <span class="nx">displayConfirmNotification</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="ow">new</span> <span class="nx">Notification</span><span class="p">(</span><span class="s1">&#39;Successfully subscribed!&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kd">function</span> <span class="nx">askForNotificationPermission</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Notification</span><span class="p">.</span><span class="nx">requestPermission</span><span class="p">(</span> <span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User choice&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">result</span> <span class="o">!==</span> <span class="s1">&#39;granted&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No notification permission granted&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="hll">            <span class="nx">displayConfirmNotification</span><span class="p">();</span>
+</span>        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="p">(</span><span class="s1">&#39;Notification&#39;</span> <span class="ow">in</span> <span class="nb">window</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">button</span> <span class="k">of</span> <span class="nx">enableNotificationsButtons</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">;</span>
+        <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">askForNotificationPermission</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wenn wir die Anwendung nun erneut ausführen und auf den Button klicken, dann werden wir zwar nicht erneut gefragt, ob wir Benachrichtigungen zulassen oder blockieren wollen, aber da wir Benachrichtungen bereits zugelassen haben, erscheint nun die folgende Benachrichtigung:</p>
+<p><img alt="push" src="../files/76_push.png" /></p>
+<p>Der einfache Aufruf des <code>Notification</code>-Konstruktors mit einer einfachen Nachricht (Zeile <code>15</code>) erzeugt auch die einfachste Form der Benachrichtigung. Dem Konstruktor lassen sich aber als zweiten Parameter noch JavaScript-Objekt für <code>options</code> übergeben. Darin kann ein weiterer Text (<code>body</code>) definiert werden und z.B. auch ein eigenes <code>icon</code>. Wir betrachten das später noch etwas genauer, erstmal nur eine weitere Nachricht: </p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">displayConfirmNotification</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;You successfully subscribed to our Notification service!&#39;</span><span class="p">};</span>
+</span><span class="hll">    <span class="ow">new</span> <span class="nx">Notification</span><span class="p">(</span><span class="s1">&#39;Successfully subscribed!&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt dann die Benachrichtigung:</p>
+<p><img alt="push" src="../files/77_push.png" /></p>
+<h3 id="benachrichtigungen-im-service-worker-erstellen">Benachrichtigungen im Service Worker erstellen<a class="headerlink" href="#benachrichtigungen-im-service-worker-erstellen" title="Permanent link">&para;</a></h3>
+<p>Im jetzigen Stand werden die Benachrichtungen aus der Webanwendung heraus erstellt. Das ist auch völlig ok. Die <code>Notification</code>-API lässt sich sowohl in der Webanwendung verwenden, als auch im Service Worker. Da später aber die <em>Push-Benachrichtigungen</em> vom Service Worker verwaltet werden, wechseln wir jetzt auch für die einfachen Benachrichtigungen zum Service Worker, d.h. wir lassen die Benachrichtigungen nun nicht mehr durch die Webanwendung erstellen, sondern durch den Service Worker. Dazu passen wir unsere <code>app.js</code> wie folgt an:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">displayConfirmNotification</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;You successfully subscribed to our Notification service!&#39;</span><span class="p">};</span>
+</span>
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">sw</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="s1">&#39;Successfully subscribed (from SW)!&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+            <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Der Service Worker besitzt eine eigene Funktion <code>showNotification()</code>, die intern ein <code>Notification</code>-Objekt erzeugt und der die gleiche Parameterliste übergeben werden kann, wie dem <code>Notification</code>-Konstruktor. Nach Reload und Klicken des Buttons sehen wir nun folgende Benachrichtigung:</p>
+<p><img alt="push" src="../files/78_push.png" /></p>
+<p>Die Nachricht wurde extra um <code>(from SW)</code> ergänzt, um kenntlich zu machen, dass die Benachrichtigung nun vom Service Worker angestoßen wird. </p>
+<h3 id="weitere-optionen-fur-die-benachrichtigungen">Weitere Optionen für die Benachrichtigungen<a class="headerlink" href="#weitere-optionen-fur-die-benachrichtigungen" title="Permanent link">&para;</a></h3>
+<p>Benachrichtigungen sind ein <em>System-Feature</em>, d.h. ihre Gestaltung hat etwas mit dem Gerät zu tun, in dem diese Benachrichtigungen erscheinen. Es ist kein <em>Browser-Feature</em>. Benachrichtigungen sehen auf dem Mac anders aus, als unter Windows oder unter Linux und auf dem iPhone anders, als auf einem Android-Gerät. Es gibt ziemlich viele mögliche Optionen für eine solche Benachrichtigung, aber die unterschiedlichen Systeme beachten diese Optionen mal mehr und mal weniger. </p>
+<p>Wir werden hier der Vollständigkeit halber einige Optionen benennen, aber am meisten sieht man von diesen Optionen auf einem Android-Gerät. </p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">displayConfirmNotification</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;You successfully subscribed to our Notification service!&#39;</span><span class="p">,</span>
+<span class="hll">            <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;/src/images/htw-sm.jpg&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">lang</span><span class="o">:</span> <span class="s1">&#39;de-DE&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">vibrate</span><span class="o">:</span> <span class="p">[</span><span class="mf">100</span><span class="p">,</span> <span class="mf">50</span><span class="p">,</span> <span class="mf">200</span><span class="p">],</span>
+</span><span class="hll">            <span class="nx">badge</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;confirm-notification&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">renotify</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+</span><span class="hll">                <span class="p">{</span> <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;confirm&#39;</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Ok&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span> <span class="p">},</span>
+</span><span class="hll">                <span class="p">{</span> <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span> <span class="p">},</span>
+</span><span class="hll">            <span class="p">]</span>
+</span>        <span class="p">};</span>
+
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">sw</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="s1">&#39;Successfully subscribed (from SW)!&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+            <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Auf dem Mac hat neben der <code>icon</code>-Option nur noch die <code>actions</code>-Option eine Auswirkung. Die Benachrichtigung sieht nun so aus (auf dem Mac):</p>
+<p><img alt="push" src="../files/80_push.png" /></p>
+<p>Man sieht das icon und unter dem Icon wird durch das Hovern mit der Maus ein Menü sichtbar, das die definierten <code>actions</code> enthält. </p>
+<ul>
+<li>mit <code>image</code> kann die gesamte Benachrichtigung mit einem Bild unterlegt werden (sieht man bei Android),</li>
+<li>mit <code>vibrate</code> kann die Benachrichtigung durch das Vibrieren des Gerätes signalisiert werden. In unserem Beispiel vibriert das Gerät 100 Millisekunden, dann ist 50 Millisekunden Pause und dann vibriert es nochmal für 200 Millisekunden. </li>
+<li>mit <code>tag</code> können Benachrichtigungen mit einer Art <code>id</code> versehen werden. Wenn meherere Benachrichtigungen mit demselben <code>tag</code> vorliegen, dann wird nur die zuletzt eingegangene Benachrichtigung angezeigt. Ansonsten erscheinen alle Benachrichtigungen untereinander. </li>
+<li><code>renotify</code> gehört zu <code>tag</code>. Wenn der Wert true ist, dann wird die Nutzerin auch dann informiert, wenn eine neue Nachricht zum selben <code>tag</code> angekommen ist. Sonst nicht.</li>
+</ul>
+<p>Eine Übersicht über alle Optionen findet sich <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/Notification">hier</a>.</p>
+<p>Wenn Sie ein Android-Gerät besitzen, dann können Sie es an den Rechner andocken (USB-Anschluss - dazu müssen Sie den USB-Zugriff erlauben) und in den Devloper Tools rechts oben unter den drei senkrechten Punkten den Menüpunkt <code>More tools</code> und dort <code>Remote devices</code> auswählen und können dann ausprobieren, wie die Benachrichtigungen unter einem Android-Gerät aussehen. <a href="https://docs.microsoft.com/de-de/microsoft-edge/devtools-guide-chromium/remote-debugging/">Anleitung für Edge</a>, <a href="https://raygun.com/blog/debug-android-chrome/">Anleitung für Chrome</a>, <a href="https://developer.mozilla.org/de/docs/Tools/Remote_Debugging/Firefox_for_Android">Anleitung für Firefox</a>.</p>
+<p>Auf die unter <code>actions</code> definierten Aktionen kann innerhalb des Service Workers sogar reagiert werden:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">/sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;notificationclick&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">notification</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">notification</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">action</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notification</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;confirm&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;confirm was chosen&#39;</span><span class="p">);</span>
+        <span class="nx">notification</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Der Service Worker kann das <code>notificationclick</code>-Ereignis behandeln. Ebenso kann der Service Worker das Ereignis behandeln, das ausgelöst wird, wenn eine Benachrichtigung geschlossen wird: </p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">/sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;notificationclose&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;notification was closed&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir wollen uns aber mit den Benachrichtigungen gar nicht weiter im Detail beschäftigen, sondern lieber mit Push-Notationen. Kenntnisse über Benachrichtigungen sind aber eine gute Voraussetzung, um zu den Push-Notifikationen überzugehen. </p>
+<h2 id="push-benachrichtigungen">Push-Benachrichtigungen<a class="headerlink" href="#push-benachrichtigungen" title="Permanent link">&para;</a></h2>
+<p>Das Konzept der Benachrichtigung wird auch bei den Push-Nachrichten verwendet. Um Push-Nachrichten zu empfangen, muss man sich jedoch zunächst für den Empfang registrieren (siehe in der Abbildung oben <em>neue Push Subscription erstellen</em>).  </p>
+<h3 id="anmelden-an-push-nachrichten-subscription">Anmelden an Push-Nachrichten (Subscription)<a class="headerlink" href="#anmelden-an-push-nachrichten-subscription" title="Permanent link">&para;</a></h3>
+<p>Die Anmeldung an die Push-Nachrichten geschieht in der Webanwendung. Wir passen dazu unsere <code>app.js</code> an und fügen eine Funktion <code>configurePushSubscription()</code> ein. </p>
+<div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">enableNotificationsButtons</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.enable-notifications&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+        <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+            <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+        <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">displayConfirmNotification</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;You successfully subscribed to our Notification service!&#39;</span><span class="p">,</span>
+            <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span><span class="p">,</span>
+            <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;/src/images/htw-sm.jpg&#39;</span><span class="p">,</span>
+            <span class="nx">lang</span><span class="o">:</span> <span class="s1">&#39;de-DE&#39;</span><span class="p">,</span>
+            <span class="nx">vibrate</span><span class="o">:</span> <span class="p">[</span><span class="mf">100</span><span class="p">,</span> <span class="mf">50</span><span class="p">,</span> <span class="mf">200</span><span class="p">],</span>
+            <span class="nx">badge</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span><span class="p">,</span>
+            <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;confirm-notification&#39;</span><span class="p">,</span>
+            <span class="nx">renotify</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">actions</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span> <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;confirm&#39;</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Ok&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span> <span class="p">},</span>
+                <span class="p">{</span> <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Cancel&#39;</span><span class="p">,</span> <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span> <span class="p">},</span>
+            <span class="p">]</span>
+        <span class="p">};</span>
+
+        <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">sw</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="s1">&#39;Successfully subscribed (from SW)!&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+            <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="kd">function</span> <span class="nx">configurePushSubscription</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+</span><span class="hll">        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">getSubscription</span><span class="p">();</span>
+</span><span class="hll">        <span class="p">})</span>
+</span><span class="hll">        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">if</span><span class="p">(</span><span class="nx">sub</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// create a new subscription</span>
+</span><span class="hll">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class="hll">                <span class="c1">// already subscribed</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">});</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kd">function</span> <span class="nx">askForNotificationPermission</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Notification</span><span class="p">.</span><span class="nx">requestPermission</span><span class="p">(</span> <span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User choice&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">result</span> <span class="o">!==</span> <span class="s1">&#39;granted&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No notification permission granted&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="hll">            <span class="c1">// displayConfirmNotification();</span>
+</span><span class="hll">            <span class="nx">configurePushSubscription</span><span class="p">();</span>
+</span>        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="k">if</span><span class="p">(</span><span class="s1">&#39;Notification&#39;</span> <span class="ow">in</span> <span class="nb">window</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+</span>    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">button</span> <span class="k">of</span> <span class="nx">enableNotificationsButtons</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline-block&#39;</span><span class="p">;</span>
+        <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">askForNotificationPermission</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Methode <code>configurePushSubscription()</code> wird nun anstelle von <code>displayConfirmNotifivcation()</code> in der <code>askForNotificationPermission()</code> aufgerufen (Zeilen <code>62-63</code>). Das liegt daran, dass die <code>Notification.requestPermission()</code>-Funktion auch für die Erlaubnis von <em>Push-Nachrichten</em> verwendet wird. Mit der Erlaubnis von <em>Benachrichtigungen</em> wird also auch gleichzeitig die Erlaubnis von <em>Push-Nachrichten</em> erteilt. </p>
+<p>Da die <em>Push-Benachrichtigungen</em> über den Service Worker verwaltet werden, wird in <code>configurePushSubscription()</code> zunächst geprüft, ob der Browser überhaupt Service Worker unterstützt (Zeile <code>39</code>). Wenn nicht, wird die Methode sofort verlassen (Zeile <code>40</code>). Da wir aber auch in die Abfrage nach der <code>Notification-API</code> (Zeile <code>68</code>) noch die Abfrage nach dem <code>serviceWorker</code> hinzugefügt haben, wäre der Button <code>BENACHRICHTUNGEN EIN</code> gar nicht sichtbar, wenn der Service Worker nicht im Browser unterstützt würde. Dann würde auch nie die Funktion <code>configurePushSubscription()</code> aufgerufen. Wir lassen Zeilen <code>39-41</code> trotzdem sicherheitshalber drin.</p>
+<p>In Zeile <code>45</code> verwendet der Service Worker die <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushManager">PushManager-API</a>. Eine der drei Methoden, die diese API zur Verfügung stellt, ist die <code>getSubscription()</code>-Methode. Diese Methode gibt eine Promise mit einer existierenden Subscription zurück. Wenn keine Subscription existiert, ist der Rückgabewert <code>null</code>. Ist der Rückgabewert <code>null</code>, dann erzeugen wir eine neue Subscription (Zeile <code>49</code>). </p>
+<h3 id="erzeugen-einer-neuen-subscription">Erzeugen einer neuen Subscription<a class="headerlink" href="#erzeugen-einer-neuen-subscription" title="Permanent link">&para;</a></h3>
+<p>Das Erezugen einer Subscription ist zunächst einfach. Dafür gibt es in der <em>PushManager-API</em> die Methode <code>subscribe()</code>. </p>
+<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">configurePushSubscription</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="kd">let</span> <span class="nx">swReg</span><span class="p">;</span>
+</span>    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">            <span class="nx">swReg</span> <span class="o">=</span> <span class="nx">sw</span><span class="p">;</span>
+</span>            <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">getSubscription</span><span class="p">();</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">sub</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// create a new subscription</span>
+<span class="hll">                <span class="nx">swReg</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">();</span>
+</span>            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// already subscribed</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Da wir in dem zweiten <code>then()</code>-Block keinen Zugriff mehr auf die Variable <code>sw</code> haben (wir geben die Promise von <code>getSubscription()</code> zurück, nicht aber <code>sw</code>), benötigen wir eine Variable, in der wir die Referenz auf den Service Worker speichern und auf die wir in der gesamten Funktion Zugriff haben. Die Promise <code>navigator.serviceWorker.ready</code> gibt etwas mehr als den Service Worker zurück, eine sogenannte <em>Service Worker Registration</em> (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready">ready</a> und <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">Srvice Worker Registration</a>). Wir nennen unsere Variable deshalb <code>swReg</code> (Zeile <code>43</code>). Die <code>subscribe()</code>-Funktion wird in Zeile <code>52</code> aufgerufen. </p>
+<p>Wir haben nun eine neue Subscription erstellt. Eine solche Subscription enthält den Endpunkt (<em>Push-API Endpunkt</em> in der Abbildung ganz oben) des <em>In-Browser Push Servers</em>, an den die Push-Nachrichten gesendet werden und der für eine neue Push-Nachricht das <code>push</code>-Ereignis beim Service Worker auslöst. Mit der Kenntnis des Endpunktes kann nun aber jede beliebige Anwendung eine Push-Nachricht an den <em>In-Browser Push Server</em> senden. Damit kann es passieren, dass Push-Nachrichten erstellt werden, die gar nicht von dem eigenen Backend kommen. Deshalb müssen wir diese Informationen über den Endpunkt <strong>schützen</strong>. </p>
+<h3 id="schutz-der-subscription">Schutz der Subscription<a class="headerlink" href="#schutz-der-subscription" title="Permanent link">&para;</a></h3>
+<p>Der <code>subscribe()</code>-Methode können Optionen (als JavaScript-Objekt) übergeben werden, welche zwei Eigenschaften enthalten können:</p>
+<ul>
+<li><code>userVisibleOnly</code>; kann <code>true</code> oder <code>false</code> sein. Wenn <code>true</code>, dann können nur Nachrichten gesendet werden, die "sichtbar" für den User sind, d.h. es können keine Aktionen (Java-Skripte o.ä.) als Nachrichten gesendet werden und</li>
+<li><code>applicationServerKey</code>: das ist ein Base64-ArrayBuffer, der einen Schlüssel enthält. Das Vorgehen dafür ist z.B. <a href="https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol">hier</a>, aber auch <a href="https://blog.mozilla.org/services/2016/04/04/using-vapid-with-webpush/">hier</a> gut beschrieben.  </li>
+</ul>
+<p>Die Grundidee dabei ist, dass wir sicherstellen wollen, dass nur Nachrichten, die von <strong>unserem</strong> Backend kommen, von dem <em>In-Browser Push Server</em> an unsere Webanwendung weitergeleitet werden. Dazu müssen wir unser Backend erweitern.</p>
+<h4 id="backend-erweitern">Backend erweitern<a class="headerlink" href="#backend-erweitern" title="Permanent link">&para;</a></h4>
+<p>Um unser Backend für das Senden von <em>Push-Nachrichten</em> einzurichten, benötigen wir das Modul <a href="https://www.npmjs.com/package/web-push">web-push</a>. Wir wechesln im Terminal in unseren Backend-Ordner und führen dort</p>
+<div class="highlight"><pre><span></span><code>npm install --save web-push
+</code></pre></div>
+<p>aus. Die <code>--save</code>-Option wird seit <code>npm 5.0.0</code> nicht mehr benötigt. Die Abhängigkeiten werden auch so in der <code>package.json</code> gespeichert. In diese <code>package.json</code> des Backends fügen wir ein weiteres <code>script</code> hinzu: </p>
+<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">package.json</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;backend&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Backend REST-API&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;watch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nodemon ./server.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;web-push&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;web-push&quot;</span><span class="w"></span>
+</span><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;keywords&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;rest&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;api&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;backend&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mongodb&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;repository&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/jfreiheit/IKT-PWA-Backend.git&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;J. Freiheit&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISC&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;cors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.8.5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;dotenv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^16.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;express&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.18.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;gridfs-stream&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^1.1.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;mongoose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^6.3.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;multer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^1.4.4&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;multer-gridfs-storage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^5.0.2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;web-push&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.5.0&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;nodemon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.0.16&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Das ermöglicht uns, </p>
+<div class="highlight"><pre><span></span><code>npm run web-push
+</code></pre></div>
+<p>auszuführen. Das führt allerdings zu einem Fehler, zeigt uns aber an, welche Optionen wir nutzen könnten: </p>
+<div class="highlight"><pre><span></span><code>Usage: 
+
+  web-push send-notification --endpoint<span class="o">=</span>&lt;url&gt; <span class="o">[</span>--key<span class="o">=</span>&lt;browser key&gt;<span class="o">]</span> <span class="o">[</span>--auth<span class="o">=</span>&lt;auth secret&gt;<span class="o">]</span> <span class="o">[</span>--payload<span class="o">=</span>&lt;message&gt;<span class="o">]</span> <span class="o">[</span>--ttl<span class="o">=</span>&lt;seconds&gt;<span class="o">]</span> <span class="o">[</span>--encoding<span class="o">=</span>&lt;encoding type&gt;<span class="o">]</span> <span class="o">[</span>--vapid-subject<span class="o">=</span>&lt;vapid subject&gt;<span class="o">]</span> <span class="o">[</span>--vapid-pubkey<span class="o">=</span>&lt;public key url base64&gt;<span class="o">]</span> <span class="o">[</span>--vapid-pvtkey<span class="o">=</span>&lt;private key url base64&gt;<span class="o">]</span> <span class="o">[</span>--gcm-api-key<span class="o">=</span>&lt;api key&gt;<span class="o">]</span>
+
+  web-push generate-vapid-keys <span class="o">[</span>--json<span class="o">]</span>
+</code></pre></div>
+<p>Die <code>send-notification</code>-Option in Verbindung mit dem <code>endpoint</code> werden wir später verwenden, um <em>Push-Nachrichten</em> zu senden. Zunächst benötigen wir den öffentlichen und den privaten Schlüssel zur Verschlüsselung der Kommunikation mit dem <em>In-Browser Push Server</em>. Dazu verwenden wir die Option <code>generate-vapid-keys</code> und geben in das Terminal </p>
+<div class="highlight"><pre><span></span><code>npm run web-push generate-vapid-keys
+</code></pre></div>
+<p>ein. Wir erhalten eine Ausgabe in der Form</p>
+<div class="highlight"><pre><span></span><code><span class="o">=======================================</span>
+
+Public Key:
+BCGnTHY7-DB07ySIj5hAYQBd5J3lXskcLMuAkqTTkneKB21tXyUP7uCaWJUjIPRpfecn73lMHpwANFw-0LsXEtY
+
+Private Key:
+<span class="nv">TNVDKlHHGBZ66aKyCTxru630t6RL_xictOKA3n0lgM4</span>
+
+<span class="o">=======================================</span>
+</code></pre></div>
+<h4 id="public-key-in-der-appjs">Public Key in der app.js<a class="headerlink" href="#public-key-in-der-appjs" title="Permanent link">&para;</a></h4>
+<p>Wir kopieren zunächst den öffentlichen (<code>public</code>) Schlüssel und speichern in in unsere <code>app.js</code> der Webanwendung:</p>
+<div class="tabbed-set" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">configurePushSubscription</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nx">swReg</span><span class="p">;</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">swReg</span> <span class="o">=</span> <span class="nx">sw</span><span class="p">;</span>
+            <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">getSubscription</span><span class="p">();</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">sub</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// create a new subscription</span>
+<span class="hll">                <span class="kd">let</span> <span class="nx">vapidPublicKey</span> <span class="o">=</span> <span class="s1">&#39;BCGnTHY7-DB07ySIj5hAYQBd5J3lXskcLMuAkqTTkneKB21tXyUP7uCaWJUjIPRpfecn73lMHpwANFw-0LsXEtY&#39;</span><span class="p">;</span>
+</span><span class="hll">                <span class="nx">swReg</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+</span><span class="hll">                    <span class="nx">userVisibleOnly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class="hll">                <span class="p">});</span>
+</span>            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// already subscribed</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Hier können wir auch schonmal die Option <code>userVisibleOnly: true</code> definieren (Zeile <code>54</code> - geschweifte Klammern nicht vergessen). Wie oben bereits erwähnt, stellen wir den öffentlichen Schlüssel als ein Base64- ArrayBuffer zur Verfügung. Dazu benötigen wir eine Funktion <code>urlBase64ToUint8Array(base64String)</code>, die wir z.B. <a href="https://www.npmjs.com/package/web-push">hier</a> oder auch <a href="https://gist.github.com/Klerith/80abd742d726dd587f4bd5d6a0ab26b6">hier</a> finden und die wir z.B. ebenfalls in die <code>app.js</code> einfügen können (wenn Ihnen die <code>app.js</code>zu voll wird, können Sie sie auch in die <code>db.js</code> einfügen): </p>
+<div class="tabbed-set" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">urlBase64ToUint8Array</span><span class="p">(</span><span class="nx">base64String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">padding</span> <span class="o">=</span> <span class="s1">&#39;=&#39;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">((</span><span class="mf">4</span> <span class="o">-</span> <span class="nx">base64String</span><span class="p">.</span><span class="nx">length</span> <span class="o">%</span> <span class="mf">4</span><span class="p">)</span> <span class="o">%</span> <span class="mf">4</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">base64</span> <span class="o">=</span> <span class="p">(</span><span class="nx">base64String</span> <span class="o">+</span> <span class="nx">padding</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\-/g</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/_/g</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">rawData</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">atob</span><span class="p">(</span><span class="nx">base64</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">outputArray</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Uint8Array</span><span class="p">(</span><span class="nx">rawData</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">rawData</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">outputArray</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">rawData</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">outputArray</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">configurePushSubscription</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nx">swReg</span><span class="p">;</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">swReg</span> <span class="o">=</span> <span class="nx">sw</span><span class="p">;</span>
+            <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">getSubscription</span><span class="p">();</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">sub</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// create a new subscription</span>
+                <span class="kd">let</span> <span class="nx">vapidPublicKey</span> <span class="o">=</span> <span class="s1">&#39;BCGnTHY7-DB07ySIj5hAYQBd5J3lXskcLMuAkqTTkneKB21tXyUP7uCaWJUjIPRpfecn73lMHpwANFw-0LsXEtY&#39;</span><span class="p">;</span>
+<span class="hll">                <span class="kd">let</span> <span class="nx">convertedVapidPublicKey</span> <span class="o">=</span> <span class="nx">urlBase64ToUint8Array</span><span class="p">(</span><span class="nx">vapidPublicKey</span><span class="p">);</span>
+</span>                <span class="nx">swReg</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+                    <span class="nx">userVisibleOnly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="hll">                    <span class="nx">applicationServerKey</span><span class="o">:</span> <span class="nx">convertedVapidPublicKey</span><span class="p">,</span>
+</span>                <span class="p">});</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// already subscribed</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In Zeile <code>68</code> verwenden die neue Funktion, um den öffentlichen Schlüssel in ein Base64-ArrayBuffer zu konvertieren und weisen diesen <code>convertedVapidPublicKey</code> der Eigenschaft <code>applicationServerKey</code> in den Optionen der <code>subscribe()</code>-methode zu (Zeile <code>71</code>). </p>
+<p>Damit ist die Konfiguration der Subscription im Prinzip abgeschlossen. Allerdings müssen wir diese Subscription nun auch noch unserem Backend mitteilen. Dazu sorgen wir zunächst dafür, dass die Subscription an den nächsten <code>then()</code>-Block weitergegeben wird (<code>return swReg</code>) und senden diese im <code>then()</code>-Block an das Backend:</p>
+<div class="tabbed-set" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><label for="__tabbed_14_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">configurePushSubscription</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nx">swReg</span><span class="p">;</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">ready</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sw</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">swReg</span> <span class="o">=</span> <span class="nx">sw</span><span class="p">;</span>
+            <span class="k">return</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">getSubscription</span><span class="p">();</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">sub</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// create a new subscription</span>
+                <span class="kd">let</span> <span class="nx">vapidPublicKey</span> <span class="o">=</span> <span class="s1">&#39;BCGnTHY7-DB07ySIj5hAYQBd5J3lXskcLMuAkqTTkneKB21tXyUP7uCaWJUjIPRpfecn73lMHpwANFw-0LsXEtY&#39;</span><span class="p">;</span>
+                <span class="kd">let</span> <span class="nx">convertedVapidPublicKey</span> <span class="o">=</span> <span class="nx">urlBase64ToUint8Array</span><span class="p">(</span><span class="nx">vapidPublicKey</span><span class="p">);</span>
+<span class="hll">                <span class="k">return</span> <span class="nx">swReg</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+</span>                    <span class="nx">userVisibleOnly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="nx">applicationServerKey</span><span class="o">:</span> <span class="nx">convertedVapidPublicKey</span><span class="p">,</span>
+                <span class="p">})</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// already subscribed</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+<span class="hll">        <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">newSub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/subscription&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">                <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span><span class="hll">                <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span><span class="hll">                    <span class="s1">&#39;Accept&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span>
+</span><span class="hll">                <span class="p">},</span>
+</span><span class="hll">                <span class="nx">body</span><span class="o">:</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">newSub</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">})</span>
+</span><span class="hll">            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                <span class="k">if</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="nx">displayConfirmNotification</span><span class="p">();</span>
+</span><span class="hll">                <span class="p">}</span>
+</span><span class="hll">            <span class="p">})</span>
+</span><span class="hll">        <span class="p">});</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Den Aufbau einer solchen <code>POST-fetch()</code>-Anfrage kennen wir schon. Wenn das Backend ein <code>ok</code> zurücksendet, dann rufen wir die <code>displayConfirmNotatification()</code> auf, die wir für Benachrichtigungen erstellt hatten. </p>
+<p>Aber diesen Endpunkt, den wir beim Backend verwenden, nämlich <code>POST http://localhost:3000/subscription</code>, den müssen wir erst noch im Backend einrichten. </p>
+<h4 id="neuer-endpunkt-im-backend">Neuer Endpunkt im Backend<a class="headerlink" href="#neuer-endpunkt-im-backend" title="Permanent link">&para;</a></h4>
+<p>Wir wechseln wieder zu unserem Backend und öffnen dort die <code>server.js</code>, um einen neuen Endpunkt zu definieren:</p>
+<div class="tabbed-set" data-tabs="15:1"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><label for="__tabbed_15_1">server.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cors&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">postsRoutes</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/posts.routes&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">uploadRoutes</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/upload.routes&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">downloadRoute</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/download.routes&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">deleteRoute</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/delete.routes&#39;</span><span class="p">);</span>
+<span class="hll"><span class="kd">const</span> <span class="nx">subscriptionRoute</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/subscription.routes&#39;</span><span class="p">);</span>
+</span>
+<span class="kd">const</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">&#39;dotenv&#39;</span><span class="p">).</span><span class="nx">config</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/posts&#39;</span><span class="p">,</span> <span class="nx">postsRoutes</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/image&#39;</span><span class="p">,</span> <span class="nx">uploadRoutes</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/download&#39;</span><span class="p">,</span> <span class="nx">downloadRoute</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/delete&#39;</span><span class="p">,</span> <span class="nx">deleteRoute</span><span class="p">);</span>
+<span class="hll"><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/subscription&#39;</span><span class="p">,</span> <span class="nx">subscriptionRoute</span><span class="p">);</span>
+</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`server running on http://localhost:</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// connect to mongoDB</span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DB_CONNECTION</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useNewUrlParser</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">useUnifiedTopology</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+<span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">console</span><span class="p">,</span> <span class="s1">&#39;connection error:&#39;</span><span class="p">));</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;connected to DB&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Subscriptions wollen wir unter dem Endpunkt <code>/subscription</code> verwalten lassen. Wir erstellen uns eine neue Datei <code>routes/subscription.routes.js</code> mit </p>
+<div class="tabbed-set" data-tabs="16:1"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><label for="__tabbed_16_1">routes/subscription.routes.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">webpush</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web-push&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">publicVapidKey</span> <span class="o">=</span> <span class="s1">&#39;BLp3BGxSyYIv3rfy07KC-saKtiCVI073LWw5Eh24gHoRGV7hhT1kVwo6gnhjrUszZguRy8b9lGroKNRy9iCUcCI&#39;</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">privateVapidKey</span> <span class="o">=</span> <span class="s1">&#39;9HPDFyx8Xd3lu2ctDHGdf3TNSjDUU2nsAuwwLe2d_6A&#39;</span><span class="p">;</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="k">async</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">subscription</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;subscription&#39;</span><span class="p">,</span> <span class="nx">subscription</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">201</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;subscription received&#39;</span><span class="p">});</span>
+
+    <span class="nx">webpush</span><span class="p">.</span><span class="nx">setVapidDetails</span><span class="p">(</span><span class="s1">&#39;mailto:freiheit@htw-berlin.de&#39;</span><span class="p">,</span> <span class="nx">publicVapidKey</span><span class="p">,</span> <span class="nx">privateVapidKey</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Diese <code>subscriptionRoute</code> ist auch bereits in der <code>server.js</code> importiert worden (siehe dort Zeile <code>7</code>). Bei der Implementierung sind wir vorgegangen, wie z.B. <a href="https://www.npmjs.com/package/web-push">hier</a> oder <a href="https://www.section.io/engineering-education/push-notification-in-nodejs-using-service-worker/">hier</a> beschrieben.</p>
+<p>Bei den Schlüsseln müssen Sie natürlich Ihre einsetzen (die mit <code>web-push generate-vapid-keys</code> erzeugten).</p>
+<p>Wenn wir nun das Backend ausführen und auch die Webanwendung und auf den Button <code>BENACHRICHTIGEN EIN</code> klicken, dann erhalten wir eine Nachricht, die durch die <code>displayConfirmNotification()</code>-Methode ausgelöst wurde. Wir haben uns erfolgreich an die <em>Push-Benachrichtigung</em> angemeldet. </p>
+<p>Bitte beachten Sie die Ausgabe auf die Konsole im Backend, die wir durch die Zeile <code>10</code> <code>console.log('subscription', subscription);</code> erzeugt haben. Sie zeigt etwas in der Art: </p>
+<div class="highlight"><pre><span></span><code>subscription <span class="o">{</span>
+  endpoint: <span class="s1">&#39;https://fcm.googleapis.com/fcm/send/cMdUtRW4H9o:APA91bG8p3o-Ta31e1yMrqdvonJCyf3xbPfIFtpS2UbX9PcJwkeNKoQjZhEAWo5nad7eR3NgRQR8__3wk591j7DKWJLGzwWgJYm_GgipU0gTvMRpWA6TpmCtrD9OCo1mB0jZQrTj5a_5&#39;</span>,
+  expirationTime: null,
+  keys: <span class="o">{</span>
+    p256dh: <span class="s1">&#39;BDhH_TBG4l-PU3wJnT6wHqsPeYusbPqOiw7VvJvupXDC3JZOIIOiz2Ml8ZaZD9wJuGnXs9BFqINEzrFStsjkk6c&#39;</span>,
+    auth: <span class="s1">&#39;fJRvyO_fnPXsYeDkMy_jAA&#39;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Das Wort <code>subscription</code> haben wir davor gesetzt, aber das <code>subscription</code>-Objekt besitzt drei Eigenschaften:</p>
+<ul>
+<li><code>endpoint</code>: das ist genau der Endpunkt des In-Browser Push Servers (hier wegen Chrome natürlich irgendetwas bei Google). An diesen Endpunkt werden die <em>Push-Notifikationen</em> gesendet. </li>
+<li><code>expirationTime</code>: spielt hier keine Rolle, ist ja auch <code>null</code>. Kann man nutzen, wenn man JSON Web Tokens verwendet und diesen eine Haltbarkeitsdauer zuweist. </li>
+<li><code>keys</code>: das sind unsere Authentifikationsdaten beim <em>In-Browser Push Server</em>. Diese Daten zusammen mit dem privaten Schlüssel werden benötigt, um sich an dem Endpunkt zu authentifizieren.  </li>
+</ul>
+<p><strong>Achtung!</strong> Sie müssen ab jetzt vermeiden, Ihren Service Worker auf <code>unregister</code> zu setzen. Eine Subscription existiert für einen Browser und auch für einen Service Worker! Update von Service Worker ist kein Problem, aber <code>unregister</code> führt zu Problemen - also lieber jetzt erstmal nicht mehr!</p>
+<p>Falls Sie bereits eine <code>subscription</code> erzeugt haben, diese aber nicht mehr verwenden wollen, dann können Sie in der <code>app.js</code> einmal folgenden Code ausführen:</p>
+<div class="tabbed-set" data-tabs="17:1"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><label for="__tabbed_17_1">/src/js/app.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">sub</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">sub</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;sub==null&#39;</span><span class="p">)</span>
+            <span class="c1">// create a new subscription</span>
+            <span class="kd">let</span> <span class="nx">vapidPublicKey</span> <span class="o">=</span> <span class="s1">&#39;BLp3BGxSyYIv3rfy07KC-saKtiCVI073LWw5Eh24gHoRGV7hhT1kVwo6gnhjrUszZguRy8b9lGroKNRy9iCUcCI&#39;</span><span class="p">;</span>
+            <span class="kd">let</span> <span class="nx">convertedVapidPublicKey</span> <span class="o">=</span> <span class="nx">urlBase64ToUint8Array</span><span class="p">(</span><span class="nx">vapidPublicKey</span><span class="p">);</span>
+
+            <span class="k">return</span> <span class="nx">swReg</span><span class="p">.</span><span class="nx">pushManager</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+                <span class="nx">userVisibleOnly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nx">applicationServerKey</span><span class="o">:</span> <span class="nx">convertedVapidPublicKey</span><span class="p">,</span>
+            <span class="p">});</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="cm">/* zum Testen, falls subscription bereits existierte, </span>
+<span class="cm">             * aber neue erstellt werden soll</span>
+<span class="cm">             */</span>
+
+<span class="hll">            <span class="nx">sub</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">()</span>
+</span><span class="hll">            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;unsubscribed()&#39;</span><span class="p">,</span> <span class="nx">sub</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">})</span>
+</span>
+        <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Das bewirkt, dass die existierende <code>subscription</code> gelöscht wird. Haben Sie diesen Code einmal ausgeführt, dann kommentieren Sie die Zeilen <code>80-83</code> wieder aus. beim nächsten Mal wir die neue <code>subscription</code> registriert (<code>subscribe()</code>) und danach wird der (dann wieder leere) <code>else</code>-Zwei ausgeführt. </p>
+<h4 id="push-nachrichten-senden">Push-Nachrichten senden<a class="headerlink" href="#push-nachrichten-senden" title="Permanent link">&para;</a></h4>
+<p>Wir haben uns nun erfolgreich für den Empfang von Push-Nachrichten "registriert". Wir haben in <code>app.js</code> allerdings noch nicht implementiert, was passieren soll, wenn wir bereits registriert sind (siehe oben Listing von <code>app.js</code> Zeile <code>// already subscribed</code>). Wir wollen aber trotzdem schonmal Push-Nachrichten senden. Dazu passen wir im Backend die <code>posts.routes.js</code> wie folgt an:</p>
+<div class="tabbed-set" data-tabs="18:1"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><label for="__tabbed_18_1">posts.routes.js (Auszug)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="k">import</span> <span class="nx">webpush</span> <span class="kr">from</span> <span class="s1">&#39;web-push&#39;</span><span class="p">;</span>
+</span>
+<span class="hll"><span class="kd">const</span> <span class="nx">publicVapidKey</span> <span class="o">=</span> <span class="s1">&#39;BCGnTHY7-DB07ySIj5hAYQBd5J3lXskcLMuAkqTTkneKB21tXyUP7uCaWJUjIPRpfecn73lMHpwANFw-0LsXEtY&#39;</span><span class="p">;</span>
+</span><span class="hll"><span class="kd">const</span> <span class="nx">privateVapidKey</span> <span class="o">=</span> <span class="s1">&#39;TNVDKlHHGBZ66aKyCTxru630t6RL_xictOKA3n0lgM4&#39;</span><span class="p">;</span>
+</span><span class="hll"><span class="kd">const</span> <span class="nx">pushSubscription</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">endpoint</span><span class="o">:</span> <span class="s1">&#39;https://fcm.googleapis.com/fcm/send/cMdUtRW4H9o:APA91bG8p3o-Ta31e1yMrqdvonJCyf3xbPfIFtpS2UbX9PcJwkeNKoQjZhEAWo5nad7eR3NgRQR8__3wk591j7DKWJLGzwWgJYm_GgipU0gTvMRpWA6TpmCtrD9OCo1mB0jZQrTj5a_5&#39;</span><span class="p">,</span>
+</span><span class="hll">    <span class="nx">keys</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">auth</span><span class="o">:</span> <span class="s1">&#39;fJRvyO_fnPXsYeDkMy_jAA&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">p256dh</span><span class="o">:</span> <span class="s1">&#39;BDhH_TBG4l-PU3wJnT6wHqsPeYusbPqOiw7VvJvupXDC3JZOIIOiz2Ml8ZaZD9wJuGnXs9BFqINEzrFStsjkk6c&#39;</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">};</span>
+</span>
+<span class="hll"><span class="kd">function</span> <span class="nx">sendNotification</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">webpush</span><span class="p">.</span><span class="nx">setVapidDetails</span><span class="p">(</span><span class="s1">&#39;mailto:freiheit@htw-berlin.de&#39;</span><span class="p">,</span> <span class="nx">publicVapidKey</span><span class="p">,</span> <span class="nx">privateVapidKey</span><span class="p">);</span>
+</span><span class="hll">    <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;New Push Notification&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;New data in database!&#39;</span>
+</span><span class="hll">    <span class="p">});</span>
+</span><span class="hll">    <span class="nx">webpush</span><span class="p">.</span><span class="nx">sendNotification</span><span class="p">(</span><span class="nx">pushSubscription</span><span class="p">,</span><span class="nx">payload</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</span><span class="hll">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;push notification sent&#39;</span><span class="p">);</span>
+</span><span class="hll">    <span class="c1">// res.status(201).json({ message: &#39;push notification sent&#39;});</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+
+<span class="c1">// POST one post</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">single</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">),</span> <span class="k">async</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// req.file is the `file` file</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">file</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
+            <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;no file selected&quot;</span>
+        <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;req.body&#39;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;req.file&#39;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">newPost</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Post</span><span class="p">({</span>
+            <span class="nx">title</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+            <span class="nx">location</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">location</span><span class="p">,</span>
+            <span class="nx">image_id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">filename</span>
+        <span class="p">})</span>
+        <span class="k">await</span> <span class="nx">newPost</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+<span class="hll">        <span class="nx">sendNotification</span><span class="p">();</span>
+</span>        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">newPost</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir definieren eine Variable <code>pushSubscription</code>, die genau alle Werte der Subscription oben enthält (<code>expirationTime</code> lassen wir weg). Diese Informationen holen wir uns später noch automatisch. Außerdem definieren wir eine neue Funktion <code>sendNotification()</code>. Darin verwenden wir aus dem <a href="https://www.npmjs.com/package/web-push">web-push</a>-Package die Funktion <code>setVapidDetail()</code>. Diese Funktion bekommt als ersten Parameter eine <code>id</code> übergeben, typischerweise (so wie <a href="https://www.npmjs.com/package/web-push">hier</a> beschrieben) einen String beginnend mit <code>mailto:</code> und der E-Mail-Adresse. Als zweiten Parameter wird der öffentliche Vapid-Schlüssel als einfacher String übergeben und als dritter Parameter der private Vapid-Schlüssel als einfacher String. </p>
+<p>Dann kann man für die Nachricht einen sogenannten <code>payload</code> festlegen, der ein beliebiges JSON ist (kann auch ein einfacher String sein). Dieser <code>payload</code> ist der Inhalt der Push-Nachricht. Wir haben in diesem Fall einen <code>title</code> und einen <code>content</code> festgelegt. </p>
+<p>Das Senden der eigentlichen Nachricht an den <em>In-Browser Push Server</em> erfolgt mithilfe der Funktion <code>sendNotification()</code> aus dem <em>web-push</em>-Package. Dieser wird das gesamte JavaScript-Objekt <code>pushSubscription</code> sowie der <code>payload</code> übergeben. </p>
+<p>Die Funktion <code>sendNotification()</code> wird also immer dann aufgerufen, wenn in der Datenbank ein neuer Post gespeichert wird. </p>
+<p>Wir können die Funktion insofern testen, als dass wir neue Daten eingeben, entweder über Postman oder über unsere Webanwendung über das Formular (diese Daten landen ja auch beim Backend). Allerdings können wir uns dabei nur von der Fehlerfreiheit der Ausführungen überzeugen (und im Backend erscheint im Terminal <code>push notification sent</code>). Die Push-Nachricht ist nun beim <em>In-Browser Push Server</em>. Wir müssen jetzt aber im Service Worker zunächst das <code>push</code>-Event behandeln, um die Benachrichtigung tatsächlich im Gerät zu erhalten. </p>
+<h4 id="das-push-ereignis-behandeln">Das <code>push</code>-Ereignis behandeln<a class="headerlink" href="#das-push-ereignis-behandeln" title="Permanent link">&para;</a></h4>
+<p>Das <code>push</code>-Ereignis wird vom <em>In-Browser Push Server</em> ausgelöst, wann immer eine neue Push-Benachrichtigung dort eintrifft. Das kann antürlich auch dann passieren, wenn die Webanwendung geschlossen ist. Das Behandeln des <code>push</code>-Ereignisses ist deshalb Aufgabe des Service Workers. Wir erweitern also die <code>sw.js</code> um die Behandlung des <code>push</code>-Events:</p>
+<div class="tabbed-set" data-tabs="19:1"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><label for="__tabbed_19_1">sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;push notification received&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Fallback message&#39;</span><span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">data</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span>
+        <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">registration</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
+    <span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Ereignisbehandlung im Service Worker haben wir nun schon ein paar Mal gemacht. Wir geben zuerst das <code>event</code> selbst einmal auf der Konsole aus. Es handelt sich um ein <a href="https://developer.mozilla.org/en-US/docs/Web/API/PushEvent">PushEvent</a>. Dann erstellen wir uns Dummy-<code>data</code>, falls der Empfang der <em>Push-Nachricht</em> vom Server nicht klappen sollte. Wenn aber doch, dann schreiben wir die Variable <code>data</code> mit den Daten aus dem <code>PushEvent</code> (siehe oben im Backend <code>payload</code> - die Daten sollten also <code>title</code> und <code>content</code> enthalten). Wir lesen die <code>data</code> aus dem <code>event</code>-Objekt aus und wandeln diese mithilfe von <code>JSON.parse()</code> in ein JSON um. Dann erzeugen wir, so wie in Abschnitt <a href="./#weitere-optionen-fur-die-benachrichtigungen">Weitere Optionen für die Benachrichtigungen</a> beschrieben, die Benachrichtigung. </p>
+<p>Beachten Sie noch, dass <code>self</code> auf den Service Worker zeigt und <code>self.registration</code> verwendet wird, um auf das <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration">ServiceWorkerRegistration</a> zuzugreifen, welches über die Methode <code>showNotification()</code> verfügt. </p>
+<p>Wenn wir nun neue Daten über das Formular eingeben, erscheint</p>
+<p><img alt="push" src="../files/81_push.png" /></p>
+<h4 id="eine-webseite-offnen">Eine Webseite öffnen<a class="headerlink" href="#eine-webseite-offnen" title="Permanent link">&para;</a></h4>
+<p>Jetzt fehlt eigentlich nur noch, dass wir in der Push-Benachrichtung eine Aktion vorsehen, die das Öffnen unserer Webanwendung ermöglicht. Das typische Szenario ist ja, dass die Webanwendung geschlossen ist und dass im Backend eine Datenänderung stattfindet und wir daraufhin eine Push-Nachricht erhalten. Nun wollen wir gerne auf diese Push-Nachricht klicken und damit soll die Anwendung geöffnet werden, die uns das neue Datum anzeigt. Dafür haben wir auch schon alles vorbereitet - Service Worker reagieren wir bereits auf das Ereignis, dass auf die Benachrichtigung geklickt wird:</p>
+<div class="tabbed-set" data-tabs="20:1"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><label for="__tabbed_20_1">sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;notificationclick&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">notification</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">notification</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">action</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notification</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;confirm&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;confirm was chosen&#39;</span><span class="p">);</span>
+        <span class="nx">notification</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die <code>confirm</code>-Antwort erfolgt nur, wenn nach der Zulassung der Berechtigung gefragt wird. Wir behandeln die anderen Fälle. </p>
+<div class="tabbed-set" data-tabs="21:1"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><label for="__tabbed_21_1">sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;notificationclick&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">notification</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">notification</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">action</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notification</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;confirm&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;confirm was chosen&#39;</span><span class="p">);</span>
+        <span class="nx">notification</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+            <span class="nx">clients</span><span class="p">.</span><span class="nx">matchAll</span><span class="p">()</span>      <span class="c1">// clients sind alle Windows (Browser), fuer die der Service Worker verantwortlich ist</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">clientsArray</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">clientsArray</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="nx">c</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">visibilityState</span> <span class="o">===</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
+                    <span class="p">});</span>
+
+                    <span class="k">if</span><span class="p">(</span><span class="nx">client</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">client</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;http://localhost:8080&#39;</span><span class="p">);</span>
+                        <span class="nx">client</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">clients</span><span class="p">.</span><span class="nx">openWindow</span><span class="p">(</span><span class="s1">&#39;http://localhost:8080&#39;</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="nx">notification</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+                <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Mit <code>clients</code> greift der Service Worker auf alle Fenster (Anwendungen, Browser) zu, über die er Kontrolle hat (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients">Clients</a>). Die Funktion <code>matcAll()</code> gibt ihm alle diese Clients als ein Array zurück. Mit der JavaScript-Funktion <code>find()</code> laufen wir durch das Array und geben alle die Clients (genauer vom Typ <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowClient">WindowClient</a> zurück, für die gilt, dass sie sichtbar - im Sinne von <em>erreichbar</em> - sind. Diejenigen Clients, die nicht erreichbar sind, werden gar nicht erst zurückgegeben. Für alle anderen gilt, dass sie entweder bereits geöffnet sind oder nicht. Diejenigen (Browser), die bereits geöffnet sind, navigieren zur URL <code>http://localhost:8080</code> und die anderen werden mit dieser URL geöffnet. </p>
+<p>Wenn nun neue Daten eingegeben werden, dann erscheint eine Push-Notifikation und wenn wir darauf klicken, dann öffnet sich unsere Anwendung. Eine gute Möglichkeit, das zu Testen, besteht in der Verwendung unseres Frontends, das wir für die Eingabe der Daten erstellt haben. Schließen Sie die <code>HTW-Insta</code>-Anwendung, öffnen Sie das andere Frontend, geben Sie Daten ein und speichern diese. Es erscheint eine Push-Notifikation, auf die Sie klicken können und die <code>HTW-Insta</code>-Anwendung wird im browser mit den neuen Daten geöffnet. Diejenigen, die ihr Android-Gerät anschließenm können, sollten es auch unbedingt darüber probieren. </p>
+<p>Hier noch eine kleine Verbesserung davon, weil wir ja die URL hart in den Code geschrieben haben. Wir können im Backend beim Senden der Notification eine weitere Eigenschaft hinzufügen:</p>
+<div class="tabbed-set" data-tabs="22:1"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><label for="__tabbed_22_1">sub.controller.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">sendNotification</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">webpush</span><span class="p">.</span><span class="nx">setVapidDetails</span><span class="p">(</span><span class="s1">&#39;mailto:freiheit@htw-berlin.de&#39;</span><span class="p">,</span> <span class="nx">publicVapidKey</span><span class="p">,</span> <span class="nx">privateVapidKey</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;New Push Notification&#39;</span><span class="p">,</span>
+        <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;New data in database!&#39;</span><span class="p">,</span>
+<span class="hll">        <span class="nx">openUrl</span><span class="o">:</span> <span class="s1">&#39;/help&#39;</span>
+</span>    <span class="p">});</span>
+    <span class="nx">webpush</span><span class="p">.</span><span class="nx">sendNotification</span><span class="p">(</span><span class="nx">pushSubscription</span><span class="p">,</span><span class="nx">payload</span><span class="p">)</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;push notification sent&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>und diese der Benachrichtigung mitgeben:</p>
+<div class="tabbed-set" data-tabs="23:1"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><label for="__tabbed_23_1">sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;push notification received&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="hll">    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="nx">content</span><span class="o">:</span> <span class="s1">&#39;Fallback message&#39;</span><span class="p">,</span> <span class="nx">openUrl</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">};</span>
+</span>    <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">data</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">content</span><span class="p">,</span>
+        <span class="nx">icon</span><span class="o">:</span> <span class="s1">&#39;/src/images/icons/fiw96x96.png&#39;</span><span class="p">,</span>
+<span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">url</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">openUrl</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>    <span class="p">};</span>
+
+    <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">registration</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
+    <span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>und diese Informationen dann statt der festen URL verwenden:</p>
+<div class="tabbed-set" data-tabs="24:1"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><label for="__tabbed_24_1">sw.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;notificationclick&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">notification</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">notification</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">action</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notification</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">action</span> <span class="o">===</span> <span class="s1">&#39;confirm&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;confirm was chosen&#39;</span><span class="p">);</span>
+        <span class="nx">notification</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+        <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+            <span class="nx">clients</span><span class="p">.</span><span class="nx">matchAll</span><span class="p">()</span>      <span class="c1">// clients sind alle Windows (Browser), fuer die der Service Worker verantwortlich ist</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">clientsArray</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                    <span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">clientsArray</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="nx">c</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">visibilityState</span> <span class="o">===</span> <span class="s1">&#39;visible&#39;</span><span class="p">;</span>
+                    <span class="p">});</span>
+
+                    <span class="k">if</span><span class="p">(</span><span class="nx">client</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">                        <span class="nx">client</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+</span>                        <span class="nx">client</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="hll">                        <span class="nx">clients</span><span class="p">.</span><span class="nx">openWindow</span><span class="p">(</span><span class="nx">notification</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+</span>                    <span class="p">}</span>
+                    <span class="nx">notification</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+                <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wenn Sie jetzt auf die Push-Nachricht klicken, sollte sich die <code>help</code>-Seite der Anwendung öffnen. </p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben zunächst gelernt, dass Benachrichtigungen und Push-benachrichtigungen zwei grundsätzlich verschiedene Dinge sind. Benachrichtigungen ist das, was man als Nachricht "sieht". Push-Notifikationen werden an den <em>In-Browser Push Server</em> vom Backend gesendet. Dieser Server löst daraufhin ein <code>push</code>-Ereignis beim Service Worker aus, wenn die Webanwendung sich für den Empfang von <em>Push-Nachrichten</em>. registriert hat. Die Registrierung ist etwas aufwendig, muss aber nur einmal erledigt werden. Mit den Push-Nachrichten kennen wir nun eine weitere <em>progressive</em> Funktionalität. Bis dahin waren Push-Nachrichten nur nativen Apps vorbehalten. </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../backgroundsync/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Hintergrundsynchronisation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Hintergrundsynchronisation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../tools/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Tools" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Tools
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

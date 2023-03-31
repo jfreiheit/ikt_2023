@@ -1,0 +1,1253 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/geolocation/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Geolocation - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geolocation-api" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Geolocation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Geolocation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Geolocation
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-nominatimorg" class="md-nav__link">
+    Beispiel nominatim.org
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-openlayersorg" class="md-nav__link">
+    Beispiel OpenLayers.org
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiel OpenLayers.org">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#einbinden-in-die-indexhtml" class="md-nav__link">
+    Einbinden in die index.html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anpassen-der-feedcss" class="md-nav__link">
+    Anpassen der feed.css
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anpassen-der-feedjs" class="md-nav__link">
+    Anpassen der feed.js
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-nominatimorg" class="md-nav__link">
+    Beispiel nominatim.org
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-openlayersorg" class="md-nav__link">
+    Beispiel OpenLayers.org
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiel OpenLayers.org">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#einbinden-in-die-indexhtml" class="md-nav__link">
+    Einbinden in die index.html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anpassen-der-feedcss" class="md-nav__link">
+    Anpassen der feed.css
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anpassen-der-feedjs" class="md-nav__link">
+    Anpassen der feed.js
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/geolocation.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="geolocation-api">Geolocation-API<a class="headerlink" href="#geolocation-api" title="Permanent link">&para;</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Aktueller Stand vor Geolocation-API:</p>
+<ul>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-06">Frontend</a></li>
+<li><a href="https://github.com/jfreiheit/IKT-PWA-BACKEND-01">Backend</a></li>
+<li>Collection <a href="../files/posts.json">post</a></li>
+<li>Collection <a href="../files/posts_files.json">post.files</a></li>
+<li>Collection <a href="../files/posts_chunks.json">post.chunks</a></li>
+</ul>
+</div>
+<p>Die Geolocation-API wird von allen Browsern unterstützt (sogar Internet Explorer). Es gibt viele Dokumentationen darüber, z.B. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation">hier</a>, <a href="https://developer.mozilla.org/de/docs/Web/API/Geolocation_API">hier</a> und <a href="https://developers.google.com/maps/documentation/geolocation/overview">hier</a>. Die Verwendung ist recht einfach. </p>
+<p>In der <code>index.html</code> haben wir uns bereits einen Button erstellt, für den wir "nur noch" das <code>click</code>-Ereignis behandeln müssen. </p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">public/index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-section&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--colored&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;location-btn&quot;</span><span class="p">&gt;</span>Location<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-spinner mdl-js-spinner is-active&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;location-loader&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Zunächst vereinfachen wir uns in der <code>feed.js</code> wieder den Zugriff auf den Button und den Spinner (Loader) und erstellen noch eine globale Variable <code>fetchedLocation</code>:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">shareImageButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#share-image-button&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">createPostArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#create-post&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">closeCreatePostModalButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#close-create-post-modal-btn&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sharedMomentsArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#shared-moments&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">titleInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#title&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">locationInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#location&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">videoPlayer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#player&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">canvasElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#canvas&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">captureButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#capture-btn&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">imagePicker</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#image-picker&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">imagePickerArea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#pick-image&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">file</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">titleValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">locationValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">imageURI</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="hll"><span class="kd">let</span> <span class="nx">locationButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#location-btn&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">locationLoader</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#location-loader&#39;</span><span class="p">);</span>
+</span><span class="hll"><span class="kd">let</span> <span class="nx">fetchedLocation</span><span class="p">;</span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>und wir setzen den <code>Loader</code> in der <code>feed.css</code> auf unsichtbar:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">public/src/js/feed.css</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">#</span><span class="nn">pick-image</span><span class="o">,</span><span class="w"> </span><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">#</span><span class="nn">location-loader</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p><code>create-post #pick-image</code> stand dort schon, wir haben nur noch den Selektor <code>#create-post #location-loader</code> hinzugefügt.</p>
+<p>Wir fügen in der <code>feed.js</code> die Behandlung des <code>click</code>-Ereignisses für den <code>Location</code>-Button hinzu und auch noch, wie für die Kamera, eine <code>initializeLocation()</code>-Funktion, in der geprüft wird, ob die <code>Geolocation</code>-API überhaupt im Browser verfügbar ist: </p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">locationButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;geolocation&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span> <span class="nx">position</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline&#39;</span><span class="p">;</span>
+        <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+        <span class="nx">fetchedLocation</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">latitude</span><span class="o">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span> <span class="p">};</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;current position: &#39;</span><span class="p">,</span> <span class="nx">fetchedLocation</span><span class="p">);</span>
+        <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;In Berlin&#39;</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#manual-location&#39;</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;is-focused&#39;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline&#39;</span><span class="p">;</span>
+        <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Couldn\&#39;t fetch location, please enter manually!&#39;</span><span class="p">);</span>
+        <span class="nx">fetchedLocation</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{</span> <span class="nx">timeout</span><span class="o">:</span> <span class="mf">5000</span><span class="p">});</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">initializeLocation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;geolocation&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In der <code>initializeLocation()</code>-Funktion wird geprüft, ob der Browser die <code>Geolocation</code>-API unterstützt. Wenn nicht, wird der <code>Location</code>-Button versteckt. Wir haben trotzdem, sicherheitshalber, die Abfrage nochmal in die Behandlung des <code>click</code>-Ereignisses für diesen Button eingefügt (Zeilen <code>22-24</code>), obwohl dies nicht wirklich notwendig ist, da der Button nicht angeklickt werden kann, wenn die <code>Geolocation</code>-API nicht unterstützt wird, da er nicht angezeigt wird. </p>
+<p>Wenn auf den Button geklickt wurde, setzen wir den Button selbst auf unsichtbar (Zeile <code>26</code>) und den Spinner (Loader) auf sichtbar (Zeile <code>27</code>). Zeile <code>29</code> zeigt den eigentlichen Zugriff auf die aktuelle Position. Dort wird die Funktion <code>getCurrentPosition()</code> der <code>Geolocation</code>-API aufgerufen. Wir übergeben drei Parameter:</p>
+<ul>
+<li>der erste Parameter ist die (Callback-)Funktion, die die aktuelle Position zurückgibt. Wenn diese Funktion ausgeführt wird, setzen wir den Button wieder auf sichtbar (Zeile <code>30</code>) und den Loader auf unsichtbar (Zeile <code>31</code>). Die aktuelle Position <code>position</code> enthält die Eigenschaft <code>coords</code>, die die <code>latitude</code> und <code>longitude</code> als Werte enthält (siehe <a href="https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPosition">GeolocationPosition</a> und <a href="https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates">GeolocationCoordinates</a>).  Diese Position geben wir auf der Konsole aus (Zeile <code>33</code>). Wir befüllen das <code>locationInput</code>-Eingabefeld noch mit einem Dummy-Wert und fokussieren auf das Eingabefeld (Zeilen <code>34-35</code>).</li>
+<li>der zweite Parameter ist eine Funktion, die ausgeführt wird, wenn ein Fehler auftritt. Mögliche Fehler sind, dass im Browser der Zugriff auf die Position deaktiviert wurde, dass die Nutzerin den Zugriff auf die aktuelle Position blockiert hat oder dass die Position nicht "schnell genug" ermittelt werden konnte. Im Fehlerfall geben wir den Fehler auf der Konsole aus und schalten den Button wieder ein und den Loader wieder aus (Zeilen <code>37-39</code>).</li>
+<li>der dritte Parameter ist ein JavaScript-Objekt mit <code>options</code>. Wir wählen hier nur eine einzige Option, nämlich wie lange nach der aktuellen Position gesucht werden soll. In der Einstellung erfolgt der <code>timeout</code> nach <code>5 sek</code>. </li>
+</ul>
+<p>Wir passen nun in der <code>feed.js</code> noch die beiden Funktionen <code>openCreatePostModal()</code> und <code>closeCreatePostModal()</code> an:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">openCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(0)&#39;</span><span class="p">;</span>
+    <span class="nx">initializeMedia</span><span class="p">();</span>
+<span class="hll">    <span class="nx">initializeLocation</span><span class="p">();</span>
+</span><span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">closeCreatePostModal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">createPostArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s1">&#39;translateY(100vH)&#39;</span><span class="p">;</span>
+    <span class="nx">imagePickerArea</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">canvasElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+<span class="hll">    <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline&#39;</span><span class="p">;</span>
+</span><span class="hll">    <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wenn Sie die Anwendung nun starten, werden Sie gefragt, ob Sie die Abfrage nach Ihrem Standort zulassen oder blockieren wollen. Die meisten von Ihnen werden aber die <strong>Ortungsdienste ausgeschaltet</strong> haben. Dann ist auch die Abfrage zunächst egal. Im Mac kann man diese (kurzzeitig, dann wieder ausschalten) über <code>Systemeinstellungen --&gt; Sicherheit &amp; Datenschutz --&gt; Reiter Datenschutz --&gt; Ortungsdienste</code> für <code>Google Chrome</code> aktivieren. </p>
+<p>Wenn Sie die Positionsbestimmung zulassen, dann wird nach dem Klicken auf den <code>Location</code>-Button die aktuelle Position auf der Konsole eingegeben und im Formular erscheint unter Ort <code>In Berlin</code>.</p>
+<p>Wir machen nichts weiter mit der aktuellen Position. Es gibt viele Möglichkeiten, die jetzt noch ausprobiert werden könnten. Dazu gehören besipeilsweise:</p>
+<ul>
+<li>Wir könnten mithilfe der <a href="https://developers.google.com/maps/documentation/geolocation/overview">Google-Geolocation-API</a> die Adresse ermitteln, die Google für eine gegebene Position (<code>longitude</code> und <code>latitude</code>) zurückgibt. Dazu bräuchten wir aber auch einen <a href="https://developers.google.com/maps/documentation/geolocation/get-api-key">API-Key</a> von Google.</li>
+<li>Wir könnten das Gleiche mit der <a href="https://nominatim.org/">Nominatim-API</a> für Open Street Map machen. Sie können den Service <a href="https://nominatim.openstreetmap.org/ui/reverse.html">hier einmal ausprobieren</a>, indem Sie Ihre <code>latitude</code> und <code>longitude</code> aus der Konsolenausgabe eingeben.</li>
+<li>Wir könnten <a href="https://openlayers.org/en/latest/doc/quickstart.html">OpenLayers</a> verwenden, um die Position auf einer Karte anzuzeigen.</li>
+<li>Wir könnten die Datenbank erweitern und für alle Posts auch noch die Koordinaten der Position abspeichern und dann alle Posts auf einer Karte (mithilfe von OpenLayers + OpenStreetMap) visualisieren.</li>
+</ul>
+<h2 id="beispiel-nominatimorg">Beispiel nominatim.org<a class="headerlink" href="#beispiel-nominatimorg" title="Permanent link">&para;</a></h2>
+<p>Die oben genannten Verwendungsbeispiele sind alle relativ einfach, da die jeweiligen APIs wirklich gut sind. Wir zeigen hier exemplarisch die Verwendung der <a href="https://nominatim.org/">Nominatim-API</a>, mit deren Hilfe wir für gegebene Breiten- und Längengrade ein Adress-Objekt zurückbekommen. Genauer gesagt, handelt es sich um ein <em>Open Street Map (OSM)</em>-Objekt. Einen groben Überblick über die Endpunkte der <a href="https://nominatim.org/">Nominatim-API</a> erhalten Sie <a href="https://nominatim.org/release-docs/develop/api/Overview/">hier</a>. Uns interessiert dabei insbesondere der <a href="https://nominatim.org/release-docs/develop/api/Reverse/">/reverse-Endpunkt</a>, der ein OSM-Objekt für eine gegebene Lokation zurückgibt. </p>
+<p>Prinzipiell sieht die Anfrage wie folgt aus:</p>
+<div class="highlight"><pre><span></span><code>https://nominatim.openstreetmap.org/reverse?format<span class="o">=</span>&lt;value&gt;<span class="p">&amp;</span><span class="nv">lat</span><span class="o">=</span>&lt;value&gt;<span class="p">&amp;</span><span class="nv">lon</span><span class="o">=</span>&lt;value&gt;<span class="p">&amp;</span>&lt;params&gt;
+</code></pre></div>
+<ul>
+<li>Als Rückgabe-<code>format</code> kann einer der folgenden Werte verwendet werden: <code>[xml|json|jsonv2|geojson|geocodejson]</code>. Der Standard ist <code>xml</code>. Wir sollten am besten <code>jsonv2</code> verwenden.  </li>
+<li>Für <code>lat</code> und <code>long</code> setzen wir die <code>latitude</code> und <code>longitude</code> ein, die wir in <code>fetchedLocation</code> speichern.</li>
+<li>Für mögliche weitere Parameter <code>&lt;params&gt;</code>, wie z.B. <code>zoom</code>, <code>extratags</code> oder <code>namedetails</code>, schauen Sie <a href="https://nominatim.org/release-docs/latest/api/Reverse/#parameters">hier</a>.</li>
+</ul>
+<p>Wenn wir z.B. folgende Anfrage stellen: </p>
+<div class="highlight"><pre><span></span><code>GET https://nominatim.openstreetmap.org/reverse?format<span class="o">=</span>jsonv2<span class="p">&amp;</span><span class="nv">lat</span><span class="o">=</span><span class="m">52</span>.457310<span class="p">&amp;</span><span class="nv">lon</span><span class="o">=</span><span class="m">13</span>.526877
+</code></pre></div>
+<p>erhalten wir als Response folgendes JSON:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;place_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">106322469</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;licence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;osm_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;way&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;osm_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25346348</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;52.45699635&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13.526577702867113&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;place_rank&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;building&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;university&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;importance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;addresstype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;building&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gebäude C&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gebäude C, Johannes-Kraaz-Straße, Oberschöneweide, Treptow-Köpenick, Berlin, 12459, Deutschland&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;building&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gebäude C&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;road&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Johannes-Kraaz-Straße&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;suburb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oberschöneweide&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;borough&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Treptow-Köpenick&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Berlin&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Berlin&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;postcode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12459&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;country&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deutschland&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;country_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;boundingbox&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;52.4561412&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;52.4577257&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;13.5255179&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;13.5274139&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Wir könnten nun einen ausgewählten Wert in unser Formular übernehmen, z.B. <code>display_name</code> oder <code>suburb</code> oder <code>city</code>. Wir zeigen im Folgenden die Übernahme von <code>display_name</code> in das Eingabeformular:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">public/src/js/feed.js</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">locationButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="s1">&#39;geolocation&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+    <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span> <span class="nx">position</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline&#39;</span><span class="p">;</span>
+        <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+        <span class="nx">fetchedLocation</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">latitude</span><span class="o">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span> <span class="p">};</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;current position: &#39;</span><span class="p">,</span> <span class="nx">fetchedLocation</span><span class="p">);</span>
+
+        <span class="kd">let</span> <span class="nx">nominatimURL</span> <span class="o">=</span> <span class="s1">&#39;https://nominatim.openstreetmap.org/reverse&#39;</span><span class="p">;</span> 
+        <span class="nx">nominatimURL</span> <span class="o">+=</span> <span class="s1">&#39;?format=jsonv2&#39;</span><span class="p">;</span>   <span class="c1">// format=[xml|json|jsonv2|geojson|geocodejson]</span>
+        <span class="nx">nominatimURL</span> <span class="o">+=</span> <span class="s1">&#39;&amp;lat=&#39;</span> <span class="o">+</span> <span class="nx">fetchedLocation</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>
+        <span class="nx">nominatimURL</span> <span class="o">+=</span> <span class="s1">&#39;&amp;lon=&#39;</span> <span class="o">+</span> <span class="nx">fetchedLocation</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>
+
+        <span class="nx">fetch</span><span class="p">(</span><span class="nx">nominatimURL</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nominatim res ...&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+                <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nominatim res.json() ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">display_name</span><span class="p">;</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="k">catch</span><span class="p">(</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;err&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+                <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;In Berlin&#39;</span><span class="p">;</span>
+            <span class="p">});</span>
+
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#manual-location&#39;</span><span class="p">).</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;is-focused&#39;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;inline&#39;</span><span class="p">;</span>
+        <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Couldn\&#39;t fetch location, please enter manually!&#39;</span><span class="p">);</span>
+        <span class="nx">fetchedLocation</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{</span> <span class="nx">timeout</span><span class="o">:</span> <span class="mf">5000</span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<ul>
+<li>In den Zeilen <code>35-38</code> setzen wir die URL zusammen, unter der wir <code>nominatim.org</code> anfragen. In Zeile <code>40</code> erfolgt die Anfrage mithilfe der <code>fetch</code>-API. Wir erhalten ein <code>Response</code>-Objekt zurück, das wir mithilfe von <code>res.json()</code> so extrahieren, dass es dem oben gezeigten JSON entspricht. </li>
+</ul>
+<h2 id="beispiel-openlayersorg">Beispiel OpenLayers.org<a class="headerlink" href="#beispiel-openlayersorg" title="Permanent link">&para;</a></h2>
+<p><a href="https://openlayers.org/">OpenLayers</a> stellt eine Bibliothek von JavaScript- und CSS-Funktionalitäten bereit, um Landkarten in die Webanwendung einzubinden. Wir zeigen die Anwendung hier an einer sehr einfachen Einführung, die im Prinzip dem <a href="https://openlayers.org/en/latest/doc/quickstart.html">Einführungsbeispiel</a> von OpenLayers entspricht. </p>
+<h3 id="einbinden-in-die-indexhtml">Einbinden in die index.html<a class="headerlink" href="#einbinden-in-die-indexhtml" title="Permanent link">&para;</a></h3>
+<p>Zunächst kann die CSS- und JavaScript-Bibliothek über ein CDN eingebunden werden:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Auszug index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+        <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>IKT-PWA<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/css?family=Roboto:400,700&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css&quot;</span><span class="p">&gt;</span>
+<span class="hll">  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/src/css/app.css&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/src/css/feed.css&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;manifest&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;manifest.webmanifest&quot;</span><span class="p">&gt;</span>
+
+  <span class="cm">&lt;!-- und hier der Rest --&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Dann integrieren wir ein <code>&lt;div&gt;</code>-Element, in dem später die Landkarte erscheint:</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Auszug index.html</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;input-section&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--colored&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;location-btn&quot;</span><span class="p">&gt;</span>Location<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-spinner mdl-js-spinner is-active&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;location-loader&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="hll">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span>
+      <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent&quot;</span>
+                <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;post-btn&quot;</span><span class="p">&gt;</span>Speichern
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h3 id="anpassen-der-feedcss">Anpassen der feed.css<a class="headerlink" href="#anpassen-der-feedcss" title="Permanent link">&para;</a></h3>
+<p>Zunächst müssen wir in der <code>feed.js</code> einen Selektor ändern. Wir haben die <code>map</code> innerhalb des <code>div</code> mit der <code>id="create-post"</code> angelegt. In der <code>feed.js</code> befindet sich folgender Eintrag:</p>
+<div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="nt">video</span><span class="o">,</span><span class="w"> </span><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="nt">canvas</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir sprechen also alle HTML-Elemente <code>video</code> und <code>canvas</code> an, die sich im <code>div</code> mit der <code>id="create-post"</code> befinden. Allerdings wird unsere <code>map</code> auch ein <code>canvas</code>-Element enthalten, welches ebenfalls mit angesprochen (und auf <code>display: none</code> gesetzt) werden würde. Wir spezialisieren diese Selektoren nun, indem wir jeweils die <code>id</code>s des <code>video</code>- und des <code>canvas</code>-Elementes verwenden, die sich um die Aufnahme des Fotos kümmern:</p>
+<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">#</span><span class="nn">player</span><span class="o">,</span><span class="w"> </span><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">#</span><span class="nn">canvas</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>Nun können wir die Eigenschaften hinzufügen, die für die <code>map</code> relevant sind:</p>
+<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">create-post</span><span class="w"> </span><span class="p">.</span><span class="nc">map</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>Sie können für Höhe und Breite auch andere relative oder auch absolute Werte setzen. Zunächst ist das <code>div</code> mit der CSS-Klasse <code>map</code> aber auf nicht sichtbar gesetzt.</p>
+<h3 id="anpassen-der-feedjs">Anpassen der feed.js<a class="headerlink" href="#anpassen-der-feedjs" title="Permanent link">&para;</a></h3>
+<p>In der <code>feed.js</code> erweitern wir die <code>fetch()</code>-Anfrage an <code>nominatim.org</code>. Diese sieht bis jetzt so aus:</p>
+<div class="tabbed-set" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">public/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>        <span class="nx">fetch</span><span class="p">(</span><span class="nx">nominatimURL</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nominatim res ...&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+                <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nominatim res.json() ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">display_name</span><span class="p">;</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="k">catch</span><span class="p">(</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;err&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+                <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;In Berlin&#39;</span><span class="p">;</span>
+            <span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Siehe die <code>feed.js</code> aus <a href="http://127.0.0.1:8000/ikt/geolocation/#beispiel-nominatimorg">Beispiel nominatim.org</a> oben. 
+Unter Verwendung der Variablen <code>fetchedLocation</code>, die die <code>longitude</code> und <code>latitude</code> unseres Standortes enthält, fügen wir nun die Erstellung einer Map mithilfe von OpenLayers hinzu:</p>
+<div class="tabbed-set" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">public/src/js/feed.js</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>        <span class="nx">fetch</span><span class="p">(</span><span class="nx">nominatimURL</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nominatim res ...&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+                <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;nominatim res.json() ...&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+                <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">display_name</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">d</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">locationButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+                <span class="nx">locationLoader</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>
+                <span class="nx">mapDiv</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>
+
+                <span class="kd">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+                    <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+                    <span class="nx">layers</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Tile</span><span class="p">({</span>
+                        <span class="nx">source</span><span class="o">:</span> <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">OSM</span><span class="p">()</span>
+                    <span class="p">})</span>
+                    <span class="p">],</span>
+                    <span class="nx">view</span><span class="o">:</span> <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">View</span><span class="p">({</span>
+                        <span class="nx">center</span><span class="o">:</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="nx">fetchedLocation</span><span class="p">.</span><span class="nx">longitude</span><span class="p">,</span> <span class="nx">fetchedLocation</span><span class="p">.</span><span class="nx">latitude</span><span class="p">]),</span>
+                        <span class="nx">zoom</span><span class="o">:</span> <span class="mf">12</span>
+                    <span class="p">})</span>
+                <span class="p">});</span>
+
+                <span class="kd">const</span> <span class="nx">layer</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+                    <span class="nx">source</span><span class="o">:</span> <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">source</span><span class="p">.</span><span class="nx">Vector</span><span class="p">({</span>
+                        <span class="nx">features</span><span class="o">:</span> <span class="p">[</span>
+                            <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">Feature</span><span class="p">({</span>
+                                <span class="nx">geometry</span><span class="o">:</span> <span class="ow">new</span> <span class="nx">ol</span><span class="p">.</span><span class="nx">geom</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="nx">ol</span><span class="p">.</span><span class="nx">proj</span><span class="p">.</span><span class="nx">fromLonLat</span><span class="p">([</span><span class="nx">fetchedLocation</span><span class="p">.</span><span class="nx">longitude</span><span class="p">,</span> <span class="nx">fetchedLocation</span><span class="p">.</span><span class="nx">latitude</span><span class="p">]))</span>
+                            <span class="p">})</span>
+                        <span class="p">]</span>
+                    <span class="p">})</span>
+                <span class="p">});</span>
+
+                <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="nx">map</span><span class="p">)</span>
+            <span class="p">})</span>
+            <span class="p">.</span><span class="k">catch</span><span class="p">(</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;err&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+                <span class="nx">locationInput</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s1">&#39;In Berlin&#39;</span><span class="p">;</span>
+            <span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>Mit <code>new ol.Map()</code> wird eine neue Map erstellt (Zeile <code>55</code>). </li>
+<li>Dieses <code>Map</code>-Objekt wird mit <code>target: 'map'</code> dem <code>div</code> mit der <code>id="map"</code> zugewiesen (Zeile <code>56</code>).</li>
+<li>Das <code>layers</code>-Array enthält alle Schichten, die zur Map hinzugefügt werden (Zeile <code>57</code>).</li>
+<li>In unserem Fall wird eine Schicht hinzugefügt, nämlich eine Kachel (<em>Tile</em>)-Schicht, die die Landkarte enthält. Diese wird in unserem Fall von der Quelle <em>OSM</em> (also <em>Open Street Map</em>) geholt. Beachten Sie Ihre Konsole. Sie werden Einträge in der folgenden Art darin finden:</li>
+</ul>
+<p><img alt="openlayers" src="../files/253_geolocation.png" /></p>
+<p>Das sind die Bilder, aus denen die Landkarte zusammengesetzt wird.  </p>
+<ul>
+<li>Die eigentliche Ansicht wird mit <code>view</code> definiert. Wir erstellen ein einfaches <code>View</code>-Objekt, das durch den <code>center</code>-Punkt (<code>[fetchedLocation.longitude, fetchedLocation.latitude]</code>) und ein <code>zoom</code>-Level beschrieben wird (hier <code>zoom:12</code>). Je höher das <code>zoom</code>-Level, je höher wird hineingezoomt. Zoom-Level <code>0</code> zeigt die Welt. (Zeilen <code>62-65</code>)</li>
+</ul>
+<p>Die Zeilen <code>55-65</code> genügen bereits, um die Karte anzuzeigen. Wir haben aber hier auch noch einen Marker für den aktuellen Standort hinzugefügt. Dazu wird eine weitere <code>Layer</code> definiert und der Map mithilfe von <code>map.addLayer()</code> hinzugefügt. Dies geschieht hier in den Zeilen <code>68-78</code>. Bei dem Marker handelt es sich hier um einen <code>Point</code>, der wiederum auf <code>[fetchedLocation.longitude, fetchedLocation.latitude]</code> gesetzt wird. Beachten Sie, dass die Reihenfolge sowohl in der <code>View</code> als auch beim <code>Feature</code> zunächst <code>longitude</code> und dann <code>latitude</code> ist!</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben erfolgreich den Zugriff auf die Kamera (MediaDevices-API) und die Geolocation-API ausprobiert und in unsere Anwendung eingebunden. Die MediaDevices-API bietet neben der <code>video</code>-Eigenschaft auch noch die <code>audio</code>-Eigenschaft, um das Mikrofon zu verwenden. Neben der Geolocation-API haben wir auch zwei weitere Services bzw. Bibliotheken verwendet, nämlich nomination.org und OpenLayers. Der Umgang mit den Karten kann beliebig erweitert werden. Beispielsweise könnten auch alle Blogs auf einer Landkarte angezeigt werden, je nachdem, wo sie erstellt wurden. Sie könnten anklickbar sein und dann detailliert angezeigt werden. Das ist alles relativ leicht möglich. Ihrer Phantasie und Ihren Möglichkeiten sind hier keine Grenzen gesetzt. Wir könnten hier auch noch auf die Sensoren der Mobilgeräte eingehen (z.B. Beschleunigungssensor). Das machen wir aber in diesem Semester nicht.  </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../kamera/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Kamera" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Kamera
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../backgroundsync/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Hintergrundsynchronisation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Hintergrundsynchronisation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

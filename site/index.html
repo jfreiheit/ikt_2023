@@ -1,0 +1,999 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/">
+      
+      <link rel="icon" href="img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aktuelle-trends-der-ikt" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grober-inhalt" class="md-nav__link">
+    Grober Inhalt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organisatorisches" class="md-nav__link">
+    Organisatorisches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inhalte" class="md-nav__link">
+    Inhalte
+  </a>
+  
+    <nav class="md-nav" aria-label="Inhalte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#woche-1-grundgerust" class="md-nav__link">
+    Woche 1 (Grundgerüst)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-2-manifest" class="md-nav__link">
+    Woche 2 (Manifest)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-3-promises-und-fetch-api" class="md-nav__link">
+    Woche 3 (Promises und Fetch API)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-4-caching" class="md-nav__link">
+    Woche 4 (Caching)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-5-mongodb-und-backend" class="md-nav__link">
+    Woche 5 (MongoDB und Backend)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-6-bilder-up-und-download-im-backend" class="md-nav__link">
+    Woche 6 (Bilder-Up- und Download im Backend)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-7-indexeddb" class="md-nav__link">
+    Woche 7 (IndexedDB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-8-kamera" class="md-nav__link">
+    Woche 8 (Kamera)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-9-geolocation-api" class="md-nav__link">
+    Woche 9 (Geolocation-API)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-10-hintergrundsynchronisation" class="md-nav__link">
+    Woche 10 (Hintergrundsynchronisation)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semesteraufgabe" class="md-nav__link">
+    Semesteraufgabe
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="promises/" class="md-nav__link">
+        Promises & Fetch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grober-inhalt" class="md-nav__link">
+    Grober Inhalt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organisatorisches" class="md-nav__link">
+    Organisatorisches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inhalte" class="md-nav__link">
+    Inhalte
+  </a>
+  
+    <nav class="md-nav" aria-label="Inhalte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#woche-1-grundgerust" class="md-nav__link">
+    Woche 1 (Grundgerüst)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-2-manifest" class="md-nav__link">
+    Woche 2 (Manifest)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-3-promises-und-fetch-api" class="md-nav__link">
+    Woche 3 (Promises und Fetch API)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-4-caching" class="md-nav__link">
+    Woche 4 (Caching)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-5-mongodb-und-backend" class="md-nav__link">
+    Woche 5 (MongoDB und Backend)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-6-bilder-up-und-download-im-backend" class="md-nav__link">
+    Woche 6 (Bilder-Up- und Download im Backend)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-7-indexeddb" class="md-nav__link">
+    Woche 7 (IndexedDB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-8-kamera" class="md-nav__link">
+    Woche 8 (Kamera)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-9-geolocation-api" class="md-nav__link">
+    Woche 9 (Geolocation-API)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#woche-10-hintergrundsynchronisation" class="md-nav__link">
+    Woche 10 (Hintergrundsynchronisation)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semesteraufgabe" class="md-nav__link">
+    Semesteraufgabe
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/index.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="aktuelle-trends-der-ikt">Aktuelle Trends der IKT<a class="headerlink" href="#aktuelle-trends-der-ikt" title="Permanent link">&para;</a></h1>
+<p>Herzlich willkommen zur Veranstaltung <strong>Aktuelle Trends der IKT</strong>! </p>
+<h3 id="grober-inhalt">Grober Inhalt<a class="headerlink" href="#grober-inhalt" title="Permanent link">&para;</a></h3>
+<p>Wir beschäftigen uns dieses Semester mit <em>Progressive Web Apps (PWA)</em>. Dieser Begriff ist 2015 bei Google entstanden. Progressive Web Apps bieten installierbare nativen Apps ähnliche Nutzererfahrungen sowohl auf dem Desktop als auch auf dem Smartphone, sind aber Webanwendungen, die im Browser laufen, also zum World Wide Web gehören. Typische Eigenschaften von Progressive Web Apps sind die Einbindung von Kamera und Mikrofon, dem eigenen Standort sowie die Fähigkeit, (zumindest teilweise) offline ausführbar zu sein. </p>
+<p>Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst). Die Vorlesungsvideos finden Sie darunter für die einzelnen Wochen (unter <a href="http://freiheit.f4.htw-berlin.de/ikt/#inhalte"><strong>Inhalte</strong></a>).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Woche</th>
+<th>Themen (Vorlesung)</th>
+<th>Aufgabe (Stand)</th>
+<th>Abgabe Übung bis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>04.-08.04.2022</td>
+<td>Einführung und Organisatorisches</td>
+<td> -</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>11.-15.04.2022</td>
+<td>Grundgerüst und Application Manifest</td>
+<td> -</td>
+<td>30.04.2022</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>18.-22.04.2022</td>
+<td>Service workers</td>
+<td> -</td>
+<td>07.05.2022</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>25.-29.04.2022</td>
+<td>Promises und Fetch API</td>
+<td> -</td>
+<td>14.05.2022</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>02.-06.05.2022</td>
+<td>Service workers und Caching</td>
+<td> -</td>
+<td>21.05.2022</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>09.-13.05.2022</td>
+<td>MongoDB und Backend</td>
+<td> -</td>
+<td>28.05.2022</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>16.-20.05.2022</td>
+<td>Bilder-Up- und Download (Backend)</td>
+<td> -</td>
+<td>04.06.2022</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>23.-27.05.2022</td>
+<td>IndexedDB</td>
+<td> -</td>
+<td>11.06.2022</td>
+</tr>
+<tr>
+<td>9.</td>
+<td>30.-03.06.2022</td>
+<td>Kamera</td>
+<td> -</td>
+<td>18.06.2022</td>
+</tr>
+<tr>
+<td>10.</td>
+<td>06.-10.06.2022</td>
+<td>Geolocation</td>
+<td>Datenbank</td>
+<td>-</td>
+</tr>
+<tr>
+<td>11.</td>
+<td>13.-17.06.2022</td>
+<td>Hintergrundsynchronisation</td>
+<td>Backend</td>
+<td>-</td>
+</tr>
+<tr>
+<td>12.</td>
+<td>20.-24.06.2022</td>
+<td>Push-Notifikationen</td>
+<td>Backend</td>
+<td>-</td>
+</tr>
+<tr>
+<td>13.</td>
+<td>27.-01.07.2022</td>
+<td>Wiederholung</td>
+<td>Frontend</td>
+<td>-</td>
+</tr>
+<tr>
+<td>14.</td>
+<td>04.-08.07.2022</td>
+<td>Wiederholung</td>
+<td>Frontend</td>
+<td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td> Abgabe 1.PZ 25.07.2022</td>
+<td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td> Abgabe 2.PZ 26.09.2022</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="organisatorisches">Organisatorisches<a class="headerlink" href="#organisatorisches" title="Permanent link">&para;</a></h3>
+<p>Zur erfolgreichen Durchführung der Veranstaltung müssen Sie am Ende des Semesters die Lösung Ihrer Semesteraufgabe abgeben. Diese Aufgabe zusammen mit einem Gespräch, das wir über Ihre Lösung führen, wird bewertet. Die Bewertung entspricht dann der Modulnote. </p>
+<p>Die Übungen sind dafür vorgesehen, dass Sie im Semester sukzessive Ihre Lösung erstellen können. Wir beantworten in den Übungen Ihre Fragen und lösen gemeinsam Probleme. Jede Woche gibt es ein Thema, das Sie selbständig durcharbeiten und dann angepasst in Ihre Lösung integrieren können.  </p>
+<p>Für die Kommunikation untereinander verwenden wir <a href="https://slack.com/intl/de-de/"><strong>Slack</strong></a>. Dort können Sie alle inhaltlichen und organisatorischen Fragen stellen. Ich fände es gut, wenn ich dort möglichst wenig Fragen - zumindest die inhaltlichen - beantworten müsste, sondern eine Art internes <strong>Diskussionsforum</strong> entsteht. Es ist sehr gewünscht, dort Fragen zu stellen und noch mehr gewünscht, diese <strong>von Ihnen dort beantwortet</strong> zu sehen. Damit wäre allen geholfen und ich kann besser erkennen, wo noch Nachhol- bzw. Erläuterungsbedarf bei den meisten besteht. Außerdem lernen Sie beim Beantworten der Fragen nochmals deutlich mehr. Das wäre super, wenn das klappt!</p>
+<h3 id="inhalte">Inhalte<a class="headerlink" href="#inhalte" title="Permanent link">&para;</a></h3>
+<p>Hier sind die Videos aus <strong>2021</strong> verlinkt!!! (auf Wunsch) Der aktuelle Stoff ist aber teilweise abgeändert und angepasst! Insbesondere werden wir 2022 MongoDB als Datenbank verwenden und nicht PostgresQL. Außerdem haben sich wieder einige APIs seit 2021 geändert. </p>
+<h5 id="woche-1-grundgerust">Woche 1 (Grundgerüst)<a class="headerlink" href="#woche-1-grundgerust" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 1 - Grundgerüst</summary><p><iframe src="https://mediathek.htw-berlin.de/media/embed?key=9acae2bf623912843d1298721c67867a&width=720&height=405&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="405" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no"></iframe></p>
+</details>
+<h5 id="woche-2-manifest">Woche 2 (Manifest)<a class="headerlink" href="#woche-2-manifest" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 2 - Manifest</summary><ul>
+<li>Diese Woche wird unsere App mithilfe des <a href="./manifest/#web-app-manifest">Application Manifest</a> <strong>installierbar</strong>. Dazu gibt es folgendes Video: 
+    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=247bb388ae29a4d849a3fcff5fae95db&width=720&height=450&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="450" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no"></iframe></li>
+</ul>
+</details>
+<h5 id="woche-3-promises-und-fetch-api">Woche 3 (Promises und Fetch API)<a class="headerlink" href="#woche-3-promises-und-fetch-api" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 3 - Promises und Fetch API</summary><ul>
+<li>Diese Woche betrachten wir den Lebenszyklus eines Service Workers, schauen uns Promises und die Fetch API an. Dazu dieses Video:
+    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=71d02c5d395a874c9b2b4821a140dc7f&width=720&height=389&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="389" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no"></iframe></li>
+<li>Sourcecode zur Vorlesung am 05.05.2021 (also alt!!!) <a href="files/03_promise.zip">hier zum Herunterladen</a></li>
+</ul>
+</details>
+<h5 id="woche-4-caching">Woche 4 (Caching)<a class="headerlink" href="#woche-4-caching" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 4 - Caching</summary><ul>
+<li>Diese Woche wird die App mithilfe von <a href="./caching/#caching-mit-service-workern">Caching</a> auch offline nutzbar.</li>
+<li>Video zur Vorlesung am 12.05.2021
+    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=bf498f35fe78e01a22d5fa909d4c4be8&width=720&height=389&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="389" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no"></iframe></li>
+<li>Sourcecode zur Vorlesung am 12.05.2021 (also alt!!!) <a href="files/04_caching.zip">hier zum Herunterladen</a></li>
+</ul>
+</details>
+<h5 id="woche-5-mongodb-und-backend">Woche 5 (MongoDB und Backend)<a class="headerlink" href="#woche-5-mongodb-und-backend" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 5 - MongoDB und Backend</summary><ul>
+<li>Diese Woche erstellen wir mithilfe von Node.js ein <a href="./backend/#backend-rest-server">Backend</a>. Dieses realisiert eine REST-API, die alle CRUD-Funktionalitäten für unsere Posts auf einer MongoDB zur Verfügung stellt.</li>
+</ul>
+</details>
+<h5 id="woche-6-bilder-up-und-download-im-backend">Woche 6 (Bilder-Up- und Download im Backend)<a class="headerlink" href="#woche-6-bilder-up-und-download-im-backend" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 6 - Bilder-Up- und Download im Backend</summary><ul>
+<li>Diese Woche erweitern wir mithilfe von Multer und GridFS unser <a href="./backend/#erweiterung-um-das-speichern-von-bildern">Backend - Erweiterung um das Speichern von Bildern</a>, um den Up- und Download von Bildern zu ermöglichen. </li>
+</ul>
+</details>
+<h5 id="woche-7-indexeddb">Woche 7 (IndexedDB)<a class="headerlink" href="#woche-7-indexeddb" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 7 - IndexedDB</summary><ul>
+<li>Diese Woche arbeiten wir am Frontend weiter. Wir <a href="./indexeddb/#das-backend-nutzen">binden das Backend an</a> und speichern die Posts-Datensätze in der Browser-Built-In-Datenbank <a href="./indexeddb/#erstellen-und-offnen-einer-indexeddb">IndexedDB</a>. </li>
+</ul>
+</details>
+<h5 id="woche-8-kamera">Woche 8 (Kamera)<a class="headerlink" href="#woche-8-kamera" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 8 - Kamera</summary><ul>
+<li>Diese Woche nutzen wir die MediaDevices-API, um mithilfe der Kamera Fotos aufzunehmen, die Teil eines jeden Posts sind. Diese Fotos werden an das Backend übermittelt. </li>
+</ul>
+</details>
+<h5 id="woche-9-geolocation-api">Woche 9 (Geolocation-API)<a class="headerlink" href="#woche-9-geolocation-api" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 9 - Geolocation-API</summary><ul>
+<li>Diese Woche nutzen wir die Geolocation-API, um den eigenen Standort zu ermitteln. Dieser Standort wird verwendet, um die entsprechenden Adressinformationen als Lokation in unsere Posts einzutragen. Außerdem zeigen wir auf einer Landkarte diesen Standort an.</li>
+</ul>
+</details>
+<h5 id="woche-10-hintergrundsynchronisation">Woche 10 (Hintergrundsynchronisation)<a class="headerlink" href="#woche-10-hintergrundsynchronisation" title="Permanent link">&para;</a></h5>
+<details class="question"><summary>Woche 10 - Hintergrundsynchronisation</summary><ul>
+<li>Diese Woche wird der Post, den wir in das Formular eingeben, nicht direkt an das Backend gesendet, sondern zunächst in der IndexedDB abgelegt. Dort bleibt er solange, bis das Backend erreichbar ist. Dazu wird die SyncManager-API verwendet. Beim Service Worker wird eine Sync Task registriert. Diese wird ausgelöst, sobald die Anwendung online ist.</li>
+<li>Video aus der Vorlesung:
+    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=41dea6287b458d7cb58818247711f4b0&width=720&height=420&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=41dea6287b458d7cb58818247711f4b0&width=720&height=420&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="420" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe></li>
+</ul>
+</details>
+<h3 id="semesteraufgabe">Semesteraufgabe<a class="headerlink" href="#semesteraufgabe" title="Permanent link">&para;</a></h3>
+<p>Die als Semesteraufgabe zu entwickelnde Webanwendung sollte</p>
+<ol>
+<li>ein Frontend besitzen (muss nicht mit einem JavaScript-Framework erstellt werden),</li>
+<li>das Frontend soll responsive sein (wenn nicht, dann <em>mobile first</em>!),</li>
+<li>ein Backend (damit Daten auf dem Server verwaltet werden können), </li>
+<li>eine Datenbank zur persistenten Speicherung von Daten (wir verwenden MongoDB, kann aber auch MariaDB, MySQL, PostgresQL oder auch SQLite oder ähnlich In-Apps-Datenbanken sein),</li>
+<li>installierbar sein,</li>
+<li>offline nutzbar sein,</li>
+<li>die IndexedDB verwenden,</li>
+<li>Hintergrundsynchronisation verwenden,</li>
+<li>Push-Nachrichten verwenden,</li>
+<li>die Gelocation API verwenden,</li>
+<li>die Kamera oder eine andere technische Schnittstelle (z.B. Sensoren, Mikrofon) verwenden.</li>
+</ol>
+<p>Von den Punkten 5.-11. sollten </p>
+<ul>
+<li>5 für eine 2,0 implementiert sein, </li>
+<li>6 für eine 1,7 und </li>
+<li>7 für eine 1,3. </li>
+<li>Ist die Anwendung besonders toll und/oder deployed, kann es auch eine 1,0 werden. </li>
+</ul>
+<p>Bitte erstellen Sie eine aussagekräftige <code>README.md</code>-Datei. Die erstellte Anwendung soll präsentiert werden und in einem kurzen Gespräch (15-20min) wird die Implementierung besprochen. </p>
+<p>Hier eine Idee einer Anwendung, eine <em>Ausgabenverwaltung</em>:</p>
+<ul>
+<li>installierbare Webanwendung, </li>
+<li>Formular für die Buchung einer Ausgabe <ul>
+<li>Datum, </li>
+<li>Titel für die Ausgabe, </li>
+<li>Betrag, </li>
+<li>Foto des Kassenzettels, </li>
+<li>evtl. Geolocation des Ausgabeortes</li>
+</ul>
+</li>
+<li>Übersicht über Ausgaben,</li>
+<li>offline verwendbar, d.h. Ausgabe wird in der IndexedDB gespeichert und erst, wenn wieder online, dann in der Datenbank,</li>
+<li>Push-Benachrichtigung, wenn Ausgabe in der Datenbank gespeichert (Hintergrundsynchronisation), </li>
+<li>Backend ist zwingend erforderlich (für Speichern und Abrufen der Daten in die und aus der Datenbank),</li>
+<li>MongoDB zur persitenten Datenspeicherung,</li>
+<li>evtl. Nutzerverwaltung zur Verwaltung der eigenen Ausgaben.</li>
+</ul>
+<p>Sie können natürlich auch eine eigene Anwendungsidee umsetzen! Viel Spaß und Erfolg!   </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="einfuehrung/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Einführung" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Einführung
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

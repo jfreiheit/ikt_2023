@@ -1,0 +1,1712 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Aktuelle Trends der IKT">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/promises/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Promises & Fetch - Progressive Web Apps</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#promises-und-die-fetch-api" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Progressive Web Apps" class="md-header__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Progressive Web Apps
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Promises & Fetch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Progressive Web Apps" class="md-nav__button md-logo" aria-label="Progressive Web Apps" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Progressive Web Apps
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/ikt_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    webtech
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einfuehrung/" class="md-nav__link">
+        Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grundgeruest/" class="md-nav__link">
+        Grundgerüst
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
+        Manifest
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceworker/" class="md-nav__link">
+        Service worker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Promises & Fetch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Promises & Fetch
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promises" class="md-nav__link">
+    Promises
+  </a>
+  
+    <nav class="md-nav" aria-label="Promises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#promises-in-arrow-notation" class="md-nav__link">
+    Promises in Arrow-Notation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#der-reject-fall" class="md-nav__link">
+    Der reject-Fall
+  </a>
+  
+    <nav class="md-nav" aria-label="Der reject-Fall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-behandlung-in-der-then-funktion" class="md-nav__link">
+    Error-Behandlung in der then()-Funktion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-behandlung-im-catch-block" class="md-nav__link">
+    Error-Behandlung im catch()-Block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-api" class="md-nav__link">
+    Fetch API
+  </a>
+  
+    <nav class="md-nav" aria-label="Fetch API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-anfragen-mit-fetch" class="md-nav__link">
+    GET-Anfragen mit fetch()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-anfragen-mit-fetch" class="md-nav__link">
+    POST-Anfragen mit fetch()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-vs-xmlhttprequest" class="md-nav__link">
+    Fetch vs. XMLHttpRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-und-unser-service-worker" class="md-nav__link">
+    fetch() und unser service worker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexeddb/" class="md-nav__link">
+        IndexedDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kamera/" class="md-nav__link">
+        Kamera
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        Geolocation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pushnotes/" class="md-nav__link">
+        Push Notifications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        Tools
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promises" class="md-nav__link">
+    Promises
+  </a>
+  
+    <nav class="md-nav" aria-label="Promises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#promises-in-arrow-notation" class="md-nav__link">
+    Promises in Arrow-Notation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#der-reject-fall" class="md-nav__link">
+    Der reject-Fall
+  </a>
+  
+    <nav class="md-nav" aria-label="Der reject-Fall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-behandlung-in-der-then-funktion" class="md-nav__link">
+    Error-Behandlung in der then()-Funktion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-behandlung-im-catch-block" class="md-nav__link">
+    Error-Behandlung im catch()-Block
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-api" class="md-nav__link">
+    Fetch API
+  </a>
+  
+    <nav class="md-nav" aria-label="Fetch API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-anfragen-mit-fetch" class="md-nav__link">
+    GET-Anfragen mit fetch()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-anfragen-mit-fetch" class="md-nav__link">
+    POST-Anfragen mit fetch()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-vs-xmlhttprequest" class="md-nav__link">
+    Fetch vs. XMLHttpRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-und-unser-service-worker" class="md-nav__link">
+    fetch() und unser service worker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/ikt_2022/edit/master/docs/promises.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="promises-und-die-fetch-api">Promises und die Fetch-API<a class="headerlink" href="#promises-und-die-fetch-api" title="Permanent link">&para;</a></h1>
+<p>Wir haben es bereits eingangs des Abschnitts über <a href="../serviceworker/#service-workers">Service Workers</a> angesprochen: JavaScript ist <em>sinhle threaded</em>, d.h. JavaScript läuft auf einem einzelnen Thread. Das bedeutet im Prinzip, dass drei Funktionen <code>functionA()</code>, <code>functionB()</code>, <code>functionC()</code> nacheinander auf dem einzelnen Thread ausgeführt werden würden, wenn sie nacheinander aufgerufen werden:</p>
+<p><img alt="thread" src="../files/28_thread.png" /></p>
+<p>Das zieht natürlich nach sich, dass sich diese Funktionen in ihrer Ausführung <em>blockieren</em>. Wenn also <code>functionB()</code>bspw. sehr lange braucht, um ausgeführt werden zu können, dann blockiert diese Funktion die Ausführung von <code>functionC()</code>. Um dies zu vermeiden, wurden in JavaScript sogenannte <em>Callbacks</em> eingeführt. </p>
+<h2 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h2>
+<p>Zunächst einmal sind <em>Callbacks</em> Funktionen, die anderen Funktionen als Parameter übergeben werden. Wir betrachten folgendes Beispiel:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="s2">&quot;Ausgabe der Funktion x&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="s2">&quot;Ausgabe der Funktion y&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">z</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Ausgabe der Funktion z - vor Aufruf von callback&quot;</span><span class="p">);</span>
+    <span class="nx">callback</span><span class="p">();</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Ausgabe der Funktion z - vor Aufruf von callback&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir haben drei Funktionen. Diese werden als anonyme Funktionen definiert, aber die Funktionsdefinitionen werden sofort einer Variablen zugewiesen. Das bedeutet, dass z.B. der Wert der Variablen <code>x</code> die Funktionsdefinition 
+<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="s2">&quot;Ausgabe der Funktion x&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+ist. Wenn wir nun z.B. <code>console.log(x)</code> aufrufen, dann erhalten wir folgende Ausgabe auf der Konsole:
+<div class="highlight"><pre><span></span><code>ƒ <span class="o">()</span> <span class="o">{</span>
+    console.log <span class="o">(</span><span class="s2">&quot;Ausgabe der Funktion x&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div>
+Wenn wir aber <code>x();</code>, also sozusagen, die Variable als Funktion aufrufen, dann wird die Funktion ausgeführt und wir erhalten auf der Konsole die Ausgabe
+<div class="highlight"><pre><span></span><code>Ausgabe der Funktion x
+</code></pre></div></p>
+<p>Wenn wir nun <code>z(x);</code> aufrufen, dann wird die in den Zeilen <code>9-12</code> definierte Funktion aufgerufen, wobei der Parameter <code>callback</code> als Wert die Funktionsdefinition von <code>x</code> übergeben wird. In Zeile <code>11</code> erfolgt dann mithilfe von <code>callback();</code> eigentlich der Aufruf <code>x();</code>. </p>
+<p>Wir können aber auch z.B. <code>z(y);</code> aufrufen. Dann wird <code>z</code> nicht die Funktion <code>x</code>, sondern die Funktion <code>y</code> übergeben und der Aufruf <code>callback();</code> in Zeile <code>11</code> entspricht somit dem Aufruf <code>y();</code>. </p>
+<p>Ein großer Vorteil dieser <em>Callbacks</em>  bestehen darin, dass der Aufruf <em>asynchron</em> erfolgt. Schauen wir uns z.B. einmal an, wie die mögliche Ausgabe der Aufrufe 
+<div class="highlight"><pre><span></span><code><span class="nx">z</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="nx">z</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+</code></pre></div>
+aussehen <strong>könnte</strong>:
+<div class="highlight"><pre><span></span><code>Ausgabe der Funktion z - vor Aufruf von callback
+Ausgabe der Funktion x
+Ausgabe der Funktion z - vor Aufruf von callback
+Ausgabe der Funktion z - vor Aufruf von callback
+Ausgabe der Funktion y
+Ausgabe der Funktion z - vor Aufruf von callback
+</code></pre></div></p>
+<p>Wichtig ist, dass <em>Callbacks</em> die aufrufende Funktion nicht blockieren, sondern <em>asynchron</em> ausgeführt werden. Dieses einfache Beispiel soll das demonstrieren:
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe A&#39;</span><span class="p">);</span>
+<span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+Wir haben zwei Anweisungen: eine <code>setTimeout()</code>-Anweisung und eine <code>console.log('Ausgabe B');</code>-Anweisung, die nacheinander aufgerufen werden (<code>setTimeout()</code> vor <code>console.log()</code>). Innerhalb der <code>setTimeout()</code>-Anweisung wird eine Funktion als <em>Callback</em> übergeben. Innerhalb dieser Funktion erfolgt der Aufruf von <code>console.log('Ausgabe A');</code>.</p>
+<p>Das Ausführen des Programms ergibt folgende Ausgabe:
+<div class="highlight"><pre><span></span><code>Ausgabe B
+Ausgabe A
+</code></pre></div></p>
+<p>Die Ausgabe von <code>Ausgabe A</code> erfolgt ca. 3 Sekunden nach <code>Ausgabe B</code>. Das liegt daran, dass die <em>Callback</em>-Funktion asynchron ausgeführt wird und alle weiteren Ausführungen nicht blockiert. Das bedeutet, dass wir mithilfe von <em>Callbacks</em> eine asynchrone Ausführung unseres JavaScript-Codes erreichen. Der einzelne JavaScript-Thread wird also für den Aufruf der <em>Callbacks</em> verwendet und irgendwann sind diese <em>Callback</em>-Aufrufe beendet. Ein gegenseitiges Blockieren findet nicht statt, sondern es bleibt sogar noch Platz für weitere Aufrufe (hellgrüne Bereiche im folgenden Bild):</p>
+<p><img alt="thread" src="../files/29_thread.png" /></p>
+<p>Das problem mit diesen <em>Callback</em> ist, dass sie sehr schnell sehr unübersichtlich werden. Man spricht von der <em>Callback-Hölle</em>, in der man sehr schnell ist, sobald genügend viele <em>Callbacks</em> asynchron (nebenläufig) ausgeführt werden, diese sogar ineinander verschachtelt sind (<em>Callbacks</em> in <em>Callbacks</em>) und man gar nicht weiß, wann welche <em>Callbacks</em> beendet sind. Sobald man aber erst die Ausführung eines <em>Callbacks</em> abwarten <strong>muss</strong>, weil man die Resultate dieses <em>Callbacks</em> weiterverarbeiten möchte, entstehen wieder synchrone Aufrufe und der Vorteil der asynchronen Abarbeitung ist dahin. Um dieses Problem zu lösen, wurden <em>Promises</em> entwickelt. </p>
+<h2 id="promises">Promises<a class="headerlink" href="#promises" title="Permanent link">&para;</a></h2>
+<p>Ein <em>Promise</em> ist zunächst einmal ein JavaScript-Objekt. Es enthält einerseits den Code zum Erzeugen eines <em>Promise</em>-Objektes (<em>producing code</em>) und anderseits auch den Code zum Verarbeiten eines solchen <em>Promise</em>-Objektes (<em>consuming code</em>). Dabei können zwei Sachen verarbeitet werden:</p>
+<ul>
+<li>entweder das <code>Promise</code>-Objekt wurde erfolgreich abgearbeitet (<code>resolve</code>) oder</li>
+<li>das <code>Promise</code>-Objekt wurde <strong>nicht</strong> erfolgreich abgearbeitet (<code>reject</code>). </li>
+</ul>
+<p>Die allgemeine Syntax eines solchen <code>Promise</code>-Objektes sieht so aus (siehe z.B. <a href="https://www.w3schools.com/js/js_promise.asp">w3scool</a>):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">myPromise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">myResolve</span><span class="p">,</span> <span class="nx">myReject</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// &quot;Producing Code&quot; (May take some time)</span>
+
+  <span class="nx">myResolve</span><span class="p">();</span> <span class="c1">// when successful</span>
+  <span class="nx">myReject</span><span class="p">();</span>  <span class="c1">// when error</span>
+<span class="p">});</span>
+
+<span class="c1">// &quot;Consuming Code&quot; (Must wait for a fulfilled Promise)</span>
+<span class="nx">myPromise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* code if successful */</span> <span class="p">},</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* code if some error */</span> <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Betrachten wir das obere Beispiel genauer:</p>
+<ul>
+<li>in Zeile <code>1</code> erstellen wir eine Variable <code>myPromise</code>, die wir natürlich nennen können, wie wir möchten</li>
+<li>diese Variable zeigt auf ein <code>Promise</code>-Objekt, das ebenfalls in Zeile <code>1</code> mithilfe von <code>new</code> und dem Aufruf des Konstruktors erzeugt wird</li>
+<li>einem <code>Promise</code>-Objekt (dem Konstruktor) wird immer eine Funktion übergeben, der wiederum zwei <em>Callback</em>-Funktionen als Parameter übergeben werden</li>
+<li>die erste <em>Callback</em>-Funktion, die hier <code>myResolve</code> heißt (aber meistens nur <code>resolve</code>), wird aufgerufen, wenn das <code>Promise</code>-Objekt erfolgreich abgearbeitet wurde (Zeile <code>4</code>)</li>
+<li>die zweite <em>Callback</em>-Funktion, die hier <code>myReject</code> heißt (aber meistens nur <code>reject</code>), wird aufgerufen, wenn das <code>Promise</code>-Objekt <strong>nicht</strong> erfolgreich abgearbeitet wurde (Zeile <code>5</code>)</li>
+<li>
+<p>den Aufruf des <code>promise</code>-Objektes sehen wir in Zeile <code>9</code>. Ein <code>Promise</code>-Objekt durchläuft durch den Aufruf 2 der folgenden 3 Zustände:</p>
+<ul>
+<li><code>pending</code>: das <code>Promise</code>-Objekt wird abgearbeitet und hat noch kein Resultat (<code>undefined</code>),</li>
+<li><code>fulfilled</code>: das <code>Promise</code>-Objekt wurde erfolgreich abgearbeitet und liefert den entsprechenden Resultatwert zurück <strong>oder</strong></li>
+<li><code>rejected</code>: das <code>Promise</code>-Objekt wurde nicht erfolgreich abgearbeitet und liefert ein <code>Error</code>-Objekt zurück</li>
+</ul>
+</li>
+<li>
+<p>es gibt aber keine Möglichkeiten, auf diese Zustände eines <code>Promise</code>-Objektes zuzugreifen und auch nicht direkt auf den Resultatwert oder das Fehlerobjekt; stattdessen muss eine entsprechende Funktion des <code>Promise</code>-Objektes aufgerufen werden, die selbst wieder ein <code>Promise</code>-Objekt zurückgibt, nämlich <code>then()</code></p>
+</li>
+<li>der Aufruf von <code>then()</code> ist ebenfalls in Zeile <code>9</code> gezeigt; diese Funktion hat zwei Parameter: dem ersten Parameter wird der Resultatwert übergeben (wenn das <code>Promise</code>-Objekt den <code>fulfilled</code>-Zustand erreicht hat) und dem zweiten Parameter wird das Fehlerobjekt übergeben (wenn das <code>Promise</code>-Objekt den <code>rejected</code>-Zustand erreicht hat). Beide Parameter sind wiederum <em>Callbacks</em>.</li>
+</ul>
+<p>Wir werden sehen, dass wir den <code>rejected</code>-Zustand auch mit <code>catch()</code> abfangen können, aber dazu kommen wir später. Zunächst noch einmal zur Vertiefung unser obiges <em>Callback</em>-Beispiel mit <code>setTimeout()</code> als <em>Promise</em>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">promise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;resolve -- Ausgabe A&#39;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// (noch) keine Funktion für error</span>
+<span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die Ausgabe in Zeile <code>14</code> hat nichts mit dem <code>Promise</code> zu tun, aber wir lassen sie mal im Code, um das gleiche Beispiel wie oben zu haben. Es erfolgt zunächst die Ausgabe <code>Ausgabe B</code> auf der Konsole und 3 Sekunden später die Ausgabe <code>resolve -- Ausgabe A</code>. Rein funktional hat sich also nichts geändert. Wie Sie den Parameter für den <code>resolve</code>-Fall (und dann auch für den <code>reject</code>-Fall) nennen, bleibt ganz Ihnen überlassen; hier <code>value</code> (Zeile <code>8</code>).</p>
+<p>Dieses Mal heißt unser <code>Promise</code>-Objekt <code>promise</code> und die beiden <em>Callback</em> -Funktionen <code>resolve</code> und <code>reject</code> (Zeile <code>1</code>). Der <em>producing code</em>  enthält nur die Implementierung von <code>resolve</code>. In dem Beispiel gibt es also (noch) kein <code>reject</code>. In den Zeilen <code>7</code>-<code>12</code> sehen wir den <em>consuming code</em> der <em>Promise</em>, auch hier wieder nur für <code>resolve</code>. Es erfolgt die Ausgabe des Wertes, den <code>resolve</code> übergeben hat. </p>
+<h3 id="promises-in-arrow-notation">Promises in Arrow-Notation<a class="headerlink" href="#promises-in-arrow-notation" title="Permanent link">&para;</a></h3>
+<p>Weil wir es mitlerweile häufig sehen und weil wir uns auch angewöhnen wollen, diese selbst zu benutzen, hier das gleiche Beispiel nochmal in <a href="../serviceworker/#arrow-notation-verwenden">Arrow-Notation</a>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">promise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;resolve -- Ausgabe A&#39;</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+    <span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// (noch) keine Funktion für error</span>
+<span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Es ist auch noch zu erwähnen, dass Sie nur selten selbst <em>Promises</em> erstellen, sondern diese viel häufiger nutzen werden. Das heißt, Sie werden nicht so häufig <em>producing code</em>, sondern viel häufiger <em>consuming code</em> schreiben. Beispielsweise gibt die <a href="../serviceworker/#registrierung-eines-service-workers">Registrierung</a> eines <em>service workers</em> ein <em>Promise</em> zurück:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// scope defaults to the path the script sits in</span>
+<span class="c1">// &quot;/&quot; in this example</span>
+<span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">&quot;/serviceworker.js&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">registration</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;success!&quot;</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">registration</span><span class="p">.</span><span class="nx">installing</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">registration</span><span class="p">.</span><span class="nx">installing</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">&quot;Howdy from your installing page.&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Installing the worker failed!&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Ein großer Vorteil von <em>Promises</em> ist, dass Sie die Verarbeitung <em>verketten</em> können. Die <code>then()</code>-Funktion liefert selbst wieder ein <code>Promise</code> zurück, so dass Sie erneut dieses <code>Promise</code> mit <code>then()</code> behandeln können. Wir kommen darauf in den Anwendungen nochmal zurück. </p>
+<h3 id="der-reject-fall">Der <code>reject</code>-Fall<a class="headerlink" href="#der-reject-fall" title="Permanent link">&para;</a></h3>
+<p>Wir schauen uns jetzt an, wie wir den Fall am besten behandeln, wenn das <code>Promise</code> nicht in den <code>fulfilled</code>, sondern in den <code>rejected</code>-Zustand übergeht, wenn also nicht <code>resolve</code>, sondern <code>reject</code> ausgeführt wird. Wir ändern unser Beispiel einmal entsprechend:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">promise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">        <span class="c1">// resolve(&#39;resolve -- Ausgabe A&#39;);</span>
+</span><span class="hll">        <span class="nx">reject</span><span class="p">({</span><span class="nx">code</span><span class="o">:</span> <span class="mf">500</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;An error occurred&#39;</span><span class="p">});</span>
+</span>    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+    <span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// (noch) keine Funktion für error</span>
+<span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir haben also Zeile <code>3</code> auskommentiert (<code>resolve</code>) und stattdessen <code>reject</code> eingefügt (Zeile <code>4</code>). Im Gegensatz zu <code>resolve</code> geben wir jetzt mal keinen einfachen <code>string</code>, sondern ein JavaScript-Objekt zurück (erkennbar an <code>{ }</code>). Wir sind darin völlig frei, was zurückgegeben wird, aber es bietet sich an, ein Error-Objekt zu erzeugen. Die <code>then()</code>-Behandlung des <code>Promise</code>-Objekt lassen wir zunächst unverändert (Zeilen <code>8-13</code>). </p>
+<p>Wenn wir diesen Code ausführen, dann wird erneut <code>Ausgabe B</code> ausgegeben (Zeile <code>15</code> - hat nichts mit dem <code>Promise</code> zu tun), aber nach 3 Sekunden erfolgt keine Ausgabe auf der Konsole, sondern stattdessen erscheint auf der Konsole:
+<img alt="promise" src="../files/30_promise.png" /></p>
+<h4 id="error-behandlung-in-der-then-funktion">Error-Behandlung in der <code>then()</code>-Funktion<a class="headerlink" href="#error-behandlung-in-der-then-funktion" title="Permanent link">&para;</a></h4>
+<p>Wir behandeln den geworfenen Fehler nicht, da wir in unserer <code>then()</code>-Behandlung bis jetzt nur den <code>resolve</code>-Fall behandeln (Zeilen <code>9-11</code>). Das ändern wir nun:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">promise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// resolve(&#39;resolve -- Ausgabe A&#39;);</span>
+        <span class="nx">reject</span><span class="p">({</span><span class="nx">code</span><span class="o">:</span> <span class="mf">500</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;An error occurred&#39;</span><span class="p">});</span>
+    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+    <span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="hll">    <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>In den Zeilen <code>12-14</code> wurde die Behandlung des Fehlerfalls hinzugefügt (beachten Sie auch das zusätzliche Komma in Zeile <code>11</code>). Wie Sie die Variable <code>err</code> nennen, bleibt Ihnen überlassen. Sie bekommt den Wert, den das <code>Promise</code> für den <code>reject</code>-Fall übergibt, in unserem Beispiel also ein JavaScript-Objekt:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">code</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;A</span><span class="kc">n</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">occurred&#39;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>weil wir das in Zeile <code>4</code> so definiert haben. Wir greifen also auf die Werte der Schlüssel <code>code</code> und <code>message</code> zu und lassen diese auf die Konsole ausgeben (Zeile <code>13</code>). Auf der Konsole erscheint 3 Sekunden nach der Ausgabe <code>Ausgabe B</code> die Ausgabe <code>500 An error occurred</code>. </p>
+<h4 id="error-behandlung-im-catch-block">Error-Behandlung im <code>catch()</code>-Block<a class="headerlink" href="#error-behandlung-im-catch-block" title="Permanent link">&para;</a></h4>
+<p>Es ist ungewöhnlich, den Fehlerfall in der <code>then()</code>-Funktion zu behandeln, obwohl es, wie wir gesehen haben, möglich ist. Stattdessen verwendet man für den Fehlerfall besser <code>catch()</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">promise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// resolve(&#39;resolve -- Ausgabe A&#39;);</span>
+        <span class="nx">reject</span><span class="p">({</span><span class="nx">code</span><span class="o">:</span> <span class="mf">500</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;An error occurred&#39;</span><span class="p">});</span>
+    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+<span class="hll">    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+</span><span class="hll">        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">);</span>
+</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Mit diesen Wissen können wir jetzt auch unsere <a href="../serviceworker/#registrierung-eines-service-workers-in-htw-insta">Registrierung eines <em>service workers</em></a> etwas zuverlässiger gestalten und fügen dort ebenfalls einen <code>catch()</code>-Block ein, auch wenn der Fehlerfall nicht all zu häufig eintreffen dürfte:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+        <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+<span class="hll">        <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+</span><span class="hll">            <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+</span><span class="hll">        <span class="p">);</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="fetch-api">Fetch API<a class="headerlink" href="#fetch-api" title="Permanent link">&para;</a></h2>
+<p>Die <a href="https://developer.mozilla.org/de/docs/Web/API/Fetch_API">Fetch API</a> bietet einen bequemeren und leistungsfähigeren Ersatz für <a href="https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a>. Es geht also darum, Ressourcen vom Web-Server zu holen (<em>to fetch</em>). Die Fetch API ist vollständig auf Promises aufgebaut. Die zentrale Methode der Fetch API ist <code>fetch()</code>. Das Gute an dieser Methode ist, dass sie <em>gloabl</em> ist im Sinne, dass sie nicht nur von einer Webanwendung selbst, sondern auch z.B. von einem Service Worker verwendet werden kann (sie ist im <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope">WindowOrWorkerGlobalScope</a>). Einführungen zu <code>fetch()</code> finden Sie z.B. <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">hier</a>, <a href="https://jakearchibald.com/2015/thats-so-fetch/">hier</a> oder <a href="https://www.mediaevent.de/javascript/fetch.html">hier</a>.</p>
+<h3 id="get-anfragen-mit-fetch">GET-Anfragen mit fetch()<a class="headerlink" href="#get-anfragen-mit-fetch" title="Permanent link">&para;</a></h3>
+<p>Wir starten mit einem einfachen Beispiel und nutzen dafür <a href="https://httpbin.org/">https://httpbin.org</a>, eine Webseite, die viele REST-Endpunkte zum Ausprobieren anbietet. Nach dem Öffnen dieser Seite im Browser, können Sie z.B. mal auf <code>Request inspection</code> klicken - dort sehen wir den Endpunkt <code>/ip</code>, den wir über ein <code>GET</code> abfragen werden:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+            <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+            <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir rufen also einmal <code>fetch()</code> auf und übergeben dieser Funktion den Endpunkt, von dem eine Ressource geholt werden soll. Die <code>fetch()</code>-Funktion liefert ein <code>Promise</code>-Objekt zurück. Deshalb können wir auch direkt die <code>then()</code>-Funktion aufrufen und die <code>response</code> (ist egal, wie Sie disen Parameter nennen) auf die Konsole ausgeben. Wenn wir diesen Code ausführen, erscheint in der Konsole:</p>
+<p><img alt="fetch" src="../files/31_fetch.png" /></p>
+<p>Wir bekommen also ein JavaScript-Objekt zurück. Wirklich interessiert sind wir aber hauptsächlich an dem <code>body</code> dieses Objektes. Um darauf geeignet zuzugreifen, konvertieren wir das Objekt zunächst in das JSON-Format mithilfe der Anweisung <code>response.json();</code>. Die <code>json()</code>-Funktion ist eine Standard-JavaScript-Funktion, welche ein JavaScript-Objekt in einen JSON umwandelt. Da <code>then()</code> selbst ein <code>Promise</code>-Objekt zurückgibt. wollen wir darauf <code>then()</code> erneut anwenden, um das Prinzip verketteter <code>then()</code>-Funktionen (verketteter asynchroner Verarbeitungen) zu zeigen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>In der ersten <code>then()</code>-Funktion (Zeilen <code>2-6</code>) wird also die Response der asynchronen <code>GET https://httpbin.org/ip</code>-Anfrage behandelt und darin wird diese Response in eine JSON umgewandelt (Zeile <code>4</code>). Die Rückgabe dieser <code>then()</code>-Funktion ist erneut ein <code>Promise</code>. Für dieses <code>Promise</code> ist die zweite <code>then()</code>-Funktion (Zeilen <code>7-11</code>). Diese Funktion behandelt das asynchrone Streamen des Response-Body und dessen Umwandlung in ein JSON. Das durch dieses <code>Promise</code> zurückgegebene <code>resolve</code> bezeichnen wir in unserem Beispiel als <code>data</code> und geben es auf die Konsole aus. Auf der Konsole erscheint die <code>IP</code>, von der die Anfrage erfolgte, z.B. </p>
+<div class="highlight"><pre><span></span><code><span class="o">{</span>origin: <span class="s2">&quot;130.193.115.48&quot;</span><span class="o">}</span>
+</code></pre></div>
+<p>Noch zwei kleine Verbesserungen am Code: wenn in der Arrow-Notation Ihre Funktion nur aus einer einzigen <code>return</code>-Anweisung besteht, dann können Sie die geschweiften Klammern Ihres Funktionskörpers weglassen und auch das <code>return</code>. D.h. aus</p>
+<p><div class="highlight"><pre><span></span><code>    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">}</span>
+</code></pre></div>
+wird </p>
+<p><div class="highlight"><pre><span></span><code>    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+</code></pre></div>
+Auch das Semikolon entfällt. Das gilt aber nur für <code>return</code>-Anweisungen, nicht z.B. wenn die Funktion nur aus einer einzigen Konsolenausgabe besteht. Außerdem sollten wir auch noch ein <code>catch()</code>-Block einfügen, für den Fall, dass ein Fehler auftritt:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Den Fehlerfall können Sie ausprobieren, indem Sie einfach einen Fehler in die URL einbauen.</p>
+<h3 id="post-anfragen-mit-fetch">POST-Anfragen mit fetch()<a class="headerlink" href="#post-anfragen-mit-fetch" title="Permanent link">&para;</a></h3>
+<p><code>POST</code>-Anfragen werden verwendet, um Daten an den Webserver zu senden. Typischerweise sind das Formulardaten, die z.B. in eine Datenbank eingefügt werden sollen. Wenn wir also mithilfe von <code>fetch()</code> eine <code>POST</code>-Anfrage stellen wollen, dann müssen wir zwei Dinge beachten:</p>
+<ul>
+<li>wir müssen <code>fetch()</code> explizit mitteilen, dass die verwendete HTTP-Anfrage-Methode <code>POST</code> ist und</li>
+<li>wir müssen die Daten mitschicken.</li>
+</ul>
+<p>Für ein einfaches Beispiel verwenden wir erneut <a href="https://httpbin.org/">https://httpbin.org</a>, dieses Mal aber den Endpunkt <a href="https://httpbin.org/#/HTTP_Methods/post_post">/post</a>, der uns einfach die gesendeten Daten wieder als Response unserer Abfrage zurückschickt, also einfach als "Spiegel" fungiert. Eine entsprechende <code>fetch()</code>-Anweisung könnte so aussehen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">header</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Accept&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;just a POST mirror&#39;</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die Zeilen <code>11-23</code> sind dabei zunächst unverändert geblieben und sehen genauso aus wie die Zeilen <code>2-14</code> aus dem obigen <code>GET</code>-Beispiel. Nur die Parameter in der <code>fetch()</code>-Funktion haben sich geändert. Der erste Parmeter lautet nun <code>'https://httpbin.org/post'</code>, da wir die Anfrage an diese URL (diesen Endpunkt) stellen. Hinzugekommen ist ein zweiter Parameter, ein JSON:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">me</span><span class="kc">t</span><span class="err">hod</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;POST&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="err">header</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="err">&#39;Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">&#39;Accep</span><span class="kc">t</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="err">body</span><span class="p">:</span><span class="w"> </span><span class="err">JSON.s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">gi</span><span class="kc">f</span><span class="err">y(</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;jus</span><span class="kc">t</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">mirror&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="err">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>darin legen wir zunächst mithilfe von <code>method</code> die HTTP-Anfrage-Methode fest. Standard ist <code>GET</code>, deshalb brauchten wir das in unserem ersten Beispiel nicht zu tun. Nun geben wir <code>POST</code> an. </p>
+<p>Außerdem definieren wir noch Eigenschaften für den <code>header</code>. Wir legen mithilfe von <code>Content-Type</code> fest, welches Format unsere Daten haben, die wir übermitteln, nämlich <code>application/json</code>. Außerdem legen wir mithilfe von <code>Accept</code> fest, in welchem Format wir die Daten empfangen wollen, nämlich ebenfalls im JSON-Format. Diese <code>Accept</code>-Angabe ist nicht immer notwendig. Die meisten REST-Endpunkte liefern so oder so ein JSON zurück. Das hängt von der Definition der REST-API ab. </p>
+<p>In der <code>body</code>-Eigenschaft definieren wir die Daten, die wir übertragen wollen. In diesem Fall im JSON-Format. <code>{ message: 'just a POST mirror' }</code> ist ein JavaScript-Objekt, das eine einzige Eigenschaft enthält, nämlich <code>message</code>. Mithilfe der JavaScript-Standardfunktion <code>JSON.stringify()</code> wandeln wir dieses JavaScript-Objekt in ein JSON um. Somit wird ein JSON versendet, genau wie wir es im <code>header</code> unter <code>Content-Type</code> angegeben haben. </p>
+<p>Führen wir diesen Code aus, erhalten wir auf der Konsole folgende Ausgabe: </p>
+<p><img alt="fetch" src="../files/32_fetch.png" /></p>
+<p>Man könnte jetzt meinen, dass der Zugriff auf das Response-JSON (<code>{message: "just a POST mirror"}</code>) einfach über <code>response.data</code> oder über <code>response.json</code> erfolgen kann. Dem ist aber nicht so, da es sich bei dem <code>body</code> der <code>response</code> um ein Objekt vom Typ <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream">ReadableStream</a> handelt. Das ist einerseits gut, denn die Daten vom Server werden asynchron als Stream empfangen, andererseits ist der Zugriff auf die Daten recht aufwendig. Wir werden darauf nochmal intensiver eingehen, wenn wir Bilder vom Backend laden. Ansonsten können Sie sich auch schonmal <a href="https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_streams">hier</a> informieren oder sich <a href="https://github.com/mdn/dom-examples/tree/master/streams/simple-pump">hier</a> und <a href="https://github.com/mdn/dom-examples/tree/master/streams">hier</a>. Aber, wie gesagt, wir kommen eh nochmal darauf zurück. Wenn Sie sich das zurückgelieferte JSON schonmal anschauen wollen, dann ginge das z.B. so:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">header</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Accept&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;just a POST mirror&#39;</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>     <span class="c1">// show the body, ReadableStream</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">body</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">reader</span> <span class="o">=</span> <span class="nx">body</span><span class="p">.</span><span class="nx">getReader</span><span class="p">();</span>
+            <span class="k">return</span> <span class="ow">new</span> <span class="nx">ReadableStream</span><span class="p">({</span>
+                <span class="nx">start</span><span class="p">(</span><span class="nx">controller</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nx">pump</span><span class="p">();</span>
+                    <span class="kd">function</span> <span class="nx">pump</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">().</span><span class="nx">then</span><span class="p">(({</span> <span class="nx">done</span><span class="p">,</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                            <span class="c1">// When no more data needs to be consumed, close the stream</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nx">controller</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+                                <span class="k">return</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="c1">// Enqueue the next data chunk into our target stream</span>
+                            <span class="nx">controller</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>  <span class="c1">// Uint8Array</span>
+                            <span class="k">return</span> <span class="nx">pump</span><span class="p">();</span>
+                        <span class="p">});</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">stream</span> <span class="p">=&gt;</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nx">stream</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>  <span class="c1">// also possible: text(), blob(), ...</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">);</span> <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="fetch-vs-xmlhttprequest">Fetch vs. XMLHttpRequest<a class="headerlink" href="#fetch-vs-xmlhttprequest" title="Permanent link">&para;</a></h3>
+<p>Wir haben eingangs erwähnt, dass die Fetch API einen bequemeren und leistungsfähigeren Ersatz für <a href="https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a> darstellt. Das sieht man einerseits bereits an der Code-Länge. Das ist die Implementierung mit <code>fetch()</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>und das hier macht genau das Gleiche mithilfe von <code>XMLHttpRequest()</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s1">&#39;json&#39;</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre></div>
+</td></tr></table>
+<p>Ein ganz wesentlicher Unterschied liegt aber darin, dass bei Verwendung von <code>XMLHttpRequest()</code> deutlich mehr Sachen im Hintergrund synchron ablaufen, als bei der Fetch API. Das ist der Grund, dass wir bei der Implementierung von <em>service workern</em> die Fetch API verwenden <strong>müssen</strong> und nicht auf das (alte) <code>XMLHttpRequest()</code> zugreifen können.  </p>
+<h3 id="fetch-und-unser-service-worker">fetch() und unser service worker<a class="headerlink" href="#fetch-und-unser-service-worker" title="Permanent link">&para;</a></h3>
+<p>Alle Code-Beispiele von oben (also die Promises und die <code>fetch()</code>-Beispiele) habe ich einfach in die <code>app.js</code> unseres <em>HTW Insta</em>-Beispiels eingetragen und ausprobiert. Das heißt, die <code>app.js</code> sieht jetzt gerade so aus:</p>
+<details><summary>app.js</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="ow">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+        <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker registriert&#39;</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+            <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">}</span>
+        <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">promise</span> <span class="o">=</span> <span class="ow">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// resolve(&#39;resolve -- Ausgabe A&#39;);</span>
+        <span class="nx">reject</span><span class="p">({</span><span class="nx">code</span><span class="o">:</span> <span class="mf">500</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;An error occurred&#39;</span><span class="p">});</span>
+    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">code</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ausgabe B&#39;</span><span class="p">);</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s1">&#39;json&#39;</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+        <span class="nx">header</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Accept&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;just a POST mirror&#39;</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+        <span class="nx">body</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">reader</span> <span class="o">=</span> <span class="nx">body</span><span class="p">.</span><span class="nx">getReader</span><span class="p">();</span>
+            <span class="k">return</span> <span class="ow">new</span> <span class="nx">ReadableStream</span><span class="p">({</span>
+                <span class="nx">start</span><span class="p">(</span><span class="nx">controller</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nx">pump</span><span class="p">();</span>
+                    <span class="kd">function</span> <span class="nx">pump</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">().</span><span class="nx">then</span><span class="p">(({</span> <span class="nx">done</span><span class="p">,</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                            <span class="c1">// When no more data needs to be consumed, close the stream</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nx">controller</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+                                <span class="k">return</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="c1">// Enqueue the next data chunk into our target stream</span>
+                            <span class="nx">controller</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+                            <span class="k">return</span> <span class="nx">pump</span><span class="p">();</span>
+                        <span class="p">});</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+        <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">stream</span> <span class="p">=&gt;</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nx">stream</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">);</span> <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span>
+        <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<p>Außerdem haben wir ja in unserer Anwendung bereits einen <em>service worker</em> registriert und auch in schon in Ansätzen implementiert: </p>
+<details><summary>sw.js</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; installing ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; activating ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">clients</span><span class="p">.</span><span class="nx">claim</span><span class="p">();</span>
+<span class="p">})</span>
+
+<span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;service worker --&gt; fetching ...&#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<p>Ich erähne das nur deshalb, weil unsere Konsole bei Ausführung der Anwendung jetzt ungefähr so aussieht:</p>
+<p><img alt="fetch" src="../files/33_fetch.png" /></p>
+<p>Es erscheint also ganz oft die Ausgabe des <code>fetch</code>-Events, genau wie in der <code>sw.js</code> in den Zeilen <code>10-12</code> implementiert. Das <code>fetch</code>-Event wird immer dann ausgelöst, wenn die Anwendung etwas vom Webserver lädt. Das sind einerseits alle Ressourcen, die wir in der <code>index.html</code>-datei definiert haben (alle <code>*.js</code> und alle <code>*.css</code> und alle <code>*.png</code>-Dateien), aber auch die <code>fetch()</code>-Anweisungen, die wir in der <code>app.js</code> implementiert haben! Wir werden auf der Konsole auch die <code>fetch</code>-Ereignisse finden, die den Zugriff auf <code>https://httpbin.org/ip</code> bzw. <code>https://httpbin.org/post</code> ausführen. Wir merken uns also</p>
+<ul>
+<li><code>fetch</code>-Ereignisse werden <em>automatisch</em> ausgelöst durch das Laden von ressourcen, so wie in den <code>*.html</code>-Dateien der Anwendung definiert, </li>
+<li>aber auch durch <em>manuell</em> ausgelöste (implementierte) <code>fetch()</code>-Anfragen. </li>
+</ul>
+<p>Das ist wichtig, wenn wir in unserem <em>service worker</em> die <code>fetch</code>-Ereignisse behandeln werden. </p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir kennen nun Promises und die Fetch API und können beides anwenden. Wir werden Promises von nun an permanent verwenden. Insbesondere den <em>consuming code</em> für Promises, als <code>.then().catch()</code>. Mithilfe der Fetch API werden wir alle HTTP-Anfragen an den Server stellen können, also <code>GET</code>, <code>POST</code>, <code>PUT</code> und <code>DELETE</code> und dabei das asynchrone Prinzip dieser API bestmöglich ausnutzen.  </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../serviceworker/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Service worker" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Service worker
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../caching/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Caching" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Caching
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
