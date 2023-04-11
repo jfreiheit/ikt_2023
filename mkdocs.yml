@@ -60,6 +60,8 @@ markdown_extensions:
 #Navigation
 nav:
     - Home: index.md
+    - Einführung: einfuehrung.md 
+    - Grundgerüst: grundgeruest.md 
     - Übungen: uebungen.md 
     - Tools: tools.md 
 

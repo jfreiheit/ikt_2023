@@ -13,5 +13,5 @@ Folgende Endpunkte:
 - registrieren und einloggen
 - `Create New`
 
-![openapi](300_openapi.png)
+![openapi](./files/300_openapi.png)
 
