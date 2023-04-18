@@ -62,6 +62,7 @@ nav:
     - Home: index.md
     - Einführung: einfuehrung.md 
     - Grundgerüst: grundgeruest.md 
+    - Manifest: manifest.md 
     - Übungen: uebungen.md 
     - Tools: tools.md 
 
