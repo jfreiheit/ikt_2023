@@ -62,7 +62,9 @@ nav:
     - Home: index.md
     - Einführung: einfuehrung.md 
     - Grundgerüst: grundgeruest.md 
-    - Manifest: manifest.md 
+    - Manifest: manifest.md
+    - Service worker: serviceworker.md 
+    - Promises & Fetch-API: promises.md 
     - Übungen: uebungen.md 
     - Tools: tools.md 
 

@@ -2,37 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/einfuehrung/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/grundgeruest/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/manifest/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/openapi/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://freiheit.f4.htw-berlin.de/ikt/promises/</loc>
+         <lastmod>2023-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://freiheit.f4.htw-berlin.de/ikt/serviceworker/</loc>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/tools/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/ikt/uebungen/</loc>
-         <lastmod>2023-04-21</lastmod>
+         <lastmod>2023-04-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
