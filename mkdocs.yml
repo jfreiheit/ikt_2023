@@ -18,13 +18,17 @@ theme:
   palette:
     primary: grey
     accent: indigo
+  features:
+    - navigation.footer
+    - navigation.instant
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
   font:
     text: Roboto
     code: Roboto Mono
-  features:
-    - instant
-    - tabs
-    - content.code.copy
   favicon: img/favicon.png
   logo: img/fiw.jpg
 
@@ -45,10 +49,15 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
