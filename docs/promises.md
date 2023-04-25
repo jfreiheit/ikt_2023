@@ -662,7 +662,7 @@ Außerdem haben wir ja in unserer Anwendung bereits einen *service worker* regis
 	})
 	```	
 
-Ich erähne das nur deshalb, weil unsere Konsole bei Ausführung der Anwendung jetzt ungefähr so aussieht:
+Ich erwähne das nur deshalb, weil unsere Konsole bei Ausführung der Anwendung jetzt ungefähr so aussieht:
 
 ![fetch](./files/33_fetch.png)
 

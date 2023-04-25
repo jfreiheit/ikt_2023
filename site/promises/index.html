@@ -1520,7 +1520,7 @@ Auch das Semikolon entfällt. Das gilt aber nur für <code>return</code>-Anweisu
 <span class="p">})</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 </details>
-<p>Ich erähne das nur deshalb, weil unsere Konsole bei Ausführung der Anwendung jetzt ungefähr so aussieht:</p>
+<p>Ich erwähne das nur deshalb, weil unsere Konsole bei Ausführung der Anwendung jetzt ungefähr so aussieht:</p>
 <p><img alt="fetch" src="../files/33_fetch.png" /></p>
 <p>Es erscheint also ganz oft die Ausgabe des <code>fetch</code>-Events, genau wie in der <code>sw.js</code> in den Zeilen <code>10-12</code> implementiert. Das <code>fetch</code>-Event wird immer dann ausgelöst, wenn die Anwendung etwas vom Webserver lädt. Das sind einerseits alle Ressourcen, die wir in der <code>index.html</code>-datei definiert haben (alle <code>*.js</code> und alle <code>*.css</code> und alle <code>*.png</code>-Dateien), aber auch die <code>fetch()</code>-Anweisungen, die wir in der <code>app.js</code> implementiert haben! Wir werden auf der Konsole auch die <code>fetch</code>-Ereignisse finden, die den Zugriff auf <code>https://httpbin.org/ip</code> bzw. <code>https://httpbin.org/post</code> ausführen. Wir merken uns also</p>
 <ul>
