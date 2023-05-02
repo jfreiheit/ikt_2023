@@ -378,7 +378,7 @@ Für ein einfaches Beispiel verwenden wir erneut [https://httpbin.org](https://h
 ```javascript linenums="1"
 fetch('https://httpbin.org/post', {
 	    method: 'POST',
-	    header: {
+	    headers: {
 	        'Content-Type': 'application/json',
 	        'Accept': 'application/json'
 	    },
@@ -406,7 +406,7 @@ Die Zeilen `11-23` sind dabei zunächst unverändert geblieben und sehen genauso
 ```json
 {
     method: 'POST',
-    header: {
+    headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     },
@@ -431,7 +431,7 @@ Man könnte jetzt meinen, dass der Zugriff auf das Response-JSON (`{message: "ju
 ```javascript linenums="1"
 fetch('https://httpbin.org/post', {
         method: 'POST',
-        header: {
+        headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
@@ -592,7 +592,7 @@ Alle Code-Beispiele von oben (also die Promises und die `fetch()`-Beispiele) hab
 
 	fetch('https://httpbin.org/post', {
 	        method: 'POST',
-	        header: {
+	        headers: {
 	            'Content-Type': 'application/json',
 	            'Accept': 'application/json'
 	        },

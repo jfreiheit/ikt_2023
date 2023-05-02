@@ -249,7 +249,7 @@ Wundern Sie sich also nicht, wenn Ihr service worker nicht funktioniert, sobald 
 
 Nun implementieren wir den service worker. Wir haben ihn bereits registriert, aber die Datei `sw.js` ist noch leer. Die grundlegende Idee eines service workers ist es, Ereignisse zu behandeln. Wir werden unserem service worker also eine Reihe von `addEventListener()`-Funktionen hinzufügen. Diese Funktion kennen wir bereits aus "normalem" JavaScript-Code. Dort haben häufig so etwas wie `addEventListener('click', function() { /* ... */ })` geschrieben. Das `click`-Ereignis hat aber keine Relevanz für service worker, da ein service worker keine Auswirkungen auf das DOM hat. Vielmehr reagiert ein service worker auf Ereignisse, die wir bereits [oben](./#web-worker-vs-service-worker) beschrieben haben. Wir fügen unserem service worker Ereignisbehandlungen hinzu:
 
-=== "/public/src/sw.js"
+=== "/public/sw.js"
 	```javascript linenums="1" 
 	self.addEventListener('install', function(event) {
 	    console.log('service worker --> installing ...', event);

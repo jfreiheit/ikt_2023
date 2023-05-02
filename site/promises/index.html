@@ -1094,7 +1094,7 @@ Auch das Semikolon entfällt. Das gilt aber nur für <code>return</code>-Anweisu
 <span class="normal">22</span>
 <span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">header</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
 <span class="w">            </span><span class="s1">&#39;Accept&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
 <span class="w">        </span><span class="p">},</span>
@@ -1119,7 +1119,7 @@ Auch das Semikolon entfällt. Das gilt aber nur für <code>return</code>-Anweisu
 <p>Die Zeilen <code>11-23</code> sind dabei zunächst unverändert geblieben und sehen genauso aus wie die Zeilen <code>2-14</code> aus dem obigen <code>GET</code>-Beispiel. Nur die Parameter in der <code>fetch()</code>-Funktion haben sich geändert. Der erste Parmeter lautet nun <code>'https://httpbin.org/post'</code>, da wir die Anfrage an diese URL (diesen Endpunkt) stellen. Hinzugekommen ist ein zweiter Parameter, ein JSON:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="err">me</span><span class="kc">t</span><span class="err">hod</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;POST&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="err">header</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">headers</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="err">&#39;Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">&#39;</span><span class="p">,</span>
 <span class="w">        </span><span class="err">&#39;Accep</span><span class="kc">t</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">&#39;</span>
 <span class="w">    </span><span class="p">},</span>
@@ -1186,7 +1186,7 @@ Auch das Semikolon entfällt. Das gilt aber nur für <code>return</code>-Anweisu
 <span class="normal">50</span>
 <span class="normal">51</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">header</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
 <span class="w">            </span><span class="s1">&#39;Accept&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
 <span class="w">        </span><span class="p">},</span>
@@ -1472,7 +1472,7 @@ Auch das Semikolon entfällt. Das gilt aber nur für <code>return</code>-Anweisu
 
 <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">header</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
 <span class="w">            </span><span class="s1">&#39;Accept&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span>
 <span class="w">        </span><span class="p">},</span>
