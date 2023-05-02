@@ -15,7 +15,7 @@
         <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/ikt/uebungen/">
       
       
-        <link rel="prev" href="../promises/">
+        <link rel="prev" href="../caching/">
       
       
         <link rel="next" href="../tools/">
@@ -308,6 +308,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../caching/" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -529,10 +544,10 @@
 <li>In der ersten Übung geht es "nur" darum, das <a href="../grundgeruest/#grundgerust-unserer-pwa">Grundgerüst</a> zu verstehen. Arbeiten Sie dazu diesen Abschnitt durch. Sie werden feststellen, dass sich die meisten Anweisungen (insb. im <code>HTML</code>-Code) auf <a href="https://getmdl.io/">Material Design Lite</a> beziehen. </li>
 <li>Um zu erkennen, was einen <a href="https://getmdl.io/">Material Design Lite</a>-Bezug hat (und somit nicht wirklich wichtig ist),  ändern Sie das Grundgerüst so, dass Sie nicht <a href="https://getmdl.io/">Material Design Lite</a>, sondern <a href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">Bootstrap</a> verwenden. Werfen Sie also Material Design Lite komplett raus und ersetzen es vollständig durch Bootstrap. Löschen Sie die <code>material.min.js</code> aus dem <code>public/js</code>-Ordner.</li>
 <li>Starten Sie am besten damit, diese drei Zeilen aus den beiden <code>index.html</code>-Dateien zu löschen:
-    <div class="language-html highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/css?family=Roboto:400,700&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css&quot;</span><span class="p">&gt;</span>
-</span></code></pre></div></li>
+    <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/css?family=Roboto:400,700&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css&quot;</span><span class="p">&gt;</span>
+</code></pre></div></li>
 <li>Fügen Sie stattdessen den CSS-Link und das JS-Bundle aus <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">https://getbootstrap.com/docs/5.0/getting-started/introduction/</a> ein. </li>
 <li>Sie können ja versuchen, dass es möglichst ähnlich aussieht:
     <img alt="uebung1" src="../files/51_uebung1.png" /></li>
@@ -551,12 +566,18 @@
 <details>
 <summary>Übung 3</summary>
 <ol>
-<li>Laden Sie <a href="../files/uebung3.zip">hier die Anwendung für Übung 3 herunter</a>. Es handelt sich um eine zip-Datei. Entpacken Sie diese, öffnen Sie sie in Ihrer IDE und folgen Sie der README.MD. </li>
-<li>In der Übung üben wir Promises und die Fetch API. Öffnen Sie die Datei <code>public/src/js/app.js</code>. Die Übung besteht aus 3 Teilen:</li>
-<li><strong>Teil 1</strong>: führen Sie ein <code>fetch()</code> als GET nach <code>https://httpbin.org/ip</code> aus und geben Sie die zurückgegebene IP in das <code>output</code>-Element (<code>&lt;p id="output"&gt;&lt;/p&gt;</code>) in der <code>public/index.html</code> aus.</li>
-<li><strong>Teil 2</strong>: führen Sie ein <code>fetch()</code> als PUT nach <code>https://httpbin.org/put</code> aus. Das übergebene JSON wird von dort einfach zurückgespiegelt. Geben Sie einen oder mehrere Werte aus diesem JSON in das <code>output</code>-Element (<code>&lt;p id="output"&gt;&lt;/p&gt;</code>) in der <code>public/index.html</code> aus.</li>
-<li><strong>Teil 3</strong>: bauen Sie einen Fehler in die Anfrage (z.B. falsche Url) und behandeln Sie diesen Fehler mit einer Ausgabe auf die Konsole.</li>
-<li>Hinweise und Hilfestellungen finden Sie im Skript unter <a href="../promises/#promises-und-die-fetch-api">Promises und die Fetch-API</a>.</li>
+<li>Clonen Sie sich <a href="https://github.com/jfreiheit/IKT-Uebung3">hier die Anwendung für Übung 3</a>. Wechseln Sie in den Ordner und öffnen Sie die Übung in Ihrer IDE. Lesen Sie die <a href="https://github.com/jfreiheit/IKT-Uebung3">README.MD</a>. </li>
+<li>
+<p>In der Übung üben wir Promises und die Fetch API. Öffnen Sie die Datei <code>public/src/js/app.js</code>. Die Übung besteht aus 3 Teilen:</p>
+<ol>
+<li><strong>Teil 1</strong>: führen Sie ein <code>fetch()</code> als GET nach <code>https://jsonplaceholder.typicode.com/posts/1</code> aus (siehe <a href="https://jsonplaceholder.typicode.com">https://jsonplaceholder.typicode.com</a>). Lassen Sie sich die <code>Response</code> auf die Konsole ausgeben. Wenden Sie dann noch <code>json()</code> an und schauen sich das erzeugte Objekt an (lassen es ebenfalls auf der Konsole ausgeben). Übergeben Sie den <code>title</code> an das <code>output</code>-Element (<code>&lt;p id="output"&gt;&lt;/p&gt;</code>) aus der <code>public/index.html</code>.</li>
+<li><strong>Teil 2</strong>: führen Sie ein <code>fetch()</code> als POST nach <code>https://jsonplaceholder.typicode.com/posts</code> aus. Beachten Sie das Format des zu sendenden JSON-Objektes (Eigenschaften <code>title</code>, <code>body</code> und <code>userId</code>). Das JSON-Objekt wird zurückgesendet. Geben Sie einen oder mehrere Werte aus diesem JSON in das <code>output</code>-Element aus.</li>
+<li><strong>Teil 3</strong>: bauen Sie einen Fehler in die Anfrage (z.B. falsche Url) und behandeln Sie diesen Fehler mit einer Ausgabe auf die Konsole. Lesen Sie dazu die Kommentare in der <code>app.js</code>.</li>
+</ol>
+</li>
+<li>
+<p>Hinweise und Hilfestellungen finden Sie im Skript unter <a href="../promises/#promises-und-die-fetch-api">Promises und die Fetch-API</a>.</p>
+</li>
 </ol>
 </details>
 <h5 id="ubung-4-entwicklungs-infrastruktur-einrichten">Übung 4 (Entwicklungs-Infrastruktur einrichten)<a class="headerlink" href="#ubung-4-entwicklungs-infrastruktur-einrichten" title="Permanent link">&para;</a></h5>
@@ -636,11 +657,11 @@
 <li>Mit der Installation von <code>node.js</code>, installieren Sie auch den Paketmanager <code>npm</code> (siehe <a href="https://www.npmjs.com/">npmjs</a>). </li>
 <li>
 <p>Sie können testen, ob die Installation von <code>node</code> und <code>npm</code> erfolgreich war, indem Sie im Terminal (Windows-Nutzerinnen bitte als Terminal die <a href="https://git-scm.com/downloads">GitBash</a> verwenden) eingeben:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>node<span class="w"> </span>--version
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>node<span class="w"> </span>--version
+</code></pre></div>
 <p>Sollte etwas, wie <code>v14.15.0</code> ausgeben und</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npm<span class="w"> </span>--version
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>--version
+</code></pre></div>
 <p>sollte etwas, wie <code>7.13.0</code> ausgeben. </p>
 </li>
 </ul>
@@ -651,36 +672,36 @@
 <li><a href="">Angular</a> ist ein modernes JavaScript-Framework zur Entwicklung moderner Weboberflächen. Es gehört neben <a href="https://reactjs.org/">React.js</a> und <a href="https://vuejs.org/">Vue.js</a> zu den meisteverwendeten Frameworks für die Entwicklung sogenannter <em>Single-Page-Applikationen</em>. </li>
 <li>
 <p>Um einfacher mit <code>Angular</code> zu entwickeln zu können, benötigen wir das <a href="https://angular.io/cli">Angular-Command-Line-Interface (CLI)</a>. Dieses installieren wir mithilfe des Paketmanagers <code>npm</code>. Geben Sie dazu ins Terminal </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@angular/cli
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@angular/cli
+</code></pre></div>
 <p>ein. Sie können prüfen, ob die Installation erfolgreich war, indem Sie in das Terminal </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ng<span class="w"> </span>--version
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>ng<span class="w"> </span>--version
+</code></pre></div>
 <p>eingeben. Es sollte etwas in der Art ausgeben: </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">     </span>_<span class="w">                      </span>_<span class="w">                 </span>____<span class="w"> </span>_<span class="w">     </span>___
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>/<span class="w"> </span><span class="se">\ </span><span class="w">  </span>_<span class="w"> </span>__<span class="w">   </span>__<span class="w"> </span>_<span class="w"> </span>_<span class="w">   </span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>__<span class="w"> </span>_<span class="w"> </span>_<span class="w"> </span>__<span class="w">     </span>/<span class="w"> </span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="w"> </span>_<span class="p">|</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">   </span>/<span class="w"> </span>△<span class="w"> </span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="s1">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>/<span class="w"> </span>___<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w"> </span>/_/<span class="w">   </span><span class="se">\_\_</span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="w">       </span><span class="se">\_</span>___<span class="p">|</span>_____<span class="p">|</span>___<span class="p">|</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">                </span><span class="p">|</span>___/
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Angular<span class="w"> </span>CLI:<span class="w"> </span><span class="m">11</span>.0.1
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Node:<span class="w"> </span><span class="m">14</span>.15.0
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>OS:<span class="w"> </span>darwin<span class="w"> </span>x64
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>Angular:<span class="w"> </span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>...<span class="w"> </span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>Ivy<span class="w"> </span>Workspace:<span class="w"> </span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>Package<span class="w">                      </span>Version
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>------------------------------------------------------
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>@angular-devkit/architect<span class="w">    </span><span class="m">0</span>.1100.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>@angular-devkit/core<span class="w">         </span><span class="m">11</span>.0.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>@angular-devkit/schematics<span class="w">   </span><span class="m">11</span>.0.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>@schematics/angular<span class="w">          </span><span class="m">11</span>.0.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>@schematics/update<span class="w">           </span><span class="m">0</span>.1100.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">     </span>_<span class="w">                      </span>_<span class="w">                 </span>____<span class="w"> </span>_<span class="w">     </span>___
+<span class="w">    </span>/<span class="w"> </span><span class="se">\ </span><span class="w">  </span>_<span class="w"> </span>__<span class="w">   </span>__<span class="w"> </span>_<span class="w"> </span>_<span class="w">   </span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>__<span class="w"> </span>_<span class="w"> </span>_<span class="w"> </span>__<span class="w">     </span>/<span class="w"> </span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="w"> </span>_<span class="p">|</span>
+<span class="w">   </span>/<span class="w"> </span>△<span class="w"> </span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="s1">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>/<span class="w"> </span>___<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
+<span class="w"> </span>/_/<span class="w">   </span><span class="se">\_\_</span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="w">       </span><span class="se">\_</span>___<span class="p">|</span>_____<span class="p">|</span>___<span class="p">|</span>
+<span class="w">                </span><span class="p">|</span>___/
+
+
+Angular<span class="w"> </span>CLI:<span class="w"> </span><span class="m">11</span>.0.1
+Node:<span class="w"> </span><span class="m">14</span>.15.0
+OS:<span class="w"> </span>darwin<span class="w"> </span>x64
+
+Angular:<span class="w"> </span>
+...<span class="w"> </span>
+Ivy<span class="w"> </span>Workspace:<span class="w"> </span>
+
+Package<span class="w">                      </span>Version
+------------------------------------------------------
+@angular-devkit/architect<span class="w">    </span><span class="m">0</span>.1100.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
+@angular-devkit/core<span class="w">         </span><span class="m">11</span>.0.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
+@angular-devkit/schematics<span class="w">   </span><span class="m">11</span>.0.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
+@schematics/angular<span class="w">          </span><span class="m">11</span>.0.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
+@schematics/update<span class="w">           </span><span class="m">0</span>.1100.1<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
+</code></pre></div>
 </li>
 </ul>
 </li>
@@ -695,13 +716,13 @@
 <ol>
 <li>
 <p>Ergänzen Sie das in [Backend] erstellte Backend um einen REST-Endpunkt </p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GET<span class="w"> </span>http://localhost:3000/posts/title
-</span></code></pre></div>
+<p><div class="highlight"><pre><span></span><code>GET<span class="w"> </span>http://localhost:3000/posts/title
+</code></pre></div>
 Bei Aufruf dieses Endpunktes soll dem Request-Body ein JSON in der Form 
-<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first post&quot;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
-</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first post&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwendet, um den Datensatz/die Datensätze auszulesen, die den <code>title</code> haben (also hier der Datensatz mit dem <code>title</code> <code>"first post"</code>). </p>
 <p><img alt="uebung5" src="../files/63_restapi.png" /> </p>
 </li>
@@ -725,12 +746,12 @@ mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwende
 <li>Im Abschnitt <a href="../indexeddb/#indexeddb">IndexedDB</a> haben wir uns mit der Verwendung der In-Browser-datenbank IndexedDB vertraut gemacht. </li>
 <li>In dem dortigen letzten Abschnitt <a href="../indexeddb/#loschen-einzelner-eintrage">Löschen einzelner EInträge</a> haben wir in der <code>db.js</code> eine Funktion <code>deleteOneData(st, id)</code> geschrieben, die einen einzelnen Datensatz aus der IndexedDB mit der übergebenen <code>id</code> löscht. </li>
 <li>Implementieren Sie in der <code>db.js</code> eine Funktion <code>deleteByTitle(st, title)</code>, die den Datensatz (oder die Datensätze) löscht, der (oder die) in dem <code>title</code>-Attribut den der Methode als <code>title</code> übergebenen String enthält. Z.B. soll aus dem Datensatz 
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">{</span>id:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;first post&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Berlin&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...UgP/9k=&quot;</span><span class="o">}</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">{</span>id:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;second post&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Wilhelminenhof&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...VY/9k=&quot;</span><span class="o">}</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="o">{</span>id:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;fourth post&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Gebaeude C&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...KOX/9k=&quot;</span><span class="o">}</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="o">{</span>id:<span class="w"> </span><span class="m">10</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;HTW aus der Luft&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Campus WH von oben&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...9z//2Q==&quot;</span><span class="o">}</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="o">{</span>id:<span class="w"> </span><span class="m">11</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;Wilhelminenhofstraße&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Campus WH Eingang&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...U9D/9k=&quot;</span><span class="o">}</span>
-</span></code></pre></div><ul>
+    <div class="highlight"><pre><span></span><code><span class="o">{</span>id:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;first post&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Berlin&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...UgP/9k=&quot;</span><span class="o">}</span>
+<span class="o">{</span>id:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;second post&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Wilhelminenhof&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...VY/9k=&quot;</span><span class="o">}</span>
+<span class="o">{</span>id:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;fourth post&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Gebaeude C&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...KOX/9k=&quot;</span><span class="o">}</span>
+<span class="o">{</span>id:<span class="w"> </span><span class="m">10</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;HTW aus der Luft&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Campus WH von oben&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...9z//2Q==&quot;</span><span class="o">}</span>
+<span class="o">{</span>id:<span class="w"> </span><span class="m">11</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s2">&quot;Wilhelminenhofstraße&quot;</span>,<span class="w"> </span>location:<span class="w"> </span><span class="s2">&quot;Campus WH Eingang&quot;</span>,<span class="w"> </span>image:<span class="w"> </span><span class="s2">&quot;/9j/4AA...U9D/9k=&quot;</span><span class="o">}</span>
+</code></pre></div><ul>
 <li>bei Aufruf von <code>deleteByTitle('posts', 'second')</code> der zweite Datensatz mit der <code>id: 2</code> gelöscht werden, </li>
 <li>bei Aufruf von <code>deleteByTitle('posts', 'post')</code> sollen die ersten drei Datensätze (mit <code>id:1</code>, <code>id:2</code> und <code>id:5</code>) gelöscht werden.</li>
 </ul>
@@ -761,7 +782,7 @@ mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwende
       <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
         
           
-          <a href="../promises/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Promises &amp; Fetch-API" rel="prev">
+          <a href="../caching/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Caching" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -770,7 +791,7 @@ mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwende
                 Zurück
               </span>
               <div class="md-ellipsis">
-                Promises & Fetch-API
+                Caching
               </div>
             </div>
           </a>
@@ -819,7 +840,7 @@ mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwende
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.instant", "content.action.edit", "content.action.view", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs", "navigation.footer", "navigation.instant", "content.action.edit", "content.action.view", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
     
     
       <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
