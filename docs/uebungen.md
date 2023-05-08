@@ -41,39 +41,34 @@
 	6. Hinweise und Hilfestellungen finden Sie im Skript unter [Promises und die Fetch-API](../promises/#promises-und-die-fetch-api).
 
 
-##### Übung 4 (Entwicklungs-Infrastruktur einrichten)
+##### Übung 4 (MongoDB Cloud Atlas und Compass einrichten)
 
 ??? "Übung 4"
 
-	Wir richten unsere Entwicklungs-Infrastruktur, die wir benötigen, um eine Frontend-Backend-Datenbank-App zu erstellen.
+	Wir richten unsere Entwicklungs-Infrastruktur, insbesondere die MongoDB ein, die wir benötigen, um eine Frontend-Backend-Datenbank-App zu erstellen.
 
-	1. Lokalen Webserver einrichten: 
+	1. `MongoDB Atlas` einrichten:
 
-		- Es sollte etwas Sinnvolles erscheinen, wenn Sie `http://localhost/` in den Browser eingeben (also entweder wird eine eigene html- oder php-Datei geöffnet, oder es steht soetwas wie `It works`). Wenn das nicht der Fall ist, dann benötigen Sie erst noch einen Webserver. Auf dem Mac und unter Linux existiert aber immer bereits einer, nur unter Windows muss dann z.B. [XAMPP](https://www.apachefriends.org/de/index.html) installiert werden.
+		- Es ist nicht notwendig, die [MongoDB](https://www.mongodb.com/de-de) lokal zu installieren. Wenn Sie es doch tun wollen, dann wählen Sie den [MongoDB Community Server](https://www.mongodb.com/try/download/community). Es ist aber, insbesondere für ein späteres Deployment ratsam, die Cloud-Lösung [MongoDB Atlas](https://www.mongodb.com/atlas/database) zu verwenden. Registrieren bzw. loggen Sie sich ein und erstellen Sie sich einen M0-Cluster, z.B. `IKT-PWA`, wie im folgenden Bild:
 
-		- Sie müssen wissen, aus welchem Ordner die Ressourcen geladen werden, wenn Sie `http://localhost/` in den Browser eingeben. Diesen Ordner nennen wir `DocumentRoot`. Der Standard-DocumentRoot-Ordner 
+			![MongoDB](./files/307_openapi.png) 
 
-			- auf dem Mac ist `/Library/WebServer/Documents`,
-			- unter Linux `/www/html/`,
-			- unter Windows (XAMPP) `/xampp/htdocs`. 
+		- Erstellen Sie eine Nutzerin und wählen Sie die Authentisierungsmethode. Sie können die Account-Passwort-Lösung oder das X.509-Zertifikat wählen. In der Vorlesung zeige ich die Verwendung mithilfe des X509-Zertikats. 
 
-			Vor den angegebenen Pfaden kann in Linux und Windows noch etwas stehen, das hängt von der Konfiguration ab und wo Sie Ihr XAMPP unter Windows installiert haben. Wichtig ist, dass Sie genügend Schreibrechte auf den DocumentRoot-Ordner haben! Das ist typischerweise beim Mac unter `/Library/WebServer/Documents` nicht der Fall. Passen Sie auch auf, dass unter Windows Ihr `xampp`-Ordner nicht bereits zu tief in der Ordnerstruktur steckt. Gehen Sie entsprechende Anleitungen durch, um Ihr DocumentRoot zu ändern. Mein DocumentRoot ist z.B. unter `/Users/jornfreiheit/Sites`. Hier einige Anleitungen: [Windows](https://www.ionos.de/digitalguide/server/tools/xampp-tutorial-so-erstellen-sie-ihren-lokalen-testserver/), [Windows](https://werner-zenk.de/tipps/lokale_webserver_xampp.php), [Windows](https://www.seo-head.de/entwicklung/xampp-htdocs-verzeichnis-aendern/), [Mac](https://sysadminde.com/questions/161529/how-to-change-document-root-for-apache2-in-mac-os-x).
+		- Schauen Sie sich unter `Connect` --> `Drivers` an, wie Sie in Node.js eine Verbindung zur Datenbank herstellen können.
 
-		- Erstellen Sie zum Testen in Ihrem DocumentRoot-Ordner eine `index.html`-Datei mit folgendem Inhalt: `<html><body><h1>DocumentRoot korrekt eingerichtet!</h1></body></html>` und rufen Sie dann im Browser `http://localhost/` auf. Es sollte im Browser **DocumentRoot korrekt eingerichtet!** erscheinen. 
+	2.  `MongoDB Compass` einrichten
 
-		- Für `phpMyAdmin` benötigen Sie auch noch `php`. Erstellen Sie in Ihrem DocumentRoot-Ordner eine Datei `index.php` mit folgendem Inhalt: `<?php phpinfo(); ?>` und rufen Sie dann im Browser `http://localhost/index.php` auf. Es sollte etwas in dieser Art erscheinen: 
+		- Laden Sie [MongoDB Compass](https://www.mongodb.com/products/compass) herunter und installieren es. 
 
-			![localhost](./files/41_localhost.png) 
+		- Stellen Sie eine Verbindung zu Ihrer `MongoDB Atlas` her. 
 
-			Wenn `localhost` funktioniert, dann gibt es mit PHP eigentlich nur (neuerdings - erst seit Big Sur) unter dem Mac Probleme. Nutzen Sie dann eine der folgenden Anleitungen: [1](https://wpbeaches.com/install-apache-mysql-php-on-macos-11-big-sur-and-earlier-macos/), [2](https://tobschall.de/2020/11/01/big-sur-mamp/), [3](https://tech-cookbook.com/2020/11/14/setting-up-your-local-web-server-on-macos-big-sur-11-0-1-2020-mamp-macos-apache-mysql-php/). 
+		- Erstellen Sie eine Datenbank (z.B. `htwinsta`) und eine Collection (z.B. `posts`). 
 
-	2. Datenbank einrichten:
+		- Sie können auch schon einen datensatz hinzufügen, wenn Sie möchten. Dann sollte es Bei Ihnen wie im folgenden Bild aussehen:
 
-		- Sie müssen nicht unbedingt ein lokales Datenbanksystem installieren, sondern können auch den Studi-Server `https://studi.f4.htw-berlin.de` verwenden. 
+			![MongoDB](./files/308_openapi.png) 
 
-		- Wenn Sie sich lokal ein Datenbanksystem installieren, was man ruhig einmal gemacht haben sollte, dann ist es egal, ob Sie `MariaDB` (kommt mit XAMPP) oder `MySQL` installieren. Beide Systeme sind in der Anwendung völlig gleich. Sie können auch `Postgres` verwenden, das habe ich aber nicht lokal und es kann sein, dass meine Anleitungen dann angepasst werden müssten (vielleicht aber auch nicht). `MariaDB` wird mit XAMPP ausgeliefert - betrifft also hauptsächlich die Windows-Nutzerinnen [XAMPP](https://www.apachefriends.org/de/index.html). 
-		- Für Mac ist die Installation von XAMPP nicht notwendig (und auch nicht empfehlenswert, da Sie ansonsten nur mehrere Webserver haben). Für die Installation von MySQL unter Mac gibt es viele Videos, sollte aber auch so von [hier aus](https://dev.mysql.com/downloads/mysql/) gut funktionieren (eine weitere Anleitung z.B. [hier](https://medium.com/@jainakansha/installing-and-running-mysql-on-macos-with-errors-resolved-70ef53e3b5b9)).  
-		- [phpmyadmin](https://www.phpmyadmin.net/) ist eine Weboberfläche für die Verwaltung einer `MySQl`-Datenbank. Es ist sehr zu empfehlen, dass Sie sich phpmyadmin installieren, wenn Sie sich `MySQL` installiert haben. Installationanleitungen gibt es viele, z.B. für [Mac](https://wpbeaches.com/install-apache-mysql-php-on-macos-11-big-sur-and-earlier-macos/), [Linux](https://phoenixnap.com/kb/how-to-install-phpmyadmin-on-debian-10) und [Windows](https://de.wikihow.com/phpMyAdmin-auf-einem-Windows-PC-installieren). Im Prinzip müssen Sie aber das `phpmyadmin`-Paket nur entpacken und in Ihren DocumentRoot-Ordner bewegen, dann können Sie `phpmyadmin` über `http://localhost/phpmyadmin` aufrufen. 
 
 	3. `Postman` installieren:
 
@@ -104,13 +99,13 @@
 			node --version
 			```
 
-			Sollte etwas, wie `v14.15.0` ausgeben und
+			Sollte etwas, wie `v14.20.0` ausgeben und
 
 			```bash
 			npm --version
 			```
 
-			sollte etwas, wie `7.13.0` ausgeben. 
+			sollte etwas, wie `9.1.2` ausgeben. Achten Sie darauf, dass Sie eine **gerade Versionsnummer** von `node.js` installieren (also 14 oder 16, nicht 15)!
 
 	6. `Angular-Command-Line-Interface (CLI)` installieren: 
 
@@ -124,7 +119,7 @@
 			ein. Sie können prüfen, ob die Installation erfolgreich war, indem Sie in das Terminal 
 
 			```bash
-			ng --version
+			ng version
 			```
 
 			eingeben. Es sollte etwas in der Art ausgeben: 
@@ -139,32 +134,31 @@
 			                |___/
 			    
 
-			Angular CLI: 11.0.1
-			Node: 14.15.0
+			Angular CLI: 15.0.0
+			Node: 14.20.0
+			Package Manager: npm 9.1.2
 			OS: darwin x64
 
-			Angular: 
+			Angular: undefined
 			... 
-			Ivy Workspace: 
 
 			Package                      Version
 			------------------------------------------------------
-			@angular-devkit/architect    0.1100.1 (cli-only)
-			@angular-devkit/core         11.0.1 (cli-only)
-			@angular-devkit/schematics   11.0.1 (cli-only)
-			@schematics/angular          11.0.1 (cli-only)
-			@schematics/update           0.1100.1 (cli-only)
+			@angular-devkit/architect    0.1500.0 (cli-only)
+			@angular-devkit/core         15.0.0 (cli-only)
+			@angular-devkit/schematics   15.0.0 (cli-only)
+			@schematics/angular          15.0.0 (cli-only)
 			    
 			```
 
-	7. Ich hoffe, es klappt alles! Eventuelle Probleme können wir in der Vorlesung am 26.5. und/oder in der Übung am 27.5. besprechen.  
+	7. Viel Erfolg!  
 
 
 ##### Übung 5 (Backend)
 
 ??? "Übung 5"
 
-	1. Ergänzen Sie das in [Backend] erstellte Backend um einen REST-Endpunkt 
+	1. Ergänzen Sie das in [Backend](../backend/#backend-rest-server) erstellte Backend um einen REST-Endpunkt 
 
 		```bash
 		GET http://localhost:3000/posts/title

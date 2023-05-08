@@ -80,6 +80,7 @@ nav:
     - Service worker: serviceworker.md 
     - Promises & Fetch-API: promises.md 
     - Caching: caching.md 
+    - Backend: backend.md 
     - Übungen: uebungen.md 
     - Tools: tools.md 
 

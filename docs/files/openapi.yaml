@@ -1,0 +1,168 @@
+openapi: 3.0.0
+info:
+  title: Posts-API
+  description: REST-API für IKT-PWA HTWInsta
+  contact:
+    email: freiheit@htw-berlin.de
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/jfreiheit/Posts-API/1.0.0
+  description: SwaggerHub Server
+tags:
+- name: Posts
+  description: CRUD für Posts
+- name: Images
+  description: CRUD für Bilder
+paths:
+  /posts:
+    get:
+      tags:
+      - Posts
+      summary: lese alle Posts
+      description: download Array aller verfügbaren Posts
+      operationId: getAllPosts
+      responses:
+        "200":
+          description: alle verfügbaren Posts geladen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+                x-content-type: application/json
+      x-swagger-router-controller: Posts
+    post:
+      tags:
+      - Posts
+      summary: füge einen neuen Post hinzu
+      description: neuen Post erzeugen und speichern
+      operationId: createNewPost
+      requestBody:
+        description: neuer Post
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        "201":
+          description: Post created
+        "409":
+          description: Post existiert bereits
+      x-swagger-router-controller: Posts
+  /posts/{id}:
+    get:
+      tags:
+      - Posts
+      summary: lese einen Post mit der passenden id
+      description: download entsprechenden Post
+      operationId: getOnePost
+      parameters:
+      - name: id
+        in: path
+        description: Post-ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Post mit entsprechender id geladen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+                x-content-type: application/json
+        "404":
+          description: Post bzw. id nicht gefunden
+      x-swagger-router-controller: Posts
+    put:
+      tags:
+      - Posts
+      summary: ändere einen Post mit der passenden id
+      description: aktualisiere entsprechenden Post
+      operationId: updateOnePost
+      parameters:
+      - name: id
+        in: path
+        description: Post-ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        description: zu aktualisierender Post
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        "200":
+          description: Post mit entsprechender id aktualisiert
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+                x-content-type: application/json
+        "404":
+          description: Post bzw. id nicht gefunden
+      x-swagger-router-controller: Posts
+    delete:
+      tags:
+      - Posts
+      summary: lösche einen Post mit der passenden id
+      description: lösche entsprechenden Post
+      operationId: deleteOnePost
+      parameters:
+      - name: id
+        in: path
+        description: Post-ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Post mit entsprechender id gelöscht
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+                x-content-type: application/json
+        "404":
+          description: Post bzw. id nicht gefunden
+      x-swagger-router-controller: Posts
+components:
+  schemas:
+    Post:
+      required:
+      - image_id
+      - location
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+          example: H-Gebäude
+        location:
+          type: string
+          example: Campus Wilhelminenhof
+        image_id:
+          type: string
+          example: Campus Wilhelminenhof
+      example:
+        location: Campus Wilhelminenhof
+        title: H-Gebäude
+        image_id: Campus Wilhelminenhof
