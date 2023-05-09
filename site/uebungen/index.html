@@ -628,7 +628,7 @@
 <p>Erstellen Sie eine Datenbank (z.B. <code>htwinsta</code>) und eine Collection (z.B. <code>posts</code>). </p>
 </li>
 <li>
-<p>Sie können auch schon einen datensatz hinzufügen, wenn Sie möchten. Dann sollte es Bei Ihnen wie im folgenden Bild aussehen:</p>
+<p>Sie können auch schon einen Datensatz hinzufügen, wenn Sie möchten. Dann sollte es Bei Ihnen wie im folgenden Bild aussehen:</p>
 <p><img alt="MongoDB" src="../files/308_openapi.png" /> </p>
 </li>
 </ul>
@@ -675,47 +675,6 @@
 <p>sollte etwas, wie <code>9.1.2</code> ausgeben. Achten Sie darauf, dass Sie eine <strong>gerade Versionsnummer</strong> von <code>node.js</code> installieren (also 14 oder 16, nicht 15)!</p>
 </li>
 </ul>
-</li>
-<li>
-<p><code>Angular-Command-Line-Interface (CLI)</code> installieren: </p>
-<ul>
-<li><a href="">Angular</a> ist ein modernes JavaScript-Framework zur Entwicklung moderner Weboberflächen. Es gehört neben <a href="https://reactjs.org/">React.js</a> und <a href="https://vuejs.org/">Vue.js</a> zu den meisteverwendeten Frameworks für die Entwicklung sogenannter <em>Single-Page-Applikationen</em>. </li>
-<li>
-<p>Um einfacher mit <code>Angular</code> zu entwickeln zu können, benötigen wir das <a href="https://angular.io/cli">Angular-Command-Line-Interface (CLI)</a>. Dieses installieren wir mithilfe des Paketmanagers <code>npm</code>. Geben Sie dazu ins Terminal </p>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@angular/cli
-</code></pre></div>
-<p>ein. Sie können prüfen, ob die Installation erfolgreich war, indem Sie in das Terminal </p>
-<div class="highlight"><pre><span></span><code>ng<span class="w"> </span>version
-</code></pre></div>
-<p>eingeben. Es sollte etwas in der Art ausgeben: </p>
-<div class="highlight"><pre><span></span><code><span class="w">     </span>_<span class="w">                      </span>_<span class="w">                 </span>____<span class="w"> </span>_<span class="w">     </span>___
-<span class="w">    </span>/<span class="w"> </span><span class="se">\ </span><span class="w">  </span>_<span class="w"> </span>__<span class="w">   </span>__<span class="w"> </span>_<span class="w"> </span>_<span class="w">   </span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>__<span class="w"> </span>_<span class="w"> </span>_<span class="w"> </span>__<span class="w">     </span>/<span class="w"> </span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>_<span class="w"> </span>_<span class="p">|</span>
-<span class="w">   </span>/<span class="w"> </span>△<span class="w"> </span><span class="se">\ </span><span class="p">|</span><span class="w"> </span><span class="s1">&#39;_ \ / _` | | | | |/ _` | &#39;</span>__<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>/<span class="w"> </span>___<span class="w"> </span><span class="se">\|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span>_<span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="p">|</span><span class="w"> </span><span class="p">|</span>___<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="p">|</span>
-<span class="w"> </span>/_/<span class="w">   </span><span class="se">\_\_</span><span class="p">|</span><span class="w"> </span><span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,<span class="w"> </span><span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="se">\_</span>_,_<span class="p">|</span>_<span class="p">|</span><span class="w">       </span><span class="se">\_</span>___<span class="p">|</span>_____<span class="p">|</span>___<span class="p">|</span>
-<span class="w">                </span><span class="p">|</span>___/
-
-
-Angular<span class="w"> </span>CLI:<span class="w"> </span><span class="m">15</span>.0.0
-Node:<span class="w"> </span><span class="m">14</span>.20.0
-Package<span class="w"> </span>Manager:<span class="w"> </span>npm<span class="w"> </span><span class="m">9</span>.1.2
-OS:<span class="w"> </span>darwin<span class="w"> </span>x64
-
-Angular:<span class="w"> </span>undefined
-...<span class="w"> </span>
-
-Package<span class="w">                      </span>Version
-------------------------------------------------------
-@angular-devkit/architect<span class="w">    </span><span class="m">0</span>.1500.0<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-@angular-devkit/core<span class="w">         </span><span class="m">15</span>.0.0<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-@angular-devkit/schematics<span class="w">   </span><span class="m">15</span>.0.0<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-@schematics/angular<span class="w">          </span><span class="m">15</span>.0.0<span class="w"> </span><span class="o">(</span>cli-only<span class="o">)</span>
-</code></pre></div>
-</li>
-</ul>
-</li>
-<li>
-<p>Viel Erfolg!  </p>
 </li>
 </ol>
 </details>

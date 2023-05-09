@@ -65,7 +65,7 @@
 
 		- Erstellen Sie eine Datenbank (z.B. `htwinsta`) und eine Collection (z.B. `posts`). 
 
-		- Sie können auch schon einen datensatz hinzufügen, wenn Sie möchten. Dann sollte es Bei Ihnen wie im folgenden Bild aussehen:
+		- Sie können auch schon einen Datensatz hinzufügen, wenn Sie möchten. Dann sollte es Bei Ihnen wie im folgenden Bild aussehen:
 
 			![MongoDB](./files/308_openapi.png) 
 
@@ -106,52 +106,7 @@
 			```
 
 			sollte etwas, wie `9.1.2` ausgeben. Achten Sie darauf, dass Sie eine **gerade Versionsnummer** von `node.js` installieren (also 14 oder 16, nicht 15)!
-
-	6. `Angular-Command-Line-Interface (CLI)` installieren: 
-
-		- [Angular]() ist ein modernes JavaScript-Framework zur Entwicklung moderner Weboberflächen. Es gehört neben [React.js](https://reactjs.org/) und [Vue.js](https://vuejs.org/) zu den meisteverwendeten Frameworks für die Entwicklung sogenannter *Single-Page-Applikationen*. 
-		- Um einfacher mit `Angular` zu entwickeln zu können, benötigen wir das [Angular-Command-Line-Interface (CLI)](https://angular.io/cli). Dieses installieren wir mithilfe des Paketmanagers `npm`. Geben Sie dazu ins Terminal 
-
-			```bash
-			npm install -g @angular/cli
-			```
-
-			ein. Sie können prüfen, ob die Installation erfolgreich war, indem Sie in das Terminal 
-
-			```bash
-			ng version
-			```
-
-			eingeben. Es sollte etwas in der Art ausgeben: 
-
-			```bash
-
-			     _                      _                 ____ _     ___
-			    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-			   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-			  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
-			 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-			                |___/
-			    
-
-			Angular CLI: 15.0.0
-			Node: 14.20.0
-			Package Manager: npm 9.1.2
-			OS: darwin x64
-
-			Angular: undefined
-			... 
-
-			Package                      Version
-			------------------------------------------------------
-			@angular-devkit/architect    0.1500.0 (cli-only)
-			@angular-devkit/core         15.0.0 (cli-only)
-			@angular-devkit/schematics   15.0.0 (cli-only)
-			@schematics/angular          15.0.0 (cli-only)
-			    
-			```
-
-	7. Viel Erfolg!  
+ 
 
 
 ##### Übung 5 (Backend)
