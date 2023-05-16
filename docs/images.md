@@ -1,5 +1,8 @@
 # Backend-Erweiterung um das Speichern von Bildern
 
+??? "Video zur Vorlesung"
+    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=d8fa2b88c13485fe6ea0730f8dd0f75b&width=720&height=467&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=d8fa2b88c13485fe6ea0730f8dd0f75b&width=720&height=467&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="467" title="IKT_SpeichernVonBildern" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
 Bis jetzt haben wir nur Daten im JSON-Format zwischen Frontend und Backend ausgetauscht und auch nur solche Daten in der MongoDB gespeichert. Bilder (und auch andere Dateien) sind [FormData-Objects](https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects) im `multipart/form-data`-Format. Zur Behandlung solcher Daten verwenden wir ein *Middleware* für unser Backend, namens [Multer](https://www.npmjs.com/package/multer). 
 
 !!! hint
