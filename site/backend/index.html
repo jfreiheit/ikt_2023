@@ -18,7 +18,7 @@
         <link rel="prev" href="../caching/">
       
       
-        <link rel="next" href="../uebungen/">
+        <link rel="next" href="../images/">
       
       <link rel="icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
@@ -651,6 +651,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../images/" class="md-nav__link">
+        Bilder speichern
+      </a>
     </li>
   
 
@@ -2511,7 +2526,7 @@ Wir fügen <code>dotenv</code> in die <code>server.js</code> ein und greifen mit
 <li><code>findOneAndUpdate()</code>: ändert einzelne (oder alle) Teile eines Datensatzes und sendet den kompletten Datensatz zurück,</li>
 <li><code>replaceOne()</code>: ändert den kompletten Datensatz. </li>
 </ul>
-<p>In der folgenden Implementierung haben wir uns für die HTTP-Anfragemethode <code>PATCH</code> und für die MongoDB-Funktion <code>updateOne()</code> entschieden. Diese Funktion erwartet als ersten Parameter einen <code>&lt;filter&gt;</code>, d.h. die Werte, nach denen nach einem Datensatz gesucht werden soll. Im folgenden Beispiel ist der Filter die <code>_id</code>. Dazu wird erneute ein Parameter <code>id</code> für die URL definiert. Der zweite Parameter der <code>updateOne()</code>-Funktion sind die zu ändernden Werte für diesen Datensatz. In der folgenden Implementierung werden diese zu ändernden Werte als ein JSON dem <code>body</code> des <code>request</code>-Objektes übergeben. Um zu ermöglichen, dass ein, zwei oder drei Schlüssel-Werte-Paare in diesem JSON enthalten sein können, prüfen wir die Einträge im <code>body</code> und setzen daraus ein neues <code>member</code>-Objekt zusammen, wenn es bereits in der Datenbank existiert (deshalb zunächst <code>findOne()</code>):</p>
+<p>In der folgenden Implementierung haben wir uns für die HTTP-Anfragemethode <code>PATCH</code> und für die MongoDB-Funktion <code>updateOne()</code> entschieden. Diese Funktion erwartet als ersten Parameter einen <code>&lt;filter&gt;</code>, d.h. die Werte, nach denen nach einem Datensatz gesucht werden soll. Im folgenden Beispiel ist der Filter die <code>_id</code>. Dazu wird erneute ein Parameter <code>id</code> für die URL definiert. Der zweite Parameter der <code>updateOne()</code>-Funktion sind die zu ändernden Werte für diesen Datensatz. In der folgenden Implementierung werden diese zu ändernden Werte als ein JSON dem <code>body</code> des <code>request</code>-Objektes übergeben. Um zu ermöglichen, dass ein, zwei oder drei Schlüssel-Werte-Paare in diesem JSON enthalten sein können, prüfen wir die Einträge im <code>body</code> und setzen daraus ein neues <code>post</code>-Objekt zusammen, wenn es bereits in der Datenbank existiert (deshalb zunächst <code>findOne()</code>):</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="16:1"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">router.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4696,13 +4711,13 @@ PORT = 3000
         
         
           
-          <a href="../uebungen/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Übungen" rel="next">
+          <a href="../images/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Bilder speichern" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Weiter
               </span>
               <div class="md-ellipsis">
-                Übungen
+                Bilder speichern
               </div>
             </div>
             <div class="md-footer__button md-icon">
