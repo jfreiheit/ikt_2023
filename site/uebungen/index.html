@@ -698,15 +698,33 @@
 <summary>Übung 5</summary>
 <ol>
 <li>
-<p>Ergänzen Sie das in <a href="../backend/#backend-rest-server">Backend</a> erstellte Backend um einen REST-Endpunkt </p>
-<p><div class="highlight"><pre><span></span><code>GET<span class="w"> </span>http://localhost:3000/posts/title
-</code></pre></div>
-Bei Aufruf dieses Endpunktes soll dem Request-Body ein JSON in der Form 
+<p>Ergänzen Sie das in <a href="../backend/#backend-rest-server">Backend</a> erstellte Backend um folgende Endpunkte: </p>
+<ul>
+<li><code>POST /registration</code> und</li>
+<li><code>POST /login</code></li>
+</ul>
+<p>Beiden Endpunkten soll ein JSON in der Form</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first post&quot;</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test@test.de&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testpassword&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwendet, um den Datensatz/die Datensätze auszulesen, die den <code>title</code> haben (also hier der Datensatz mit dem <code>title</code> <code>"first post"</code>). </p>
+<p>im <code>body</code> des Requests übergeben werden. Der erste Punkt registriert die Nutzerin und mit dem zweiten Endpunkt soll überprüft werden, ob die Nutzerin bereits existiert und das Passwort stimmt. Verwenden Sie zum Verschlüsseln des Passwortes in der MongoDB das <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a>-Paket. Um ein Passwort zu verschlüsseln, nutzen Sie die <code>hash()</code>-Funktion (oder <code>hashSync()</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hash</span><span class="p">(</span><span class="nx">myPlaintextPassword</span><span class="p">,</span><span class="w"> </span><span class="nx">saltRounds</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">hash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Store hash in your password DB.</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Um ein Passwort zu überprüfen, nutzen Sie die <code>compare()</code>-Funktion (oder <code>compareSync()</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Load hash from your password DB.</span>
+<span class="nx">bcrypt</span><span class="p">.</span><span class="nx">compare</span><span class="p">(</span><span class="nx">myPlaintextPassword</span><span class="p">,</span><span class="w"> </span><span class="nx">hash</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// result == true (myPlaintextPassword == hash) or </span>
+<span class="w">    </span><span class="c1">// result == false (myPlaintextPassword != hash)</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Achten Sie darauf, dass eine E-Mail nur einmal verwendet wird, d.h. bei der Registrierung müssen Sie zunächst prüfen, ob es noch keinen Datensatz mit der angefragten <code>email</code> gibt. </p>
+</li>
+<li>
+<p>Erstellen Sie sich dazu eine neue Collection <code>users</code> (Schema <code>User</code>).</p>
 <p><img alt="uebung5" src="../files/63_restapi.png" /> </p>
 </li>
 </ol>
@@ -715,9 +733,9 @@ mitgesendet werden. Der Wert von <code>title</code> in diesem JSON wird verwende
 <details>
 <summary>Übung 6</summary>
 <ol>
-<li>Im Abschnitt <a href="../frontend/#frontend">Frontend</a> haben wir uns ein Frontend erstellt, um mithilfe eines Formulars Daten (insb. ein Bild) einzugeben und diese in einer Datenbank abzuspeichern. </li>
-<li>Erweiteren Sie dieses Frontend um eine Komponente, die alle in der Datenbank gespeicherten Daten visualisiert, insb. die in der Datenbank gespeicherten Bilder. Erstellen Sie sich dazu eine neue Komponente.</li>
-<li>Sie müssen dazu auch den <code>PostService</code> um die Anbindung an den Endpunkt <code>GET /posts</code> erweitern. </li>
+<li>Clonen Sie sich <a href="https://github.com/jfreiheit/IKT-Uebung6">hier die Anwendung für Übung 6</a>. </li>
+<li>Lesen Sie die README.MD](<a href="https://github.com/jfreiheit/IKT-Uebung6">https://github.com/jfreiheit/IKT-Uebung6</a>)</li>
+<li>Öffnen Sie das Projekt in Ihrer IDE und implementieren Sie die <code>app.js</code>. Die Aufgabe ist dort in den Kommentaren beschrieben.  </li>
 </ol>
 <p><img alt="uebung4" src="../files/58_uebung4.png" /></p>
 </details>

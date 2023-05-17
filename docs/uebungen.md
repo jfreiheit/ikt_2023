@@ -113,18 +113,42 @@
 
 ??? "Übung 5"
 
-	1. Ergänzen Sie das in [Backend](../backend/#backend-rest-server) erstellte Backend um einen REST-Endpunkt 
+	1. Ergänzen Sie das in [Backend](../backend/#backend-rest-server) erstellte Backend um folgende Endpunkte: 
 
-		```bash
-		GET http://localhost:3000/posts/title
-		```  
-		Bei Aufruf dieses Endpunktes soll dem Request-Body ein JSON in der Form 
+		- `POST /registration` und
+		- `POST /login`
+
+		Beiden Endpunkten soll ein JSON in der Form
+
 		```json
 		{
-		    "title": "first post"
+			"email": "test@test.de",
+			"password": "testpassword"
 		}
 		```
-		mitgesendet werden. Der Wert von `title` in diesem JSON wird verwendet, um den Datensatz/die Datensätze auszulesen, die den `title` haben (also hier der Datensatz mit dem `title` `"first post"`). 
+
+		im `body` des Requests übergeben werden. Der erste Punkt registriert die Nutzerin und mit dem zweiten Endpunkt soll überprüft werden, ob die Nutzerin bereits existiert und das Passwort stimmt. Verwenden Sie zum Verschlüsseln des Passwortes in der MongoDB das [bcrypt](https://www.npmjs.com/package/bcrypt)-Paket. Um ein Passwort zu verschlüsseln, nutzen Sie die `hash()`-Funktion (oder `hashSync()`):
+
+		```js
+		bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+		    // Store hash in your password DB.
+		});
+		```
+
+		Um ein Passwort zu überprüfen, nutzen Sie die `compare()`-Funktion (oder `compareSync()`):
+
+		```js
+		// Load hash from your password DB.
+		bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+		    // result == true (myPlaintextPassword == hash) or 
+		    // result == false (myPlaintextPassword != hash)
+		});
+		```
+
+		Achten Sie darauf, dass eine E-Mail nur einmal verwendet wird, d.h. bei der Registrierung müssen Sie zunächst prüfen, ob es noch keinen Datensatz mit der angefragten `email` gibt. 
+
+	2. Erstellen Sie sich dazu eine neue Collection `users` (Schema `User`).
+
 
 		![uebung5](./files/63_restapi.png) 
 
@@ -133,10 +157,9 @@
 
 ??? "Übung 6"
 
-	1. Im Abschnitt [Frontend](../frontend/#frontend) haben wir uns ein Frontend erstellt, um mithilfe eines Formulars Daten (insb. ein Bild) einzugeben und diese in einer Datenbank abzuspeichern. 
-	2. Erweiteren Sie dieses Frontend um eine Komponente, die alle in der Datenbank gespeicherten Daten visualisiert, insb. die in der Datenbank gespeicherten Bilder. Erstellen Sie sich dazu eine neue Komponente.
-	3. Sie müssen dazu auch den `PostService` um die Anbindung an den Endpunkt `GET /posts` erweitern. 
-
+	1. Clonen Sie sich [hier die Anwendung für Übung 6](https://github.com/jfreiheit/IKT-Uebung6). 
+	2. Lesen Sie die README.MD](https://github.com/jfreiheit/IKT-Uebung6)
+	3. Öffnen Sie das Projekt in Ihrer IDE und implementieren Sie die `app.js`. Die Aufgabe ist dort in den Kommentaren beschrieben.  
 
 	![uebung4](./files/58_uebung4.png)
 
