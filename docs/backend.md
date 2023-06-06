@@ -39,6 +39,8 @@ Der Wert der `id` ist natürlich nur ein Beispiel. Es soll für alle `id`-Werte 
 
 ## OpenAPI
 
+Hier geht es zunächst um die **Dokumentation** der zu erstellenden REST-API. Wenn Sie an der Dokumentation nicht interssiert sind, können Sie auch direkt zur [Implementierung](./#ein-nodejs-projekt-mit-express) springen. Eine ordentliche Dokumentation Ihrer REST-API ist jedoch immer gut und richtig. Es lässt sich daraus sogar bereits Code erzeugen. 
+
 Für eine Dokumentation der zu erstellenden REST-API ist [OpenAPI](https://www.openapis.org/) geeignet. Unter [https://app.swaggerhub.com/home](https://app.swaggerhub.com/home) steht ein Werkzeug zur Verfügung, um eine solche API-Dokumentation zu erstellen. Sie müssen sich dort registrieren und einloggen. Klicken Sie `Create New`, um eine neue Dokumentation zu beginnen:
 
 <figure markdown>
@@ -647,7 +649,7 @@ In der `package.json` wurde die entsprechende Abhängigkeit eingetragen:
 	  "author": "J. Freiheit",
 	  "license": "ISC",
 	  "dependencies": {
-	    "express": "^4.18.0"
+	    "express": "^4.18.2"
 	  }
 	}
 	``` 
@@ -658,24 +660,24 @@ In der `package.json` wurde die entsprechende Abhängigkeit eingetragen:
 Öffnen Sie nun das `backend`-Projekt in Ihrer IDE und erstellen Sie sich dort eine Datei `server.js` mit folgendem Inhalt:
 
 === "server.js"
-	```javascript linenums="1"
-	const express = require('express');
-	const routes = require('./routes');
+  	```javascript linenums="1"
+    const express = require('express');
+    const postRoutes = require('./routes/post.routes');
 
-	const app = express();
-	const PORT = 3000;
+    const app = express();
+    const PORT = 3000;
 
-	app.use(express.json());
-	app.use('/', routes);
+    app.use(express.json());
+    app.use('/posts', postRoutes);
 
-	app.listen(PORT, (error) => {
-	    if (error) {
-	        console.log(error);
-	    } else {
-	        console.log(`server running on http://localhost:${PORT}`);
-	    }
-	});
-	``` 
+    app.listen(PORT, (error) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(`server running on http://localhost:${PORT}`);
+        }
+    });
+  	``` 
 
 Das bedeutet, wir importieren `express` (Zeile `1`), erzeugen uns davon ein Objekt und speichern dieses in der Variablen `app` (Zeile `4`). Wir legen in einer Konstanten `PORT` die Portnummer `3000` fest (Zeile `5` - die Portnummer können Sie wählen). Das `backend` ist somit unter `http://localhost:3000` verfügbar. Das eigentliche Starten des Webservers erfolgt in den Zeilen `10-16` durch Aufruf der `listen()`-Funktion von `express`. Die Syntax der `listen()`-Funktion ist generell wie folgt:
 
@@ -689,9 +691,9 @@ Beachten Sie auch die verwendete Syntax `${PORT}` im sogenannte [template litera
 
 ### Router
 
-Noch lässt sich unser Programm aber nicht ausführen. Wir benötigen im Projektordner noch eine Datei `routes.js`. Diese wird nämlich in der `server.js` bereits in Zeile `2` eingebunden und in Zeile `8` verwendet. 
+Noch lässt sich unser Programm aber nicht ausführen. Wir benötigen im Projektordner noch einen Ordner `routes` und darin eine Datei `post.routes.js`. Diese wird nämlich in der `server.js` bereits in Zeile `2` eingebunden und in Zeile `8` verwendet. 
 
-=== "routes.js"
+=== "routes/post.routes.js"
 	```javascript linenums="1"
 	const express = require('express');
 	const router = express.Router();
@@ -706,7 +708,7 @@ Noch lässt sich unser Programm aber nicht ausführen. Wir benötigen im Projekt
 	``` 
 
 
-Beim `Router` handelt es sich um eine *Middleware* (siehe [hier](https://expressjs.com/de/guide/using-middleware.html)), die die Routen verwaltet und `request`-Objekte an die entsprechende Routen weiterleitet und `response`-Objekte empfängt. In unserer `routes.js` haben wir zunächst eine `GET`-Anfrage implementiert (Zeile `5`). Das `request`-Objekt heißt hier `req`. Das verwenden wir aber gar nicht. Das `respones`-Objekt heißt hier `res` und wird durch die Anfrage erzeugt. Wir senden in der `response` ein JavaScript-Objekt zurück, das einen Schlüssel `message` enthält. 
+Beim `Router` handelt es sich um eine *Middleware* (siehe [hier](https://expressjs.com/de/guide/using-middleware.html)), die die Routen verwaltet und `request`-Objekte an die entsprechende Routen weiterleitet und `response`-Objekte empfängt. In unserer `post.routes.js` haben wir zunächst eine `GET`-Anfrage implementiert (Zeile `5`). Das `request`-Objekt heißt hier `req`. Das verwenden wir aber gar nicht. Das `respones`-Objekt heißt hier `res` und wird durch die Anfrage erzeugt. Wir senden in der `response` ein JavaScript-Objekt zurück, das einen Schlüssel `message` enthält. 
 
 In der `server.js` haben wir mit `app.use(express.json())` (Zeile `7`) angegeben, dass alle JavaScript-Objekte in der `response` nach JSON umgewandelt werden sollen. Wenn nun die URL `localhost:3000` aufgerufen wird, dann wird ein `request` ausgelöst, den wir hier mit `Hello FIW!` als `response` beantworten (Zeilen `5-8`). 
 
@@ -770,10 +772,10 @@ Die `package.json` sieht daraufhin so aus:
 	  "author": "J. Freiheit",
 	  "license": "ISC",
 	  "dependencies": {
-	    "express": "^4.18.0"
+	    "express": "^4.18.2"
 	  },
 	  "devDependencies": {
-	    "nodemon": "^2.0.16"
+	    "nodemon": "^2.0.22"
 	  }
 	}
 	```
@@ -800,10 +802,10 @@ Zur Verwendung von `nodemon` fügen wir in die `package.json` unter `"scripts"` 
 	  "author": "J. Freiheit",
 	  "license": "ISC",
 	  "dependencies": {
-	    "express": "^4.18.0"
+	    "express": "^4.18.2"
 	  },
 	  "devDependencies": {
-	    "nodemon": "^2.0.16"
+	    "nodemon": "^2.0.22"
 	  }
 	}
 	```
@@ -821,7 +823,7 @@ starten und muss auch nicht mehr gestoppt und neu gestartet werden, wenn Änderu
 > backend@1.0.0 watch
 > nodemon ./server.js
 
-[nodemon] 2.0.16
+[nodemon] 2.0.22
 [nodemon] to restart at any time, enter `rs`
 [nodemon] watching path(s): *.*
 [nodemon] watching extensions: js,mjs,json
@@ -844,55 +846,64 @@ router.get('/fiw', async(req, res) => {
 
 ändern, dann ist der GET-Endpunkt `localhost:3000/api/fiw`. 
 
+### MongoDB installieren
 
-### Mongoose installieren
+[MongoDB](https://www.mongodb.com/de-de) ist die am meisten verwendete *NoSQL (not only SQL)* Datenbank. Sie basiert nicht auf Relationen, Tabellen und ihren Beziehungen zueinander (ist also keine *relationale* Datenbank), sondern speichert Dokumente in JSON-ähnlichem Format. Die [Community Edition der MongoDB](https://github.com/mongodb/mongo) ist Open Source und kostenlos verfügbar. Wir verwenden hier jedoch eine Cloud-Instanz [MongoDB Atlas](https://www.mongodb.com/atlas/database). Um die Cloud-Version zu verwenden, müssen Sie sich bei MongoDB registrieren und einloggen. Wählen Sie dann einen kostenlosen Cluster. Diesen habe ich `IKT-PWA` genannt:
 
-[MongoDB](https://www.mongodb.com/de-de) ist die am meisten verwendete *NoSQL (not only SQL)* Datenbank. Sie basiert nicht auf Relationen, Tabellen und ihren Beziehungen zueinander (ist also keine *relationale* Datenbank), sondern speichert Dokumente in JSON-ähnlichem Format. Die [Community Edition der MongoDB](https://github.com/mongodb/mongo) ist Open Source und kostenlos verfügbar. 
-Sollten Sie mit *Visual Studio Code* arbeiten, sollten Sie sich am besten die [MongoDB for VS Code](https://code.visualstudio.com/docs/azure/mongodb)-Ereiterung installieren. 
+![mongodb](./files/311_mongodb.png) 
 
-Zur Verwendung von *MongoDB* im Backend verwenden wir das Modul [Mongoose](https://mongoosejs.com/). Wir installieren *Mongoose* mithilfe von
+Wenn Sie unter dieser Ansicht auf `Connect` klicken und dann `Drivers`, erscheint folgendes Fenster:
+
+![mongodb](./files/312_mongodb.png) 
+
+Der dort unter **3.** aufgeführte `connection string` ist für Sie wichtig, um sich mit der datenbank auf MongoDB Atlas zu verbinden. Hier habe ich zur Authentifizierung ein X.509-Zertifikat verwendet. Wenn Sie stattdessen ein Passwort gewählt haben, müssen Sie darin den String `<password>` durch Ihr Passwort ersetzen, um sich mit der MongoDB zu verbinden. Wenn Sie MongoDB lokal installiert haben, ist der `connection string` typischer Weise `mongodb+://localhost:27017`.
+
+
+### MongoDB Compass
+
+Um sich Ihre MongoDB-Datenbanken anzuschauen, empfehle ich Ihnen das Tool [MongoDB Compass](https://www.mongodb.com/de-de/products/compass). Download und Installation sind normalerweise einfach. Stellen Sie mithilfe des `connection strings` eine Verbindung zur MongoDB her (siehe z.B. [hier](https://www.mongodb.com/docs/atlas/compass-connection/)). 
+
+### Das Modul MongoDB installieren
+
+Zur Verwendung von *MongoDB* im Backend verwenden wir als offiziellen [MongoDB-Node-Treiber](https://www.mongodb.com/docs/drivers/node/current/) das Modul [MongoDB](https://www.npmjs.com/package/mongodb). Wir installieren *MongoDB* mithilfe von
 
 ```bash
-npm install mongoose --save
+npm install mongodb
 ```
 
 In die `package.json` wird das Paket und die entsprechende Abhängigkeit eingetragen:
 
 === "package.json"
-	```json linenums="1" hl_lines="20"
-	{
-	  "name": "backend",
-	  "version": "1.0.0",
-	  "description": "Backend REST-API",
-	  "main": "server.js",
-	  "scripts": {
-	    "watch": "nodemon ./server.js",
-	    "test": "echo \"Error: no test specified\" && exit 1"
-	  },
-	  "keywords": [
-	    "rest",
-	    "api",
-	    "backend",
-	    "mongodb"
-	  ],
-	  "author": "J. Freiheit",
-	  "license": "ISC",
-	  "dependencies": {
-	    "express": "^4.18.0",
-	    "mongoose": "^6.3.1"
-	  },
-	  "devDependencies": {
-	    "nodemon": "^2.0.16"
-	  }
-	}
-	```
+  	```json linenums="1" hl_lines="20"
+    {
+      "name": "backend",
+      "version": "1.0.0",
+      "description": "Backend REST-API",
+      "main": "server.js",
+      "scripts": {
+        "watch": "nodemon ./server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [
+        "rest",
+        "api",
+        "backend",
+        "mongodb"
+      ],
+      "author": "J. Freiheit",
+      "license": "ISC",
+      "dependencies": {
+        "express": "^4.18.2",
+        "mongodb": "^5.5.0"
+      },
+      "devDependencies": {
+        "nodemon": "^2.0.22"
+      }
+    }
+  	```
 
-*Mongoose* stellt eine einfach zu verwendende Schnittstelle zwischen Node.js und MongoDB bereit. Die
-MongoDB benötigen wir aber trotzdem (wir könnten jedoch auch eine Cloud von MongoDB oder z.B. `mlab.com` verwenden). Bevor wir uns mit der MongoDB verbinden, erstellen wir zunächst noch eine Datenbank. 
+*MongoDB* stellt eine einfach zu verwendende Schnittstelle zwischen Node.js und MongoDB bereit. Bevor wir uns mit der MongoDB verbinden, erstellen wir zunächst noch eine Datenbank. 
 
-### MongoDB Compass
-
-Um sich Ihre MongoDB-datenbanken anzuschauen, empfehle ich Ihnen das Tool [MongoDB Compass](https://www.mongodb.com/de-de/products/compass). Download und Installation sind normalerweise einfach. 
 
 
 ### Dotenv für sichere Zugangsdaten
@@ -903,127 +914,120 @@ Für die "geheimen" Zugangsdaten (die jetzt noch gar nicht "geheim" sind) verwen
 npm install dotenv --save
 ```
 
-Im Projektordner erstellen wir und eine Datei `.env` (mit vorangestelltem Punkt!) und schreiben darin:
-
+Im Projektordner erstellen wir und eine Datei `.env` (mit vorangestelltem Punkt!) und weisen darin dem Schlüssel `DB_CONNECTION` eine Wert zu. Dieser Wert entspricht dem `connection string` zu Ihrer MongoDB. D.h. für den Fall, dass Sie eine lokale Installation von [MongoDB Community Server]() haben, könnte er wie folgt lauten (dabei ist `htwinsta` bereits als Datenbankname angegeben!):
 
 === ".env"
 	```js linenums="1"
-	DB_CONNECTION = mongodb://127.0.0.1:27017/posts
+	DB_CONNECTION = mongodb://127.0.0.1:27017/htwinsta
 	```
+
 
 Beachten Sie, dass der Wert nicht in Hochkomma steht und dass auch kein Semikolon folgt! 
-Wir fügen `dotenv` in die `server.js` ein und greifen mithilfe von `process.env.DB_CONNECTION` auf den Wert von `DB_CONNECTION` zu:
 
-=== "server.js"
-	```js linenums="1" hl_lines="4 21"
-	const express = require('express');
-	const routes = require('./routes');
-	const mongoose = require('mongoose');
-	require('dotenv').config();
+Da ich die Authentifizierung mittels X.509-Zertifikat gewählt habe, sieht bei mir die `.env`-Datei z.B. so aus:
 
-	const app = express();
-	const PORT = 3000;
+=== ".env"
+  ```js linenums="1"
+  DB_CONNECTION = mongodb+srv://ikt-pwa.0elr1ih.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority
+  DB_NAME = htwinsta
+  COLLECTION = posts
+  PATH_TO_PEM = ./assets/X509-cert-3298914405631471913.pem
+  ```
 
-	app.use(express.json());
-	app.use('/', routes);
+Ich habe für den Namen der Datenbank ein eigenes Schlüssel-Wertepaar (`DB_NAME = htwinsta`) angelegt und meinen Schlüssel in den Ordner `assets` abgelegt, auf den ich dann mithilfe von `PATH_TO_PEM` zugreife. Außerdem habe ich auch eine `COLLECTION`definiert (`posts`), in die dann die Datensätze geschrieben werden soll. Sie können sich darin z.B. auch den Port konfigurieren, auf dem Ihr Backend laufen soll. Beachten Sie, die `.env`-Datei in die `.gitignore` einzutragen. Die `.env`-Datei sollte **nicht** committed werden!
 
-	app.listen(PORT, (error) => {
-	    if (error) {
-	        console.log(error);
-	    } else {
-	        console.log(`Server started and listening on port ${PORT} ... `);
-	    }
-	});
+### db.js - Verbindung zur MongoDB
 
-	// connect to mongoDB
-	mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
-	const db = mongoose.connection;
-	db.on('error', console.error.bind(console, 'connection error:'));
-	db.once('open', () => {
-	    console.log('connected to DB');
-	});
-	```
+Zur Verwaltung der Verbindung zur MongoDB erstellen wir ein Skript `db.js` im Ordner `configure`:
 
-In Zeile `4` wird das `dotenv`-Paket importiert. Mithilfe der `config()`-Funktion wird die `.env`-Datei eingelesen. Auf die in der `.env`-Datei hinterlegten Schlüssel-Werte-Paare (mit `=` dazwischen) kann dann mittels `process.env.<Schlüssel>` zugegriffen werden (siehe Zeile `21`). 
+=== "configure/db.js"
+  ```js linenums="1" 
+  const { MongoClient } = require('mongodb');
+  require('dotenv').config();
 
-Beachten Sie, die `.env`-Datei in die `.gitignore` einzutragen. Die `.env`-Datei sollte **nicht** committed werden!
+  const credentials = process.env.PATH_TO_PEM
 
+  const client = new MongoClient(process.env.DB_CONNECTION, {
+    sslKey: credentials,
+    sslCert: credentials
+  });
 
-### Ein Model erstellen
+  const dbconnection = client.connect();
+  const database = client.db(process.env.DB_NAME);
+  const collection = database.collection(process.env.COLLECTION);
+  console.log(`Connected to DB ... `);
 
-Mongoose ist Schema-basiert. Ein Schema kann man sich wie ein Datenmodell vorstellen. Tatsächlich wird es verwendet, um ein entsprechendes Mongoose-Model zu erstellen. Ein Schema wird unter Aufruf des Konstruktors (`new Schema()`) in Mongoose erstellt. Unter Verwendung des Schemas wird dann mithilfe der `model()`-Funktion das Datenmodell erzeugt. 
+  module.exports.client = client;
+  module.exports.dbconnection = dbconnection;
+  module.exports.database = database;
+  module.exports.collection = collection;
+  ```
 
-Wir werden im Folgenden zeigen, wie ein Schema für `posts` erstellt wird. Das Datenmodell heißt dann `Post`. Um später auch weitere Schemata, z.B. für `user` o.ä. zu entwicklen und diese zu trennen, erstellen wir das Schema in einem eigenen Ordner `models`. Das bedeutet, wir erstellen im Projektordner 
+Hier sind mehrere Dinge erwähnenswert:
 
-- ein Ordner `models` und
-- darin eine Datei `models/posts.js`
-
-Die Datei `posts.js` bekommt folgenden Inhalt:
-
-=== "models/posts.js"
-	```javascript
-	const mongoose = require('mongoose');
-
-	const schema = new mongoose.Schema({
-	    title: String,
-	    location: String,
-	    image_id: String
-	});
-
-	module.exports = mongoose.model('Post', schema);
-	```
-
-Weiterführende Informationen zu Mongoose-Models finden Sie z.B. [hier](https://mongoosejs.com/docs/models.html). Das Thema Schema wird z.B. [hier](https://mongoosejs.com/docs/guide.html) näher erläutert. 
+- Nach dem Aufruf der `config()`-Funktion von `dotenv` (siehe Zeile `2`) können wir mithilfe von `process.env.` auf die einzelnen Schlüssel bzw. deren Werte aus der `.env`-Datei zugreifen.
+- Wenn Sie sich nicht mithilfe eines Zertifikates authentifizieren, dann entfallen alle Zeilen mit `credentials`.
+- Wir exportieren gleich mehrere Objekte. Dann kann wahlweise eines oder mehrere dieser Objekte in Skripte eingebunden werden, in denen diese jeweils benötigt werden. 
 
 
-### Zugriffe auf die Datenbank
 
-Nun haben wir alles, was wir benötigen, um unsere Anfragen zu implementieren. Wir nutzen den `express.Router`, um die Routen zu definieren und können mithilfe des Mongoose-Models auf die MongoDB zugreifen. Wir werden nun sukzessive alle Anfragen in die `routes.js` einfügen. 
+### CRUD-Zugriffe auf die Datenbank
+
+Nun haben wir alles, was wir benötigen, um unsere Anfragen zu implementieren. Wir nutzen den `express.Router`, um die Routen zu definieren und können mithilfe des `db.js`-Skriptes auf MongoDB zugreifen. Wir werden nun sukzessive alle Anfragen in die `routes/post.routes.js` einfügen. 
 
 #### R - read all
 
-Wir beginnen mit der Anfrage, alle Daten aus der Datenbank auszulesen. Für die MongoDB erfolgt dies mit der Funktion `find()`. In `routes.js` ändern wir unsere `GET`-Anfrage wie folgt: 
+Wir beginnen mit der Anfrage, alle Daten aus der Datenbank auszulesen. Für die MongoDB erfolgt dies mit der Funktion `find()`. In `post.routes.js` ändern wir unsere `GET`-Anfrage wie folgt: 
 
-=== "routes.js"
-	```javascript linenums="1" hl_lines="3 6-10"
-	const express = require('express');
-	const router = express.Router();
-    const Post = require('./models/posts');
+=== "routes/post.routes.js"
+  	```javascript linenums="1" hl_lines="3 6-10"
+  	const express = require('express');
+  	const router = express.Router();
+    const { collection } = require('../configure/db')
 
-	// GET all posts
-	router.get('/posts', async(req, res) => {
-	    const allPosts = await Post.find();
-	    console.log(allPosts);
-	    res.send(allPosts);
-	});
+    // GET all posts
+    router.get('/', async(req, res) => {
+        const allPosts = await collection.find().toArray();
+        res.status(200);
+        res.send(allPosts);
+    });
 
-	module.exports = router;
-	```
+  	module.exports = router;
+  	```
 
-Beachten Sie, dass wir dazu nun das `Post`-Model in die `routes.js` einbinden (Zeile `3`). Die Route wird mit `localhost:3000/posts` definiert. Die anonyme Callback-Funktion enthält noch zwei Schlüsselwörter: `async` und `await`. Die Funktion `find()` ist ein *Promise* (siehe dazu [hier](../promises/#promises)). Die Funktion `find()` wird asynchron ausgeführt und "irgendwann" ist entweder das Ergebnis dieser Funktion verfügbar oder die Funktion gibt einen Fehler zurück. Auf eines der beiden wird gewartet (`await`). Nur eine als `async` deklarierte Funktion darf einen `await`-Aufruf enthalten (siehe dazu z.B. [hier](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/async_function)).
+Beachten Sie, dass wir dazu `collection` aus der `db.js` (Zeile `3`) verwenden. Diese gibt uns die Verbindung zur Collection `posts`. Die Route wird mit `localhost:3000/posts` definiert (siehe `server.js`). Die anonyme Callback-Funktion enthält noch zwei Schlüsselwörter: `async` und `await`. Die Funktion `find()` ist ein *Promise* (siehe dazu [hier](../promises/#promises)). Die Funktion `find()` wird asynchron ausgeführt und "irgendwann" ist entweder das Ergebnis dieser Funktion verfügbar oder die Funktion gibt einen Fehler zurück. Auf eines der beiden wird gewartet (`await`). Nur eine als `async` deklarierte Funktion darf einen `await`-Aufruf enthalten (siehe dazu z.B. [hier](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/async_function)).
 
-Die Ausgabe der Werte auf die Konsole (Zeile `8`) ist natürlich nicht erforderlich und Sie können sie auch löschen, wenn Sie wollen. Wenn Sie nun in Postman `GET http://localhost:3000/posts` aufrufen, erscheinen alle Einträge aus der Datenbank. Allerdings haben wir dort noch keine Einträge. Wir bekommen deshalb ein leeres Array `[]` zurück.
+neben dem Array aller Einträge in der `posts`-Collection (Zeile `9`) wird auch der HTTP-Statuscode `200` zurückgesendet (Zeile `8`). Wenn Sie nun in Postman `GET http://localhost:3000/posts` aufrufen, erscheinen alle Einträge aus der Datenbank. Allerdings haben wir dort noch keine Einträge. Wir bekommen deshalb ein leeres Array `[]` zurück.
 
 
 #### C - create
 
 Als nächstes implementieren wir einen Endpunkt, an dem wir einen neuen Datensatz in die Datenbank anlegen können. Dafür gibt es die http-Methode `POST`. Wir führen also nicht mehr eine `GET`-, sondern eine `POST`-Anfrage durch. Bei dieser `POST`-Anfrage wird der neue Datensatz an den Webserver mitgeschickt. Dies erfolgt im `body` des `request`-Objektes. Das Schreiben des Datensatzes in die Datenbank erfolgt mithilfe der `save()`-Funktion von MongoDB. 
 
-=== "routes.js"
+=== "routes/post.routes.js"
 	```javascript linenums="12"
-    // POST one post
-	router.post('/posts', async(req, res) => {
-	    const newPost = new Post({
-	        title: req.body.title,
-	        location: req.body.location,
-	        image_id: req.body.image_id
-	    })
-	    await newPost.save();
-	    res.send(newPost);
-	});
+    // POST one new post
+    router.post('/', async(req, res) => {
+        
+        try {
+            const newPost = {
+                title: req.body.title,
+                location: req.body.location,
+                image_id: req.body.image_id 
+            }
+            const result = await collection.insertOne(newPost);
+            res.status(201);
+            res.send(result);
+        } catch {
+            res.status(404);
+            res.send({
+                error: "Post does not exist!"
+            });
+        }
+    });
 	```
 
-In den Zeilen `15-17` werden die Daten aus dem `body` des `request`-Objektes ausgelesen und mit diesen Daten ein neues `Post`-Objekt erzeugt. Dieses neue `Post`-Objekt (`newPost`) wird in Zeile `19` in die Datenbank gespeichert und in Zeile `20` als `response` zurückgeschickt.  
+In den Zeilen `17-19` werden die Daten aus dem `body` des `request`-Objektes ausgelesen und mit diesen Daten ein neues `Post`-Objekt erzeugt. Dieses neue `Post`-Objekt (`newPost`) wird in Zeile `21` in die Datenbank gespeichert und in Zeile `23` als `response` zusammen mit der Statusmeldung `201` (`created`) zurückgeschickt.  
 
 Nun geben wir in Postman `POST http://localhost:3000/posts` ein und befüllen den `Body` z.B. mit:
 
@@ -1046,35 +1050,49 @@ Schauen Sie auch in MongoDB Compass nach, ob der Datensatz dort erscheint:
 
 #### R - read one
 
-Wir erweitern die `routes.js` um einen Endpunkt, der uns für eine gegebene `id` den entsprechenden Datensatz zurückliefert. Die `_id` werden von MongoDB automatisch vergeben und sind recht kryptisch, also z.B. `"626bdb36cd1af60df758d300"`. Wir können natürlich nach jedem beliebigen Wert für jeden Schlüssel in der Datenbank suchen. Wir nehmen hier beispielhaft die `_id`. 
+Wir erweitern die `post.routes.js` um einen Endpunkt, der uns für eine gegebene `id` den entsprechenden Datensatz zurückliefert. Die `_id` werden von MongoDB automatisch vergeben und sind recht kryptisch, also z.B. `"6475ba5e88a1b91688569dda"` (siehe oben). Wir können natürlich nach jedem beliebigen Wert für jeden Schlüssel in der Datenbank suchen. Wir nehmen hier beispielhaft die `_id`, da die Suche nach einer `_id` ein klein wenig komplexer ist, weil es sich dabei um eine `ObjectId` handelt (im Gegensatz zu z.B. `location` oder `image_id`, welche reine Strings sind). 
 
-Die `id` wird aus der URL des Endpunktes ausgelesen, d.h. wenn wir bspw. den Endpunkt `GET http://localhost:3000/posts/626bdb36cd1af60df758d300` eingeben, dann soll der Datensatz mit der `_id: 626bdb36cd1af60df758d300` im JSON-Format zurückgegeben werden. Wir nutzen dazu parametrisierte Routen und lesen die `id` aus der Parameterliste aus. Paremtrisierte Routen werden per `:` und dann den Namen des Parameters (hier `id`) erstellt. Um dann den Wert des Parametrs `id` aus der Parameterliste auszulesen, wird `params` verwendet. Im folgenden Code lassen wir `req.params` auf die Konsole ausgeben, um die Funktionsweise zu erläutern. Diese Ausgabe kann natürlich gelöscht werden (Zeile `27`). 
+Die `id` wird aus der URL des Endpunktes ausgelesen, d.h. wenn wir bspw. den Endpunkt `GET http://localhost:3000/posts/6475ba5e88a1b91688569dda` eingeben, dann soll der Datensatz mit der `_id: 6475ba5e88a1b91688569dda` im JSON-Format zurückgegeben werden. Wir nutzen dazu parametrisierte Routen und lesen die `id` aus der Parameterliste aus. Paremtrisierte Routen werden per `:` und dann den Namen des Parameters (hier `id`) erstellt. Um dann den Wert des Parametrs `id` aus der Parameterliste auszulesen, wird `params` verwendet. 
 
-=== "routes.js"
-	```javascript linenums="23"
-    // GET one post via id
-	router.get('/posts/:id', async(req, res) => {
-	    try {
-	        const post = await Post.findOne({ _id: req.params.id });
-	        console.log(req.params);
-	        res.send(post);
-	    } catch {
-	        res.status(404);
-	        res.send({
-	            error: "Post does not exist!"
-	        });
-	    }
-	});
+Da es sich bei der `_id` um eine `ObjectId` handelt (siehe oberes Bild von Compass), müssen wir diesen Typ zunächst aus dem `mongodb`-Package importieren:
+
+
+=== "routes/post.routes.js"
+  ```javascript linenums="4"
+    const  ObjectId = require('mongodb').ObjectId
+  ``` 
+
+Wir nutzen die gleichnamige Variable `ObjectId`. Nun können wir mithilfe von `req.params` die `id` auslesen, die der Endpunkt-URL angehängt wird (siehe `'/:id'` in Zeile `34`):
+
+=== "routes/post.routes.js"
+	```javascript linenums="33"
+    // GET one post by id
+    router.get('/:id', async(req, res) => {
+        
+        try {
+            const id_obj = new ObjectId(req.params.id);
+            const post = await collection.find( {_id: id_obj } ).toArray();
+            console.log('post', req.params.id)
+            res.status(202);
+            res.send(post);
+        } catch {
+            res.status(404);
+            res.send({
+                error: "Post does not exist!"
+            });
+        }
+    });
 	``` 
 
-Zum Finden eines einzelnen Datensatzes wird in MongoDB die Funktion `findOne()` verwendet (siehe [hier](https://docs.mongodb.com/manual/reference/method/db.collection.findOne)). Wird der Datensatz gefunden, d.h. existiert die entsprechende `_id`, dann wird dieser in der `response` zurückgesendet (Zeile `28`). Existiert er nicht, wird der HTTP-Statuscode `404` gesendet (Zeile `30`) und ein JSON mit der `error`-Nachricht `Post does not exist!` (Zeile `31`). 
+Wir erzeugen mithilfe der `id` ein neues `ObjectId`-Objekt (Zeile `37`). Zum Finden der passenden Datensätze wird in MongoDB die Funktion `find()` verwendet (siehe [hier](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/)). Wird der Datensatz gefunden, d.h. existiert die entsprechende `_id`, dann wird dieser in der `response` zurückgesendet (Zeile `41`). Existiert er nicht, wird der HTTP-Statuscode `404` gesendet (Zeile `43`) und ein JSON mit der `error`-Nachricht `Post does not exist!` (Zeilen `44-46`). 
 
-Nach Neustart des Servers geben wir in Postman z.B. `GET http://localhost:3000/posts/626bdb36cd1af60df758d300` ein (bei Ihnen sind die `_id`-Werte andere!) und erhalten:
+Nun geben wir in Postman z.B. `GET http://localhost:3000/posts/6475ba5e88a1b91688569dda` ein (bei Ihnen sind die `_id`-Werte andere!) und erhalten:
 
 ![postman](./files/97_postman.png)
 
 Probieren Sie auch einmal `GET http://localhost:3000/posts/0` aus, um die Fehlermeldung als JSON zu sehen. 
 
+![postman](./files/97a_postman.png)
 
 #### U - update
 
@@ -1084,34 +1102,36 @@ Um einen bereits existierenden Datensatz zu ändern, kann entweder die HTTP-Anfr
 - `findOneAndUpdate()`: ändert einzelne (oder alle) Teile eines Datensatzes und sendet den kompletten Datensatz zurück,
 - `replaceOne()`: ändert den kompletten Datensatz. 
 
-In der folgenden Implementierung haben wir uns für die HTTP-Anfragemethode `PATCH` und für die MongoDB-Funktion `updateOne()` entschieden. Diese Funktion erwartet als ersten Parameter einen `<filter>`, d.h. die Werte, nach denen nach einem Datensatz gesucht werden soll. Im folgenden Beispiel ist der Filter die `_id`. Dazu wird erneute ein Parameter `id` für die URL definiert. Der zweite Parameter der `updateOne()`-Funktion sind die zu ändernden Werte für diesen Datensatz. In der folgenden Implementierung werden diese zu ändernden Werte als ein JSON dem `body` des `request`-Objektes übergeben. Um zu ermöglichen, dass ein, zwei oder drei Schlüssel-Werte-Paare in diesem JSON enthalten sein können, prüfen wir die Einträge im `body` und setzen daraus ein neues `post`-Objekt zusammen, wenn es bereits in der Datenbank existiert (deshalb zunächst `findOne()`):
+In der folgenden Implementierung haben wir uns für die HTTP-Anfragemethode `PATCH` und für die MongoDB-Funktion `updateOne()` entschieden. Diese Funktion erwartet als ersten Parameter einen `<filter>`, d.h. die Werte, nach denen nach einem Datensatz gesucht werden soll. Im folgenden Beispiel ist der Filter die `_id`. Dazu wird erneute ein Parameter `id` für die URL definiert. Der zweite Parameter der `updateOne()`-Funktion sind die zu ändernden Werte für diesen Datensatz. Die zu ändernden Werte werden mithilfe von `$set : ` zur Änderung angegeben 8siehe Zeile `68`). In der folgenden Implementierung werden diese zu ändernden Werte als ein JSON dem `body` des `request`-Objektes übergeben. Um zu ermöglichen, dass ein, zwei oder drei Schlüssel-Werte-Paare in diesem JSON enthalten sein können, prüfen wir die Einträge im `body` und setzen daraus ein neues `post`-Objekt zusammen, wenn es bereits in der Datenbank existiert (deshalb zunächst `findOne()`):
 
-=== "router.js"
-	```javascript linenums="37"
+=== "routes/post.routes.js"
+	```javascript linenums="50"
+
     // PATCH (update) one post
-	router.patch('/posts/:id', async(req, res) => {
-	    try {
-	        const post = await Post.findOne({ _id: req.params.id })
+    router.patch('/:id', async(req, res) => {
+      try {
+            const id_obj = new ObjectId(req.params.id);
+          const post = await collection.findOne({ _id: id_obj })
 
-	        if (req.body.title) {
-	            post.title = req.body.title
-	        }
+          if (req.body.title) {
+              post.title = req.body.title
+          }
 
-	        if (req.body.location) {
-	            post.location = req.body.location
-	        }
+          if (req.body.location) {
+              post.location = req.body.location
+          }
 
-	        if (req.body.image_id) {
-	            post.image_id = req.body.image_id
-	        }
+          if (req.body.image_id) {
+              post.image_id = req.body.image_id
+          }
 
-	        await Post.updateOne({ _id: req.params.id }, post);
-	        res.send(post)
-	    } catch {
-	        res.status(404)
-	        res.send({ error: "Post does not exist!" })
-	    }
-	});
+          await collection.updateOne({ _id: id_obj }, { $set: post });
+          res.send(post)
+      } catch {
+          res.status(404)
+          res.send({ error: "Post does not exist!" })
+      }
+  });
 	```
 
 Wir können diese Funktion in Postman ausprobieren, indem wir im `body` z.B. das JSON 
@@ -1122,7 +1142,7 @@ Wir können diese Funktion in Postman ausprobieren, indem wir im `body` z.B. das
 }
 ```
 
-mit unserem Request übergeben und `PATCH http://localhost:3000/posts/626bdb36cd1af60df758d300` wählen (bei Ihnen eine andere `id`!). Der Datensatz mit der `_id=626bdb36cd1af60df758d300` wird dann aktualisiert. 
+mit unserem Request übergeben und `PATCH http://localhost:3000/posts/6475ba5e88a1b91688569dda` wählen (bei Ihnen eine andere `id`!). Der Datensatz mit der `_id=6475ba5e88a1b91688569dda` wird dann aktualisiert. 
 
 ![postman](./files/98_postman.png)
 
@@ -1133,99 +1153,129 @@ Schauen Sie auch in der Datenbank nach (z.B. in MongoDB Compass) und wählen auc
 
 Jetzt implementieren wir noch den Endpunkt, um einen Datensatz zu löschen. Dazu werden die HTTP-Anfragemethode `DELETE` und die MongoDB-Funktion `deleteOne()` verwendet. Im folgenden Beispiel wird der Datensatz erneut über die `_id` ermittelt und dafür erneut die parametrisierte URL ausgelesen:
 
-=== "routes.js"
-	```javascript linenums="87"
-	// DELETE one post via id
-	router.delete('/posts/:id', async(req, res) => {
-	    try {
-	        await Post.deleteOne({ _id: req.params.id })
-	        res.status(204).send()
-	    } catch {
-	        res.status(404)
-	        res.send({ error: "Post does not exist!" })
-	    }
-	});
+=== "routes/post.routes.js"
+	```javascript linenums="76"
+    // DELETE one post via id
+    router.delete('/:id', async(req, res) => {
+        try {
+            const id_obj = new ObjectId(req.params.id);
+            const post = await collection.deleteOne({ _id: id_obj })
+            console.log('post', post)
+            if(post.deletedCount === 1) {
+                res.status(204)
+                res.send( { message: "deleted" })
+            } else {
+                res.status(404)
+                res.send({ error: "Post does not exist!" })
+            }
+        } catch {
+            res.status(404)
+            res.send({ error: "something wrong" })
+        }
+    });
 	``` 
 
-Wenn wir nun in Postman z.B. `DELETE http://localhost:3000/members/626bdb36cd1af60df758d300` wählen (bei Ihnen eine andere `id`!), wird der Datensatz mit der `_id=626bdb36cd1af60df758d300` aus der Datenbank gelöscht. 
+Die Rückgabe der `deleteOne()`-Funktion enthält die Eigenschaft `deletedCount`, die die Anzahl der gelöschten Datensätze enthält. Wir verwenden diese (Zeile `82`), um zu ermitteln, ob ein oder kein Datensatz gelöscht wurde. je nachden, wird der Statuscode `204` oder `404` zurückgegeben. Wenn wir nun in Postman z.B. `DELETE http://localhost:3000/members/6475ba5e88a1b91688569dda` wählen (bei Ihnen eine andere `id`!), wird der Datensatz mit der `_id=6475ba5e88a1b91688569dda` aus der Datenbank gelöscht. 
 
-Hier nochmal die vollständige `routes.js`:
+Hier nochmal die vollständige `routes/post.routes.js`:
 
-??? "routes.js"
+??? "routes/post.routes.js"
 	```js linenums="1"
-	const express = require('express');
-	const router = express.Router();
-    const Post = require('./models/posts');
+    const express = require('express');
+    const router = express.Router();
+    const { collection } = require('../configure/db')
+    const  ObjectId = require('mongodb').ObjectId
 
-	// GET all posts
-	router.get('/posts', async(req, res) => {
-	    const allPosts = await Post.find();
-	    console.log(allPosts);
-	    res.send(allPosts);
-	});
+    // GET all posts
+    router.get('/', async(req, res) => {
+        const allPosts = await collection.find().toArray();
+        res.status(200);
+        res.send(allPosts);
+    });
 
-    // POST one post
-	router.post('/posts', async(req, res) => {
-	    const newPost = new Post({
-	        title: req.body.title,
-	        location: req.body.location,
-	        image_id: req.body.image_id
-	    })
-	    await newPost.save();
-	    res.send(newPost);
-	});
+    // POST one new post
+    router.post('/', async(req, res) => {
+        
+        try {
+            const newPost = {
+                title: req.body.title,
+                location: req.body.location,
+                image_id: req.body.image_id 
+            }
+            const result = await collection.insertOne(newPost);
+            res.status(201);
+            res.send(result);
+        } catch {
+            res.status(404);
+            res.send({
+                error: "Post does not exist!"
+            });
+        }
+    });
 
-    // GET one post via id
-	router.get('/posts/:id', async(req, res) => {
-	    try {
-	        const post = await Post.findOne({ _id: req.params.id });
-	        console.log(req.params);
-	        res.send(post);
-	    } catch {
-	        res.status(404);
-	        res.send({
-	            error: "Post does not exist!"
-	        });
-	    }
-	});
+    // GET one post by id
+    router.get('/:id', async(req, res) => {
+        
+        try {
+            const id_obj = new ObjectId(req.params.id);
+            const post = await collection.find( {_id: id_obj } ).toArray();
+            console.log('post', req.params.id)
+            res.status(202);
+            res.send(post);
+        } catch {
+            res.status(404);
+            res.send({
+                error: "Post does not exist!"
+            });
+        }
+    });
 
     // PATCH (update) one post
-	router.patch('/posts/:id', async(req, res) => {
-	    try {
-	        const post = await Post.findOne({ _id: req.params.id })
+    router.patch('/:id', async(req, res) => {
+        try {
+            const id_obj = new ObjectId(req.params.id);
+            const post = await collection.findOne({ _id: id_obj })
 
-	        if (req.body.title) {
-	            post.title = req.body.title
-	        }
+            if (req.body.title) {
+                post.title = req.body.title
+            }
 
-	        if (req.body.location) {
-	            post.location = req.body.location
-	        }
+            if (req.body.location) {
+                post.location = req.body.location
+            }
 
-	        if (req.body.image_id) {
-	            post.image_id = req.body.image_id
-	        }
+            if (req.body.image_id) {
+                post.image_id = req.body.image_id
+            }
 
-	        await Post.updateOne({ _id: req.params.id }, post);
-	        res.send(post)
-	    } catch {
-	        res.status(404)
-	        res.send({ error: "Post does not exist!" })
-	    }
-	});
+            await collection.updateOne({ _id: id_obj }, { $set: post });
+            res.send(post)
+        } catch {
+            res.status(404)
+            res.send({ error: "Post does not exist!" })
+        }
+    });
 
-	// DELETE one post via id
-	router.delete('/posts/:id', async(req, res) => {
-	    try {
-	        await Post.deleteOne({ _id: req.params.id })
-	        res.status(204).send()
-	    } catch {
-	        res.status(404)
-	        res.send({ error: "Post does not exist!" })
-	    }
-	});
+    // DELETE one post via id
+    router.delete('/:id', async(req, res) => {
+        try {
+            const id_obj = new ObjectId(req.params.id);
+            const post = await collection.deleteOne({ _id: id_obj })
+            console.log('post', post)
+            if(post.deletedCount === 1) {
+                res.status(204)
+                res.send( { message: "deleted" })
+            } else {
+                res.status(404)
+                res.send({ error: "Post does not exist!" })
+            }
+        } catch {
+            res.status(404)
+            res.send({ error: "something wrong" })
+        }
+    });
 
-	module.exports = router;	
+    module.exports = router;
 	```
 
 ### Cross-Origin Resource Sharing (CORS)
@@ -1243,44 +1293,33 @@ npm install cors
 ein. Öffnen Sie dann die `server.js` und fügen Sie die hervorgehobenen Zeilen ein:
 
 === "server.js"
-	```javascript linenums="1" hl_lines="2 11-12"
-	const express = require('express');
-    const cors = require('cors');
-	const routes = require('./routes');
-    const mongoose = require('mongoose');
-	require('dotenv').config();
+	```javascript linenums="1" hl_lines="3 8-9"
+    const express = require('express');
+    const postRoutes = require('./routes/post.routes');
+    const cors = require('cors')
+    const app = express();
+    const PORT = 3000;
 
-	const app = express();
-	const PORT = 3000;
-
-	app.use(express.json());
+    app.use(express.json());
     // enable cors for all requests
-	app.use(cors());
-	app.use('/', routes);
+    app.use(cors());
+    app.use('/posts', postRoutes);
 
-	app.listen(PORT, (error) => {
-	    if (error) {
-	        console.log(error);
-	    } else {
-	        console.log(`server running on http://localhost:${PORT}`);
-	    }
-	});
-
-    // connect to mongoDB
-	mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
-	const db = mongoose.connection;
-	db.on('error', console.error.bind(console, 'connection error:'));
-	db.once('open', () => {
-	    console.log('connected to DB');
-	});
+    app.listen(PORT, (error) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(`server running on http://localhost:${PORT}`);
+        }
+    });
 	```
 
 Wenn Sie z.B. nur die `get`-Anfrage teilen wollen, dann wählen Sie nicht `app.use(cors());`, sondern 
 
 ```javascript
 app.get("/", cors(), (req, res) => {
-	    res.json({ message: "Hello FIW!" });
-	});
+    res.json({ message: "Hello FIW!" });
+});
 ```
 
 Mehr zum CORS-Paket von node.js bzw. express finden Sie [hier](https://expressjs.com/en/resources/middleware/cors.html).

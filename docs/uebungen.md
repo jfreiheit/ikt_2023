@@ -164,9 +164,17 @@
 	![uebung4](./files/58_uebung4.png)
 
 
-##### Übung 7 (IndexedDB)
+##### Übung 7 (Kamera und Geolocation + Map)
 
 ??? "Übung 7"
+
+	1. Verwenden Sie Kamera und Geolocation in Ihrem Projekt.
+	2. Lassen Sie Ihre Geolocation mithilfe von OpenLayers anzeigen. 
+
+
+##### Übung 8 (IndexedDB)
+
+??? "Übung 8"
 
 	1. Im Abschnitt [IndexedDB](../indexeddb/#indexeddb) haben wir uns mit der Verwendung der In-Browser-Datenbank IndexedDB vertraut gemacht. 
 	2. In dem dortigen letzten Abschnitt [Löschen einzelner Einträge](../indexeddb/#loschen-einzelner-eintrage) haben wir in der `db.js` eine Funktion `deleteOneData(st, id)` geschrieben, die einen einzelnen Datensatz aus der IndexedDB mit der übergebenen `id` löscht. 

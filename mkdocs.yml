@@ -81,8 +81,9 @@ nav:
     - Promises & Fetch-API: promises.md 
     - Caching: caching.md 
     - Backend: backend.md 
-    - Bilder speichern: images.md 
+    - Bilder speichern: bilder.md 
     - Kamera: kamera.md 
+    - Geolocation: geolocation.md 
     - Übungen: uebungen.md 
     - Tools: tools.md 
 

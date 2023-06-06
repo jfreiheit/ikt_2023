@@ -1,64 +1,102 @@
 # Backend-Erweiterung um das Speichern von Bildern
 
-??? "Video zur Vorlesung"
-    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=d8fa2b88c13485fe6ea0730f8dd0f75b&width=720&height=467&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true&thumb=true" data-src="https://mediathek.htw-berlin.de/media/embed?key=d8fa2b88c13485fe6ea0730f8dd0f75b&width=720&height=467&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0&loadonclick=true" class="" width="720" height="467" title="IKT_SpeichernVonBildern" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
-
 Bis jetzt haben wir nur Daten im JSON-Format zwischen Frontend und Backend ausgetauscht und auch nur solche Daten in der MongoDB gespeichert. Bilder (und auch andere Dateien) sind [FormData-Objects](https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects) im `multipart/form-data`-Format. Zur Behandlung solcher Daten verwenden wir ein *Middleware* für unser Backend, namens [Multer](https://www.npmjs.com/package/multer). 
 
 !!! hint
 		Wenn Sie nur am Code für unser Backend interessiert sind, dann können Sie auch direkt zu [Zusammenführen der Funktionalitäten](./#zusammenfuhren-der-funktionalitaten) springen. Im Folgenden werden die Entstehung aber näher erläutert und verschiedene Varianten diskutiert. 
 
-MongoDB speichert Daten bis zu einer Größe von `16Mb` im Binärformat. Um auch größere Dateien (Bilder, Videos, pdf, ...) speichern zu können, werden die Dateien in *chunks* zerlegt und können dann aus diesen Stücken wieder zusammengesetzt werden. Dafür gibt es in der MongoDB eine [GridFS](https://docs.mongodb.com/manual/core/gridfs/)-Spezifikation (siehe auch [hier](https://medium.com/@kavitanambissan/uploading-and-retrieving-a-file-from-gridfs-using-multer-958dfc9255e8) oder [hier](https://www.topcoder.com/thrive/articles/storing-large-files-in-mongodb-using-gridfs)). Zur Verwendung von GridFS gibt es die beiden Pakte [multer-gridfs-storage](https://www.npmjs.com/package/multer-gridfs-storage) und [gridfs-stream](https://www.npmjs.com/package/gridfs-stream). 
+MongoDB speichert Daten bis zu einer Größe von `16Mb` im Binärformat. Um auch größere Dateien (Bilder, Videos, pdf, ...) speichern zu können, werden die Dateien in *chunks* zerlegt und können dann aus diesen Stücken wieder zusammengesetzt werden. Dafür gibt es in der MongoDB eine [GridFS](https://docs.mongodb.com/manual/core/gridfs/)-Spezifikation. Das [MongoDB-Paket](https://www.mongodb.com/docs/drivers/node/current/) (also der MongoDB-Node.js-Treiber bringt bereits eine [GridFS-API](http://mongodb.github.io/node-mongodb-native/3.0/tutorials/gridfs/streaming/#the-gridfs-api) mit. Für die Zusammenarbeit von [Multer](https://www.npmjs.com/package/multer) und [GridFS](https://docs.mongodb.com/manual/core/gridfs/) bietet sich [Multer-GridFS-Storage](https://www.npmjs.com/package/multer-gridfs-storage) an. 
 
-Wir installieren im Backend-Projekt alle drei Pakete und zeigen im Folgenden deren Verwendung:
+Wir installieren [Multer](https://www.npmjs.com/package/multer) und [Multer-GridFS-Storage](https://www.npmjs.com/package/multer-gridfs-storage) im Backend-Projekt und zeigen im Folgenden deren Verwendung:
 
 ```bash
-npm install multer multer-gridfs-storage gridfs-stream
+npm install multer multer-gridfs-storage
 ```
+
+Leider ist die Version `5.0.2` von `multer-gridfs-storage` [nicht kompatibel](https://stackoverflow.com/questions/74167128/dependency-problem-using-multer-and-multer-gridfs-storage) mit der `multer`-Version `1.4.5.-lts.1`. Wir müssen deshalb in der `package.json` die Version für `multer` auf `1.4.4.` setzen:
 
 Die `package.json` sollte nun ungefähr so aussehen:
 
 === "package.json"
 	```js linenums="1"
-	{
-	  "name": "backend",
-	  "version": "1.0.0",
-	  "description": "Backend REST-API",
-	  "main": "server.js",
-	  "scripts": {
-	    "watch": "nodemon ./server.js",
-	    "test": "echo \"Error: no test specified\" && exit 1"
-	  },
-	  "keywords": [
-	    "rest",
-	    "api",
-	    "backend",
-	    "mongodb"
-	  ],
-	  "repository": {
-	    "type": "git",
-	    "url": "https://github.com/jfreiheit/IKT-PWA-Backend.git"
-	  },
-	  "author": "J. Freiheit",
-	  "license": "ISC",
-	  "dependencies": {
-	    "cors": "^2.8.5",
-	    "dotenv": "^16.0.3",
-	    "express": "^4.18.2",
-	    "gridfs-stream": "^1.1.1",
-	    "mongodb": "^5.4.0",
-	    "mongoose": "^7.1.1",
-	    "multer": "^1.4.4-lts.1",
-	    "multer-gridfs-storage": "5.0.2"
-	  },
-	  "devDependencies": {
-	    "nodemon": "^2.0.22"
-	  }
-	}
+    {
+      "name": "backend",
+      "version": "1.0.0",
+      "description": "Backend REST-API",
+      "main": "server.js",
+      "scripts": {
+        "watch": "nodemon ./server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [
+        "rest",
+        "api",
+        "backend",
+        "mongodb"
+      ],
+      "author": "J. Freiheit",
+      "license": "ISC",
+      "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "mongodb": "^5.5.0",
+        "multer": "^1.4.4",
+        "multer-gridfs-storage": "^5.0.2"
+      },
+      "devDependencies": {
+        "nodemon": "^2.0.22"
+      }
+    }
 	```
 
-Wir kümmern uns nun zunächst darum, Bilder in die MongoDB *hochzuladen*.
+Zunächst erstellen wir zwei weitere Routen `/download` und `/upload` in der `server.js`. 
 
+=== "server.js"
+    ```js linenums="1"
+    const express = require('express');
+    const postRoutes = require('./routes/post.routes');
+    const uploadRoutes = require('./routes/upload.routes');
+    const downloadRoutes = require('./routes/download.routes');
+    const cors = require('cors')
+    const app = express();
+    const PORT = 3000;
+
+    app.use(express.json());
+    // enable cors for all requests
+    app.use(cors());
+    app.use('/posts', postRoutes);
+    app.use('/upload', uploadRoutes);
+    app.use('/download', downloadRoutes);
+
+    app.listen(PORT, (error) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(`server running on http://localhost:${PORT}`);
+        }
+    });
+    ```
+
+Wir benötigen also sowohl eine `routes/upload.routes.js` als auch eine `routes/download.routes.js`. Beachten Sie, dass zum Compilieren des Projektes in den beiden Skripten mindestens
+
+=== "routes/upload.routes.js"
+    ```js 
+    const express = require('express');
+    const router = express.Router();
+
+    module.exports = router;
+    ```
+
+=== "routes/download.routes.js"
+    ```js 
+    const express = require('express');
+    const router = express.Router();
+
+    module.exports = router;
+    ```
+
+enthalten sein muss. Wir kümmern uns nun zunächst darum, Bilder in die MongoDB *hochzuladen*. 
 
 ### Upload von Bildern
 
@@ -70,7 +108,6 @@ const multer = require("multer");
 const {
     GridFsStorage
 } = require("multer-gridfs-storage");
-const mongoose = require('mongoose');
 require('dotenv').config();
 
 
@@ -82,9 +119,9 @@ const storage = new GridFsStorage({
     options: { 
     sslKey: credentials,        // nur falls ein Zertifikat zur Autorisierung
     sslCert: credentials,       // für MongoDB Atlas verwendet wird
-    dbName: "images" },
+    dbName: "htwinsta" },
     file: (req, file) => {
-        const match = ["image/png", "image/jpeg"];
+        const match = ["image/png", "image/jpeg", "image/jpg"];
 
         if (match.indexOf(file.mimetype) === -1) {
             console.log('file.mimetype === -1')
@@ -103,15 +140,15 @@ module.exports = multer({ storage });
 
 Beachten Sie, dass wir beim Upload der Bilder für diese Bilder Dateinamen mithilfe von `${Date.now()}-jf-${file.originalname}` erstellen bzw. festlegen. Damit diese Dateinamen eindeutig sind, wird mithilfe von `Date.now()` der aktuelle Zeitstempel verwendet. Der String `-jf-` in der Mitte kann natürlich auch durch Ihre Initialen ersetzt (oder weggelassen) werden. Außerdem wird auch noch der originale Dateiname verwendet. Insgesamt sollte sichergestellt werden, dass die Dateinamen eindeutig sind (deshalb auch `Date.now()`). 
 
-In Zeile `19` werden die Dateitypen festgelegt, die akzeptiert werden, hier `png` und `jpeg`. Diese Liste kann erweitert oder eingegrenzt werden.
+In Zeile `18` werden die Dateitypen festgelegt, die akzeptiert werden, hier `png` und `jpeg`. Diese Liste kann erweitert oder eingegrenzt werden.
 
-Diese *Middleware* nutzen wir nun für den `POST`-Request des Bildes und erstellen einen Ordner `routes` und darin eine Datei `upload.routes.js` mit folgendem Inhalt:
+Diese *Middleware* nutzen wir nun für den `POST`-Request des Bildes (siehe folgend Zeile `5` `upload.single('file')`) und implementieren die `routes/upload.routes.js` wie folgt:
 
 === "routes/upload.route.js"
 ```js linenums="1"
 const express = require('express');
-const upload = require('../middleware/upload');
 const router = express.Router();
+const upload = require('../middleware/upload');
 
 router.post('/', upload.single('file'), (req, res) => {
     if (req.file === undefined) {
@@ -128,144 +165,15 @@ router.post('/', upload.single('file'), (req, res) => {
 })
 
 module.exports = router;
-
 ```
 
-In Zeile `5` wird die *multer-Middleware* mit `update.single('file')` aufgerufen. Neben der Funktion `.single(fieldname)` stehen auch die Funktionen `.array(fieldname[, maxCount])` und `.fields(field)` zur Verfügung, um gleichzeitig mehrere Dateien hochzuladen (siehe [multer](https://www.npmjs.com/package/multer)). 
+In Zeile `5` wird die *multer-Middleware* mit `update.single('file')` aufgerufen. Deren Funktionalität haben wir in der `middleware/upload.js` überschrieben und genauer spezifiziert. Neben der Funktion `.single(fieldname)` stehen auch die Funktionen `.array(fieldname[, maxCount])` und `.fields(field)` zur Verfügung, um gleichzeitig mehrere Dateien hochzuladen (siehe [multer](https://www.npmjs.com/package/multer)). 
 
 Als *Response* wird die URL zurückgegeben, unter der das Bild heruntergeladen werden kann (`http://localhost:3000/download/${req.file.filename}`). Beachten Sie, dass die Backend-URL und auch der Port hier hart kodiert sind. Das sollte besser in die `.env`-Datei ausgelagert werden. 
 
-### Routen ändern und einbinden
-
-
-In der ursprünglichen Implementierung hatten wir die Datei `routes.js` noch im Projektordner gehabt. Wir benennen diese in `posts.routes.js` um und schieben sie ebenfalls in den `routes`-Ordner. Beachten Sie, dass Sie dadurch in der `server.js` auch den Import auf `const routes = require('./routes/posts.routes');` ändern müssen.
-
-Da wir nun aber auch die `upload`-Route einbinden, ändern wir gleich mehrere Sachen. Zunächst wird der ursprüngliche `routes` zu `postRoutes` und die generelle Route dafür wird `/posts`:
-
-=== "server.js"
-```js linenums="1" hl_lines="3-4 15-16"
-const express = require('express')
-const cors = require('cors')
-const postsRoutes = require('./routes/posts.routes')
-const uploadRoutes = require('./routes/upload.routes');
-const mongoose = require('mongoose');
-require('dotenv').config();
-
-const credentials = process.env.PATH_TO_PEM
-
-const app = express()
-const PORT = 3000;
-
-app.use(express.json());
-app.use(cors())
-app.use('/posts', postsRoutes);
-app.use('/upload', uploadRoutes);
-
-// connect to mongoDB
-mongoose.connect(process.env.DB_CONNECTION, { 
-    sslKey: credentials,
-    sslCert: credentials,
-    dbName: process.env.DATABASE });
-    
-const db = mongoose.connection;
-db.on('error', err => {
-  console.log(err);
-});
-db.once('open', () => {
-    console.log('connected to DB');
-});
-
-app.listen(PORT, (error) => {
-    if(error) {
-        console.log('error', error)
-    } else {
-        console.log(`server running on http://localhost:${PORT}`)
-    }
-})
-```
-
-In der `posts.routes.js` kann nun aus den URLs der Endpunkte jeweils das `/posts` entfernt werden:
-
-=== "routes/posts.routes.js"
-```js linenums="1" hl_lines="6 13 24 38 63"
-const express = require('express');
-const router = express.Router();
-const Post = require('../models/posts');
-
-// GET all posts
-router.get('/', async(req, res) => {
-    const allPosts = await Post.find();
-    console.log(allPosts);
-    res.send(allPosts);
-});
-
-// POST one post
-router.post('/', async(req, res) => {
-    const newPost = new Post({
-        title: req.body.title,
-        location: req.body.location,
-        image_id: req.body.image_id
-    })
-    await newPost.save();
-    res.send(newPost);
-});
-
-// POST one post via id
-router.get('/:id', async(req, res) => {
-    try {
-        const post = await Post.findOne({ _id: req.params.id });
-        console.log(req.params);
-        res.send(post);
-    } catch {
-        res.status(404);
-        res.send({
-            error: "Post does not exist!"
-        });
-    }
-});
-
-// PATCH (update) one post
-router.patch('/:id', async(req, res) => {
-    try {
-        const post = await Post.findOne({ _id: req.params.id })
-
-        if (req.body.title) {
-            post.title = req.body.title
-        }
-
-        if (req.body.location) {
-            post.location = req.body.location
-        }
-
-        if (req.body.image_id) {
-            post.image_id = req.body.image_id
-        }
-
-        await Post.updateOne({ _id: req.params.id }, post);
-        res.send(post)
-    } catch {
-        res.status(404)
-        res.send({ error: "Post does not exist!" })
-    }
-});
-
-// DELETE one post via id
-router.delete('/:id', async(req, res) => {
-    try {
-        await Post.deleteOne({ _id: req.params.id })
-        res.status(204).send()
-    } catch {
-        res.status(404)
-        res.send({ error: "Post does not exist!" })
-    }
-});
-
-module.exports = router;
-```
-
 ### Upload mithilfe von Postman
 
-Das Hochladen der Bilder kann nun bereits getestet werden. Starten Sie das Backend. Öffnen Sie Postman und geben Sie als URL `http://localhost:3000/upload` ein und wählen als Anfragemethode `POST`. Klicken Sie auf `Body` und markieren dann `form-data`:
+Das Hochladen der Bilder kann nun getestet werden. Starten Sie das Backend. Öffnen Sie Postman und geben Sie als URL `http://localhost:3000/upload` ein und wählen als Anfragemethode `POST`. Klicken Sie auf `Body` und markieren dann `form-data`:
 
 ![upload](./files/244_file.png)
 
@@ -297,41 +205,27 @@ Die dazugehörige `_id` finden Sie auch in `posts.chunks` (können Sie sich in d
 
 ### Download von Bildern
 
-Für den Download der gespeicherten Bilder gehen wir ähnlich vor, wie beim Upload, benötigen dafür aber nicht mehr die *multer-Middleware*, dafür aber `gridfs-stream`. Wir erstellen im Ordner `routes` die Datei `download.routes.js` mit folgendem Inhalt:
+Für den Download der gespeicherten Bilder gehen wir ähnlich vor, wie beim Upload, benötigen dafür aber nicht mehr die *multer-Middleware*, dafür aber [GridFS Bucket](https://www.mongodb.com/docs/drivers/node/current/fundamentals/gridfs/) aus dem [MongoDB-Node](https://www.mongodb.com/docs/drivers/node/current/)-Paket. Wir implementieren `routes/download.routes.js` mit folgendem Inhalt:
 
 
 === "routes/download.routes.js"
 ```js linenums="1"
 const express = require('express');
-const mongoose = require('mongoose');
-const Grid = require("gridfs-stream");
 const router = express.Router();
-require('dotenv').config();
+const mongodb = require('mongodb')
+const { database } = require('../configure/db')
 
-const credentials = process.env.PATH_TO_PEM
-
-const connection = mongoose.createConnection(process.env.DB_CONNECTION, { 
-    sslKey: credentials,
-    sslCert: credentials,
-    dbName: "images" });
-
-let gfs, gfsb;
-connection.once('open', () => {
-    // initialize stream
-    gfsb = new mongoose.mongo.GridFSBucket(connection.db, {
-        bucketName: "posts"
-    });
-
-    gfs = Grid(connection.db, mongoose.mongo);
+const bucket = new mongodb.GridFSBucket(database, {
+  bucketName: 'posts'
 });
 
 router.get('/:filename', async(req, res) => {
     try {
-        const cursor = await gfs.collection('posts').find({ filename: req.params.filename });
-        cursor.forEach(doc => {
-            console.log('doc', doc);
-            gfsb.openDownloadStream(doc._id).pipe(res);
-        })
+        const filename = req.params.filename;
+        let downloadStream = bucket.openDownloadStreamByName(filename);
+        downloadStream.on("data", (data) => res.status(200).write(data));
+        downloadStream.on("error", (err) => res.status(404).send({ message: filename + " does not exist" }));
+        downloadStream.on("end", () => res.end());
     } catch (error) {
         console.log('error', error);
         res.send("not found");
@@ -344,53 +238,7 @@ module.exports = router;
 
 [GridFSBucket](https://mongodb.github.io/node-mongodb-native/3.2/api/GridFSBucket.html) ist eine Klasse aus der [Node.js-MongoDB-API](https://mongodb.github.io/node-mongodb-native/3.2/api/index.html). Diese hätten wir auch schon für das Upload verwenden können (siehe z.B. [hier](https://edupeeth.com/all-courses/nodejs/mongodb-gridfs-bucket)). 
 
-Da wir über den Dateinamen auf die Datei zugreifen wollen, benötigen wir zunächst die entsprechende `_id` der Datei in der `posts.chunks`-Collection. Dazu greifen wir mithilfe von `find()` auf die `posts.files`-Collection zu und ermitteln die `_id`. Die `find()`-Funktion gibt einen sogenannten [Cursor](https://docs.mongodb.com/drivers/node/current/fundamentals/crud/read-operations/cursor/) auf das Array aller gefundenen Datensätze zurück. Mithilfe von `forEach()` durchlaufen wir dieses Array (enthält aber nur einen Datensatz) und ermitteln die `_id`. Mit der `openDownloadStream()`-Funktion der `GridFSBucket()`-Klasse öffnen wir den Download-Stream des Bildes und geben ihn als *response* `res` zurück. 
-
-Wir binden die `download`-Route nun noch in unsere `server.js` ein:
-
-=== "server.js"
-```js linenums="1" hl_lines="5 18"
-const express = require('express')
-const cors = require('cors')
-const postsRoutes = require('./routes/posts.routes')
-const uploadRoutes = require('./routes/upload.routes');
-const downloadRoute = require('./routes/download.routes');
-const mongoose = require('mongoose');
-require('dotenv').config();
-
-const credentials = process.env.PATH_TO_PEM
-
-const app = express()
-const PORT = 3000;
-
-app.use(express.json());
-app.use(cors())
-app.use('/posts', postsRoutes);
-app.use('/upload', uploadRoutes);
-app.use('/download', downloadRoute);
-
-// connect to mongoDB
-mongoose.connect(process.env.DB_CONNECTION, { 
-    sslKey: credentials,
-    sslCert: credentials,
-    dbName: process.env.DATABASE });
-    
-const db = mongoose.connection;
-db.on('error', err => {
-  console.log(err);
-});
-db.once('open', () => {
-    console.log('connected to DB');
-});
-
-app.listen(PORT, (error) => {
-    if(error) {
-        console.log('error', error)
-    } else {
-        console.log(`server running on http://localhost:${PORT}`)
-    }
-})
-```
+Mit der `openDownloadStream()`-Funktion der `GridFSBucket()`-Klasse öffnen wir den Download-Stream des Bildes und geben ihn (genauer gesagt, die Daten `data` des Streams) als *response* `res` zurück. 
 
 
 ### Download mithilfe von Postman
@@ -406,37 +254,29 @@ Da es sich um die GET-Methode handelt, können Sie die URL `http://localhost:300
 
 ### Delete von Bildern
 
-Das Löschen der Bilder ist ganz ähnlich zum Download. Erstellen Sie die Datei `routes/delete.route.js`:
+Das Löschen der Bilder ist ganz ähnlich zum Download. Wir kommen hier allerdings ohne einen Stream aus und benötigen nur die `delete()`-Funktion von `GridFSBucket`. Außerdem suchen wir hier nicht nach dem Dateinamen, sondern nach der `id`. Erstellen Sie die Datei `routes/delete.route.js`:
 
 === "routes/delete.routes.js"
 ```js linenums="1"
 const express = require('express');
-const mongoose = require('mongoose');
-const Grid = require("gridfs-stream");
 const router = express.Router();
+const mongodb = require('mongodb')
+const { database } = require('../configure/db')
+const  ObjectId = require('mongodb').ObjectId
 
-const credentials = process.env.PATH_TO_PEM
-
-const connection = mongoose.createConnection(process.env.DB_CONNECTION, { 
-    sslKey: credentials,
-    sslCert: credentials,
-    dbName: "images" });
-    
-let gfs;
-connection.once('open', () => {
-    gfs = Grid(connect.db, mongoose.mongo);
-    gfs.collection('posts');
+const bucket = new mongodb.GridFSBucket(database, {
+  bucketName: 'posts'
 });
 
-router.delete('/:filename', async(req, res) => {
+router.delete('/:id', async(req, res) => {
+    const id = req.params.id;
     try {
-        await gfs.collection('posts').deleteOne({ filename: req.params.filename });
-        res.send({
-            "message": "deleted"
-        });
+        await bucket.delete(new ObjectId(id));
+        console.log('result', result)
+        res.status(200).send({ message: "deleted"})
     } catch (error) {
         console.log('error', error);
-        res.send("An error occured.");
+        res.status(404).send({ message: "id " + id + " does not exist" });
     }
 });
 
@@ -446,46 +286,37 @@ module.exports = router;
 und binden diese in die `server.js` ein:
 
 === "server.js"
-```js linenums="1" hl_lines="6 17"
+```js linenums="1" hl_lines="5 16"
 const express = require('express');
-const cors = require('cors');
-const postsRoutes = require('./routes/posts.routes');
+const postRoutes = require('./routes/post.routes');
 const uploadRoutes = require('./routes/upload.routes');
-const downloadRoute = require('./routes/download.routes');
-const deleteRoute = require('./routes/delete.routes');
-const mongoose = require('mongoose');
-require('dotenv').config();
-
+const downloadRoutes = require('./routes/download.routes');
+const deleteRoutes = require('./routes/delete.routes');
+const cors = require('cors')
 const app = express();
+const PORT = 3000;
+
 app.use(express.json());
+// enable cors for all requests
 app.use(cors());
+app.use('/posts', postRoutes);
+app.use('/upload', uploadRoutes);
+app.use('/download', downloadRoutes);
+app.use('/delete', deleteRoutes);
 
-app.use('/posts', postsRoutes);
-app.use('/image', uploadRoutes);
-app.use('/download', downloadRoute);
-app.use('/delete', deleteRoute);
-
-app.listen(process.env.PORT, (error) => {
-	if (error) {
-		console.log(error);
-	} else {
-		console.log(`server running on http://localhost:${process.env.PORT}`);
-	}
-});
-
-// connect to mongoDB
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-	console.log('connected to DB');
+app.listen(PORT, (error) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log(`server running on http://localhost:${PORT}`);
+    }
 });
 ```
 
 
 ### Delete mithilfe von Postman
 
-Zum Testen verwenden Sie den gleichen Dateinamen wie beim Download und wählen als Anfragemethode `DELETE`. 
+Zum Testen verwenden Sie die `id` und wählen als Anfragemethode `DELETE`. Senden Sie ruhig zwei Mal ab, beim ersten Mal wird die Datei gelöscht (aus `.files` und auch aus `.chunks`) und beim zweiten Mal sollte eine Fehlermessage erfolgen. 
 
 
 ## Zusammenführen der Funktionalitäten
@@ -504,7 +335,7 @@ Das bedeutet, wir binden den Upload und Download von Bildern nun in unsere `post
 
 ### Zum Verständnis
 
-Wir verwenden [Multer](https://www.npmjs.com/package/multer) und [GridFs storage](https://www.npmjs.com/package/multer-gridfs-storage). Multer ist eine *Middleware* für Node.js, um Daten im `multipart/form-data`-Format zu verwalten. Die grundsätzliche Idee ist, dass im *Request* nicht nur ein `body`, sondern auch eine `file`-Eigenschaft enthalten ist (neben dem `header`). Multer verwendet einen `storage`, um Bilder (oder andere Dateien) zu speichern. Einen solchen `storage` bietet `GridFs storage`. Dieser kann sogar Dateien größer als 16 MB speichern und die Idee dabei ist, dass die Datei in zwei Collections gespeichert wird, in der `files`-Collection, welche die (Meta-)Informationen der Datei speichert und der `chunks`-Collection, die die eigentliche Datei (als Binärdaten) speichert. Eine Datei kann dabei in mehrere `chunks` unterteilt werden. Die folgende Abbildung zeigt das Prinzip von `GridFS`:
+Wir verwenden [Multer](https://www.npmjs.com/package/multer) und [GridFs Storage](https://www.npmjs.com/package/multer-gridfs-storage). Multer ist eine *Middleware* für Node.js, um Daten im `multipart/form-data`-Format zu verwalten. Die grundsätzliche Idee ist, dass im *Request* nicht nur ein `body`, sondern auch eine `file`-Eigenschaft enthalten ist (neben dem `header`). Multer verwendet einen `storage`, um Bilder (oder andere Dateien) zu speichern. Einen solchen `storage` bietet `GridFs Storage`. Dieser kann sogar Dateien größer als 16 MB speichern und die Idee dabei ist, dass die Datei in zwei Collections gespeichert wird, in der `files`-Collection, welche die (Meta-)Informationen der Datei speichert und der `chunks`-Collection, die die eigentliche Datei (als Binärdaten) speichert. Eine Datei kann dabei in mehrere `chunks` unterteilt werden. Die folgende Abbildung zeigt das Prinzip von `GridFS`:
 
 
 ![upload](./files/251_file.png)
@@ -542,33 +373,38 @@ Um z.B. einen Datensatz (einen Post) anzulegen, speichern wir also die zugehöri
 
 Die `POST`-Funktion für einen Datensatz ist nicht viel umfangreicher als zuvor:
 
-=== "aus routes/posts.routes.js"
-```js linenums="27"
-  // POST one post
+=== "aus routes/post.routes.js"
+```js linenums="14"
+// POST one new post
 router.post('/', upload.single('file'), async(req, res) => {
-    // req.file is the `file` file
     if (req.file === undefined) {
         return res.send({
             "message": "no file selected"
         });
     } else {
-		console.log('req.body', req.body);
-		const newPost = new Post({
-			title: req.body.title,
-			location: req.body.location,
-			image_id: req.file.filename
-		})
-		await newPost.save();
-		return res.send(newPost);
-    }
-})
+        try {
+            const newPost = {
+                title: req.body.title,
+                location: req.body.location,
+                image_id: req.file.filename 
+            }
+            await collection.insertOne(newPost);
+            res.status(201);
+            res.send(result);
+        } catch {
+            res.status(404);
+            res.send({
+                error: "Post not created"
+            });
+        }}
+});
 ``` 
 
-Wichtig ist, dass `posts.routes.js` nun auch die `upload.js` einbindet:
+Wichtig ist, dass `post.routes.js` nun auch die `upload.js` einbindet:
 
 
-=== "aus routes/posts.routes.js"
-```js linenums="4"
+=== "aus routes/post.routes.js"
+```js linenums="5"
 const upload = require('../middleware/upload');
 ``` 
 Achten Sie darauf, dass Sie in `upload.js` die korrekte Datenbank verwenden (siehe `dbName`)!
@@ -581,11 +417,8 @@ Als Response bekommen Sie aber wieder ein JSON zurück, z.B.:
 
 ```json
 {
-    "title": "HTW Gebäude C",
-    "location": "Campus Wilhelminenhof",
-    "image_id": "1652166642127-jf-htwbild5.jpg",
-    "_id": "627a0ff2305433d805b6b437",
-    "__v": 0
+    "acknowledged": true,
+    "insertedId": "627a0ff2305433d805b6b435"
 }
 ```
 
