@@ -556,7 +556,7 @@ Nun wollen wir den `Foto`-Button implementieren, damit wir ein Foto von dem Kame
 	    videoPlayer.srcObject.getVideoTracks().forEach( track => {
 	        track.stop();
 	    })
-	    imageURI = canvas.toDataURL("image/jpg");
+	    imageURI = canvas.toDataURL("image/jpeg");
 	    // console.log('imageURI', imageURI)       // base64-String des Bildes
 	    
 	    fetch(imageURI)
@@ -564,7 +564,7 @@ Nun wollen wir den `Foto`-Button implementieren, damit wir ein Foto von dem Kame
 	        return res.blob()
 	    })
 	    .then(blob => {
-	        file = new File([blob], "myFile.jpg", { type: "image/jpg" })
+	        file = new File([blob], "myFile.jpeg", { type: "image/jpeg" })
 	        console.log('file', file)
 	    })
 	});

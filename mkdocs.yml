@@ -85,6 +85,7 @@ nav:
     - Bilder speichern: bilder.md 
     - Kamera: kamera.md 
     - Geolocation: geolocation.md 
+    - Hintergrundsynchronisation: backgroundsync.md 
     - Übungen: uebungen.md 
     - Tools: tools.md 
 

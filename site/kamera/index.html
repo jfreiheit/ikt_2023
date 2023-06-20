@@ -543,6 +543,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../backgroundsync/" class="md-nav__link">
+        Hintergrundsynchronisation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -1500,7 +1515,7 @@
 <span class="w">    </span><span class="nx">videoPlayer</span><span class="p">.</span><span class="nx">srcObject</span><span class="p">.</span><span class="nx">getVideoTracks</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="w"> </span><span class="nx">track</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">track</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
 <span class="w">    </span><span class="p">})</span>
-<span class="w">    </span><span class="nx">imageURI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/jpg&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">imageURI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&quot;image/jpeg&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">// console.log(&#39;imageURI&#39;, imageURI)       // base64-String des Bildes</span>
 
 <span class="w">    </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">imageURI</span><span class="p">)</span>
@@ -1508,7 +1523,7 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">blob</span><span class="p">()</span>
 <span class="w">    </span><span class="p">})</span>
 <span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">blob</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">File</span><span class="p">([</span><span class="nx">blob</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;myFile.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image/jpg&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">        </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">File</span><span class="p">([</span><span class="nx">blob</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;myFile.jpeg&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;image/jpeg&quot;</span><span class="w"> </span><span class="p">})</span>
 <span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">)</span>
 <span class="w">    </span><span class="p">})</span>
 <span class="p">});</span>
