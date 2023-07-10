@@ -2,6 +2,12 @@
 
 Herzlich willkommen zur Veranstaltung **Aktuelle Trends der IKT**! 
 
+---
+
+***[Zoom-Link](https://htw-berlin.zoom.us/j/95908963080?pwd=UElCL3JYZ1k0MmdURm13cDYxaitYQT09) für die Übungszeiten für Ihre Fragen und Probleme bei Ihrer App-Entwicklung.***
+
+---
+
 ### Grober Inhalt
 
 Wir beschäftigen uns dieses Semester mit *Progressive Web Apps (PWA)*. Dieser Begriff ist 2015 bei Google entstanden. Progressive Web Apps bieten installierbare nativen Apps ähnliche Nutzererfahrungen sowohl auf dem Desktop als auch auf dem Smartphone, sind aber Webanwendungen, die im Browser laufen, also zum World Wide Web gehören. Typische Eigenschaften von Progressive Web Apps sind die Einbindung von Kamera und Mikrofon, dem eigenen Standort sowie die Fähigkeit, (zumindest teilweise) offline ausführbar zu sein. 
